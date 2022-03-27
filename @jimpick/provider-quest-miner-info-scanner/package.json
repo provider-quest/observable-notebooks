@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/provider-quest-miner-info-scanner",
+  "main": "60191ee4dcb00e7b@2048.js",
+  "version": "2048.0.0",
+  "homepage": "https://observablehq.com/@jimpick/provider-quest-miner-info-scanner",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
