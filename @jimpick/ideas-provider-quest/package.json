@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/ideas-provider-quest",
+  "main": "f65da891863227f9@600.js",
+  "version": "600.0.0",
+  "homepage": "https://observablehq.com/@jimpick/ideas-provider-quest",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
