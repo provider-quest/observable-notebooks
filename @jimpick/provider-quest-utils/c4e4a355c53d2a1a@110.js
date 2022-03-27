@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-utils@109
+// https://observablehq.com/@jimpick/provider-quest-utils@110
 import define1 from "./1d309dbd9697e042@627.js";
 
 function _1(md){return(
@@ -113,7 +113,7 @@ enableGithubBackups({
 function _backups(backupView,md){return(
 setup => {
   if (setup) {
-    return backupView()
+    return backupView
   }
   return md`Backed up at https://github.com/provider-quest/observable-notebooks`
 }
