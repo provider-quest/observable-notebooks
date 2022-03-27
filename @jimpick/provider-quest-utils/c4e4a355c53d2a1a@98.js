@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-utils@92
+// https://observablehq.com/@jimpick/provider-quest-utils@98
 import define1 from "./1d309dbd9697e042@627.js";
 
 function _1(md){return(
@@ -102,7 +102,7 @@ md`* https://observablehq.com/@tomlarkworthy/github-backups
 * https://github.com/provider-quest/observable-notebooks`
 )}
 
-function _backups(enableGithubBackups){return(
+function _backupView(enableGithubBackups){return(
 enableGithubBackups({
   owner: "provider-quest",                   // Target Github username/organization
   repo: "observable-notebooks",                // Target Github repo
@@ -110,7 +110,14 @@ enableGithubBackups({
 })
 )}
 
-function _21(backupNowButton){return(
+function _backups(backupView,md)
+{
+  backupView;
+  return md`Backed up to GitHub at https://github.com/provider-quest/observable-notebooks`
+}
+
+
+function _22(backupNowButton){return(
 backupNowButton()
 )}
 
@@ -137,8 +144,9 @@ export default function define(runtime, observer) {
   const child1 = runtime.module(define1);
   main.import("enableGithubBackups", child1);
   main.import("backupNowButton", child1);
-  main.variable(observer("viewof backups")).define("viewof backups", ["enableGithubBackups"], _backups);
-  main.variable(observer("backups")).define("backups", ["Generators", "viewof backups"], (G, _) => G.input(_));
-  main.variable(observer()).define(["backupNowButton"], _21);
+  main.variable(observer("viewof backupView")).define("viewof backupView", ["enableGithubBackups"], _backupView);
+  main.variable(observer("backupView")).define("backupView", ["Generators", "viewof backupView"], (G, _) => G.input(_));
+  main.variable(observer("backups")).define("backups", ["backupView","md"], _backups);
+  main.variable(observer()).define(["backupNowButton"], _22);
   return main;
 }
