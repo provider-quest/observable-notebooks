@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-published-deals-daily@419
+// https://observablehq.com/@jimpick/provider-quest-published-deals-daily@420
 import define1 from "./5cf93b57a7444002@185.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
@@ -329,7 +329,6 @@ export default function define(runtime, observer) {
   main.import("quickMenu", child2);
   main.variable(observer()).define(["md"], _35);
   const child3 = runtime.module(define2);
-  main.import("quickMenu", child3);
   main.import("backups", child3);
   main.import("backupNowButton", child3);
   main.variable(observer()).define(["backups"], _37);
