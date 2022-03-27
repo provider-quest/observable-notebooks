@@ -1,6 +1,6 @@
 # Asks (by Piece Size) [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-piece-size-vs-asks@539
+https://observablehq.com/@jimpick/provider-quest-piece-size-vs-asks@540
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/3a823885ba424869@539.tgz?v=3
+npm install https://api.observablehq.com/d/3a823885ba424869@540.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
