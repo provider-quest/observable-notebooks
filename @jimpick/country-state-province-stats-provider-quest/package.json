@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/country-state-province-stats-provider-quest",
+  "main": "f7e92424857a8419@414.js",
+  "version": "414.0.0",
+  "homepage": "https://observablehq.com/@jimpick/country-state-province-stats-provider-quest",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
