@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/provider-quest-funding-tree-test-cases",
+  "main": "2af990f42af2602f@889.js",
+  "version": "889.0.0",
+  "homepage": "https://observablehq.com/@jimpick/provider-quest-funding-tree-test-cases",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
