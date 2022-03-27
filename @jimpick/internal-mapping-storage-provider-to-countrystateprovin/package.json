@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/internal-mapping-storage-provider-to-countrystateprovin",
+  "main": "e98f5037803ae3db@634.js",
+  "version": "634.0.0",
+  "homepage": "https://observablehq.com/@jimpick/internal-mapping-storage-provider-to-countrystateprovin",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
