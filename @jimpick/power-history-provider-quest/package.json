@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/power-history-provider-quest",
+  "main": "e22b9d2953490c42@1532.js",
+  "version": "1532.0.0",
+  "homepage": "https://observablehq.com/@jimpick/power-history-provider-quest",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
