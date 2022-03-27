@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/provider-quest-provider-funding-tree",
+  "main": "649e35bb5e9ed4b8@694.js",
+  "version": "694.0.0",
+  "homepage": "https://observablehq.com/@jimpick/provider-quest-provider-funding-tree",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
