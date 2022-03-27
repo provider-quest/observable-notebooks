@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/d3-scale-for-provider-power-provider-quest",
+  "main": "ac2be569b3723fbc@123.js",
+  "version": "123.0.0",
+  "homepage": "https://observablehq.com/@jimpick/d3-scale-for-provider-power-provider-quest",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
