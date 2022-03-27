@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/provider-quest-baidu-ip-geo-lookups",
+  "main": "66c1d12ad1b65054@139.js",
+  "version": "139.0.0",
+  "homepage": "https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
