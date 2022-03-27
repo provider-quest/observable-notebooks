@@ -1,6 +1,6 @@
 # Published Deals: Hourly [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-published-deals-hourly@569
+https://observablehq.com/@jimpick/provider-quest-published-deals-hourly@570
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/4d995a91dbd11670@569.tgz?v=3
+npm install https://api.observablehq.com/d/4d995a91dbd11670@570.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
