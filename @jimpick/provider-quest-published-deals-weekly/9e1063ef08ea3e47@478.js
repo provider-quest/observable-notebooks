@@ -1,6 +1,6 @@
-// https://observablehq.com/@jimpick/provider-quest-published-deals-weekly@469
+// https://observablehq.com/@jimpick/provider-quest-published-deals-weekly@478
 import define1 from "./5cf93b57a7444002@185.js";
-import define2 from "./c4e4a355c53d2a1a@110.js";
+import define2 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
 md`# Published Deals: Weekly [Provider.Quest]`
@@ -240,15 +240,15 @@ function _d3(require){return(
 require("d3@6")
 )}
 
-function _34(md){return(
+function _35(md){return(
 md`## Backups`
 )}
 
-function _36(backups){return(
+function _37(backups){return(
 backups()
 )}
 
-function _37(backupNowButton){return(
+function _38(backupNowButton){return(
 backupNowButton()
 )}
 
@@ -288,12 +288,13 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["Inputs","weeklyDealsByVerified"], _31);
   main.variable(observer()).define(["md"], _32);
   main.variable(observer("d3")).define("d3", ["require"], _d3);
-  main.variable(observer()).define(["md"], _34);
   const child2 = runtime.module(define2);
   main.import("quickMenu", child2);
-  main.import("backups", child2);
-  main.import("backupNowButton", child2);
-  main.variable(observer()).define(["backups"], _36);
-  main.variable(observer()).define(["backupNowButton"], _37);
+  main.variable(observer()).define(["md"], _35);
+  const child3 = runtime.module(define2);
+  main.import("backups", child3);
+  main.import("backupNowButton", child3);
+  main.variable(observer()).define(["backups"], _37);
+  main.variable(observer()).define(["backupNowButton"], _38);
   return main;
 }
