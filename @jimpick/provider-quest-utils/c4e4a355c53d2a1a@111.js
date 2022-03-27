@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-utils@110
+// https://observablehq.com/@jimpick/provider-quest-utils@111
 import define1 from "./1d309dbd9697e042@627.js";
 
 function _1(md){return(
@@ -115,7 +115,7 @@ setup => {
   if (setup) {
     return backupView
   }
-  return md`Backed up at https://github.com/provider-quest/observable-notebooks`
+  return md`Backed up at [https://github.com/provider-quest/observable-notebooks](https://github.com/provider-quest/observable-notebooks/tree/main/%40jimpick)`
 }
 )}
 

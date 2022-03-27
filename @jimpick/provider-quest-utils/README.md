@@ -1,6 +1,6 @@
 # Internal: Utils [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-utils@110
+https://observablehq.com/@jimpick/provider-quest-utils@111
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/c4e4a355c53d2a1a@110.tgz?v=3
+npm install https://api.observablehq.com/d/c4e4a355c53d2a1a@111.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
