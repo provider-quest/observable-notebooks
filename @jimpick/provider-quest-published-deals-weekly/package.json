@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/provider-quest-published-deals-weekly",
+  "main": "9e1063ef08ea3e47@469.js",
+  "version": "469.0.0",
+  "homepage": "https://observablehq.com/@jimpick/provider-quest-published-deals-weekly",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
