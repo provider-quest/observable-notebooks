@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/test-github-backup-2",
+  "main": "bbb09edb95e90c06@26.js",
+  "version": "26.0.0",
+  "homepage": "https://observablehq.com/@jimpick/test-github-backup-2",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
