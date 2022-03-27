@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/provider-quest-feeds",
+  "main": "5cf93b57a7444002@196.js",
+  "version": "196.0.0",
+  "homepage": "https://observablehq.com/@jimpick/provider-quest-feeds",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
