@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/provider-quest-piece-size-vs-asks",
+  "main": "3a823885ba424869@537.js",
+  "version": "537.0.0",
+  "homepage": "https://observablehq.com/@jimpick/provider-quest-piece-size-vs-asks",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
