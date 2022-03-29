@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@185
+// https://observablehq.com/@jimpick/provider-quest-feeds@196
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -152,6 +152,14 @@ function _30(md){return(
 md`## Imports`
 )}
 
+function _32(md){return(
+md`## Backups`
+)}
+
+function _34(backups){return(
+backups()
+)}
+
 export default function define(runtime, observer) {
   const main = runtime.module();
   main.variable(observer()).define(["md"], _1);
@@ -186,5 +194,10 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _30);
   const child1 = runtime.module(define1);
   main.import("quickMenu", child1);
+  main.variable(observer()).define(["md"], _32);
+  const child2 = runtime.module(define1);
+  main.import("backups", child2);
+  main.import("backupNowButton", child2);
+  main.variable(observer()).define(["backups"], _34);
   return main;
 }
