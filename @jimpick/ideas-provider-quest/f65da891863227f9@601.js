@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/ideas-provider-quest@600
+// https://observablehq.com/@jimpick/ideas-provider-quest@601
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
