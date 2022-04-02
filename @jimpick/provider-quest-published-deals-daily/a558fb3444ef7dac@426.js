@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-published-deals-daily@421
+// https://observablehq.com/@jimpick/provider-quest-published-deals-daily@426
 import define1 from "./5cf93b57a7444002@196.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
@@ -19,7 +19,6 @@ md`Notes:
 * Not all published deals are successfully committed to sectors by providers, and occasionally providers lose data and get slashed, so these numbers will be greater than the actual amount of data stored to Filecoin. Check the [Starboard Deals](https://dashboard.starboard.ventures/deals) dashboard for information on "committed" deals.
 * Distinct counts are calculated continuously with Spark Structured Streaming using an approximation algorithm.
 * A similar report is available for [Weekly Deals](https://observablehq.com/@jimpick/provider-quest-published-deals-weekly?collection=@jimpick/provider-quest), [Hourly Deals](https://observablehq.com/@jimpick/provider-quest-published-deals-hourly?collection=@jimpick/provider-quest) and [Hourly Deals: Named Clients](https://observablehq.com/@jimpick/provider-quest-deals-named-clients-hourly?collection=@jimpick/provider-quest).
-* **Notice** - Some deal data is missing for Mar 21-22 due to a glitch.
 `
 )}
 
