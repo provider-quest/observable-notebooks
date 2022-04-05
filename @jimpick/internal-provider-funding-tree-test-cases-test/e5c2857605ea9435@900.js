@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/internal-provider-funding-tree-test-cases-test@895
+// https://observablehq.com/@jimpick/internal-provider-funding-tree-test-cases-test@900
 import define1 from "./8830e2b8532e91c3@857.js";
 import define2 from "./13063df7b34879ca@853.js";
 import define3 from "./5432439324f2c616@258.js";
@@ -230,21 +230,21 @@ function getDelegates (node) {
 )}
 
 function _hashProviderId(){return(
-async function hashProviderId (id, customCrypto = window.crypto) {
+async function hashProviderId (id, digest = window.crypto.subtle.digest) {
   const encoder = new TextEncoder()
   const data = encoder.encode(id)
-  console.log('Jim1', id, crypto && crypto.subtle, customCrypto && customCrypto.subtle)
-  const hash = await customCrypto.subtle.digest('SHA-256', data)
+  console.log('Jim1', id, digest)
+  const hash = await digest('SHA-256', data)
   const hash2Bytes = new Uint8Array(hash.slice(0,2))
   return hash2Bytes[0] * 256 + hash2Bytes[1]
 }
 )}
 
 function _matchDelegate(getDelegates,hashProviderId){return(
-async function matchDelegate (node, customCrypto = window.crypto) {
+async function matchDelegate (node, digest = window.crypto.subtle.digest) {
   const delegates = getDelegates(node)
   const totalScaledPower = delegates.reduce((acc, { scaledPower }) => acc + scaledPower, 0)
-  const hash = await hashProviderId(node.data.id, customCrypto)
+  const hash = await hashProviderId(node.data.id, digest)
   let powerPosition = (hash / 255.0 / 255.0) * totalScaledPower
   let lastId
   for (const { id, scaledPower } of delegates) {
