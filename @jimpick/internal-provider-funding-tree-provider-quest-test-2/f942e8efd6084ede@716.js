@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/internal-provider-funding-tree-provider-quest-test-2@715
+// https://observablehq.com/@jimpick/internal-provider-funding-tree-provider-quest-test-2@716
 import define1 from "./e5c2857605ea9435@891.js";
 import define2 from "./5cf93b57a7444002@196.js";
 import define3 from "./13063df7b34879ca@853.js";
@@ -200,6 +200,7 @@ async function *getTreeWithDelegatesStream (tree) {
     console.log(`Computing delegate for ${provider.data.id}`)
     const delegateId = await matchDelegate(provider)
     // const delegateId = 'xxx'
+    
     console.log(`Delegate: ${provider.data.id} => ${delegateId}`)
     provider.data.delegateId = delegateId
     yield {
