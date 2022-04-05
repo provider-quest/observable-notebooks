@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/internal-provider-funding-tree-test-cases-test",
+  "main": "e5c2857605ea9435@891.js",
+  "version": "891.0.0",
+  "homepage": "https://observablehq.com/@jimpick/internal-provider-funding-tree-test-cases-test",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
