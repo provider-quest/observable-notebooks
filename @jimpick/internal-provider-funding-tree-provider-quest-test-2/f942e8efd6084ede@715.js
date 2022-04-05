@@ -1,5 +1,5 @@
-// https://observablehq.com/@jimpick/internal-provider-funding-tree-provider-quest-test-2@713
-import define1 from "./2af990f42af2602f@889.js";
+// https://observablehq.com/@jimpick/internal-provider-funding-tree-provider-quest-test-2@715
+import define1 from "./e5c2857605ea9435@891.js";
 import define2 from "./5cf93b57a7444002@196.js";
 import define3 from "./13063df7b34879ca@853.js";
 import define4 from "./bedb50933413e557@45.js";
@@ -187,7 +187,7 @@ function _29(md){return(
 md`## Funder Tree with Delegates`
 )}
 
-function _getTreeWithDelegatesStream(){return(
+function _getTreeWithDelegatesStream(matchDelegate){return(
 async function *getTreeWithDelegatesStream (tree) {
   const providerLeaves = []
   for (const provider of tree.leaves()) {
@@ -197,10 +197,9 @@ async function *getTreeWithDelegatesStream (tree) {
   }
   let count = 0
   for (const provider of providerLeaves) {
-    /*
+    console.log(`Computing delegate for ${provider.data.id}`)
     const delegateId = await matchDelegate(provider)
-    */
-    const delegateId = 'xxx'
+    // const delegateId = 'xxx'
     console.log(`Delegate: ${provider.data.id} => ${delegateId}`)
     provider.data.delegateId = delegateId
     yield {
@@ -460,7 +459,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _29);
   const child1 = runtime.module(define1);
   main.import("matchDelegate", child1);
-  main.variable(observer("getTreeWithDelegatesStream")).define("getTreeWithDelegatesStream", _getTreeWithDelegatesStream);
+  main.variable(observer("getTreeWithDelegatesStream")).define("getTreeWithDelegatesStream", ["matchDelegate"], _getTreeWithDelegatesStream);
   main.variable(observer("viewof start")).define("viewof start", ["Inputs"], _start);
   main.variable(observer("start")).define("start", ["Generators", "viewof start"], (G, _) => G.input(_));
   main.variable(observer("funderTreeWithDelegatesProgress")).define("funderTreeWithDelegatesProgress", ["start","getTreeWithDelegatesStream","reachableWithPowerAndRegionsTree"], _funderTreeWithDelegatesProgress);

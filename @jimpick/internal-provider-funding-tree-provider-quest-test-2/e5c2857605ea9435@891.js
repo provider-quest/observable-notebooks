@@ -1,11 +1,11 @@
-// https://observablehq.com/@jimpick/provider-quest-funding-tree-test-cases@889
+// https://observablehq.com/@jimpick/internal-provider-funding-tree-test-cases-test@891
 import define1 from "./8830e2b8532e91c3@857.js";
 import define2 from "./13063df7b34879ca@853.js";
 import define3 from "./5432439324f2c616@258.js";
 import define4 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
-md`# Internal: Provider Funding Tree Test Cases [Provider.Quest]`
+md`# Internal: Provider Funding Tree Test Cases - Test`
 )}
 
 function _selected(Inputs,targets,params){return(
