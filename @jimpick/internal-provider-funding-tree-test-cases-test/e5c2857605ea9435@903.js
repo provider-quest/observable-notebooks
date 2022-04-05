@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/internal-provider-funding-tree-test-cases-test@901
+// https://observablehq.com/@jimpick/internal-provider-funding-tree-test-cases-test@903
 import define1 from "./8830e2b8532e91c3@857.js";
 import define2 from "./13063df7b34879ca@853.js";
 import define3 from "./5432439324f2c616@258.js";
@@ -230,18 +230,17 @@ function getDelegates (node) {
 )}
 
 function _hashProviderId(){return(
-async function hashProviderId (id, digest = window.crypto.subtle.digest) {
+async function hashProviderId (id) {
   const encoder = new TextEncoder()
   const data = encoder.encode(id)
-  console.log('Jim1', id, digest)
   const hash = await crypto.subtle.digest('SHA-256', data)
   const hash2Bytes = new Uint8Array(hash.slice(0,2))
   return hash2Bytes[0] * 256 + hash2Bytes[1]
 }
 )}
 
-function _matchDelegate(getDelegates,hashProviderId){return(
-async function matchDelegate (node, digest = window.crypto.subtle.digest) {
+function _matchDelegate(getDelegates,hashProviderId,digest){return(
+async function matchDelegate (node) {
   const delegates = getDelegates(node)
   const totalScaledPower = delegates.reduce((acc, { scaledPower }) => acc + scaledPower, 0)
   const hash = await hashProviderId(node.data.id, digest)
@@ -625,7 +624,7 @@ export default function define(runtime, observer) {
   main.variable(observer("getFillFactor")).define("getFillFactor", ["getPartitions"], _getFillFactor);
   main.variable(observer("getDelegates")).define("getDelegates", ["firstAncestorWithRegions","childrenWithRegions","fillFactor"], _getDelegates);
   main.variable(observer("hashProviderId")).define("hashProviderId", _hashProviderId);
-  main.variable(observer("matchDelegate")).define("matchDelegate", ["getDelegates","hashProviderId"], _matchDelegate);
+  main.variable(observer("matchDelegate")).define("matchDelegate", ["getDelegates","hashProviderId","digest"], _matchDelegate);
   main.variable(observer("getTreeWithDelegates")).define("getTreeWithDelegates", ["matchDelegate"], _getTreeWithDelegates);
   main.variable(observer()).define(["md"], _30);
   main.variable(observer("getPath")).define("getPath", ["md"], _getPath);
