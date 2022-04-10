@@ -1,5 +1,5 @@
-// https://observablehq.com/@jimpick/provider-quest-miner-power-scanner@1925
-import define1 from "./5cf93b57a7444002@196.js";
+// https://observablehq.com/@jimpick/provider-quest-miner-power-scanner@1929
+import define1 from "./5cf93b57a7444002@202.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
 
@@ -106,11 +106,7 @@ function _27(md){return(
 md`Fetch a regularly updated list of "interesting" miners. (Most miners returned from the API are inactive and we don't want to query them)`
 )}
 
-function _29(annotatedMinerIndexes){return(
-annotatedMinerIndexes
-)}
-
-function _selectedMinerIndexes(minerPowerLatestReport,d3,minTimestamp,minerPowerDailyAverageReport,minerPowerMultidayAverageReport,subsetToScan,allMiners,annotatedMinerIndexes)
+function _selectedMinerIndexes(minerPowerLatestReport,d3,minTimestamp,minerPowerDailyAverageReport,minerPowerMultidayAverageReport,subsetToScan,allMiners)
 {
   let miners = []
 
@@ -138,8 +134,10 @@ function _selectedMinerIndexes(minerPowerLatestReport,d3,minTimestamp,minerPower
     miners = allMiners.slice(-10000).filter(miner => !recentMinerSet.has(miner))
   } else if (subsetToScan === 'All miners, not recent') {
     miners = allMiners.filter(miner => !recentMinerSet.has(miner))
+/*
   } else if (subsetToScan === 'Legacy annotated') {
     miners = annotatedMinerIndexes
+*/
   } else if (subsetToScan === 'All miners') {
     miners = allMiners
   }
@@ -352,8 +350,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _27);
   const child3 = runtime.module(define1);
   main.import("annotatedMinerIndexes", child3);
-  main.variable(observer()).define(["annotatedMinerIndexes"], _29);
-  main.variable(observer("selectedMinerIndexes")).define("selectedMinerIndexes", ["minerPowerLatestReport","d3","minTimestamp","minerPowerDailyAverageReport","minerPowerMultidayAverageReport","subsetToScan","allMiners","annotatedMinerIndexes"], _selectedMinerIndexes);
+  main.variable(observer("selectedMinerIndexes")).define("selectedMinerIndexes", ["minerPowerLatestReport","d3","minTimestamp","minerPowerDailyAverageReport","minerPowerMultidayAverageReport","subsetToScan","allMiners"], _selectedMinerIndexes);
   main.variable(observer("minerPowerStream")).define("minerPowerStream", ["transform","client","tipSetKey","selectedMinerIndexes","selectedEpoch","maxElapsed"], _minerPowerStream);
   main.variable(observer("minerPower")).define("minerPower", ["start","minerPowerStream"], _minerPower);
   main.variable(observer()).define(["minerPower","md","maxRows","bytes"], _34);
