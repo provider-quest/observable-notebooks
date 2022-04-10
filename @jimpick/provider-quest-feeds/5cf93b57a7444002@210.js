@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@204
+// https://observablehq.com/@jimpick/provider-quest-feeds@210
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -51,9 +51,12 @@ Every couple of hours, I collect information about the miners I am tracking from
 `
 )}
 
-function _minerInfoSubsetLatestBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeigscdljg5a32b4toh6jkz4h3dczusqd6s3mkt3h5nbwtqmbqmh6mu'
-)}
+function _minerInfoSubsetLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/miner-info-subset-latest'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeigscdljg5a32b4toh6jkz4h3dczusqd6s3mkt3h5nbwtqmbqmh6mu'
+}
+
 
 async function _minerInfoSubsetLatest(minerInfoSubsetLatestBucketUrl){return(
 (await fetch(`${minerInfoSubsetLatestBucketUrl}/miner-info-subset-latest.json`)).json()
@@ -70,9 +73,12 @@ md`## Asks
 `
 )}
 
-function _asksSubsetLatestBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidg5ygzrk4oxusmopijf7wqxibmm3sktkkhuz7sfecextyuvifx7y'
-)}
+function _asksSubsetLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/asks-subset-latest'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidg5ygzrk4oxusmopijf7wqxibmm3sktkkhuz7sfecextyuvifx7y'
+}
+
 
 async function _asksSubsetLatest(asksSubsetLatestBucketUrl){return(
 (await fetch(`${asksSubsetLatestBucketUrl}/asks-subset-latest.json`)).json()
