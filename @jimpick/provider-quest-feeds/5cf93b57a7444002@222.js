@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@219
+// https://observablehq.com/@jimpick/provider-quest-feeds@222
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -22,9 +22,12 @@ This bucket contains annotations and other metadata from manual deal testing usi
 * Textile Bucket: [legacy-workshop-client](${legacyWorkshopClientBucketUrl})`
 )}
 
-function _legacyWorkshopClientBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeiebnqxhltzfhmhdfr2j6p24ngipc7n4qmxrufivvjat7iwjazfwp4'
-)}
+function _legacyWorkshopClientBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/legacy-workshop-client'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeiebnqxhltzfhmhdfr2j6p24ngipc7n4qmxrufivvjat7iwjazfwp4'
+}
+
 
 async function _annotatedMinerIndexes(legacyWorkshopClientBucketUrl){return(
 (await (await fetch(`${legacyWorkshopClientBucketUrl}/annotated-miner-indexes.json`)).json()).map(num => `f0${num}`)
