@@ -1,6 +1,6 @@
 # Feeds/Buckets [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-feeds@210
+https://observablehq.com/@jimpick/provider-quest-feeds@219
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/5cf93b57a7444002@210.tgz?v=3
+npm install https://api.observablehq.com/d/5cf93b57a7444002@219.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:

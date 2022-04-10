@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@210
+// https://observablehq.com/@jimpick/provider-quest-feeds@219
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -135,9 +135,12 @@ On a regular basis, peer lookups are made against the DHT (Distributed Hash Tabl
 * Textile Bucket: [dht-addrs-latest](${dhtAddrsLatestBucketUrl})`
 )}
 
-function _dhtAddrsLatestBucketUrl(){return(
-"https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeifpxwjdz5e5mv3tzat7de6uzxfusfqk5flqfrlh7re3ria6bs7ye4/"
-)}
+function _dhtAddrsLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/dht-addrs-latest'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeifpxwjdz5e5mv3tzat7de6uzxfusfqk5flqfrlh7re3ria6bs7ye4/'
+}
+
 
 function _26(md,multiaddrsIpsLatestBucketUrl){return(
 md`## Multiaddresses and IP Addresses
@@ -147,9 +150,12 @@ The scan data from the "Miner Info" and "DHT Addresses" scans are combined using
 * Textile Bucket: [multiaddrs-ips-latest](${multiaddrsIpsLatestBucketUrl})`
 )}
 
-function _multiaddrsIpsLatestBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeia7ab6fddp255zwn3i4r36pp5walbnblkojfhbuesvsxywmvbk3sa'
-)}
+function _multiaddrsIpsLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/multiaddrs-ips-latest'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeia7ab6fddp255zwn3i4r36pp5walbnblkojfhbuesvsxywmvbk3sa'
+}
+
 
 function _28(md,geoIpLookupsBucketUrl){return(
 md`## GeoIP Lookups
@@ -159,9 +165,12 @@ The list of IPs is cross-references with databases to lookup geographic location
 * Textile Bucket: [geoip-lookups](${geoIpLookupsBucketUrl})`
 )}
 
-function _geoIpLookupsBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeibjg7kky45npdwnogui5ffla7dint62xpttvvlzrsbewlrfmbusya'
-)}
+function _geoIpLookupsBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/geoip-lookups'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeibjg7kky45npdwnogui5ffla7dint62xpttvvlzrsbewlrfmbusya'
+}
+
 
 function _30(md){return(
 md`## Imports`
