@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@196
+// https://observablehq.com/@jimpick/provider-quest-feeds@198
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -104,9 +104,12 @@ md`
 `
 )}
 
-function _minerPowerDailyAverageLatestBucketUrl(){return(
-"https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeiehszmgeygov7bqchfmhh5zxtmn6xyt26ufyhw5k6tuy23h2w4ngm"
-)}
+function _minerPowerDailyAverageLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/miner-power-daily-average-latest'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeiehszmgeygov7bqchfmhh5zxtmn6xyt26ufyhw5k6tuy23h2w4ngm'
+}
+
 
 function _minerPowerMultidayAverageLatestBucketUrl(){return(
 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeicdqsds5fkmmcrtkyg3uf6zk5t3bralisswrdh5wlo25przr23pqq'
