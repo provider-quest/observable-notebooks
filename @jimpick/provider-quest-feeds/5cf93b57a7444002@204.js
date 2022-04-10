@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@198
+// https://observablehq.com/@jimpick/provider-quest-feeds@204
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -89,9 +89,12 @@ md`## Deals
 `
 )}
 
-function _dealsBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidhnns26omq6a3y4jdixo7nqvb27wn7otfowohei5zibupvh7d2hq/'
-)}
+function _dealsBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/deals'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidhnns26omq6a3y4jdixo7nqvb27wn7otfowohei5zibupvh7d2hq/'
+}
+
 
 function _20(md){return(
 md`## Miner Power`
@@ -111,9 +114,12 @@ function _minerPowerDailyAverageLatestBucketUrl()
 }
 
 
-function _minerPowerMultidayAverageLatestBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeicdqsds5fkmmcrtkyg3uf6zk5t3bralisswrdh5wlo25przr23pqq'
-)}
+function _minerPowerMultidayAverageLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/miner-power-multiday-average-latest'
+  return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeicdqsds5fkmmcrtkyg3uf6zk5t3bralisswrdh5wlo25przr23pqq'
+}
+
 
 function _24(md,dhtAddrsLatestBucketUrl){return(
 md`## DHT Addresses
