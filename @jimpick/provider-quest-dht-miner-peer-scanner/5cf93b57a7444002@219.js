@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@196
+// https://observablehq.com/@jimpick/provider-quest-feeds@219
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -51,9 +51,12 @@ Every couple of hours, I collect information about the miners I am tracking from
 `
 )}
 
-function _minerInfoSubsetLatestBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeigscdljg5a32b4toh6jkz4h3dczusqd6s3mkt3h5nbwtqmbqmh6mu'
-)}
+function _minerInfoSubsetLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/miner-info-subset-latest'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeigscdljg5a32b4toh6jkz4h3dczusqd6s3mkt3h5nbwtqmbqmh6mu'
+}
+
 
 async function _minerInfoSubsetLatest(minerInfoSubsetLatestBucketUrl){return(
 (await fetch(`${minerInfoSubsetLatestBucketUrl}/miner-info-subset-latest.json`)).json()
@@ -70,9 +73,12 @@ md`## Asks
 `
 )}
 
-function _asksSubsetLatestBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidg5ygzrk4oxusmopijf7wqxibmm3sktkkhuz7sfecextyuvifx7y'
-)}
+function _asksSubsetLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/asks-subset-latest'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidg5ygzrk4oxusmopijf7wqxibmm3sktkkhuz7sfecextyuvifx7y'
+}
+
 
 async function _asksSubsetLatest(asksSubsetLatestBucketUrl){return(
 (await fetch(`${asksSubsetLatestBucketUrl}/asks-subset-latest.json`)).json()
@@ -89,9 +95,12 @@ md`## Deals
 `
 )}
 
-function _dealsBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidhnns26omq6a3y4jdixo7nqvb27wn7otfowohei5zibupvh7d2hq/'
-)}
+function _dealsBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/deals'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidhnns26omq6a3y4jdixo7nqvb27wn7otfowohei5zibupvh7d2hq/'
+}
+
 
 function _20(md){return(
 md`## Miner Power`
@@ -104,13 +113,19 @@ md`
 `
 )}
 
-function _minerPowerDailyAverageLatestBucketUrl(){return(
-"https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeiehszmgeygov7bqchfmhh5zxtmn6xyt26ufyhw5k6tuy23h2w4ngm"
-)}
+function _minerPowerDailyAverageLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/miner-power-daily-average-latest'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeiehszmgeygov7bqchfmhh5zxtmn6xyt26ufyhw5k6tuy23h2w4ngm'
+}
 
-function _minerPowerMultidayAverageLatestBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeicdqsds5fkmmcrtkyg3uf6zk5t3bralisswrdh5wlo25przr23pqq'
-)}
+
+function _minerPowerMultidayAverageLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/miner-power-multiday-average-latest'
+  return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeicdqsds5fkmmcrtkyg3uf6zk5t3bralisswrdh5wlo25przr23pqq'
+}
+
 
 function _24(md,dhtAddrsLatestBucketUrl){return(
 md`## DHT Addresses
@@ -120,9 +135,12 @@ On a regular basis, peer lookups are made against the DHT (Distributed Hash Tabl
 * Textile Bucket: [dht-addrs-latest](${dhtAddrsLatestBucketUrl})`
 )}
 
-function _dhtAddrsLatestBucketUrl(){return(
-"https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeifpxwjdz5e5mv3tzat7de6uzxfusfqk5flqfrlh7re3ria6bs7ye4/"
-)}
+function _dhtAddrsLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/dht-addrs-latest'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeifpxwjdz5e5mv3tzat7de6uzxfusfqk5flqfrlh7re3ria6bs7ye4/'
+}
+
 
 function _26(md,multiaddrsIpsLatestBucketUrl){return(
 md`## Multiaddresses and IP Addresses
@@ -132,9 +150,12 @@ The scan data from the "Miner Info" and "DHT Addresses" scans are combined using
 * Textile Bucket: [multiaddrs-ips-latest](${multiaddrsIpsLatestBucketUrl})`
 )}
 
-function _multiaddrsIpsLatestBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeia7ab6fddp255zwn3i4r36pp5walbnblkojfhbuesvsxywmvbk3sa'
-)}
+function _multiaddrsIpsLatestBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/multiaddrs-ips-latest'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeia7ab6fddp255zwn3i4r36pp5walbnblkojfhbuesvsxywmvbk3sa'
+}
+
 
 function _28(md,geoIpLookupsBucketUrl){return(
 md`## GeoIP Lookups
@@ -144,9 +165,12 @@ The list of IPs is cross-references with databases to lookup geographic location
 * Textile Bucket: [geoip-lookups](${geoIpLookupsBucketUrl})`
 )}
 
-function _geoIpLookupsBucketUrl(){return(
-'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeibjg7kky45npdwnogui5ffla7dint62xpttvvlzrsbewlrfmbusya'
-)}
+function _geoIpLookupsBucketUrl()
+{
+  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/geoip-lookups'
+  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeibjg7kky45npdwnogui5ffla7dint62xpttvvlzrsbewlrfmbusya'
+}
+
 
 function _30(md){return(
 md`## Imports`

@@ -1,5 +1,5 @@
-// https://observablehq.com/@jimpick/provider-quest-dht-miner-peer-scanner@2203
-import define1 from "./5cf93b57a7444002@196.js";
+// https://observablehq.com/@jimpick/provider-quest-dht-miner-peer-scanner@2206
+import define1 from "./5cf93b57a7444002@219.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
 
@@ -72,10 +72,6 @@ function _17(md){return(
 md`To speed up the scan, we can use the legacy annotations and skip miners with the \`fail\` annotations.`
 )}
 
-function _19(legacyAnnotationsMainnet){return(
-legacyAnnotationsMainnet
-)}
-
 function _20(md){return(
 md`We can also use aggregated counts to scan for just recently seen DHT peers.`
 )}
@@ -111,13 +107,14 @@ function _27(subsetToScan){return(
 subsetToScan
 )}
 
-function _filteredMinerPeerIds(d3,minerPeerIds,subsetToScan,legacyAnnotationsMainnet,dailyCountsReport,multidayCountsReport,latestDhtAddrsMiners){return(
+function _filteredMinerPeerIds(d3,minerPeerIds,subsetToScan,dailyCountsReport,multidayCountsReport,latestDhtAddrsMiners){return(
 d3.shuffle(minerPeerIds.filter(({ miner }) => {
-  if (subsetToScan === 'No fail') {
+  /* if (subsetToScan === 'No fail') {
     return !legacyAnnotationsMainnet[miner].startsWith('fail,')
-  } else if (subsetToScan === 'Fail only') {
+  } else 
+  if (subsetToScan === 'Fail only') {
     return legacyAnnotationsMainnet[miner].startsWith('fail,')
-  } else if (subsetToScan === 'All recents') {
+  } else */ if (subsetToScan === 'All recents') {
     return dailyCountsReport.miners[miner] || multidayCountsReport.miners[miner] || latestDhtAddrsMiners.has(miner)
   } else if (subsetToScan === 'No recents') {
     return !(dailyCountsReport.miners[miner] || multidayCountsReport.miners[miner] || latestDhtAddrsMiners.has(miner))
@@ -346,7 +343,6 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _17);
   const child2 = runtime.module(define1);
   main.import("legacyAnnotationsMainnet", child2);
-  main.variable(observer()).define(["legacyAnnotationsMainnet"], _19);
   main.variable(observer()).define(["md"], _20);
   const child3 = runtime.module(define1);
   main.import("dhtAddrsLatestBucketUrl", child3);
@@ -356,7 +352,7 @@ export default function define(runtime, observer) {
   main.variable(observer("minTimestamp")).define("minTimestamp", ["dateFns"], _minTimestamp);
   main.variable(observer("latestDhtAddrsMiners")).define("latestDhtAddrsMiners", ["dhtAddrsLatestReport","d3","minTimestamp"], _latestDhtAddrsMiners);
   main.variable(observer()).define(["subsetToScan"], _27);
-  main.variable(observer("filteredMinerPeerIds")).define("filteredMinerPeerIds", ["d3","minerPeerIds","subsetToScan","legacyAnnotationsMainnet","dailyCountsReport","multidayCountsReport","latestDhtAddrsMiners"], _filteredMinerPeerIds);
+  main.variable(observer("filteredMinerPeerIds")).define("filteredMinerPeerIds", ["d3","minerPeerIds","subsetToScan","dailyCountsReport","multidayCountsReport","latestDhtAddrsMiners"], _filteredMinerPeerIds);
   main.variable(observer("workingMiner")).define("workingMiner", ["minerPeerIds"], _workingMiner);
   main.variable(observer("dhtFindPeerFirst")).define("dhtFindPeerFirst", ["client","workingMiner"], _dhtFindPeerFirst);
   main.variable(observer("dhtFindPeerStream")).define("dhtFindPeerStream", ["transform","client","filteredMinerPeerIds","maxElapsed"], _dhtFindPeerStream);
