@@ -1,4 +1,4 @@
-// https://observablehq.com/@d3/tree@258
+// https://observablehq.com/@d3/tree@262
 import define1 from "./7a9e12f9fb3d8e06@459.js";
 
 function _1(md){return(
@@ -11,9 +11,7 @@ function _chart(Tree,flare){return(
 Tree(flare, {
   label: d => d.name,
   title: (d, n) => `${n.ancestors().reverse().map(d => d.data.name).join(".")}`, // hover text
-  link: (d, n) => n.children
-    ? `https://github.com/prefuse/Flare/tree/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}`
-    : `https://github.com/prefuse/Flare/blob/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}.as`,
+  link: (d, n) => `https://github.com/prefuse/Flare/${n.children ? "tree" : "blob"}/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}${n.children ? "" : ".as"}`,
   width: 1152
 })
 )}
@@ -61,12 +59,12 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
       : id != null || parentId != null ? d3.stratify().id(id).parentId(parentId)(data)
       : d3.hierarchy(data, children);
 
+  // Sort the nodes.
+  if (sort != null) root.sort(sort);
+
   // Compute labels and titles.
   const descendants = root.descendants();
   const L = label == null ? null : descendants.map(d => label(d.data, d));
-
-  // Sort the nodes.
-  if (sort != null) root.sort(sort);
 
   // Compute the layout.
   const dx = 10;
@@ -125,11 +123,10 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
       .attr("dy", "0.32em")
       .attr("x", d => d.children ? -6 : 6)
       .attr("text-anchor", d => d.children ? "end" : "start")
-      .text((d, i) => L[i])
-      .call(text => text.clone(true))
-      .attr("fill", "none")
+      .attr("paint-order", "stroke")
       .attr("stroke", halo)
-      .attr("stroke-width", haloWidth);
+      .attr("stroke-width", haloWidth)
+      .text((d, i) => L[i]);
 
   return svg.node();
 }

@@ -1,7 +1,7 @@
-// https://observablehq.com/@jimpick/internal-synthetic-locations-from-provider-funding-tree@739
+// https://observablehq.com/@jimpick/internal-synthetic-locations-from-provider-funding-tree@744
 import define1 from "./e5c2857605ea9435@904.js";
-import define2 from "./5cf93b57a7444002@196.js";
-import define3 from "./13063df7b34879ca@853.js";
+import define2 from "./5cf93b57a7444002@222.js";
+import define3 from "./13063df7b34879ca@856.js";
 import define4 from "./bedb50933413e557@45.js";
 import define5 from "./a957eb792b00ff81@406.js";
 import define6 from "./c4e4a355c53d2a1a@111.js";
@@ -104,11 +104,11 @@ md`## Filtered Funder Tree`
 )}
 
 function _18(md){return(
-md`Reduce tree to only include leaves for SPs that have power.`
+md`Reduce tree to only include leaves for SPs that have ever had power.`
 )}
 
-function _leavesWithPower(reachable,minerPowerDailyAverageReport){return(
-reachable.filter(({ miner_id }) => minerPowerDailyAverageReport.miners[miner_id] && minerPowerDailyAverageReport.miners[miner_id].qualityAdjPower)
+function _leavesWithPower(reachable,minerPowerLatestReport){return(
+reachable.filter(({ miner_id }) => minerPowerLatestReport.miners[miner_id])
 )}
 
 function _reachableWithPower(d3,reachable,minerPowerDailyAverageReport,leavesWithPower,sortIdRecords)
@@ -393,7 +393,11 @@ async function _minerPowerDailyAverageReport(minerPowerDailyAverageLatestBucketU
 (await fetch(`${minerPowerDailyAverageLatestBucketUrl}/miner-power-daily-average-latest.json`)).json()
 )}
 
-function _55(geoIpLookupsBucketUrl){return(
+async function _minerPowerLatestReport(minerPowerDailyAverageLatestBucketUrl){return(
+(await fetch(`${minerPowerDailyAverageLatestBucketUrl}/miner-power-latest.json`)).json()
+)}
+
+function _56(geoIpLookupsBucketUrl){return(
 geoIpLookupsBucketUrl
 )}
 
@@ -425,11 +429,11 @@ async function _bytes(){return(
 (await import('https://unpkg.com/@jimpick/bytes-iec@3.1.0-2?module')).default
 )}
 
-function _66(md){return(
+function _67(md){return(
 md`## Backups`
 )}
 
-function _68(backups){return(
+function _69(backups){return(
 backups()
 )}
 
@@ -452,7 +456,7 @@ export default function define(runtime, observer) {
   main.variable(observer("reachableTree")).define("reachableTree", ["stratify","reachable"], _reachableTree);
   main.variable(observer()).define(["md"], _17);
   main.variable(observer()).define(["md"], _18);
-  main.variable(observer("leavesWithPower")).define("leavesWithPower", ["reachable","minerPowerDailyAverageReport"], _leavesWithPower);
+  main.variable(observer("leavesWithPower")).define("leavesWithPower", ["reachable","minerPowerLatestReport"], _leavesWithPower);
   main.variable(observer("reachableWithPower")).define("reachableWithPower", ["d3","reachable","minerPowerDailyAverageReport","leavesWithPower","sortIdRecords"], _reachableWithPower);
   main.variable(observer("reachableWithPowerTree")).define("reachableWithPowerTree", ["stratify","reachableWithPower"], _reachableWithPowerTree);
   main.variable(observer("shortCircuit1")).define("shortCircuit1", _shortCircuit1);
@@ -490,9 +494,10 @@ export default function define(runtime, observer) {
   const child2 = runtime.module(define2);
   main.import("minerPowerDailyAverageLatestBucketUrl", child2);
   main.variable(observer("minerPowerDailyAverageReport")).define("minerPowerDailyAverageReport", ["minerPowerDailyAverageLatestBucketUrl"], _minerPowerDailyAverageReport);
+  main.variable(observer("minerPowerLatestReport")).define("minerPowerLatestReport", ["minerPowerDailyAverageLatestBucketUrl"], _minerPowerLatestReport);
   const child3 = runtime.module(define2);
   main.import("geoIpLookupsBucketUrl", child3);
-  main.variable(observer()).define(["geoIpLookupsBucketUrl"], _55);
+  main.variable(observer()).define(["geoIpLookupsBucketUrl"], _56);
   main.variable(observer("minerRegionsReport")).define("minerRegionsReport", ["geoIpLookupsBucketUrl"], _minerRegionsReport);
   main.variable(observer("minerRegionsCSPReport")).define("minerRegionsCSPReport", ["geoIpLookupsBucketUrl"], _minerRegionsCSPReport);
   main.variable(observer("minerLocationsReport")).define("minerLocationsReport", ["geoIpLookupsBucketUrl"], _minerLocationsReport);
@@ -507,10 +512,10 @@ export default function define(runtime, observer) {
   const child6 = runtime.module(define5);
   main.import("dateToEpoch", child6);
   main.import("epochToDate", child6);
-  main.variable(observer()).define(["md"], _66);
+  main.variable(observer()).define(["md"], _67);
   const child7 = runtime.module(define6);
   main.import("backups", child7);
   main.import("backupNowButton", child7);
-  main.variable(observer()).define(["backups"], _68);
+  main.variable(observer()).define(["backups"], _69);
   return main;
 }
