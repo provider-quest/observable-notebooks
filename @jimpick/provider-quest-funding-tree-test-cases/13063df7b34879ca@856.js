@@ -1,4 +1,4 @@
-// https://observablehq.com/@d3/d3-hierarchy@853
+// https://observablehq.com/@d3/d3-hierarchy@856
 function _1(md){return(
 md`# d3.hierarchy
 
@@ -266,10 +266,6 @@ md`---
 Thanks to [Chris Henrick](/@clhenrick) and [Daniel Edler](/@danieledler) for proofreading.`
 )}
 
-function _d3(require){return(
-require("d3@6")
-)}
-
 function _dx(){return(
 12
 )}
@@ -336,12 +332,12 @@ function graph(root, {
 
   node.append("text")
       .attr("fill", d => highlight(d) ? "red" : null)
+      .attr("stroke", "white")
+      .attr("paint-order", "stroke")
       .attr("dy", "0.31em")
       .attr("x", d => d.children ? -6 : 6)
       .attr("text-anchor", d => d.children ? "end" : "start")
-      .text(label)
-    .clone(true).lower()
-      .attr("stroke", "white");
+      .text(label);
   
   return svg.node();
 }
@@ -400,7 +396,6 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["gaia"], _49);
   main.variable(observer()).define(["md"], _50);
   main.variable(observer()).define(["md"], _51);
-  main.variable(observer("d3")).define("d3", ["require"], _d3);
   main.variable(observer("dx")).define("dx", _dx);
   main.variable(observer("dy")).define("dy", _dy);
   main.variable(observer("tree")).define("tree", ["d3","dx","dy"], _tree);
