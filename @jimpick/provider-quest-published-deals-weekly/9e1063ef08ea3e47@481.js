@@ -1,5 +1,5 @@
 // https://observablehq.com/@jimpick/provider-quest-published-deals-weekly@481
-import define1 from "./5cf93b57a7444002@196.js";
+import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
