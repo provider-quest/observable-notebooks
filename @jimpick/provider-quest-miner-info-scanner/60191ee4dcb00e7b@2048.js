@@ -1,5 +1,5 @@
 // https://observablehq.com/@jimpick/provider-quest-miner-info-scanner@2048
-import define1 from "./5cf93b57a7444002@196.js";
+import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
 
