@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups@143
+// https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups@146
 import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./5cf93b57a7444002@222.js";
 import define3 from "./a957eb792b00ff81@406.js";
@@ -76,9 +76,10 @@ function _lookupIpsStream(transform,geoApiBaseUrl,basicAuthToken,baiduCities,new
 async function* lookupIpsStream() {
   const concurrency = 1
   const callGeoLookupsStream = transform(concurrency, async ip => {
+    const baiduApiUrl = `${geoApiBaseUrl}/baidu/${ip}`
     try {
       const baidu = await (await fetch(
-        `${geoApiBaseUrl}/baidu/${ip}`,
+        baiduApiUrl,
         { headers: new Headers({ "Authorization": `Basic ${basicAuthToken}` }) }
       )).json()
       const result = {
@@ -101,7 +102,7 @@ async function* lookupIpsStream() {
     } catch (e) {
       console.info('IP lookup error', ip, e.message)
       return {
-        error: e.message
+        error: `${e.message}, ${baiduApiUrl}`
       }
     }
   })
