@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups@139
+// https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups@143
 import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./5cf93b57a7444002@222.js";
 import define3 from "./a957eb792b00ff81@406.js";
@@ -100,13 +100,16 @@ async function* lookupIpsStream() {
       return result
     } catch (e) {
       console.info('IP lookup error', ip, e.message)
-      return {}
+      return {
+        error: e.message
+      }
     }
   })
   const startTime = new Date()
   let counter = 0
   let hits = 0
   let errors = 0
+  let lastError = ''
   for await (const geoLookup of callGeoLookupsStream([...newIps])) {
     const now = new Date()
     if (now - startTime > maxElapsed || counter >= maxLookups) {
@@ -115,7 +118,8 @@ async function* lookupIpsStream() {
         timeout: true,
         counter,
         hits,
-        errors
+        errors,
+        lastError
       }
       return
     }
@@ -125,14 +129,19 @@ async function* lookupIpsStream() {
         counter,
         hits,
         errors,
+        lastError,
         ...geoLookup
       }
     } else {
       errors++
+      if (geoLookup.error) {
+        lastError = geoLookup.error
+      }
       yield {
         counter,
         hits,
         errors,
+        lastError
       }
     }
     counter++
@@ -141,7 +150,8 @@ async function* lookupIpsStream() {
     done: true,
     counter,
     hits,
-    errors
+    errors,
+    lastError
   }
 }
 )}
@@ -164,10 +174,12 @@ async function* _ipsBaidu(start,lookupIpsStream,ipsCount)
   let records = []
   let totalErrors = 0
   let lastCounter = 0
+  let lastError = ''
   const startTime = new Date()
   for await (const {counter, hits, errors, ...record} of lookupIpsStream()) {
     totalErrors = errors
     lastCounter = counter
+    lastError = record.lastError
     if (record.ip) {
       records.push(record)
     }
@@ -177,7 +189,8 @@ async function* _ipsBaidu(start,lookupIpsStream,ipsCount)
       scannedIps: counter,
       totalIps: ipsCount,
       recordsLength: records.length,
-      errors
+      errors,
+      lastError
     }
   }
   const endTime = new Date()
@@ -189,7 +202,8 @@ async function* _ipsBaidu(start,lookupIpsStream,ipsCount)
     records: records.sort(),
     startTime,
     endTime,
-    errors: totalErrors
+    errors: totalErrors,
+    lastError
   }
 }
 
