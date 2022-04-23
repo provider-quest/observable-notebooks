@@ -1,6 +1,6 @@
 # Regional Stats [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-regional-stats@415
+https://observablehq.com/@jimpick/provider-quest-regional-stats@418
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/8fb23227ff6f8a20@415.tgz?v=3
+npm install https://api.observablehq.com/d/8fb23227ff6f8a20@418.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
