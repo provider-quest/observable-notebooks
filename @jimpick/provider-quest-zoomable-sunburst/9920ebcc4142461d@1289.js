@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst@1277
+// https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst@1289
 import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
@@ -20,7 +20,7 @@ md`Based on [@d3/zoomable-sunburst](https://observablehq.com/@d3/zoomable-sunbur
 function _dataSource(Inputs,defaultDataSource){return(
 Inputs.radio([
   "Quality Adjusted Power",
-  "Provider Count*",
+  "Provider Count",
   "28-Day Published Deals: Count*",
   "28-Day Published Deals: Data Size",
   "28-Day Published Deals: Lifetime Value",
@@ -373,7 +373,7 @@ function _partition(d3,filteredRegionData,filteredDailyDealsByRegion,dataSource)
         const dealsRow = filteredDailyDealsByRegion(selectedDate).get(d.longCode)
         if (dataSource === 'Quality Adjusted Power') {
           return row && row.qualityAdjPower
-        } else if (dataSource === 'Provider Count*') {
+        } else if (dataSource === 'Provider Count') {
           return row && row.minerCount
         } else if (dataSource === '28-Day Published Deals: Count*') {
           return dealsRow && dealsRow.twentyEightDayDealCount
@@ -473,7 +473,7 @@ selectedDate => rows
   .filter(({ date }) => dateFns.isEqual(date, selectedDate))
   .map(row => ({
     region: row.region,
-    minerCount: row['count(miner)'],
+    minerCount: row['sum(splitCount)'],
     rawBytePower: row['sum(rawBytePower)'],
     rawBytePowerKiB: row['sum(rawBytePower)'] / 1024,
     rawBytePowerMiB: row['sum(rawBytePower)'] / 1024 ** 2,
@@ -503,7 +503,7 @@ async function _dailyDealsByRegion(useSyntheticRegions,dealsBucketUrl,d3)
 }
 
 
-function _38(dailyDealsByRegion){return(
+function _40(dailyDealsByRegion){return(
 JSON.stringify(dailyDealsByRegion[0])
 )}
 
@@ -595,7 +595,7 @@ epochToDate(240)
 function _startDate(dataSource,firstDateAfterGenesis,dailyDealsByRegion)
 {
   if (dataSource === 'Quality Adjusted Power') return firstDateAfterGenesis
-  if (dataSource === 'Provider Count*') return firstDateAfterGenesis
+  if (dataSource === 'Provider Count') return firstDateAfterGenesis
   return dailyDealsByRegion[0].date
 }
 
@@ -604,7 +604,7 @@ function _filteredDailyDealsByRegion(d3,dailyDealsByRegionWith7DaySums,dateFns){
 selectedDate => d3.index(dailyDealsByRegionWith7DaySums.filter(({ date }) => dateFns.isEqual(date, selectedDate)), d => d.region)
 )}
 
-function _46(md){return(
+function _48(md){return(
 md`## Imports`
 )}
 
@@ -620,7 +620,7 @@ function _dateFns(require){return(
 require('https://bundle.run/date-fns@2.22.1')
 )}
 
-function _55(md){return(
+function _57(md){return(
 md`## Permalink support`
 )}
 
@@ -636,7 +636,7 @@ function _defaultHideNoRegion(params){return(
 'hidenoregion' in params
 )}
 
-function _59(params){return(
+function _61(params){return(
 params
 )}
 
@@ -644,7 +644,7 @@ function _defaultDateIndex(params,agnosticDifferenceInDays,d3,startDate,numberOf
 params.date ? agnosticDifferenceInDays(d3.isoParse(params.date), startDate) : numberOfDays
 )}
 
-function _61(startDate){return(
+function _63(startDate){return(
 startDate
 )}
 
@@ -675,11 +675,11 @@ function _permalink(dateFns,timeScale,slider,dataSource,chartFocus,useSyntheticR
 }
 
 
-function _66(md){return(
+function _68(md){return(
 md`## Backups`
 )}
 
-function _68(backups){return(
+function _70(backups){return(
 backups()
 )}
 
@@ -730,7 +730,7 @@ export default function define(runtime, observer) {
   const child3 = runtime.module(define1);
   main.import("dealsBucketUrl", child3);
   main.variable(observer("dailyDealsByRegion")).define("dailyDealsByRegion", ["useSyntheticRegions","dealsBucketUrl","d3"], _dailyDealsByRegion);
-  main.variable(observer()).define(["dailyDealsByRegion"], _38);
+  main.variable(observer()).define(["dailyDealsByRegion"], _40);
   main.variable(observer("endDates")).define("endDates", ["rows","minerPowerByRegionReport","dailyDealsByRegion"], _endDates);
   main.variable(observer("endDate")).define("endDate", ["dateFns","endDates"], _endDate);
   main.variable(observer("dailyDealsByRegionIndexed")).define("dailyDealsByRegionIndexed", ["d3","dailyDealsByRegion"], _dailyDealsByRegionIndexed);
@@ -738,7 +738,7 @@ export default function define(runtime, observer) {
   main.variable(observer("firstDateAfterGenesis")).define("firstDateAfterGenesis", ["epochToDate"], _firstDateAfterGenesis);
   main.variable(observer("startDate")).define("startDate", ["dataSource","firstDateAfterGenesis","dailyDealsByRegion"], _startDate);
   main.variable(observer("filteredDailyDealsByRegion")).define("filteredDailyDealsByRegion", ["d3","dailyDealsByRegionWith7DaySums","dateFns"], _filteredDailyDealsByRegion);
-  main.variable(observer()).define(["md"], _46);
+  main.variable(observer()).define(["md"], _48);
   main.variable(observer("d3")).define("d3", ["require"], _d3);
   const child4 = runtime.module(define2);
   main.import("dateToEpoch", child4);
@@ -754,21 +754,21 @@ export default function define(runtime, observer) {
   main.import("quickMenu", child7);
   const child8 = runtime.module(define5);
   main.import("debounce", child8);
-  main.variable(observer()).define(["md"], _55);
+  main.variable(observer()).define(["md"], _57);
   main.variable(observer("params")).define("params", ["URLSearchParams","location"], _params);
   main.variable(observer("defaultDataSource")).define("defaultDataSource", ["params"], _defaultDataSource);
   main.variable(observer("defaultHideNoRegion")).define("defaultHideNoRegion", ["params"], _defaultHideNoRegion);
-  main.variable(observer()).define(["params"], _59);
+  main.variable(observer()).define(["params"], _61);
   main.variable(observer("defaultDateIndex")).define("defaultDateIndex", ["params","agnosticDifferenceInDays","d3","startDate","numberOfDays"], _defaultDateIndex);
-  main.variable(observer()).define(["startDate"], _61);
+  main.variable(observer()).define(["startDate"], _63);
   main.variable(observer("defaultChartFocus")).define("defaultChartFocus", ["params"], _defaultChartFocus);
   main.variable(observer("defaultUseSyntheticRegions")).define("defaultUseSyntheticRegions", ["params"], _defaultUseSyntheticRegions);
   main.variable(observer("useSyntheticRegions")).define("useSyntheticRegions", ["options"], _useSyntheticRegions);
   main.variable(observer("permalink")).define("permalink", ["dateFns","timeScale","slider","dataSource","chartFocus","useSyntheticRegions","options"], _permalink);
-  main.variable(observer()).define(["md"], _66);
+  main.variable(observer()).define(["md"], _68);
   const child9 = runtime.module(define3);
   main.import("backups", child9);
   main.import("backupNowButton", child9);
-  main.variable(observer()).define(["backups"], _68);
+  main.variable(observer()).define(["backups"], _70);
   return main;
 }
