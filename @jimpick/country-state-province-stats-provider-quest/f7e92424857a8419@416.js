@@ -1,5 +1,5 @@
-// https://observablehq.com/@jimpick/country-state-province-stats-provider-quest@414
-import define1 from "./5cf93b57a7444002@196.js";
+// https://observablehq.com/@jimpick/country-state-province-stats-provider-quest@416
+import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -55,7 +55,9 @@ Plot.plot({
 )}
 
 function _10(md,selectedRegion){return(
-md`## Region: ${selectedRegion.pretty} - Number of Miners`
+md`## Region: ${selectedRegion.pretty} - Number of Providers (Split)
+
+"Split" = Counts for providers with locations in multiple regions are counted fractionally.`
 )}
 
 function _11(Plot,filteredRows){return(
@@ -326,7 +328,7 @@ minerPowerByRegionReport.rows
   .filter(({ region }) => region === selectedRegion.region)
   .map(row => ({
     date: d3.isoParse(row.date),
-    minerCount: row['count(miner)'],
+    minerCount: row['sum(splitCount)'],
     rawBytePower: row['sum(rawBytePower)'],
     rawBytePowerKiB: row['sum(rawBytePower)'] / 1024,
     rawBytePowerMiB: row['sum(rawBytePower)'] / 1024 ** 2,
