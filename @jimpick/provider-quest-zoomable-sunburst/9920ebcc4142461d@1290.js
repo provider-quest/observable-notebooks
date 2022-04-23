@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst@1289
+// https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst@1290
 import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
@@ -629,7 +629,7 @@ function _params(URLSearchParams,location){return(
 )}
 
 function _defaultDataSource(params){return(
-(params.datasource && params.datasource.replace('Count', 'Count*')) || 'Quality Adjusted Power'
+(params.datasource && params.datasource.replace('Deals: Count', 'Deals: Count*')) || 'Quality Adjusted Power'
 )}
 
 function _defaultHideNoRegion(params){return(
