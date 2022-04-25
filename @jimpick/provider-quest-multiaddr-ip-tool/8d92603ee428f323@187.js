@@ -1,9 +1,9 @@
-// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@185
+// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@187
 import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
-md`# Internal: Scanner: Multiaddr => IP Tool [Provider.Quest]`
+md`# Internal: Combiner: Multiaddr => IP Tool [Provider.Quest]`
 )}
 
 function _2(md){return(
