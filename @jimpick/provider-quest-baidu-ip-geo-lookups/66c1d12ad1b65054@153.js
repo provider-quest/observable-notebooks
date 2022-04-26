@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups@146
+// https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups@153
 import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./5cf93b57a7444002@222.js";
 import define3 from "./a957eb792b00ff81@406.js";
@@ -28,8 +28,20 @@ async function _latestIpsBaiduReport(geoIpLookupsBucketUrl){return(
 (await fetch(`${geoIpLookupsBucketUrl}/ips-baidu-latest.json`)).json()
 )}
 
-function _missingChinaIpRecords(chinaIpRecords,latestIpsBaiduReport){return(
-chinaIpRecords.filter(({ ip }) => !latestIpsBaiduReport.ipsBaidu[ip])
+function _missingChinaIpRecords(chinaIpRecords,ip,latestIpsBaiduReport){return(
+chinaIpRecords.filter(({ ip: ipAddress }) => {
+  if (!ip.isV4Format(ipAddress)) {
+    return false 
+  }
+  const baidu = latestIpsBaiduReport.ipsBaidu[ipAddress]
+  if (baidu) {
+    if (baidu.baidu && baidu.baidu.status !== 0) {
+      return true
+    }
+    return false 
+  }
+  return true
+})
 )}
 
 function _maxLookups(){return(
@@ -247,7 +259,7 @@ export default function define(runtime, observer) {
   main.variable(observer("latestIpsGeoLite2Report")).define("latestIpsGeoLite2Report", ["geoIpLookupsBucketUrl"], _latestIpsGeoLite2Report);
   main.variable(observer("chinaIpRecords")).define("chinaIpRecords", ["latestIpsGeoLite2Report"], _chinaIpRecords);
   main.variable(observer("latestIpsBaiduReport")).define("latestIpsBaiduReport", ["geoIpLookupsBucketUrl"], _latestIpsBaiduReport);
-  main.variable(observer("missingChinaIpRecords")).define("missingChinaIpRecords", ["chinaIpRecords","latestIpsBaiduReport"], _missingChinaIpRecords);
+  main.variable(observer("missingChinaIpRecords")).define("missingChinaIpRecords", ["chinaIpRecords","ip","latestIpsBaiduReport"], _missingChinaIpRecords);
   main.variable(observer("maxLookups")).define("maxLookups", _maxLookups);
   main.variable(observer("maxElapsed")).define("maxElapsed", _maxElapsed);
   main.variable(observer("geoApiBaseUrl")).define("geoApiBaseUrl", _geoApiBaseUrl);
