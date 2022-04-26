@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/internal-mapping-storage-provider-to-countrystateprovin@634
+// https://observablehq.com/@jimpick/internal-mapping-storage-provider-to-countrystateprovin@636
 import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./5cf93b57a7444002@222.js";
 import define3 from "./a957eb792b00ff81@406.js";
@@ -188,6 +188,9 @@ function regionMapper (geolite2, baidu) {
     if (country.code === 'CN') {
       if (baidu && baidu.province) {
         return `CN-${baidu.province.code}`
+      }
+      if (geolite2.subdiv1) {
+        return `CN-${geolite2.subdiv1}`
       }
       return `CN-XX`
     }
