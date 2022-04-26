@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-storage-provider-to-region-mapper@640
+// https://observablehq.com/@jimpick/provider-quest-storage-provider-to-region-mapper@644
 import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./5cf93b57a7444002@222.js";
 import define3 from "./a957eb792b00ff81@406.js";
@@ -117,9 +117,6 @@ function _minerIps(multiaddrsIpsReport,restrictResults,filteredAsks,latestIpsGeo
         }
       }
     }
-    if (record.miner === 'f020331') {
-      console.log('Jim1', record, maddrIpRecord)
-    }
     const region = regionMapper(maddrIpRecord.geolite2, maddrIpRecord.baidu)
     if (region) maddrIpRecord.region = region
     maddrIps.push(maddrIpRecord)
@@ -148,15 +145,15 @@ function _regionHierarchy(chinaProvincesByCode){return(
               members: ['LN', 'JL', 'HL'],
               children: [
                 {
-                  name: 'Liaoning',
+                  name: chinaProvincesByCode.get('LN').en,
                   code: 'LN'
                 },
                 {
-                  name: 'Jilin',
+                  name: chinaProvincesByCode.get('JL').en,
                   code: 'JL'
                 },
                 {
-                  name: 'Heilongjiang',
+                  name: chinaProvincesByCode.get('HL').en,
                   code: 'HL'
                 }
               ]
@@ -206,12 +203,20 @@ function _regionHierarchy(chinaProvincesByCode){return(
                   code: 'SN'
                 },
                 {
-                  name: chinaProvincesByCode.get('XJ').en,
-                  code: 'XJ'
+                  name: chinaProvincesByCode.get('GS').en,
+                  code: 'GS'
                 },
                 {
-                  name: 'Others Combined',
-                  code: 'XX'
+                  name: chinaProvincesByCode.get('NX').en,
+                  code: 'NX'
+                },
+                {
+                  name: chinaProvincesByCode.get('QH').en,
+                  code: 'QH'
+                },
+                {
+                  name: chinaProvincesByCode.get('XJ').en,
+                  code: 'XJ'
                 }
               ]
             },
