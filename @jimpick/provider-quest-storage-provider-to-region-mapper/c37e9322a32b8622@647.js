@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-storage-provider-to-region-mapper@644
+// https://observablehq.com/@jimpick/provider-quest-storage-provider-to-region-mapper@647
 import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./5cf93b57a7444002@222.js";
 import define3 from "./a957eb792b00ff81@406.js";
@@ -655,6 +655,14 @@ function _regionHierarchy(chinaProvincesByCode){return(
               code: 'FI'
             },
             {
+              name: 'Iceland',
+              code: 'IS'
+            },
+            {
+              name: 'Ireland',
+              code: 'IE'
+            },
+            {
               name: 'Others Combined',
               code: 'XX'
             }
@@ -680,6 +688,18 @@ function _regionHierarchy(chinaProvincesByCode){return(
             {
               name: 'Slovenia',
               code: 'SI'
+            },
+            {
+              name: 'Italy',
+              code: 'IT'
+            },
+            {
+              name: 'North Macedonia',
+              code: 'MK'
+            },
+            {
+              name: 'Greece',
+              code: 'GR'
             },
             {
               name: 'Others Combined',
@@ -1125,7 +1145,10 @@ backups()
 
 export default function define(runtime, observer) {
   const main = runtime.module();
-  const fileAttachments = new Map([["china-provinces.json",new URL("./files/a8affb1c22a7bd9298f69e03b29c11e28ce20625c02e3113f73c6a3def582a81f2cc38c2aabe71eca6bbb4abb796ad6f5db02af83a8da5f834dc0955b1418e8c",import.meta.url)]]);
+  function toString() { return this.url; }
+  const fileAttachments = new Map([
+    ["china-provinces.json", {url: new URL("./files/a8affb1c22a7bd9298f69e03b29c11e28ce20625c02e3113f73c6a3def582a81f2cc38c2aabe71eca6bbb4abb796ad6f5db02af83a8da5f834dc0955b1418e8c", import.meta.url), mimeType: "application/json", toString}]
+  ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
   main.variable(observer()).define(["md"], _2);
