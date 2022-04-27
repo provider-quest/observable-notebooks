@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-synthetic-locations@172
+// https://observablehq.com/@jimpick/provider-quest-synthetic-locations@181
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -184,18 +184,22 @@ md`FIXME:
 )}
 
 function _26(md){return(
-md`## Presentation`
+md`## Presentations`
 )}
 
 function _27(md){return(
-md`* [Filecoin Green - 2022.03.01](https://youtu.be/PyxSRV0UlFc?t=2521)`
+md`Filecoin Green Virtual Meetup - March 2022:`
 )}
 
-function _28(md){return(
+function _28(htl){return(
+htl.html`<iframe width="1180" height="484" src="https://www.youtube.com/embed/PyxSRV0UlFc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+)}
+
+function _29(md){return(
 md`## Backups`
 )}
 
-function _30(backups){return(
+function _31(backups){return(
 backups()
 )}
 
@@ -234,10 +238,11 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _25);
   main.variable(observer()).define(["md"], _26);
   main.variable(observer()).define(["md"], _27);
-  main.variable(observer()).define(["md"], _28);
+  main.variable(observer()).define(["htl"], _28);
+  main.variable(observer()).define(["md"], _29);
   const child1 = runtime.module(define1);
   main.import("backups", child1);
   main.import("backupNowButton", child1);
-  main.variable(observer()).define(["backups"], _30);
+  main.variable(observer()).define(["backups"], _31);
   return main;
 }
