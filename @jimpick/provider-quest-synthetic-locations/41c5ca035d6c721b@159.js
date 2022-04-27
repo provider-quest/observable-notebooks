@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-synthetic-locations@155
+// https://observablehq.com/@jimpick/provider-quest-synthetic-locations@159
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -111,9 +111,7 @@ md`## Feeds and Schemas`
 )}
 
 function _21(md){return(
-md`FIXME:
-
-* Work-in-progress. Transitioning to new distribution mechanism.`
+md`* Work-in-progress. Transitioning to new distribution mechanism.`
 )}
 
 function _22(md){return(
@@ -156,9 +154,13 @@ md`* AWS S3 Bucket:
         * [synthetic-country-state-province-latest.json](https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeibjg7kky45npdwnogui5ffla7dint62xpttvvlzrsbewlrfmbusya/synthetic-country-state-province-latest.json) (only Regions, for reporting)
         * [synthetic-country-state-province-locations-latest.json](https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeibjg7kky45npdwnogui5ffla7dint62xpttvvlzrsbewlrfmbusya/synthetic-country-state-province-locations-latest.json) (with Longitude/Latitude, for mapping)
 
+* FIXME: Hierarchy JSON files
+* FIXME: Schema descriptions
 * Soon ... self-hosted IPFS with gateways + Estuary backups
-* Source observation data + intermediate data dumps
- `
+* Future
+  * Original observation data + intermediate data dumps
+  * Publish to Pando?
+`
 )}
 
 function _23(md){return(
