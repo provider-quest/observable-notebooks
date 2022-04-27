@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-synthetic-locations@171
+// https://observablehq.com/@jimpick/provider-quest-synthetic-locations@172
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -64,9 +64,9 @@ md`## How do we collect IP addresses and get locations?`
 function _14(md){return(
 md`FIXME:
 
-* Describe on-chain multiaddrs vs. DHT.
+* Describe on-chain multiaddrs vs. DHT
 * GeoIP database lookups
-* Problem with stale or fake IP listings.`
+* Problem with stale or fake IP listings`
 )}
 
 function _15(md){return(
