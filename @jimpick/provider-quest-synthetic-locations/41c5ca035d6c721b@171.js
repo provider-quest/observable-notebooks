@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-synthetic-locations@159
+// https://observablehq.com/@jimpick/provider-quest-synthetic-locations@171
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -50,14 +50,18 @@ FileAttachment("synthetic.png").image()
 )}
 
 function _11(md){return(
-md`In the real world, every provider is physically located somewhere, so this data is a better fit, even though we can't claim with perfect confidence that the allocation is 100% accurate.`
+md`**Note:** *There are still some providers with "No Region" in this screenshot. These are just new providers and there is a temporary data interruption so we lack some data.*`
 )}
 
 function _12(md){return(
-md`## How do we collect IP addresses and get locations?`
+md`In the real world, every provider is physically located somewhere, so this data is a better fit, even though we can't claim with perfect confidence that the allocation is 100% accurate.`
 )}
 
 function _13(md){return(
+md`## How do we collect IP addresses and get locations?`
+)}
+
+function _14(md){return(
 md`FIXME:
 
 * Describe on-chain multiaddrs vs. DHT.
@@ -65,11 +69,11 @@ md`FIXME:
 * Problem with stale or fake IP listings.`
 )}
 
-function _14(md){return(
+function _15(md){return(
 md`## Insight: Using Funding History`
 )}
 
-function _15(md){return(
+function _16(md){return(
 md`FIXME:
 
 * Forensic method
@@ -79,11 +83,11 @@ md`FIXME:
 * Building a "funding tree"`
 )}
 
-function _16(md){return(
+function _17(md){return(
 md`## Delegate Matching Algorithm`
 )}
 
-function _17(md){return(
+function _18(md){return(
 md`FIXME: 
 
 * Funding Tree
@@ -94,11 +98,11 @@ md`FIXME:
 * Delegates`
 )}
 
-function _18(md){return(
+function _19(md){return(
 md`## Region Mapping`
 )}
 
-function _19(md){return(
+function _20(md){return(
 md`FIXME:
 
 * multiple hierarchies
@@ -106,15 +110,15 @@ md`FIXME:
   * Country + State/Province used by Filecoin Green`
 )}
 
-function _20(md){return(
+function _21(md){return(
 md`## Feeds and Schemas`
 )}
 
-function _21(md){return(
+function _22(md){return(
 md`* Work-in-progress. Transitioning to new distribution mechanism.`
 )}
 
-function _22(md){return(
+function _23(md){return(
 md`* AWS S3 Bucket:
   * Top level URL: https://provider-quest.s3.us-west-2.amazonaws.com/dist/geoip-lookups
   * Temporary solution to problem with Textile buckets + Cloudflare
@@ -163,23 +167,35 @@ md`* AWS S3 Bucket:
 `
 )}
 
-function _23(md){return(
+function _24(md){return(
 md`## Behind the Scenes`
 )}
 
-function _24(md){return(
-md`## Presentation`
-)}
-
 function _25(md){return(
-md`* [Filecoin Green - 2022.03.01](https://youtu.be/PyxSRV0UlFc?t=2521)`
+md`FIXME:
+
+* GitHub repos
+* Scanning from Observable notebooks
+* Lotus node / Lily data dumps
+* Kubernetes
+* Argo Workflows
+* Apache Spark
+* IPFS publishing`
 )}
 
 function _26(md){return(
+md`## Presentation`
+)}
+
+function _27(md){return(
+md`* [Filecoin Green - 2022.03.01](https://youtu.be/PyxSRV0UlFc?t=2521)`
+)}
+
+function _28(md){return(
 md`## Backups`
 )}
 
-function _28(backups){return(
+function _30(backups){return(
 backups()
 )}
 
@@ -217,9 +233,11 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _24);
   main.variable(observer()).define(["md"], _25);
   main.variable(observer()).define(["md"], _26);
+  main.variable(observer()).define(["md"], _27);
+  main.variable(observer()).define(["md"], _28);
   const child1 = runtime.module(define1);
   main.import("backups", child1);
   main.import("backupNowButton", child1);
-  main.variable(observer()).define(["backups"], _28);
+  main.variable(observer()).define(["backups"], _30);
   return main;
 }
