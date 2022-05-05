@@ -593,7 +593,10 @@ backups()
 
 export default function define(runtime, observer) {
   const main = runtime.module();
-  const fileAttachments = new Map([["funder-tree.json",new URL("./files/76cebeed9cdd52ef778d277888d4ab2e9c65012a45ea3a7fa87ee3d463f1981c0804a3d90a7a9ddfccb2a6ce5379a5e42ef69dccd3099c9769d5d44105d527db",import.meta.url)]]);
+  function toString() { return this.url; }
+  const fileAttachments = new Map([
+    ["funder-tree.json", {url: new URL("./files/76cebeed9cdd52ef778d277888d4ab2e9c65012a45ea3a7fa87ee3d463f1981c0804a3d90a7a9ddfccb2a6ce5379a5e42ef69dccd3099c9769d5d44105d527db", import.meta.url), mimeType: "application/json", toString}]
+  ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
   main.variable(observer("viewof selected")).define("viewof selected", ["Inputs","targets","params"], _selected);
