@@ -1,5 +1,5 @@
 // https://observablehq.com/@jimpick/provider-quest-publish-deal-messages-stream@1438
-import define1 from "./15fa16fc510b5dec@199.js";
+import define1 from "./15fa16fc510b5dec@200.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
 

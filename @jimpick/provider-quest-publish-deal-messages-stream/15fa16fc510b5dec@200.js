@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/filecoin-decode-deal-params@199
+// https://observablehq.com/@jimpick/filecoin-decode-deal-params@200
 function _1(md){return(
 md`# Filecoin Decode Deal Params`
 )}
@@ -46,10 +46,6 @@ async function _CID(){return(
 (await import('https://jspm.dev/cids')).default
 )}
 
-function _11(){return(
-import('https://jspm.dev/cids')
-)}
-
 function _decoded(cbor,params){return(
 cbor.decode(params, 'base64')
 )}
@@ -91,7 +87,6 @@ export default function define(runtime, observer) {
   main.variable(observer("bytesToBig")).define("bytesToBig", ["BN"], _bytesToBig);
   main.variable(observer("filecoinAddress")).define("filecoinAddress", _filecoinAddress);
   main.variable(observer("CID")).define("CID", _CID);
-  main.variable(observer()).define(_11);
   main.variable(observer("decoded")).define("decoded", ["cbor","params"], _decoded);
   main.variable(observer("decodeDeals")).define("decodeDeals", ["cbor","CID","filecoinAddress","bytesToBig"], _decodeDeals);
   main.variable(observer("deals")).define("deals", ["decodeDeals","params"], _deals);
