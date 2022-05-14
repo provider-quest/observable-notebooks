@@ -1,6 +1,6 @@
 # Internal: Scanner: Asks [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-storage-ask-scanner@2173
+https://observablehq.com/@jimpick/provider-quest-storage-ask-scanner@2175
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/df94b20479c924dc@2173.tgz?v=3
+npm install https://api.observablehq.com/d/df94b20479c924dc@2175.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:

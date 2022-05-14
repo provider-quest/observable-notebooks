@@ -1,5 +1,5 @@
-// https://observablehq.com/@jimpick/provider-quest-storage-ask-scanner@2173
-import define1 from "./5cf93b57a7444002@196.js";
+// https://observablehq.com/@jimpick/provider-quest-storage-ask-scanner@2175
+import define1 from "./5cf93b57a7444002@222.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
 
@@ -101,7 +101,7 @@ filteredLatestAsks.reduce((acc, { miner }) => acc.add(miner), new Set())
 )}
 
 function _minTimestamp(dateFns){return(
-dateFns.subDays(new Date(), 3)
+dateFns.subDays(new Date(), 14)
 )}
 
 function _subsetToScan(Inputs){return(
