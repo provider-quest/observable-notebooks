@@ -1,6 +1,6 @@
 // https://observablehq.com/@jimpick/provider-quest-storage-provider-to-region-mapper@647
-import define1 from "./5cf93b57a7444002@222.js";
-import define2 from "./5cf93b57a7444002@222.js";
+import define1 from "./5cf93b57a7444002@230.js";
+import define2 from "./5cf93b57a7444002@230.js";
 import define3 from "./a957eb792b00ff81@406.js";
 import define4 from "./c4e4a355c53d2a1a@111.js";
 import define5 from "./13063df7b34879ca@856.js";
