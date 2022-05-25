@@ -1,6 +1,6 @@
-// https://observablehq.com/@jimpick/internal-synthetic-locations-from-provider-funding-tree@744
+// https://observablehq.com/@jimpick/internal-synthetic-locations-from-provider-funding-tree@770
 import define1 from "./e5c2857605ea9435@904.js";
-import define2 from "./5cf93b57a7444002@222.js";
+import define2 from "./5cf93b57a7444002@230.js";
 import define3 from "./13063df7b34879ca@856.js";
 import define4 from "./bedb50933413e557@45.js";
 import define5 from "./a957eb792b00ff81@406.js";
@@ -61,13 +61,60 @@ allFundedWithMinerId
 )}
 
 function _12(md){return(
+md`Find all miner IDs that aren't in the tree because they are newer than the funding data, and create records for them on the root.`
+)}
+
+function _minersWithFundingDataSet(joinedAllFundedWithMinerId)
+{
+  const minersSet = new Set()
+  for (const { miner_id } of joinedAllFundedWithMinerId) {
+    minersSet.add(miner_id)
+  }
+  return minersSet
+}
+
+
+function _minersWithPowerSet(minerPowerLatestReport){return(
+new Set(Object.keys(minerPowerLatestReport.miners))
+)}
+
+function _minersWithNoFundingSet(minersWithPowerSet,minersWithFundingDataSet)
+{
+  const minersSet = new Set()
+  for (const minerId of [...minersWithPowerSet]) {
+    if (!minersWithFundingDataSet.has(minerId)) {
+      minersSet.add(minerId)
+    }
+  }
+  return minersSet
+}
+
+
+function _fakeFundingRecords(minersWithNoFundingSet){return(
+[...minersWithNoFundingSet].map(minerId => ({
+  id: minerId,
+  address: minerId,
+  funded_from: "root",
+  miner_id: minerId
+}))
+)}
+
+function _joinedAllFundedWithMinerIdAndFakes(joinedAllFundedWithMinerId)
+{
+  return joinedAllFundedWithMinerId
+  // FIXME: Joining records at the root appears to have over-allocated delegates to Vietnam - investigate 
+  // joinedAllFundedWithMinerId.concat(fakeFundingRecords)
+}
+
+
+function _18(md){return(
 md`Walk tree starting from \`root\` to find subset we are interested in.`
 )}
 
-function _reachable(d3,joinedAllFundedWithMinerId)
+function _reachable(d3,joinedAllFundedWithMinerIdAndFakes)
 {
-  const addressIndex = d3.index(joinedAllFundedWithMinerId, d => d.id)
-  const fundedFromIndex = d3.group(joinedAllFundedWithMinerId, d => d.funded_from)
+  const addressIndex = d3.index(joinedAllFundedWithMinerIdAndFakes, d => d.id)
+  const fundedFromIndex = d3.group(joinedAllFundedWithMinerIdAndFakes, d => d.funded_from)
   const start = addressIndex.get('root')
   const reachable = []
   
@@ -99,11 +146,11 @@ function _reachableTree(stratify,reachable){return(
 stratify(reachable)
 )}
 
-function _17(md){return(
+function _23(md){return(
 md`## Filtered Funder Tree`
 )}
 
-function _18(md){return(
+function _24(md){return(
 md`Reduce tree to only include leaves for SPs that have ever had power.`
 )}
 
@@ -145,11 +192,11 @@ function _shortCircuit1(){return(
 true
 )}
 
-function _23(shortCircuit1,graph,reachableWithPowerTree,bytes){return(
+function _29(shortCircuit1,graph,reachableWithPowerTree,bytes){return(
 !shortCircuit1 && graph(reachableWithPowerTree, {label: d => d.data.id + (d.data.miner_id ? ` (SP: ${d.data.miner_id} - ${bytes(d.data.qualityAdjPower, { mode: 'binary' })})` : '') })
 )}
 
-function _24(md){return(
+function _30(md){return(
 md`## Filtered Funder Tree with Location Metadata`
 )}
 
@@ -166,7 +213,7 @@ reachableWithPower.map(record => {
 })
 )}
 
-function _26(button,reachableWithPowerAndRegions){return(
+function _32(button,reachableWithPowerAndRegions){return(
 button(reachableWithPowerAndRegions, 'funder-tree-base.json')
 )}
 
@@ -178,7 +225,7 @@ function _shortCircuit2(){return(
 true
 )}
 
-function _29(shortCircuit2,graph,reachableWithPowerAndRegionsTree,bytes){return(
+function _35(shortCircuit2,graph,reachableWithPowerAndRegionsTree,bytes){return(
 !shortCircuit2 && graph(reachableWithPowerAndRegionsTree, {
   label: d => 
     (d.data.miner_id ?
@@ -188,7 +235,7 @@ function _29(shortCircuit2,graph,reachableWithPowerAndRegionsTree,bytes){return(
 })
 )}
 
-function _30(md){return(
+function _36(md){return(
 md`## Funder Tree with Delegates`
 )}
 
@@ -241,7 +288,7 @@ function _funderTreeWithDelegates(funderTreeWithDelegatesProgress){return(
 funderTreeWithDelegatesProgress && funderTreeWithDelegatesProgress.done ? funderTreeWithDelegatesProgress.tree : null
 )}
 
-function _37(md){return(
+function _43(md){return(
 md`## Synthetic Provider Regions`
 )}
 
@@ -275,7 +322,7 @@ function _syntheticProviderCSPRegions(funderTreeWithDelegates,providerCSPRegions
 }
 
 
-function _40(syntheticProviderCSPRegions,button,minerRegionsCSPReport){return(
+function _46(syntheticProviderCSPRegions,button,minerRegionsCSPReport){return(
 syntheticProviderCSPRegions && button(syntheticProviderCSPRegions, `synthetic-provider-country-state-province-${minerRegionsCSPReport.epoch}.json`)
 )}
 
@@ -309,11 +356,11 @@ function _syntheticProviderRegions(funderTreeWithDelegates,providerRegions,sortP
 }
 
 
-function _43(syntheticProviderRegions,button,minerRegionsReport){return(
+function _49(syntheticProviderRegions,button,minerRegionsReport){return(
 syntheticProviderRegions && button(syntheticProviderRegions, `synthetic-provider-regions-${minerRegionsReport.epoch}.json`)
 )}
 
-function _44(md){return(
+function _50(md){return(
 md`## Synthetic Provider Locations`
 )}
 
@@ -347,7 +394,7 @@ function _syntheticProviderCSPLocations(funderTreeWithDelegates,providerCSPLocat
 }
 
 
-function _47(syntheticProviderCSPLocations,button,minerLocationsCSPReport){return(
+function _53(syntheticProviderCSPLocations,button,minerLocationsCSPReport){return(
 syntheticProviderCSPLocations && button(syntheticProviderCSPLocations, `synthetic-provider-country-state-province-locations-${minerLocationsCSPReport.epoch}.json`)
 )}
 
@@ -381,11 +428,11 @@ function _syntheticProviderLocations(funderTreeWithDelegates,providerLocations,s
 }
 
 
-function _50(syntheticProviderLocations,button,minerLocationsReport){return(
+function _56(syntheticProviderLocations,button,minerLocationsReport){return(
 syntheticProviderLocations && button(syntheticProviderLocations, `synthetic-provider-locations-${minerLocationsReport.epoch}.json`)
 )}
 
-function _51(md){return(
+function _57(md){return(
 md`## Imports and Data`
 )}
 
@@ -397,7 +444,7 @@ async function _minerPowerLatestReport(minerPowerDailyAverageLatestBucketUrl){re
 (await fetch(`${minerPowerDailyAverageLatestBucketUrl}/miner-power-latest.json`)).json()
 )}
 
-function _56(geoIpLookupsBucketUrl){return(
+function _62(geoIpLookupsBucketUrl){return(
 geoIpLookupsBucketUrl
 )}
 
@@ -429,11 +476,11 @@ async function _bytes(){return(
 (await import('https://unpkg.com/@jimpick/bytes-iec@3.1.0-2?module')).default
 )}
 
-function _67(md){return(
+function _73(md){return(
 md`## Backups`
 )}
 
-function _69(backups){return(
+function _75(backups){return(
 backups()
 )}
 
@@ -451,23 +498,29 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _10);
   main.variable(observer("joinedAllFundedWithMinerId")).define("joinedAllFundedWithMinerId", ["allFundedWithMinerId"], _joinedAllFundedWithMinerId);
   main.variable(observer()).define(["md"], _12);
-  main.variable(observer("reachable")).define("reachable", ["d3","joinedAllFundedWithMinerId"], _reachable);
+  main.variable(observer("minersWithFundingDataSet")).define("minersWithFundingDataSet", ["joinedAllFundedWithMinerId"], _minersWithFundingDataSet);
+  main.variable(observer("minersWithPowerSet")).define("minersWithPowerSet", ["minerPowerLatestReport"], _minersWithPowerSet);
+  main.variable(observer("minersWithNoFundingSet")).define("minersWithNoFundingSet", ["minersWithPowerSet","minersWithFundingDataSet"], _minersWithNoFundingSet);
+  main.variable(observer("fakeFundingRecords")).define("fakeFundingRecords", ["minersWithNoFundingSet"], _fakeFundingRecords);
+  main.variable(observer("joinedAllFundedWithMinerIdAndFakes")).define("joinedAllFundedWithMinerIdAndFakes", ["joinedAllFundedWithMinerId"], _joinedAllFundedWithMinerIdAndFakes);
+  main.variable(observer()).define(["md"], _18);
+  main.variable(observer("reachable")).define("reachable", ["d3","joinedAllFundedWithMinerIdAndFakes"], _reachable);
   main.variable(observer("stratify")).define("stratify", ["d3"], _stratify);
   main.variable(observer("reachableTree")).define("reachableTree", ["stratify","reachable"], _reachableTree);
-  main.variable(observer()).define(["md"], _17);
-  main.variable(observer()).define(["md"], _18);
+  main.variable(observer()).define(["md"], _23);
+  main.variable(observer()).define(["md"], _24);
   main.variable(observer("leavesWithPower")).define("leavesWithPower", ["reachable","minerPowerLatestReport"], _leavesWithPower);
   main.variable(observer("reachableWithPower")).define("reachableWithPower", ["d3","reachable","minerPowerDailyAverageReport","leavesWithPower","sortIdRecords"], _reachableWithPower);
   main.variable(observer("reachableWithPowerTree")).define("reachableWithPowerTree", ["stratify","reachableWithPower"], _reachableWithPowerTree);
   main.variable(observer("shortCircuit1")).define("shortCircuit1", _shortCircuit1);
-  main.variable(observer()).define(["shortCircuit1","graph","reachableWithPowerTree","bytes"], _23);
-  main.variable(observer()).define(["md"], _24);
+  main.variable(observer()).define(["shortCircuit1","graph","reachableWithPowerTree","bytes"], _29);
+  main.variable(observer()).define(["md"], _30);
   main.variable(observer("reachableWithPowerAndRegions")).define("reachableWithPowerAndRegions", ["reachableWithPower","minerRegionsCSPReport"], _reachableWithPowerAndRegions);
-  main.variable(observer()).define(["button","reachableWithPowerAndRegions"], _26);
+  main.variable(observer()).define(["button","reachableWithPowerAndRegions"], _32);
   main.variable(observer("reachableWithPowerAndRegionsTree")).define("reachableWithPowerAndRegionsTree", ["stratify","reachableWithPowerAndRegions"], _reachableWithPowerAndRegionsTree);
   main.variable(observer("shortCircuit2")).define("shortCircuit2", _shortCircuit2);
-  main.variable(observer()).define(["shortCircuit2","graph","reachableWithPowerAndRegionsTree","bytes"], _29);
-  main.variable(observer()).define(["md"], _30);
+  main.variable(observer()).define(["shortCircuit2","graph","reachableWithPowerAndRegionsTree","bytes"], _35);
+  main.variable(observer()).define(["md"], _36);
   const child1 = runtime.module(define1);
   main.import("matchDelegate", child1);
   main.variable(observer("getTreeWithDelegatesStream")).define("getTreeWithDelegatesStream", ["matchDelegate"], _getTreeWithDelegatesStream);
@@ -476,28 +529,28 @@ export default function define(runtime, observer) {
   main.variable(observer("funderTreeWithDelegatesProgress")).define("funderTreeWithDelegatesProgress", ["start","getTreeWithDelegatesStream","reachableWithPowerAndRegionsTree"], _funderTreeWithDelegatesProgress);
   main.variable(observer("funderTreeWithDelegatesProgressWithoutResult")).define("funderTreeWithDelegatesProgressWithoutResult", ["funderTreeWithDelegatesProgress"], _funderTreeWithDelegatesProgressWithoutResult);
   main.variable(observer("funderTreeWithDelegates")).define("funderTreeWithDelegates", ["funderTreeWithDelegatesProgress"], _funderTreeWithDelegates);
-  main.variable(observer()).define(["md"], _37);
+  main.variable(observer()).define(["md"], _43);
   main.variable(observer("providerCSPRegions")).define("providerCSPRegions", ["d3","minerRegionsCSPReport"], _providerCSPRegions);
   main.variable(observer("syntheticProviderCSPRegions")).define("syntheticProviderCSPRegions", ["funderTreeWithDelegates","providerCSPRegions","sortProviderRecords"], _syntheticProviderCSPRegions);
-  main.variable(observer()).define(["syntheticProviderCSPRegions","button","minerRegionsCSPReport"], _40);
+  main.variable(observer()).define(["syntheticProviderCSPRegions","button","minerRegionsCSPReport"], _46);
   main.variable(observer("providerRegions")).define("providerRegions", ["d3","minerRegionsReport"], _providerRegions);
   main.variable(observer("syntheticProviderRegions")).define("syntheticProviderRegions", ["funderTreeWithDelegates","providerRegions","sortProviderRecords"], _syntheticProviderRegions);
-  main.variable(observer()).define(["syntheticProviderRegions","button","minerRegionsReport"], _43);
-  main.variable(observer()).define(["md"], _44);
+  main.variable(observer()).define(["syntheticProviderRegions","button","minerRegionsReport"], _49);
+  main.variable(observer()).define(["md"], _50);
   main.variable(observer("providerCSPLocations")).define("providerCSPLocations", ["d3","minerLocationsCSPReport"], _providerCSPLocations);
   main.variable(observer("syntheticProviderCSPLocations")).define("syntheticProviderCSPLocations", ["funderTreeWithDelegates","providerCSPLocations","sortProviderRecords"], _syntheticProviderCSPLocations);
-  main.variable(observer()).define(["syntheticProviderCSPLocations","button","minerLocationsCSPReport"], _47);
+  main.variable(observer()).define(["syntheticProviderCSPLocations","button","minerLocationsCSPReport"], _53);
   main.variable(observer("providerLocations")).define("providerLocations", ["d3","minerLocationsReport"], _providerLocations);
   main.variable(observer("syntheticProviderLocations")).define("syntheticProviderLocations", ["funderTreeWithDelegates","providerLocations","sortProviderRecords"], _syntheticProviderLocations);
-  main.variable(observer()).define(["syntheticProviderLocations","button","minerLocationsReport"], _50);
-  main.variable(observer()).define(["md"], _51);
+  main.variable(observer()).define(["syntheticProviderLocations","button","minerLocationsReport"], _56);
+  main.variable(observer()).define(["md"], _57);
   const child2 = runtime.module(define2);
   main.import("minerPowerDailyAverageLatestBucketUrl", child2);
   main.variable(observer("minerPowerDailyAverageReport")).define("minerPowerDailyAverageReport", ["minerPowerDailyAverageLatestBucketUrl"], _minerPowerDailyAverageReport);
   main.variable(observer("minerPowerLatestReport")).define("minerPowerLatestReport", ["minerPowerDailyAverageLatestBucketUrl"], _minerPowerLatestReport);
   const child3 = runtime.module(define2);
   main.import("geoIpLookupsBucketUrl", child3);
-  main.variable(observer()).define(["geoIpLookupsBucketUrl"], _56);
+  main.variable(observer()).define(["geoIpLookupsBucketUrl"], _62);
   main.variable(observer("minerRegionsReport")).define("minerRegionsReport", ["geoIpLookupsBucketUrl"], _minerRegionsReport);
   main.variable(observer("minerRegionsCSPReport")).define("minerRegionsCSPReport", ["geoIpLookupsBucketUrl"], _minerRegionsCSPReport);
   main.variable(observer("minerLocationsReport")).define("minerLocationsReport", ["geoIpLookupsBucketUrl"], _minerLocationsReport);
@@ -512,10 +565,10 @@ export default function define(runtime, observer) {
   const child6 = runtime.module(define5);
   main.import("dateToEpoch", child6);
   main.import("epochToDate", child6);
-  main.variable(observer()).define(["md"], _67);
+  main.variable(observer()).define(["md"], _73);
   const child7 = runtime.module(define6);
   main.import("backups", child7);
   main.import("backupNowButton", child7);
-  main.variable(observer()).define(["backups"], _69);
+  main.variable(observer()).define(["backups"], _75);
   return main;
 }

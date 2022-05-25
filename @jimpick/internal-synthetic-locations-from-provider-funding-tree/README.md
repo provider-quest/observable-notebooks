@@ -1,6 +1,6 @@
 # Internal: Synthetic Locations from Provider Funding Tree [Provider.Quest]
 
-https://observablehq.com/@jimpick/internal-synthetic-locations-from-provider-funding-tree@744
+https://observablehq.com/@jimpick/internal-synthetic-locations-from-provider-funding-tree@770
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/f942e8efd6084ede@744.tgz?v=3
+npm install https://api.observablehq.com/d/f942e8efd6084ede@770.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
