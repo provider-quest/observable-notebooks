@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@222
+// https://observablehq.com/@jimpick/provider-quest-feeds@230
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -94,22 +94,30 @@ Inputs.table(Object.entries(asksSubsetLatest.miners).map(([miner, ask]) => ({min
 function _18(md,dealsBucketUrl){return(
 md`## Deals
 
-* Textile Bucket: [deals](${dealsBucketUrl})
+* Provider.Quest IPFS Gateway: [deals](${dealsBucketUrl})
 `
 )}
 
-function _dealsBucketUrl()
+function _dealsBucketUrl(){return(
+"https://deals.feeds.provider.quest/"
+)}
+
+function _dealsBucketUrlTextile()
 {
-  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/deals'
+  return 'Deprecated'
   // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidhnns26omq6a3y4jdixo7nqvb27wn7otfowohei5zibupvh7d2hq/'
 }
 
 
-function _20(md){return(
+function _dealsBucketUrlAmazon(){return(
+"https://provider-quest.s3.us-west-2.amazonaws.com/dist/deals"
+)}
+
+function _22(md){return(
 md`## Miner Power`
 )}
 
-function _21(md,minerPowerDailyAverageLatestBucketUrl,minerPowerMultidayAverageLatestBucketUrl){return(
+function _23(md,minerPowerDailyAverageLatestBucketUrl,minerPowerMultidayAverageLatestBucketUrl){return(
 md`
 * [miner-power-daily-average-latest](${minerPowerDailyAverageLatestBucketUrl})
 * [miner-power-multiday-average-latest](${minerPowerMultidayAverageLatestBucketUrl})
@@ -130,7 +138,7 @@ function _minerPowerMultidayAverageLatestBucketUrl()
 }
 
 
-function _24(md,dhtAddrsLatestBucketUrl){return(
+function _26(md,dhtAddrsLatestBucketUrl){return(
 md`## DHT Addresses
 
 On a regular basis, peer lookups are made against the DHT (Distributed Hash Table) using the [@jimpick/miner-report-dht-miner-peer-scanner](https://observablehq.com/@jimpick/miner-report-dht-miner-peer-scanner?collection=@jimpick/miner-report) notebook and published here.
@@ -145,7 +153,7 @@ function _dhtAddrsLatestBucketUrl()
 }
 
 
-function _26(md,multiaddrsIpsLatestBucketUrl){return(
+function _28(md,multiaddrsIpsLatestBucketUrl){return(
 md`## Multiaddresses and IP Addresses
 
 The scan data from the "Miner Info" and "DHT Addresses" scans are combined using the [@jimpick/miner-report-multiaddr-ip-tool](https://observablehq.com/@jimpick/miner-report-multiaddr-ip-tool?collection=@jimpick/miner-report) notebook and published here.
@@ -160,7 +168,7 @@ function _multiaddrsIpsLatestBucketUrl()
 }
 
 
-function _28(md,geoIpLookupsBucketUrl){return(
+function _30(md,geoIpLookupsBucketUrl){return(
 md`## GeoIP Lookups
 
 The list of IPs is cross-references with databases to lookup geographic locations. The [MaxMind GeoLite2 scanner notebook](https://observablehq.com/@jimpick/miner-report-maxmind-geolite2-lookups?collection=@jimpick/miner-report) is used to perform lookups against a freely downloadable database.
@@ -175,15 +183,15 @@ function _geoIpLookupsBucketUrl()
 }
 
 
-function _30(md){return(
+function _32(md){return(
 md`## Imports`
 )}
 
-function _32(md){return(
+function _34(md){return(
 md`## Backups`
 )}
 
-function _34(backups){return(
+function _36(backups){return(
 backups()
 )}
 
@@ -208,23 +216,25 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["Inputs","asksSubsetLatest"], _17);
   main.variable(observer()).define(["md","dealsBucketUrl"], _18);
   main.variable(observer("dealsBucketUrl")).define("dealsBucketUrl", _dealsBucketUrl);
-  main.variable(observer()).define(["md"], _20);
-  main.variable(observer()).define(["md","minerPowerDailyAverageLatestBucketUrl","minerPowerMultidayAverageLatestBucketUrl"], _21);
+  main.variable(observer("dealsBucketUrlTextile")).define("dealsBucketUrlTextile", _dealsBucketUrlTextile);
+  main.variable(observer("dealsBucketUrlAmazon")).define("dealsBucketUrlAmazon", _dealsBucketUrlAmazon);
+  main.variable(observer()).define(["md"], _22);
+  main.variable(observer()).define(["md","minerPowerDailyAverageLatestBucketUrl","minerPowerMultidayAverageLatestBucketUrl"], _23);
   main.variable(observer("minerPowerDailyAverageLatestBucketUrl")).define("minerPowerDailyAverageLatestBucketUrl", _minerPowerDailyAverageLatestBucketUrl);
   main.variable(observer("minerPowerMultidayAverageLatestBucketUrl")).define("minerPowerMultidayAverageLatestBucketUrl", _minerPowerMultidayAverageLatestBucketUrl);
-  main.variable(observer()).define(["md","dhtAddrsLatestBucketUrl"], _24);
+  main.variable(observer()).define(["md","dhtAddrsLatestBucketUrl"], _26);
   main.variable(observer("dhtAddrsLatestBucketUrl")).define("dhtAddrsLatestBucketUrl", _dhtAddrsLatestBucketUrl);
-  main.variable(observer()).define(["md","multiaddrsIpsLatestBucketUrl"], _26);
+  main.variable(observer()).define(["md","multiaddrsIpsLatestBucketUrl"], _28);
   main.variable(observer("multiaddrsIpsLatestBucketUrl")).define("multiaddrsIpsLatestBucketUrl", _multiaddrsIpsLatestBucketUrl);
-  main.variable(observer()).define(["md","geoIpLookupsBucketUrl"], _28);
+  main.variable(observer()).define(["md","geoIpLookupsBucketUrl"], _30);
   main.variable(observer("geoIpLookupsBucketUrl")).define("geoIpLookupsBucketUrl", _geoIpLookupsBucketUrl);
-  main.variable(observer()).define(["md"], _30);
+  main.variable(observer()).define(["md"], _32);
   const child1 = runtime.module(define1);
   main.import("quickMenu", child1);
-  main.variable(observer()).define(["md"], _32);
+  main.variable(observer()).define(["md"], _34);
   const child2 = runtime.module(define1);
   main.import("backups", child2);
   main.import("backupNowButton", child2);
-  main.variable(observer()).define(["backups"], _34);
+  main.variable(observer()).define(["backups"], _36);
   return main;
 }
