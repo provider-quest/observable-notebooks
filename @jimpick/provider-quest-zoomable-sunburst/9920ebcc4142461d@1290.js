@@ -1,5 +1,5 @@
 // https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst@1290
-import define1 from "./5cf93b57a7444002@222.js";
+import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
 import define4 from "./450051d7f1174df8@254.js";
