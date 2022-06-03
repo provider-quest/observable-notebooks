@@ -1,6 +1,6 @@
 # Internal: Combiner: Multiaddr => IP Tool [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@196
+https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@197
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/8d92603ee428f323@196.tgz?v=3
+npm install https://api.observablehq.com/d/8d92603ee428f323@197.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:

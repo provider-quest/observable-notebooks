@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@196
+// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@197
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
@@ -231,8 +231,8 @@ function _ip(require){return(
 require('https://bundle.run/ip@1.1.5')
 )}
 
-function _d3TimeFormat(){return(
-import('https://unpkg.com/d3-time-format@4.1.0/src/index.js?module')
+function _d3TimeFormat(require){return(
+require('https://bundle.run/d3-time-format@4.1.0')
 )}
 
 function _25(md){return(
@@ -271,7 +271,7 @@ export default function define(runtime, observer) {
   main.variable(observer("dateFns")).define("dateFns", ["require"], _dateFns);
   main.variable(observer("multiaddr")).define("multiaddr", ["require"], _multiaddr);
   main.variable(observer("ip")).define("ip", ["require"], _ip);
-  main.variable(observer("d3TimeFormat")).define("d3TimeFormat", _d3TimeFormat);
+  main.variable(observer("d3TimeFormat")).define("d3TimeFormat", ["require"], _d3TimeFormat);
   main.variable(observer()).define(["md"], _25);
   const child4 = runtime.module(define2);
   main.import("backups", child4);
