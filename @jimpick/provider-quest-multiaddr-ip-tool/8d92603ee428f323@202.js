@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@200
+// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@202
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
@@ -30,14 +30,14 @@ function _miners(minerInfoSubsetLatest,minTimestamp,dhtAddrsLatest)
 {
   const miners = new Set()
   for (const miner in minerInfoSubsetLatest.miners) {
-    const timestamp = new Date(Date.UTC(minerInfoSubsetLatest.miners[miner].timestamp))
+    const timestamp = new Date(minerInfoSubsetLatest.miners[miner].timestamp)
     if (timestamp < minTimestamp) continue
     if (minerInfoSubsetLatest.miners[miner].multiaddrsDecoded) {
       miners.add(miner)
     }
   }
   for (const miner in dhtAddrsLatest.miners) {
-    const timestamp = new Date(Date.UTC(dhtAddrsLatest.miners[miner].timestamp))
+    const timestamp = new Date(dhtAddrsLatest.miners[miner].timestamp)
     if (timestamp < minTimestamp) continue
     miners.add(miner)
   }
@@ -50,7 +50,7 @@ miners.map(miner => {
   const record = { miner }
   let chain = minerInfoSubsetLatest.miners[miner] && {
     epoch: minerInfoSubsetLatest.miners[miner].epoch,
-    timestamp: new Date(Date.UTC(minerInfoSubsetLatest.miners[miner].timestamp)),
+    timestamp: new Date(minerInfoSubsetLatest.miners[miner].timestamp),
     peerId: minerInfoSubsetLatest.miners[miner].peerId,
     multiaddrs: minerInfoSubsetLatest.miners[miner].multiaddrsDecoded,
     dnsLookups: minerInfoSubsetLatest.miners[miner].dnsLookups
@@ -58,7 +58,7 @@ miners.map(miner => {
   if (chain && chain.timestamp < minTimestamp) chain = null
   let dht = dhtAddrsLatest.miners[miner] && {
     epoch: dhtAddrsLatest.miners[miner].epoch,
-    timestamp: new Date(Date.UTC(dhtAddrsLatest.miners[miner].timestamp)),
+    timestamp: new Date(dhtAddrsLatest.miners[miner].timestamp),
     peerId: dhtAddrsLatest.miners[miner].peerId,
     multiaddrs: dhtAddrsLatest.miners[miner].multiaddrs,
     dnsLookups: dhtAddrsLatest.miners[miner].dnsLookups
