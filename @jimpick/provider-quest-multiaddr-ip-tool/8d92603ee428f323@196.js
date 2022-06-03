@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@195
+// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@196
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
@@ -232,7 +232,7 @@ require('https://bundle.run/ip@1.1.5')
 )}
 
 function _d3TimeFormat(){return(
-import('https://cdn.skypack.dev/d3-time-format@4.1.0?min')
+import('https://unpkg.com/d3-time-format@4.1.0/src/index.js?module')
 )}
 
 function _25(md){return(
