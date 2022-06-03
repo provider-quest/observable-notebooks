@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@197
+// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@199
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
@@ -26,18 +26,18 @@ function _minTimestamp(dateFns){return(
 dateFns.subDays(new Date(), 7)
 )}
 
-function _miners(minerInfoSubsetLatest,d3TimeFormat,minTimestamp,dhtAddrsLatest)
+function _miners(minerInfoSubsetLatest,minTimestamp,dhtAddrsLatest)
 {
   const miners = new Set()
   for (const miner in minerInfoSubsetLatest.miners) {
-    const timestamp = d3TimeFormat.isoParse(minerInfoSubsetLatest.miners[miner].timestamp)
+    const timestamp = new Date(Date.UTC(minerInfoSubsetLatest.miners[miner].timestamp))
     if (timestamp < minTimestamp) continue
     if (minerInfoSubsetLatest.miners[miner].multiaddrsDecoded) {
       miners.add(miner)
     }
   }
   for (const miner in dhtAddrsLatest.miners) {
-    const timestamp = d3TimeFormat.isoParse(dhtAddrsLatest.miners[miner].timestamp)
+    const timestamp = new Date(Date.UTC(dhtAddrsLatest.miners[miner].timestamp))
     if (timestamp < minTimestamp) continue
     miners.add(miner)
   }
@@ -231,15 +231,11 @@ function _ip(require){return(
 require('https://bundle.run/ip@1.1.5')
 )}
 
-function _d3TimeFormat(require){return(
-require('https://bundle.run/d3-time-format@4.1.0')
-)}
-
-function _25(md){return(
+function _24(md){return(
 md`## Backups`
 )}
 
-function _27(backups){return(
+function _26(backups){return(
 backups()
 )}
 
@@ -255,7 +251,7 @@ export default function define(runtime, observer) {
   main.import("dhtAddrsLatestBucketUrl", child2);
   main.variable(observer("dhtAddrsLatest")).define("dhtAddrsLatest", ["dhtAddrsLatestBucketUrl"], _dhtAddrsLatest);
   main.variable(observer("minTimestamp")).define("minTimestamp", ["dateFns"], _minTimestamp);
-  main.variable(observer("miners")).define("miners", ["minerInfoSubsetLatest","d3TimeFormat","minTimestamp","dhtAddrsLatest"], _miners);
+  main.variable(observer("miners")).define("miners", ["minerInfoSubsetLatest","minTimestamp","dhtAddrsLatest"], _miners);
   main.variable(observer("minersCombined")).define("minersCombined", ["miners","minerInfoSubsetLatest","d3","minTimestamp","dhtAddrsLatest"], _minersCombined);
   main.variable(observer("minerMultiaddrs")).define("minerMultiaddrs", ["minersCombined","multiaddr","ip"], _minerMultiaddrs);
   main.variable(observer()).define(["minerMultiaddrs"], _12);
@@ -271,11 +267,10 @@ export default function define(runtime, observer) {
   main.variable(observer("dateFns")).define("dateFns", ["require"], _dateFns);
   main.variable(observer("multiaddr")).define("multiaddr", ["require"], _multiaddr);
   main.variable(observer("ip")).define("ip", ["require"], _ip);
-  main.variable(observer("d3TimeFormat")).define("d3TimeFormat", ["require"], _d3TimeFormat);
-  main.variable(observer()).define(["md"], _25);
+  main.variable(observer()).define(["md"], _24);
   const child4 = runtime.module(define2);
   main.import("backups", child4);
   main.import("backupNowButton", child4);
-  main.variable(observer()).define(["backups"], _27);
+  main.variable(observer()).define(["backups"], _26);
   return main;
 }
