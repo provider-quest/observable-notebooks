@@ -1,5 +1,5 @@
-// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@187
-import define1 from "./5cf93b57a7444002@222.js";
+// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@190
+import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -219,10 +219,6 @@ function _20(md){return(
 md`## Imports`
 )}
 
-function _d3(require){return(
-require("d3@6")
-)}
-
 function _dateFns(require){return(
 require('https://bundle.run/date-fns@2.22.1')
 )}
@@ -235,11 +231,11 @@ function _ip(require){return(
 require('https://bundle.run/ip@1.1.5')
 )}
 
-function _25(md){return(
+function _24(md){return(
 md`## Backups`
 )}
 
-function _27(backups){return(
+function _26(backups){return(
 backups()
 )}
 
@@ -268,14 +264,13 @@ export default function define(runtime, observer) {
   main.variable(observer("oldMultiaddrsIpsIndex")).define("oldMultiaddrsIpsIndex", ["oldMultiaddrsIpsReport"], _oldMultiaddrsIpsIndex);
   main.variable(observer("deltaMultiaddrsIps")).define("deltaMultiaddrsIps", ["minerMultiaddrIps","oldMultiaddrsIpsIndex"], _deltaMultiaddrsIps);
   main.variable(observer()).define(["md"], _20);
-  main.variable(observer("d3")).define("d3", ["require"], _d3);
   main.variable(observer("dateFns")).define("dateFns", ["require"], _dateFns);
   main.variable(observer("multiaddr")).define("multiaddr", ["require"], _multiaddr);
   main.variable(observer("ip")).define("ip", ["require"], _ip);
-  main.variable(observer()).define(["md"], _25);
+  main.variable(observer()).define(["md"], _24);
   const child4 = runtime.module(define2);
   main.import("backups", child4);
   main.import("backupNowButton", child4);
-  main.variable(observer()).define(["backups"], _27);
+  main.variable(observer()).define(["backups"], _26);
   return main;
 }
