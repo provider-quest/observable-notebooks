@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@199
+// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@200
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
@@ -45,12 +45,12 @@ function _miners(minerInfoSubsetLatest,minTimestamp,dhtAddrsLatest)
 }
 
 
-function _minersCombined(miners,minerInfoSubsetLatest,d3,minTimestamp,dhtAddrsLatest){return(
+function _minersCombined(miners,minerInfoSubsetLatest,minTimestamp,dhtAddrsLatest){return(
 miners.map(miner => {
   const record = { miner }
   let chain = minerInfoSubsetLatest.miners[miner] && {
     epoch: minerInfoSubsetLatest.miners[miner].epoch,
-    timestamp: d3.isoParse(minerInfoSubsetLatest.miners[miner].timestamp),
+    timestamp: new Date(Date.UTC(minerInfoSubsetLatest.miners[miner].timestamp)),
     peerId: minerInfoSubsetLatest.miners[miner].peerId,
     multiaddrs: minerInfoSubsetLatest.miners[miner].multiaddrsDecoded,
     dnsLookups: minerInfoSubsetLatest.miners[miner].dnsLookups
@@ -58,7 +58,7 @@ miners.map(miner => {
   if (chain && chain.timestamp < minTimestamp) chain = null
   let dht = dhtAddrsLatest.miners[miner] && {
     epoch: dhtAddrsLatest.miners[miner].epoch,
-    timestamp: d3.isoParse(dhtAddrsLatest.miners[miner].timestamp),
+    timestamp: new Date(Date.UTC(dhtAddrsLatest.miners[miner].timestamp)),
     peerId: dhtAddrsLatest.miners[miner].peerId,
     multiaddrs: dhtAddrsLatest.miners[miner].multiaddrs,
     dnsLookups: dhtAddrsLatest.miners[miner].dnsLookups
@@ -252,7 +252,7 @@ export default function define(runtime, observer) {
   main.variable(observer("dhtAddrsLatest")).define("dhtAddrsLatest", ["dhtAddrsLatestBucketUrl"], _dhtAddrsLatest);
   main.variable(observer("minTimestamp")).define("minTimestamp", ["dateFns"], _minTimestamp);
   main.variable(observer("miners")).define("miners", ["minerInfoSubsetLatest","minTimestamp","dhtAddrsLatest"], _miners);
-  main.variable(observer("minersCombined")).define("minersCombined", ["miners","minerInfoSubsetLatest","d3","minTimestamp","dhtAddrsLatest"], _minersCombined);
+  main.variable(observer("minersCombined")).define("minersCombined", ["miners","minerInfoSubsetLatest","minTimestamp","dhtAddrsLatest"], _minersCombined);
   main.variable(observer("minerMultiaddrs")).define("minerMultiaddrs", ["minersCombined","multiaddr","ip"], _minerMultiaddrs);
   main.variable(observer()).define(["minerMultiaddrs"], _12);
   main.variable(observer("minerMultiaddrIps")).define("minerMultiaddrIps", ["minerMultiaddrs"], _minerMultiaddrIps);
