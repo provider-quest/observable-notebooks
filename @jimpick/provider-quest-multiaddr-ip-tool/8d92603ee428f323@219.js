@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@202
+// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@219
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
@@ -10,11 +10,15 @@ function _2(md){return(
 md`This notebook combines the multiaddrs from the latest on-chain "miner info" records as well as the multiaddrs from the latest DHT scans + DNS lookups. The IP addresses are then extracted from the multiaddrs.`
 )}
 
-async function _minerInfoSubsetLatest(minerInfoSubsetLatestBucketUrl){return(
-(await fetch(`${minerInfoSubsetLatestBucketUrl}/miner-info-subset-latest.json`)).json()
+function _minerInfoSubsetLatestUrl(minerInfoSubsetLatestBucketUrl){return(
+`${minerInfoSubsetLatestBucketUrl}/miner-info-subset-latest.json`
 )}
 
-function _5(minerInfoSubsetLatest){return(
+async function _minerInfoSubsetLatest(minerInfoSubsetLatestUrl){return(
+(await fetch(minerInfoSubsetLatestUrl)).json()
+)}
+
+function _6(minerInfoSubsetLatest){return(
 minerInfoSubsetLatest
 )}
 
@@ -156,7 +160,7 @@ function _minerMultiaddrs(minersCombined,multiaddr,ip)
 }
 
 
-function _12(minerMultiaddrs){return(
+function _13(minerMultiaddrs){return(
 minerMultiaddrs.filter(({ protos }) => protos[0].name === 'dns4')
 )}
 
@@ -182,11 +186,11 @@ function _minerMultiaddrIps(minerMultiaddrs)
 }
 
 
-function _14(Inputs,minerMultiaddrIps){return(
+function _15(Inputs,minerMultiaddrIps){return(
 Inputs.table(minerMultiaddrIps)
 )}
 
-function _15(md){return(
+function _16(md){return(
 md`## Calculate Delta
 
 Compare to previously published data and only output new rows.`
@@ -215,7 +219,7 @@ minerMultiaddrIps.filter(({ miner, maddr, ip, epoch }) => {
 })
 )}
 
-function _20(md){return(
+function _21(md){return(
 md`## Imports`
 )}
 
@@ -231,11 +235,11 @@ function _ip(require){return(
 require('https://bundle.run/ip@1.1.5')
 )}
 
-function _24(md){return(
+function _25(md){return(
 md`## Backups`
 )}
 
-function _26(backups){return(
+function _27(backups){return(
 backups()
 )}
 
@@ -245,8 +249,9 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _2);
   const child1 = runtime.module(define1);
   main.import("minerInfoSubsetLatestBucketUrl", child1);
-  main.variable(observer("minerInfoSubsetLatest")).define("minerInfoSubsetLatest", ["minerInfoSubsetLatestBucketUrl"], _minerInfoSubsetLatest);
-  main.variable(observer()).define(["minerInfoSubsetLatest"], _5);
+  main.variable(observer("minerInfoSubsetLatestUrl")).define("minerInfoSubsetLatestUrl", ["minerInfoSubsetLatestBucketUrl"], _minerInfoSubsetLatestUrl);
+  main.variable(observer("minerInfoSubsetLatest")).define("minerInfoSubsetLatest", ["minerInfoSubsetLatestUrl"], _minerInfoSubsetLatest);
+  main.variable(observer()).define(["minerInfoSubsetLatest"], _6);
   const child2 = runtime.module(define1);
   main.import("dhtAddrsLatestBucketUrl", child2);
   main.variable(observer("dhtAddrsLatest")).define("dhtAddrsLatest", ["dhtAddrsLatestBucketUrl"], _dhtAddrsLatest);
@@ -254,23 +259,23 @@ export default function define(runtime, observer) {
   main.variable(observer("miners")).define("miners", ["minerInfoSubsetLatest","minTimestamp","dhtAddrsLatest"], _miners);
   main.variable(observer("minersCombined")).define("minersCombined", ["miners","minerInfoSubsetLatest","minTimestamp","dhtAddrsLatest"], _minersCombined);
   main.variable(observer("minerMultiaddrs")).define("minerMultiaddrs", ["minersCombined","multiaddr","ip"], _minerMultiaddrs);
-  main.variable(observer()).define(["minerMultiaddrs"], _12);
+  main.variable(observer()).define(["minerMultiaddrs"], _13);
   main.variable(observer("minerMultiaddrIps")).define("minerMultiaddrIps", ["minerMultiaddrs"], _minerMultiaddrIps);
-  main.variable(observer()).define(["Inputs","minerMultiaddrIps"], _14);
-  main.variable(observer()).define(["md"], _15);
+  main.variable(observer()).define(["Inputs","minerMultiaddrIps"], _15);
+  main.variable(observer()).define(["md"], _16);
   const child3 = runtime.module(define1);
   main.import("multiaddrsIpsLatestBucketUrl", child3);
   main.variable(observer("oldMultiaddrsIpsReport")).define("oldMultiaddrsIpsReport", ["multiaddrsIpsLatestBucketUrl"], _oldMultiaddrsIpsReport);
   main.variable(observer("oldMultiaddrsIpsIndex")).define("oldMultiaddrsIpsIndex", ["oldMultiaddrsIpsReport"], _oldMultiaddrsIpsIndex);
   main.variable(observer("deltaMultiaddrsIps")).define("deltaMultiaddrsIps", ["minerMultiaddrIps","oldMultiaddrsIpsIndex"], _deltaMultiaddrsIps);
-  main.variable(observer()).define(["md"], _20);
+  main.variable(observer()).define(["md"], _21);
   main.variable(observer("dateFns")).define("dateFns", ["require"], _dateFns);
   main.variable(observer("multiaddr")).define("multiaddr", ["require"], _multiaddr);
   main.variable(observer("ip")).define("ip", ["require"], _ip);
-  main.variable(observer()).define(["md"], _24);
+  main.variable(observer()).define(["md"], _25);
   const child4 = runtime.module(define2);
   main.import("backups", child4);
   main.import("backupNowButton", child4);
-  main.variable(observer()).define(["backups"], _26);
+  main.variable(observer()).define(["backups"], _27);
   return main;
 }
