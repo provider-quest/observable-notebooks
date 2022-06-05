@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-maxmind-geolite2-lookups@161
+// https://observablehq.com/@jimpick/provider-quest-maxmind-geolite2-lookups@162
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
@@ -44,7 +44,7 @@ function _ips(multiaddrsIpsReport,d3,minTimestamp)
   console.log('Jim1', multiaddrsIpsReport)
   const ips = new Set()
   for (const record of multiaddrsIpsReport.multiaddrsIps) {
-    console.log('Jim2', record, d3.isoParse(record.timestamp), minTimestamp)
+    console.log('Jim2', record, d3.isoParse(record.timestamp), minTimestamp, typeof minTimestamp)
     if (d3.isoParse(record.timestamp) > minTimestamp) {
       ips.add(record.ip)
     }
