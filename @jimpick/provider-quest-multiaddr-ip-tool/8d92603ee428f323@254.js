@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@238
+// https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool@254
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
@@ -43,14 +43,14 @@ function _miners(minerInfoSubsetLatest,minMinerInfoTimestamp,dhtAddrsLatest,minD
   const miners = new Set()
   for (const miner in minerInfoSubsetLatest.miners) {
     const timestamp = new Date(minerInfoSubsetLatest.miners[miner].timestamp)
-    if (timestamp < minMinerInfoTimestamp) continue
+    if (timestamp < new Date(minMinerInfoTimestamp)) continue
     if (minerInfoSubsetLatest.miners[miner].multiaddrsDecoded) {
       miners.add(miner)
     }
   }
   for (const miner in dhtAddrsLatest.miners) {
     const timestamp = new Date(dhtAddrsLatest.miners[miner].timestamp)
-    if (timestamp < minDhtTimestamp) continue
+    if (timestamp < new Date(minDhtTimestamp)) continue
     miners.add(miner)
   }
   return [...miners].sort((a, b) => Number(a.slice(1)) - Number(b.slice(1)))
@@ -67,7 +67,7 @@ miners.map(miner => {
     multiaddrs: minerInfoSubsetLatest.miners[miner].multiaddrsDecoded,
     dnsLookups: minerInfoSubsetLatest.miners[miner].dnsLookups
   }
-  if (chain && chain.timestamp < minMinerInfoTimestamp) chain = null
+  if (chain && chain.timestamp < new Date(minMinerInfoTimestamp)) chain = null
   let dht = dhtAddrsLatest.miners[miner] && {
     epoch: dhtAddrsLatest.miners[miner].epoch,
     timestamp: new Date(dhtAddrsLatest.miners[miner].timestamp),
@@ -75,7 +75,7 @@ miners.map(miner => {
     multiaddrs: dhtAddrsLatest.miners[miner].multiaddrs,
     dnsLookups: dhtAddrsLatest.miners[miner].dnsLookups
   }
-  if (dht && dht.timestamp < minDhtTimestamp) dht = null
+  if (dht && dht.timestamp < new Date(minDhtTimestamp)) dht = null
   if (chain && dht && chain.peerId !== dht.peerId) {
     if (dht.timestamp < chain.timestamp) {
       dht = null
