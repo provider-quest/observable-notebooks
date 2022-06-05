@@ -1,6 +1,6 @@
 # Internal: Scanner: Maxmind GeoLite2 Lookups [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-maxmind-geolite2-lookups@162
+https://observablehq.com/@jimpick/provider-quest-maxmind-geolite2-lookups@168
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/855c0496b7d006ce@162.tgz?v=3
+npm install https://api.observablehq.com/d/855c0496b7d006ce@168.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:

@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-maxmind-geolite2-lookups@162
+// https://observablehq.com/@jimpick/provider-quest-maxmind-geolite2-lookups@168
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
@@ -27,8 +27,12 @@ async function _multiaddrsIpsReport(multiaddrsIpsLatestUrl){return(
 (await fetch(multiaddrsIpsLatestUrl)).json()
 )}
 
-function _minTimestamp(dateFns){return(
-dateFns.subDays(new Date(), 7)
+function _minTimestampString(dateFns){return(
+dateFns.subDays(new Date(), 7).toISOString()
+)}
+
+function _minTimestamp(minTimestampString){return(
+new Date(minTimestampString)
 )}
 
 function _ipsGeoLite2LatestUrl(geoIpLookupsBucketUrl){return(
@@ -195,7 +199,7 @@ async function* _ipsGeoLite2(start,lookupIpsStream,ipsCount)
 }
 
 
-function _22(md){return(
+function _23(md){return(
 md`## License
 
 Apache 2.0
@@ -204,7 +208,7 @@ This product includes GeoLite2 data created by MaxMind, available from <a href="
 `
 )}
 
-function _23(md){return(
+function _24(md){return(
 md`## Imports`
 )}
 
@@ -220,11 +224,11 @@ async function _transform(){return(
 (await import('https://unpkg.com/streaming-iterables?module')).transform
 )}
 
-function _28(md){return(
+function _29(md){return(
 md`## Backups`
 )}
 
-function _30(backups){return(
+function _31(backups){return(
 backups()
 )}
 
@@ -238,7 +242,8 @@ export default function define(runtime, observer) {
   main.import("multiaddrsIpsLatestBucketUrl", child1);
   main.variable(observer("multiaddrsIpsLatestUrl")).define("multiaddrsIpsLatestUrl", ["multiaddrsIpsLatestBucketUrl"], _multiaddrsIpsLatestUrl);
   main.variable(observer("multiaddrsIpsReport")).define("multiaddrsIpsReport", ["multiaddrsIpsLatestUrl"], _multiaddrsIpsReport);
-  main.variable(observer("minTimestamp")).define("minTimestamp", ["dateFns"], _minTimestamp);
+  main.variable(observer("minTimestampString")).define("minTimestampString", ["dateFns"], _minTimestampString);
+  main.variable(observer("minTimestamp")).define("minTimestamp", ["minTimestampString"], _minTimestamp);
   const child2 = runtime.module(define1);
   main.import("geoIpLookupsBucketUrl", child2);
   main.variable(observer("ipsGeoLite2LatestUrl")).define("ipsGeoLite2LatestUrl", ["geoIpLookupsBucketUrl"], _ipsGeoLite2LatestUrl);
@@ -253,18 +258,18 @@ export default function define(runtime, observer) {
   main.variable(observer("lookupIpsStream")).define("lookupIpsStream", ["transform","geoApiBaseUrl","newIps","maxElapsed"], _lookupIpsStream);
   main.variable(observer("ipsCount")).define("ipsCount", ["newIps"], _ipsCount);
   main.variable(observer("ipsGeoLite2")).define("ipsGeoLite2", ["start","lookupIpsStream","ipsCount"], _ipsGeoLite2);
-  main.variable(observer()).define(["md"], _22);
   main.variable(observer()).define(["md"], _23);
+  main.variable(observer()).define(["md"], _24);
   main.variable(observer("d3")).define("d3", ["require"], _d3);
   main.variable(observer("dateFns")).define("dateFns", ["require"], _dateFns);
   main.variable(observer("transform")).define("transform", _transform);
   const child3 = runtime.module(define2);
   main.import("dateToEpoch", child3);
   main.import("epochToDate", child3);
-  main.variable(observer()).define(["md"], _28);
+  main.variable(observer()).define(["md"], _29);
   const child4 = runtime.module(define3);
   main.import("backups", child4);
   main.import("backupNowButton", child4);
-  main.variable(observer()).define(["backups"], _30);
+  main.variable(observer()).define(["backups"], _31);
   return main;
 }
