@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/internal-mapping-storage-provider-to-countrystateprovin@656
+// https://observablehq.com/@jimpick/internal-mapping-storage-provider-to-countrystateprovin@658
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./5cf93b57a7444002@230.js";
 import define3 from "./a957eb792b00ff81@406.js";
@@ -485,6 +485,10 @@ function _72(backups){return(
 backups()
 )}
 
+function _73(backupNowButton){return(
+backupNowButton()
+)}
+
 export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
@@ -581,5 +585,6 @@ export default function define(runtime, observer) {
   main.import("backups", child10);
   main.import("backupNowButton", child10);
   main.variable(observer()).define(["backups"], _72);
+  main.variable(observer()).define(["backupNowButton"], _73);
   return main;
 }

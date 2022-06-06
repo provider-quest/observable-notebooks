@@ -1,6 +1,6 @@
 # Internal: Mapping: Storage Provider to Country/State/Province [Provider.Quest]
 
-https://observablehq.com/@jimpick/internal-mapping-storage-provider-to-countrystateprovin@656
+https://observablehq.com/@jimpick/internal-mapping-storage-provider-to-countrystateprovin@658
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/e98f5037803ae3db@656.tgz?v=3
+npm install https://api.observablehq.com/d/e98f5037803ae3db@658.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
