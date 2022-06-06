@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups@169
+// https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups@177
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./5cf93b57a7444002@230.js";
 import define3 from "./a957eb792b00ff81@406.js";
@@ -8,16 +8,16 @@ function _1(md){return(
 md`# Internal: Scanner: Baidu IP Geo Lookups [Provider.Quest]`
 )}
 
-function _currentEpoch(dateToEpoch){return(
-dateToEpoch(new Date())
+function _currentEpoch(){return(
+78000
 )}
 
 function _currentEpochDate(epochToDate,currentEpoch){return(
 epochToDate(currentEpoch).toISOString()
 )}
 
-function _latestIpsGeoLite2ReportUrl(geoIpLookupsBucketUrl){return(
-`${geoIpLookupsBucketUrl}/ips-geolite2-latest.json`
+function _latestIpsGeoLite2ReportUrl(){return(
+`http://localhost:3000/ips-geolite2/ips-geolite2-2020-09-21.json`
 )}
 
 async function _latestIpsGeoLite2Report(latestIpsGeoLite2ReportUrl){return(
@@ -28,8 +28,8 @@ function _chinaIpRecords(latestIpsGeoLite2Report){return(
 Object.entries(latestIpsGeoLite2Report.ipsGeoLite2).map(([ip, record]) => ({ ip, ...record })).filter(({ country }) => country === 'CN')
 )}
 
-function _latestIpsBaiduReportUrl(geoIpLookupsBucketUrl){return(
-`${geoIpLookupsBucketUrl}/ips-baidu-latest.json`
+function _latestIpsBaiduReportUrl(){return(
+`http://localhost:3000/ips-baidu/ips-baidu-2020-09-20.json`
 )}
 
 async function _latestIpsBaiduReport(latestIpsBaiduReportUrl){return(
@@ -44,6 +44,7 @@ chinaIpRecords.filter(({ ip: ipAddress }) => {
   const baidu = latestIpsBaiduReport.ipsBaidu[ipAddress]
   if (baidu) {
     if (baidu.baidu && baidu.baidu.status !== 0) {
+      if (baidu.baidu.message.match(/loc failed/)) return false
       return true
     }
     return false 
@@ -53,7 +54,7 @@ chinaIpRecords.filter(({ ip: ipAddress }) => {
 )}
 
 function _maxLookups(){return(
-3
+500
 )}
 
 function _maxElapsed(){return(
@@ -69,11 +70,11 @@ md`We use ObservableHQ "Secrets" and HTTP Basic Auth to prevent the public from 
 )}
 
 function _geoIpBaiduKey(){return(
-''
+'jim'
 )}
 
 function _geoIpBaiduSecret(){return(
-''
+'baidu123'
 )}
 
 function _basicAuthToken(base64,geoIpBaiduKey,geoIpBaiduSecret){return(
@@ -260,14 +261,14 @@ backups()
 export default function define(runtime, observer) {
   const main = runtime.module();
   main.variable(observer()).define(["md"], _1);
-  main.variable(observer("currentEpoch")).define("currentEpoch", ["dateToEpoch"], _currentEpoch);
+  main.variable(observer("currentEpoch")).define("currentEpoch", _currentEpoch);
   main.variable(observer("currentEpochDate")).define("currentEpochDate", ["epochToDate","currentEpoch"], _currentEpochDate);
   const child1 = runtime.module(define1);
   main.import("geoIpLookupsBucketUrl", child1);
-  main.variable(observer("latestIpsGeoLite2ReportUrl")).define("latestIpsGeoLite2ReportUrl", ["geoIpLookupsBucketUrl"], _latestIpsGeoLite2ReportUrl);
+  main.variable(observer("latestIpsGeoLite2ReportUrl")).define("latestIpsGeoLite2ReportUrl", _latestIpsGeoLite2ReportUrl);
   main.variable(observer("latestIpsGeoLite2Report")).define("latestIpsGeoLite2Report", ["latestIpsGeoLite2ReportUrl"], _latestIpsGeoLite2Report);
   main.variable(observer("chinaIpRecords")).define("chinaIpRecords", ["latestIpsGeoLite2Report"], _chinaIpRecords);
-  main.variable(observer("latestIpsBaiduReportUrl")).define("latestIpsBaiduReportUrl", ["geoIpLookupsBucketUrl"], _latestIpsBaiduReportUrl);
+  main.variable(observer("latestIpsBaiduReportUrl")).define("latestIpsBaiduReportUrl", _latestIpsBaiduReportUrl);
   main.variable(observer("latestIpsBaiduReport")).define("latestIpsBaiduReport", ["latestIpsBaiduReportUrl"], _latestIpsBaiduReport);
   main.variable(observer("missingChinaIpRecords")).define("missingChinaIpRecords", ["chinaIpRecords","ip","latestIpsBaiduReport"], _missingChinaIpRecords);
   main.variable(observer("maxLookups")).define("maxLookups", _maxLookups);
