@@ -1,6 +1,6 @@
 // https://observablehq.com/@jimpick/internal-provider-funding-tree-provider-quest-test@704
 import define1 from "./2af990f42af2602f@890.js";
-import define2 from "./5cf93b57a7444002@222.js";
+import define2 from "./5cf93b57a7444002@230.js";
 import define3 from "./13063df7b34879ca@856.js";
 import define4 from "./bedb50933413e557@45.js";
 import define5 from "./c4e4a355c53d2a1a@111.js";
