@@ -397,7 +397,10 @@ import('https://cdn.skypack.dev/pako@2.0.4?min')
 
 export default function define(runtime, observer) {
   const main = runtime.module();
-  const fileAttachments = new Map([["cities1000.txt",new URL("./files/48f2e66dd6e52ed78d605c564cdd723954948b6b830074410da1a9f240311995b6b9b8e8520877cfc45902e41f2602c94362bf073010654c532982cd037aa978",import.meta.url)]]);
+  function toString() { return this.url; }
+  const fileAttachments = new Map([
+    ["cities1000.txt", {url: new URL("./files/48f2e66dd6e52ed78d605c564cdd723954948b6b830074410da1a9f240311995b6b9b8e8520877cfc45902e41f2602c94362bf073010654c532982cd037aa978.txt", import.meta.url), mimeType: "text/plain", toString}]
+  ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
   main.variable(observer()).define(["md","deflatedKb","popBuckets","data","citiesWithH3"], _2);
