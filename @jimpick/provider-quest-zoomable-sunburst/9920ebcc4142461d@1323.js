@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst@1290
+// https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst@1323
 import define1 from "./5cf93b57a7444002@230.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
@@ -320,7 +320,19 @@ function _chart(dateFns,timeScale,$0,partition,data,d3,width,color,arc,radius,$1
 }
 
 
-function _11(chart,slider){return(
+function _11(md){return(
+md`## Raw Data for Selected Date and Data Source`
+)}
+
+function _12(md){return(
+md`**Tip:** You can download the data as a CSV or a JSON file if you click on the "Kebab" (three dots) that appears if you hover to the left of the header column.`
+)}
+
+function _13(Inputs,selectedData){return(
+Inputs.table(selectedData)
+)}
+
+function _14(chart,slider){return(
 chart.update(slider)
 )}
 
@@ -342,17 +354,32 @@ function _selectedDate(dateFns,timeScale,slider){return(
 dateFns.roundToNearestMinutes(timeScale.invert(slider), { nearestTo: 30 })
 )}
 
-function _15(filteredRegionData,selectedDate){return(
+function _18(filteredRegionData,selectedDate){return(
 filteredRegionData(selectedDate)
 )}
 
-function _16(filteredDailyDealsByRegion,selectedDate){return(
+function _19(filteredDailyDealsByRegion,selectedDate){return(
 filteredDailyDealsByRegion(selectedDate)
 )}
 
-function _17(selectedDate){return(
+function _20(selectedDate){return(
 selectedDate
 )}
+
+function _selectedData(partition,data,selectedDate)
+{
+  const selectedRows = []
+  const partionedData = partition(data, selectedDate)
+  partionedData.eachBefore(node => {
+    selectedRows.push({
+      longCode: node.data.longCode,
+      name: node.data.name,
+      value: node.value
+    })
+  })
+  return selectedRows
+}
+
 
 function _partition(d3,filteredRegionData,filteredDailyDealsByRegion,dataSource){return(
 (data, selectedDate) => {
@@ -427,7 +454,7 @@ d3.arc()
     .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
 )}
 
-function _23(md){return(
+function _27(md){return(
 md`## Data`
 )}
 
@@ -446,7 +473,7 @@ function _rows(minerPowerByRegionReport,d3){return(
 minerPowerByRegionReport.rows.map(row => ({ ...row, date: d3.isoParse(row.date) }))
 )}
 
-function _29(md){return(
+function _33(md){return(
 md`See: [@lorenries/encoding-a-date-range-onto-a-slider-with-d3](@https://observablehq.com/@lorenries/encoding-a-date-range-onto-a-slider-with-d3)`
 )}
 
@@ -460,11 +487,11 @@ d3.scaleUtc()
   .range([0, numberOfDays])
 )}
 
-function _32(startDate){return(
+function _36(startDate){return(
 startDate.toISOString()
 )}
 
-function _33(endDate){return(
+function _37(endDate){return(
 endDate.toISOString()
 )}
 
@@ -503,7 +530,7 @@ async function _dailyDealsByRegion(useSyntheticRegions,dealsBucketUrl,d3)
 }
 
 
-function _40(dailyDealsByRegion){return(
+function _44(dailyDealsByRegion){return(
 JSON.stringify(dailyDealsByRegion[0])
 )}
 
@@ -604,7 +631,7 @@ function _filteredDailyDealsByRegion(d3,dailyDealsByRegionWith7DaySums,dateFns){
 selectedDate => d3.index(dailyDealsByRegionWith7DaySums.filter(({ date }) => dateFns.isEqual(date, selectedDate)), d => d.region)
 )}
 
-function _48(md){return(
+function _52(md){return(
 md`## Imports`
 )}
 
@@ -620,7 +647,7 @@ function _dateFns(require){return(
 require('https://bundle.run/date-fns@2.22.1')
 )}
 
-function _57(md){return(
+function _61(md){return(
 md`## Permalink support`
 )}
 
@@ -636,7 +663,7 @@ function _defaultHideNoRegion(params){return(
 'hidenoregion' in params
 )}
 
-function _61(params){return(
+function _65(params){return(
 params
 )}
 
@@ -644,7 +671,7 @@ function _defaultDateIndex(params,agnosticDifferenceInDays,d3,startDate,numberOf
 params.date ? agnosticDifferenceInDays(d3.isoParse(params.date), startDate) : numberOfDays
 )}
 
-function _63(startDate){return(
+function _67(startDate){return(
 startDate
 )}
 
@@ -675,11 +702,11 @@ function _permalink(dateFns,timeScale,slider,dataSource,chartFocus,useSyntheticR
 }
 
 
-function _68(md){return(
+function _72(md){return(
 md`## Backups`
 )}
 
-function _70(backups){return(
+function _74(backups){return(
 backups()
 )}
 
@@ -699,20 +726,24 @@ export default function define(runtime, observer) {
   main.variable(observer("slider")).define("slider", ["Generators", "viewof slider"], (G, _) => G.input(_));
   main.variable(observer()).define(["dateFns","timeScale","slider","md","dateToEpoch","permalink"], _9);
   main.variable(observer("chart")).define("chart", ["dateFns","timeScale","viewof slider","partition","data","d3","width","color","arc","radius","viewof chartFocus","dataSource","bytes"], _chart);
-  main.variable(observer()).define(["chart","slider"], _11);
+  main.variable(observer()).define(["md"], _11);
+  main.variable(observer()).define(["md"], _12);
+  main.variable(observer()).define(["Inputs","selectedData"], _13);
+  main.variable(observer()).define(["chart","slider"], _14);
   main.variable(observer("viewof chartFocus")).define("viewof chartFocus", ["Inputs","defaultChartFocus"], _chartFocus);
   main.variable(observer("chartFocus")).define("chartFocus", ["Generators", "viewof chartFocus"], (G, _) => G.input(_));
   main.variable(observer("data")).define("data", ["_","regionHierarchyReport","options"], _data);
   main.variable(observer("selectedDate")).define("selectedDate", ["dateFns","timeScale","slider"], _selectedDate);
-  main.variable(observer()).define(["filteredRegionData","selectedDate"], _15);
-  main.variable(observer()).define(["filteredDailyDealsByRegion","selectedDate"], _16);
-  main.variable(observer()).define(["selectedDate"], _17);
+  main.variable(observer()).define(["filteredRegionData","selectedDate"], _18);
+  main.variable(observer()).define(["filteredDailyDealsByRegion","selectedDate"], _19);
+  main.variable(observer()).define(["selectedDate"], _20);
+  main.variable(observer("selectedData")).define("selectedData", ["partition","data","selectedDate"], _selectedData);
   main.variable(observer("partition")).define("partition", ["d3","filteredRegionData","filteredDailyDealsByRegion","dataSource"], _partition);
   main.variable(observer("color")).define("color", ["d3","data"], _color);
   main.variable(observer("width")).define("width", _width);
   main.variable(observer("radius")).define("radius", ["width"], _radius);
   main.variable(observer("arc")).define("arc", ["d3","radius"], _arc);
-  main.variable(observer()).define(["md"], _23);
+  main.variable(observer()).define(["md"], _27);
   const child1 = runtime.module(define1);
   main.import("geoIpLookupsBucketUrl", child1);
   main.variable(observer("regionHierarchyReport")).define("regionHierarchyReport", ["geoIpLookupsBucketUrl"], _regionHierarchyReport);
@@ -720,17 +751,17 @@ export default function define(runtime, observer) {
   main.import("minerPowerDailyAverageLatestBucketUrl", child2);
   main.variable(observer("minerPowerByRegionReport")).define("minerPowerByRegionReport", ["useSyntheticRegions","minerPowerDailyAverageLatestBucketUrl"], _minerPowerByRegionReport);
   main.variable(observer("rows")).define("rows", ["minerPowerByRegionReport","d3"], _rows);
-  main.variable(observer()).define(["md"], _29);
+  main.variable(observer()).define(["md"], _33);
   main.variable(observer("numberOfDays")).define("numberOfDays", ["d3","startDate","endDate"], _numberOfDays);
   main.variable(observer("timeScale")).define("timeScale", ["d3","startDate","endDate","numberOfDays"], _timeScale);
-  main.variable(observer()).define(["startDate"], _32);
-  main.variable(observer()).define(["endDate"], _33);
+  main.variable(observer()).define(["startDate"], _36);
+  main.variable(observer()).define(["endDate"], _37);
   main.variable(observer("filteredRows")).define("filteredRows", ["rows","dateFns"], _filteredRows);
   main.variable(observer("filteredRegionData")).define("filteredRegionData", ["d3","filteredRows"], _filteredRegionData);
   const child3 = runtime.module(define1);
   main.import("dealsBucketUrl", child3);
   main.variable(observer("dailyDealsByRegion")).define("dailyDealsByRegion", ["useSyntheticRegions","dealsBucketUrl","d3"], _dailyDealsByRegion);
-  main.variable(observer()).define(["dailyDealsByRegion"], _40);
+  main.variable(observer()).define(["dailyDealsByRegion"], _44);
   main.variable(observer("endDates")).define("endDates", ["rows","minerPowerByRegionReport","dailyDealsByRegion"], _endDates);
   main.variable(observer("endDate")).define("endDate", ["dateFns","endDates"], _endDate);
   main.variable(observer("dailyDealsByRegionIndexed")).define("dailyDealsByRegionIndexed", ["d3","dailyDealsByRegion"], _dailyDealsByRegionIndexed);
@@ -738,7 +769,7 @@ export default function define(runtime, observer) {
   main.variable(observer("firstDateAfterGenesis")).define("firstDateAfterGenesis", ["epochToDate"], _firstDateAfterGenesis);
   main.variable(observer("startDate")).define("startDate", ["dataSource","firstDateAfterGenesis","dailyDealsByRegion"], _startDate);
   main.variable(observer("filteredDailyDealsByRegion")).define("filteredDailyDealsByRegion", ["d3","dailyDealsByRegionWith7DaySums","dateFns"], _filteredDailyDealsByRegion);
-  main.variable(observer()).define(["md"], _48);
+  main.variable(observer()).define(["md"], _52);
   main.variable(observer("d3")).define("d3", ["require"], _d3);
   const child4 = runtime.module(define2);
   main.import("dateToEpoch", child4);
@@ -754,21 +785,21 @@ export default function define(runtime, observer) {
   main.import("quickMenu", child7);
   const child8 = runtime.module(define5);
   main.import("debounce", child8);
-  main.variable(observer()).define(["md"], _57);
+  main.variable(observer()).define(["md"], _61);
   main.variable(observer("params")).define("params", ["URLSearchParams","location"], _params);
   main.variable(observer("defaultDataSource")).define("defaultDataSource", ["params"], _defaultDataSource);
   main.variable(observer("defaultHideNoRegion")).define("defaultHideNoRegion", ["params"], _defaultHideNoRegion);
-  main.variable(observer()).define(["params"], _61);
+  main.variable(observer()).define(["params"], _65);
   main.variable(observer("defaultDateIndex")).define("defaultDateIndex", ["params","agnosticDifferenceInDays","d3","startDate","numberOfDays"], _defaultDateIndex);
-  main.variable(observer()).define(["startDate"], _63);
+  main.variable(observer()).define(["startDate"], _67);
   main.variable(observer("defaultChartFocus")).define("defaultChartFocus", ["params"], _defaultChartFocus);
   main.variable(observer("defaultUseSyntheticRegions")).define("defaultUseSyntheticRegions", ["params"], _defaultUseSyntheticRegions);
   main.variable(observer("useSyntheticRegions")).define("useSyntheticRegions", ["options"], _useSyntheticRegions);
   main.variable(observer("permalink")).define("permalink", ["dateFns","timeScale","slider","dataSource","chartFocus","useSyntheticRegions","options"], _permalink);
-  main.variable(observer()).define(["md"], _68);
+  main.variable(observer()).define(["md"], _72);
   const child9 = runtime.module(define3);
   main.import("backups", child9);
   main.import("backupNowButton", child9);
-  main.variable(observer()).define(["backups"], _70);
+  main.variable(observer()).define(["backups"], _74);
   return main;
 }

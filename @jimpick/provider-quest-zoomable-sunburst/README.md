@@ -1,6 +1,6 @@
 # Zoomable Sunburst [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst@1290
+https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst@1323
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/9920ebcc4142461d@1290.tgz?v=3
+npm install https://api.observablehq.com/d/9920ebcc4142461d@1323.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
