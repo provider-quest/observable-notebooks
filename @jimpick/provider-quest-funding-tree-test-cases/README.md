@@ -1,6 +1,6 @@
-# Internal: Provider Funding Tree Test Cases - Test
+# Internal: Provider Funding Tree Test Cases
 
-https://observablehq.com/@jimpick/provider-quest-funding-tree-test-cases@914
+https://observablehq.com/@jimpick/provider-quest-funding-tree-test-cases@916
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/2af990f42af2602f@914.tgz?v=3
+npm install https://api.observablehq.com/d/2af990f42af2602f@916.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
