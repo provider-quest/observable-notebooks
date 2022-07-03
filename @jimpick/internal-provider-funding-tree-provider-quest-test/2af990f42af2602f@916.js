@@ -1,11 +1,11 @@
-// https://observablehq.com/@jimpick/provider-quest-funding-tree-test-cases@890
+// https://observablehq.com/@jimpick/provider-quest-funding-tree-test-cases@916
 import define1 from "./8830e2b8532e91c3@857.js";
 import define2 from "./13063df7b34879ca@856.js";
 import define3 from "./5432439324f2c616@262.js";
 import define4 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
-md`# Internal: Provider Funding Tree Test Cases [Provider.Quest]`
+md`# Internal: Provider Funding Tree Test Cases`
 )}
 
 function _selected(Inputs,targets,params){return(
@@ -20,12 +20,20 @@ function _path(getPath,targetPath){return(
 getPath(targetPath)
 )}
 
+function _5(md){return(
+md`Note: Reduce the amount of data in the tree to make tests faster.`
+)}
+
+function _limitLeaves(){return(
+50
+)}
+
 function _showDelegates(Inputs){return(
 Inputs.toggle({ label: 'Show delegates', value: false })
 )}
 
-function _tree(getTree,fundingTree,path,selected){return(
-getTree(fundingTree, path.path, {
+function _tree(getTree,fundingTreeWithLimits,path,selected){return(
+getTree(fundingTreeWithLimits, path.path, {
   displayDepth: selected.displayDepth ? selected.displayDepth : 8,
   minXAdjust: selected.minXAdjust ? selected.minXAdjust : 50,
   dx: selected.dx ? selected.dx : 20,
@@ -33,11 +41,11 @@ getTree(fundingTree, path.path, {
 })
 )}
 
-function _7(md,selectedNode){return(
+function _9(md,selectedNode){return(
 md`### Selected: ${selectedNode.data.id}`
 )}
 
-function _8(firstAncestorWithRegions,selectedNode,powerFromNode,md,bytes)
+function _10(firstAncestorWithRegions,selectedNode,powerFromNode,md,bytes)
 {
   const ancestor = firstAncestorWithRegions(selectedNode)
   const totalPower = powerFromNode(ancestor)
@@ -50,14 +58,14 @@ function _matchedDelegate(matchDelegate,selectedNode){return(
 matchDelegate(selectedNode)
 )}
 
-function _10(md){return(
+function _12(md){return(
 md`Possible delegates:`
 )}
 
-function _11(Inputs,delegates,bytes){return(
+function _13(Inputs,delegates,bytes){return(
 Inputs.table(delegates, {
   format: {
-    qualityAdjPower: p => bytes(p, { mode: 'binary' }),
+    maxRawBytePower: p => bytes(p, { mode: 'binary' }),
     scaledPower: p => bytes(p, { mode: 'binary' })
   },
   rows: 30
@@ -86,7 +94,7 @@ function _targetPath(fundingTree,selected){return(
 fundingTree.find(d => d.data.id === selected.id).ancestors().map(d => d.data.id).reverse().slice(1).join('/')
 )}
 
-function _16(md){return(
+function _18(md){return(
 md`## Selected Subtrees`
 )}
 
@@ -97,14 +105,15 @@ function _targets(){return(
   { id: 'f01038' },
   { id: 'f01062', displayDepth: 8, minXAdjust: 0, width: 1000 },
   { id: 'f035300' },
-  { id: 'f03637' },
+  // { id: 'f03637' },
   { id: 'f023836' },
-  { id: 'f084877', displayDepth: 9 },
-  { id: 'f035474' }
+  // { id: 'f084877', displayDepth: 9 },
+  { id: 'f035474' },
+  { id: 'f0110' }
 ]
 )}
 
-function _18(md){return(
+function _20(md){return(
 md`# Delegation Functions`
 )}
 
@@ -156,9 +165,11 @@ function coverage (node) {
       withRegion += branchWithRegion
     }
   } else {
-    total += node.data.qualityAdjPower
-    if (node.data.regions) {
-      withRegion += node.data.qualityAdjPower
+    if (node.data.maxRawBytePower) {
+      total += node.data.maxRawBytePower
+      if (node.data.regions) {
+        withRegion += node.data.maxRawBytePower
+      }
     }
   }
   return [total, withRegion]
@@ -169,7 +180,9 @@ function _powerFromNode(){return(
 function powerFromNode (node) {
   let totalPower = 0
   for (const provider of node.leaves()) {
-    totalPower += provider.data.qualityAdjPower
+    if (provider.data.maxRawBytePower) {
+      totalPower += provider.data.maxRawBytePower
+    }
   }
   return totalPower
 }
@@ -201,7 +214,13 @@ function getFillFactor (node) {
   const coveredTotalPower = partitions.reduce(
     (acc, {totalPower, coveredPower}) => coveredPower ? acc + totalPower : acc, 0
   )
+  if (coveredTotalPower == 0.0) {
+    return 1
+  }
   const fillFactor = totalPower / coveredTotalPower
+  if (isNaN(fillFactor)) {
+    throw new Error(`isNaN fillFactor, Node: ${node.id}`)
+  }
   return fillFactor
 }
 )}
@@ -209,15 +228,21 @@ function getFillFactor (node) {
 function _getDelegates(firstAncestorWithRegions,childrenWithRegions,fillFactor){return(
 function getDelegates (node) {
   const ancestor = firstAncestorWithRegions(node)
+  if (!ancestor) {
+    return []
+  }
   const delegates = childrenWithRegions(ancestor)
+    .filter(d => {
+      return d.data.maxRawBytePower > 0
+    })
     .map(d => {
       const f = fillFactor(ancestor, d)
       return {
         regions: d.data.regions.join(','),
         id: d.data.miner_id,
-        qualityAdjPower: d.data.qualityAdjPower,
+        maxRawBytePower: d.data.maxRawBytePower,
         fillFactor: f,
-        scaledPower: d.data.qualityAdjPower * f
+        scaledPower: d.data.maxRawBytePower * f
       }
     })
     .sort((a, b) => {
@@ -233,7 +258,6 @@ function _hashProviderId(){return(
 async function hashProviderId (id) {
   const encoder = new TextEncoder()
   const data = encoder.encode(id)
-  console.log('Jim1', id, crypto.subtle)
   const hash = await crypto.subtle.digest('SHA-256', data)
   const hash2Bytes = new Uint8Array(hash.slice(0,2))
   return hash2Bytes[0] * 256 + hash2Bytes[1]
@@ -269,7 +293,7 @@ async function getTreeWithDelegates (tree) {
 }
 )}
 
-function _30(md){return(
+function _32(md){return(
 md`# Visualization Functions`
 )}
 
@@ -299,6 +323,7 @@ function getPath (pathStr) {
 function _getTree(selectPath,topOfTree,getTreeWithDelegates,Tree2,d3,bytes,showDelegates){return(
 async function getTree (tree, path, { displayDepth = 3, minXAdjust = 100, dx = 10 }) {
   const selectedSubtree = selectPath(tree, path)
+  console.log('selectedSubtree', tree, path, selectedSubtree)
   const prunedTree = topOfTree(selectedSubtree, displayDepth)
   const prunedTreeWithDelegates = await getTreeWithDelegates(prunedTree)
   
@@ -315,12 +340,12 @@ async function getTree (tree, path, { displayDepth = 3, minXAdjust = 100, dx = 1
       const regions = d.data.children && d.data.children.regions.sort()
       return (
         (d.data.miner_id ?
-         `SP: ${d.data.miner_id} - ${bytes(d.data.qualityAdjPower, { mode: 'binary' })}` : d.data.id) +
+         `SP: ${d.data.miner_id} - ${bytes(d.data.maxRawBytePower, { mode: 'binary' })}` : d.data.id) +
         (d.data.regions ?
          ` - ${d.data.regions.join(', ')}` : '') +
         (d.data.children ?
          ` ... ${d.data.children.count} SPs, ` +
-         `${bytes(d.data.children.qualityAdjPower, { mode: 'binary' })}, ` +
+         `${bytes(d.data.children.maxRawBytePower, { mode: 'binary' })}, ` +
          `${regions.length > 0 ? regions.join(', ') : 'No regions'}` +
          ` - ${(d.data.children.coveredCount / d.data.children.count * 100).toFixed(1)}%`
         : '')
@@ -356,7 +381,15 @@ async function getTree (tree, path, { displayDepth = 3, minXAdjust = 100, dx = 1
 )}
 
 function _fundingTreeData(FileAttachment){return(
-FileAttachment("funder-tree.json").json()
+FileAttachment("funder-tree-base@3.json").json()
+)}
+
+function _36(Inputs,fundingTreeData){return(
+Inputs.table(fundingTreeData)
+)}
+
+function _37(fundingTreeData){return(
+fundingTreeData.find(({ id }) => id === 'f010257')
 )}
 
 function _stratify(d3){return(
@@ -369,9 +402,37 @@ function _fundingTree(stratify,fundingTreeData){return(
 stratify(fundingTreeData)
 )}
 
-function _37(fundingTree){return(
-fundingTree.children
-)}
+function _40(fundingTree)
+{
+  let count = 0
+  for (const descendant of fundingTree) {
+    count++
+  }
+  return count
+}
+
+
+function _fundingTreeWithLimits(fundingTree,limitLeaves)
+{
+  const newTree = fundingTree.copy()
+  newTree.eachBefore(node => {
+    if (node?.children?.length > limitLeaves) {
+      node.children.length = limitLeaves
+    }
+  })
+  return newTree
+}
+
+
+function _42(fundingTreeWithLimits)
+{
+  let count = 0
+  for (const descendant of fundingTreeWithLimits) {
+    count++
+  }
+  return count
+}
+
 
 function _selectPath(){return(
 function selectPath (tree, path) {
@@ -417,7 +478,7 @@ function (tree, levels) {
         data.children = {
           count: descendant.count().value,
           coveredCount,
-          qualityAdjPower: descendant.sum(d => d.qualityAdjPower).value,
+          maxRawBytePower: descendant.sum(d => d.maxRawBytePower).value,
           regions: [...regions]
         }
       }
@@ -428,7 +489,7 @@ function (tree, levels) {
 }
 )}
 
-function _40(md){return(
+function _46(md){return(
 md`## Imports and Data`
 )}
 
@@ -436,7 +497,7 @@ async function _bytes(){return(
 (await import('https://unpkg.com/@jimpick/bytes-iec@3.1.0-2?module')).default
 )}
 
-function _45(md){return(
+function _51(md){return(
 md`Modified from \`@d3/tree\``
 )}
 
@@ -583,11 +644,11 @@ function _permalink(selected)
 }
 
 
-function _49(md){return(
+function _55(md){return(
 md`## Backups`
 )}
 
-function _51(backups){return(
+function _57(backups){return(
 backups()
 )}
 
@@ -595,7 +656,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["funder-tree.json", {url: new URL("./files/76cebeed9cdd52ef778d277888d4ab2e9c65012a45ea3a7fa87ee3d463f1981c0804a3d90a7a9ddfccb2a6ce5379a5e42ef69dccd3099c9769d5d44105d527db", import.meta.url), mimeType: "application/json", toString}]
+    ["funder-tree-base@3.json", {url: new URL("./files/35b4cc5c844b501dedafd98c521de93fed5ad7625a70d5fc7362b4385fe5d3abe7f2243916a49c5cfa739dbd54d6004f4ab0656674bb0a02d741cbb0a73f86a1.json", import.meta.url), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
@@ -603,22 +664,24 @@ export default function define(runtime, observer) {
   main.variable(observer("selected")).define("selected", ["Generators", "viewof selected"], (G, _) => G.input(_));
   main.variable(observer()).define(["md","permalink"], _3);
   main.variable(observer("path")).define("path", ["getPath","targetPath"], _path);
+  main.variable(observer()).define(["md"], _5);
+  main.variable(observer("limitLeaves")).define("limitLeaves", _limitLeaves);
   main.variable(observer("viewof showDelegates")).define("viewof showDelegates", ["Inputs"], _showDelegates);
   main.variable(observer("showDelegates")).define("showDelegates", ["Generators", "viewof showDelegates"], (G, _) => G.input(_));
-  main.variable(observer("viewof tree")).define("viewof tree", ["getTree","fundingTree","path","selected"], _tree);
+  main.variable(observer("viewof tree")).define("viewof tree", ["getTree","fundingTreeWithLimits","path","selected"], _tree);
   main.variable(observer("tree")).define("tree", ["Generators", "viewof tree"], (G, _) => G.input(_));
-  main.variable(observer()).define(["md","selectedNode"], _7);
-  main.variable(observer()).define(["firstAncestorWithRegions","selectedNode","powerFromNode","md","bytes"], _8);
+  main.variable(observer()).define(["md","selectedNode"], _9);
+  main.variable(observer()).define(["firstAncestorWithRegions","selectedNode","powerFromNode","md","bytes"], _10);
   main.variable(observer("matchedDelegate")).define("matchedDelegate", ["matchDelegate","selectedNode"], _matchedDelegate);
-  main.variable(observer()).define(["md"], _10);
-  main.variable(observer()).define(["Inputs","delegates","bytes"], _11);
+  main.variable(observer()).define(["md"], _12);
+  main.variable(observer()).define(["Inputs","delegates","bytes"], _13);
   main.variable(observer("delegates")).define("delegates", ["getDelegates","selectedNode"], _delegates);
   main.variable(observer("totalScaledPower")).define("totalScaledPower", ["bytes","delegates"], _totalScaledPower);
   main.variable(observer("selectedNode")).define("selectedNode", ["tree","viewof tree"], _selectedNode);
   main.variable(observer("targetPath")).define("targetPath", ["fundingTree","selected"], _targetPath);
-  main.variable(observer()).define(["md"], _16);
-  main.variable(observer("targets")).define("targets", _targets);
   main.variable(observer()).define(["md"], _18);
+  main.variable(observer("targets")).define("targets", _targets);
+  main.variable(observer()).define(["md"], _20);
   main.variable(observer("childrenWithRegions")).define("childrenWithRegions", _childrenWithRegions);
   main.variable(observer("firstAncestorWithRegions")).define("firstAncestorWithRegions", ["childrenWithRegions"], _firstAncestorWithRegions);
   main.variable(observer("fillFactor")).define("fillFactor", ["getFillFactor"], _fillFactor);
@@ -630,16 +693,20 @@ export default function define(runtime, observer) {
   main.variable(observer("hashProviderId")).define("hashProviderId", _hashProviderId);
   main.variable(observer("matchDelegate")).define("matchDelegate", ["getDelegates","hashProviderId"], _matchDelegate);
   main.variable(observer("getTreeWithDelegates")).define("getTreeWithDelegates", ["matchDelegate"], _getTreeWithDelegates);
-  main.variable(observer()).define(["md"], _30);
+  main.variable(observer()).define(["md"], _32);
   main.variable(observer("getPath")).define("getPath", ["md"], _getPath);
   main.variable(observer("getTree")).define("getTree", ["selectPath","topOfTree","getTreeWithDelegates","Tree2","d3","bytes","showDelegates"], _getTree);
   main.variable(observer("fundingTreeData")).define("fundingTreeData", ["FileAttachment"], _fundingTreeData);
+  main.variable(observer()).define(["Inputs","fundingTreeData"], _36);
+  main.variable(observer()).define(["fundingTreeData"], _37);
   main.variable(observer("stratify")).define("stratify", ["d3"], _stratify);
   main.variable(observer("fundingTree")).define("fundingTree", ["stratify","fundingTreeData"], _fundingTree);
-  main.variable(observer()).define(["fundingTree"], _37);
+  main.variable(observer()).define(["fundingTree"], _40);
+  main.variable(observer("fundingTreeWithLimits")).define("fundingTreeWithLimits", ["fundingTree","limitLeaves"], _fundingTreeWithLimits);
+  main.variable(observer()).define(["fundingTreeWithLimits"], _42);
   main.variable(observer("selectPath")).define("selectPath", _selectPath);
   main.variable(observer("topOfTree")).define("topOfTree", ["stratify"], _topOfTree);
-  main.variable(observer()).define(["md"], _40);
+  main.variable(observer()).define(["md"], _46);
   main.variable(observer("bytes")).define("bytes", _bytes);
   const child1 = runtime.module(define1);
   main.import("graph", "graph2", child1);
@@ -647,14 +714,14 @@ export default function define(runtime, observer) {
   main.import("graph", child2);
   const child3 = runtime.module(define3);
   main.import("Tree", child3);
-  main.variable(observer()).define(["md"], _45);
+  main.variable(observer()).define(["md"], _51);
   main.variable(observer("Tree2")).define("Tree2", ["d3"], _Tree2);
   main.variable(observer("params")).define("params", ["URLSearchParams","location"], _params);
   main.variable(observer("permalink")).define("permalink", ["selected"], _permalink);
-  main.variable(observer()).define(["md"], _49);
+  main.variable(observer()).define(["md"], _55);
   const child4 = runtime.module(define4);
   main.import("backups", child4);
   main.import("backupNowButton", child4);
-  main.variable(observer()).define(["backups"], _51);
+  main.variable(observer()).define(["backups"], _57);
   return main;
 }
