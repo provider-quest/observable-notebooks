@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/internal-synthetic-locations-from-provider-funding-tree-b",
+  "main": "5e45845d0e219395@772.js",
+  "version": "772.0.0",
+  "homepage": "https://observablehq.com/@jimpick/internal-synthetic-locations-from-provider-funding-tree-b",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
