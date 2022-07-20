@@ -1,5 +1,5 @@
-// https://observablehq.com/@jimpick/provider-quest-miners-on-a-global-map@771
-import define1 from "./5cf93b57a7444002@230.js";
+// https://observablehq.com/@jimpick/provider-quest-miners-on-a-global-map@773
+import define1 from "./5cf93b57a7444002@246.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -98,7 +98,7 @@ new deck.HexagonLayer({
   getPosition: d => [d.longitude, d.latitude],
   getElevationWeight: d => d.qualityAdjPower,
   elevationAggregation: 'SUM',
-  elevationScale: 400,
+  elevationScale: 2000,
   opacity: 0.6,
   colorRange: [
       [0, 170, 0, 255],
