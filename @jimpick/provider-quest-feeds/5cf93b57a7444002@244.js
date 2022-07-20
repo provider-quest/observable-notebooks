@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@241
+// https://observablehq.com/@jimpick/provider-quest-feeds@244
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -90,7 +90,7 @@ md`## Asks
 
 function _asksSubsetLatestBucketUrl()
 {
-  return 'https://asks.feeds.provider.quest/asks-subset-latest.json'
+  return 'https://asks.feeds.provider.quest/'
   // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/asks-subset-latest'
   // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidg5ygzrk4oxusmopijf7wqxibmm3sktkkhuz7sfecextyuvifx7y'
 }
@@ -107,7 +107,7 @@ Inputs.table(Object.entries(asksSubsetLatest.miners).map(([miner, ask]) => ({min
 function _21(md,dealsBucketUrl){return(
 md`## Deals
 
-* Provider.Quest IPFS Gateway: [deals](${dealsBucketUrl})
+* IPFS: [/ipns/deals.feeds.provider.quest](${dealsBucketUrl})
 `
 )}
 
