@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@244
+// https://observablehq.com/@jimpick/provider-quest-feeds@246
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -186,12 +186,13 @@ md`## GeoIP Lookups
 
 The list of IPs is cross-references with databases to lookup geographic locations. The [MaxMind GeoLite2 scanner notebook](https://observablehq.com/@jimpick/miner-report-maxmind-geolite2-lookups?collection=@jimpick/miner-report) is used to perform lookups against a freely downloadable database.
 
-* Textile Bucket: [geoip-lookups](${geoIpLookupsBucketUrl})`
+* IPFS: [/ipns/geoip.feeds.provider.quest](${geoIpLookupsBucketUrl})`
 )}
 
 function _geoIpLookupsBucketUrl()
 {
-  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/geoip-lookups'
+  return 'https://geoip.feeds.provider.quest/'
+  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/geoip-lookups'
   // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeibjg7kky45npdwnogui5ffla7dint62xpttvvlzrsbewlrfmbusya'
 }
 
