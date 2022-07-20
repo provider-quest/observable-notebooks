@@ -1436,7 +1436,7 @@ function _publicStatusPane(view,liveCoding,md,createChannel,getCorrelation){retu
         liveCoding({
           namespace,
           endpoint,
-          livecode: options.livecode,
+          livecode: options.livecode || options.livecode === "PUBLIC",
           livecodepublic: options.livecode === "PUBLIC"
         })
       ]}
