@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@239
+// https://observablehq.com/@jimpick/provider-quest-feeds@241
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -84,13 +84,14 @@ Inputs.table(Object.entries(minerInfoSubsetLatest.miners).map(([miner, info]) =>
 function _17(md,asksSubsetLatestBucketUrl){return(
 md`## Asks
 
-* Textile Bucket: [asks-subset-latest](${asksSubsetLatestBucketUrl})
+* IPFS: [/ipns/asks.feeds.provider.quest](${asksSubsetLatestBucketUrl})
 `
 )}
 
 function _asksSubsetLatestBucketUrl()
 {
-  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/asks-subset-latest'
+  return 'https://asks.feeds.provider.quest/asks-subset-latest.json'
+  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/asks-subset-latest'
   // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidg5ygzrk4oxusmopijf7wqxibmm3sktkkhuz7sfecextyuvifx7y'
 }
 
