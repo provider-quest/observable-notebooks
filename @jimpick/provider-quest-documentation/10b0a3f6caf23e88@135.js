@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-documentation@134
+// https://observablehq.com/@jimpick/provider-quest-documentation@135
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -135,6 +135,7 @@ Lots of interesting ObservableHQ notebooks from the Protocol Labs team and other
 * https://observablehq.com/@mrsmkl
 * https://observablehq.com/@alanshaw
 * https://observablehq.com/@starboard
+* https://observablehq.com/@827f69a0d38074d6
 `
 )}
 
