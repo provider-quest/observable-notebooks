@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/ideas-provider-quest@601
+// https://observablehq.com/@jimpick/ideas-provider-quest@602
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -172,6 +172,10 @@ md`Currently we use the free GeoLite2 downloadable database from MaxMind, and we
 * https://geo.ipify.org/
 * https://geotargetly.com/ip-geolocation-api
 * https://www.trustradius.com/ip-geolocation
+* https://stat.ripe.net/app/launchpad
+* https://db-ip.com/
+* https://ipinfo.io/
+* https://www.ip2location.com/
 `
 )}
 
