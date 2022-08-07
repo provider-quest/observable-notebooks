@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@261
+// https://observablehq.com/@jimpick/provider-quest-feeds@270
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -38,12 +38,14 @@ function _9(md){return(
 md`* CSV: https://deals-daily.feeds.provider.quest/deals-daily.csv`
 )}
 
-function _10(md,legacyWorkshopClientBucketUrl){return(
+function _10(legacyWorkshopClientBucketUrl,md){return(
 md`## Legacy Workshop Client
 
 This bucket contains annotations and other metadata from manual deal testing using the [workshop-client-mainnet](https://github.com/jimpick/workshop-client-mainnet) web-based client. Every few days I attempt small deals against all the miners I can find and I record the annotations in a JSON file. This will be gradually replaced with an ObservableHQ/Apache Spark solution.
 
-* Textile Bucket: [legacy-workshop-client](${legacyWorkshopClientBucketUrl})`
+* S3: [legacy-workshop-client/annotations-mainnet.json](${legacyWorkshopClientBucketUrl}/annotations-mainnet.json)
+* S3: [legacy-workshop-client/annotated-miner-indexes.json](${legacyWorkshopClientBucketUrl}/annotated-miner-indexes.json)
+* S3: [legacy-workshop-client/annotated-miner-indexes-excluding-delisted.json](${legacyWorkshopClientBucketUrl}/annotated-miner-indexes-excluding-delisted.json)`
 )}
 
 function _legacyWorkshopClientBucketUrl()
@@ -235,7 +237,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _7);
   main.variable(observer()).define(["md"], _8);
   main.variable(observer()).define(["md"], _9);
-  main.variable(observer()).define(["md","legacyWorkshopClientBucketUrl"], _10);
+  main.variable(observer()).define(["legacyWorkshopClientBucketUrl","md"], _10);
   main.variable(observer("legacyWorkshopClientBucketUrl")).define("legacyWorkshopClientBucketUrl", _legacyWorkshopClientBucketUrl);
   main.variable(observer("annotatedMinerIndexes")).define("annotatedMinerIndexes", ["legacyWorkshopClientBucketUrl"], _annotatedMinerIndexes);
   main.variable(observer("annotatedMinerIndexesExcludingDelisted")).define("annotatedMinerIndexesExcludingDelisted", ["legacyWorkshopClientBucketUrl"], _annotatedMinerIndexesExcludingDelisted);
