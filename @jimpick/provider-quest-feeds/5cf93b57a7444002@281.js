@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@280
+// https://observablehq.com/@jimpick/provider-quest-feeds@281
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -11,7 +11,7 @@ md`${quickMenu}`
 
 function _3(md){return(
 md`
-This is a list of feeds generated continuously by the Provider.Quest system, distributed using [Textile Buckets](https://docs.textile.io/buckets/) and IPFS. Feel free to use this data in your own projects!`
+This is a list of feeds generated continuously by the Provider.Quest system, published to IPFS and IPNS (using DNSLink records). Feel free to use this data in your own projects!`
 )}
 
 function _4(md){return(
