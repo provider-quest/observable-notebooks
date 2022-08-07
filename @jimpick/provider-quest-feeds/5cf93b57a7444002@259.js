@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@255
+// https://observablehq.com/@jimpick/provider-quest-feeds@259
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -168,12 +168,13 @@ md`## DHT Addresses
 
 On a regular basis, peer lookups are made against the DHT (Distributed Hash Table) using the [@jimpick/miner-report-dht-miner-peer-scanner](https://observablehq.com/@jimpick/miner-report-dht-miner-peer-scanner?collection=@jimpick/miner-report) notebook and published here.
 
-* Textile Bucket: [dht-addrs-latest](${dhtAddrsLatestBucketUrl})`
+* IPFS: [/ipns/dht-addrs.feeds.provider.quest](${dhtAddrsLatestBucketUrl})`
 )}
 
 function _dhtAddrsLatestBucketUrl()
 {
-  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/dht-addrs-latest'
+  return 'https://dht-addrs.feeds.provider.quest'
+  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/dht-addrs-latest'
   // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeifpxwjdz5e5mv3tzat7de6uzxfusfqk5flqfrlh7re3ria6bs7ye4/'
 }
 
@@ -183,12 +184,13 @@ md`## Multiaddresses and IP Addresses
 
 The scan data from the "Miner Info" and "DHT Addresses" scans are combined using the [@jimpick/miner-report-multiaddr-ip-tool](https://observablehq.com/@jimpick/miner-report-multiaddr-ip-tool?collection=@jimpick/miner-report) notebook and published here.
 
-* Textile Bucket: [multiaddrs-ips-latest](${multiaddrsIpsLatestBucketUrl})`
+* IPFS: [/ipns/multiaddrs-ips.feeds.provider.quest](${multiaddrsIpsLatestBucketUrl})`
 )}
 
 function _multiaddrsIpsLatestBucketUrl()
 {
-  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/multiaddrs-ips-latest'
+  return 'https://multiaddrs-ips.feeds.provider.quest/'
+  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/multiaddrs-ips-latest'
   // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeia7ab6fddp255zwn3i4r36pp5walbnblkojfhbuesvsxywmvbk3sa'
 }
 
