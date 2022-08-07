@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@259
+// https://observablehq.com/@jimpick/provider-quest-feeds@261
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -74,13 +74,14 @@ md`## Miner Info
 
 Every couple of hours, I collect information about the miners I am tracking from the Lotus API using the [Miner Info Scanner notebook](https://observablehq.com/@jimpick/miner-report-miner-info-scanner). This on-chain data includes information such as PeerIDs and multiaddresses (IP addresses) useful for communicating peer-to-peer with miners.
 
-* Textile Bucket: [miner-info-subset-latest](${minerInfoSubsetLatestBucketUrl}) (Latest miner info only)
+* IPFS: [/ipns/miner-info.feeds.provider.quest](${minerInfoSubsetLatestBucketUrl}) (Latest miner info only)
 `
 )}
 
 function _minerInfoSubsetLatestBucketUrl()
 {
-  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/miner-info-subset-latest'
+  return 'https://miner-info.feeds.provider.quest/'
+  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/miner-info-subset-latest'
   // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeigscdljg5a32b4toh6jkz4h3dczusqd6s3mkt3h5nbwtqmbqmh6mu'
 }
 
