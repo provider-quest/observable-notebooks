@@ -1,6 +1,6 @@
 // https://observablehq.com/@jimpick/provider-quest-storage-provider-to-region-mapper@647
-import define1 from "./5cf93b57a7444002@230.js";
-import define2 from "./5cf93b57a7444002@230.js";
+import define1 from "./5cf93b57a7444002@282.js";
+import define2 from "./5cf93b57a7444002@282.js";
 import define3 from "./a957eb792b00ff81@406.js";
 import define4 from "./c4e4a355c53d2a1a@111.js";
 import define5 from "./13063df7b34879ca@856.js";
@@ -1147,7 +1147,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["china-provinces.json", {url: new URL("./files/a8affb1c22a7bd9298f69e03b29c11e28ce20625c02e3113f73c6a3def582a81f2cc38c2aabe71eca6bbb4abb796ad6f5db02af83a8da5f834dc0955b1418e8c", import.meta.url), mimeType: "application/json", toString}]
+    ["china-provinces.json", {url: new URL("./files/a8affb1c22a7bd9298f69e03b29c11e28ce20625c02e3113f73c6a3def582a81f2cc38c2aabe71eca6bbb4abb796ad6f5db02af83a8da5f834dc0955b1418e8c.json", import.meta.url), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
