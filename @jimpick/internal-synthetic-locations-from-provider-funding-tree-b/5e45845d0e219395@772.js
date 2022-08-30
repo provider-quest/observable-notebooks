@@ -1,6 +1,6 @@
 // https://observablehq.com/@jimpick/internal-synthetic-locations-from-provider-funding-tree-b@772
 import define1 from "./e5c2857605ea9435@904.js";
-import define2 from "./5cf93b57a7444002@230.js";
+import define2 from "./5cf93b57a7444002@282.js";
 import define3 from "./13063df7b34879ca@856.js";
 import define4 from "./bedb50933413e557@45.js";
 import define5 from "./a957eb792b00ff81@406.js";
