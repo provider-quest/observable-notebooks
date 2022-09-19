@@ -1,6 +1,6 @@
 // https://observablehq.com/@jbenet/filecoin-chain-time-calculator@406
 import define1 from "./8d271c22db968ab0@160.js";
-import define2 from "./851cd068c9c12ade@882.js";
+import define2 from "./851cd068c9c12ade@886.js";
 
 function _1(md){return(
 md`# Filecoin Chain Time Calculator`
