@@ -1,9 +1,4 @@
 // https://observablehq.com/@jimpick/provider-quest-funding-tree-test-cases@916
-import define1 from "./8830e2b8532e91c3@857.js";
-import define2 from "./13063df7b34879ca@856.js";
-import define3 from "./5432439324f2c616@262.js";
-import define4 from "./c4e4a355c53d2a1a@111.js";
-
 function _1(md){return(
 md`# Internal: Provider Funding Tree Test Cases`
 )}
@@ -654,6 +649,10 @@ backups()
 
 export default function define(runtime, observer) {
   const main = runtime.module();
+  main.define("module 1", async () => runtime.module((await import("./8830e2b8532e91c3@857.js")).default));
+  main.define("module 2", async () => runtime.module((await import("./13063df7b34879ca@856.js")).default));
+  main.define("module 3", async () => runtime.module((await import("./5432439324f2c616@262.js")).default));
+  main.define("module 4", async () => runtime.module((await import("./c4e4a355c53d2a1a@111.js")).default));
   function toString() { return this.url; }
   const fileAttachments = new Map([
     ["funder-tree-base@3.json", {url: new URL("./files/35b4cc5c844b501dedafd98c521de93fed5ad7625a70d5fc7362b4385fe5d3abe7f2243916a49c5cfa739dbd54d6004f4ab0656674bb0a02d741cbb0a73f86a1.json", import.meta.url), mimeType: "application/json", toString}]
@@ -708,20 +707,16 @@ export default function define(runtime, observer) {
   main.variable(observer("topOfTree")).define("topOfTree", ["stratify"], _topOfTree);
   main.variable(observer()).define(["md"], _46);
   main.variable(observer("bytes")).define("bytes", _bytes);
-  const child1 = runtime.module(define1);
-  main.import("graph", "graph2", child1);
-  const child2 = runtime.module(define2);
-  main.import("graph", child2);
-  const child3 = runtime.module(define3);
-  main.import("Tree", child3);
+  main.define("graph2", ["module 1", "@variable"], (_, v) => v.import("graph", "graph2", _));
+  main.define("graph", ["module 2", "@variable"], (_, v) => v.import("graph", _));
+  main.define("Tree", ["module 3", "@variable"], (_, v) => v.import("Tree", _));
   main.variable(observer()).define(["md"], _51);
   main.variable(observer("Tree2")).define("Tree2", ["d3"], _Tree2);
   main.variable(observer("params")).define("params", ["URLSearchParams","location"], _params);
   main.variable(observer("permalink")).define("permalink", ["selected"], _permalink);
   main.variable(observer()).define(["md"], _55);
-  const child4 = runtime.module(define4);
-  main.import("backups", child4);
-  main.import("backupNowButton", child4);
+  main.define("backups", ["module 4", "@variable"], (_, v) => v.import("backups", _));
+  main.define("backupNowButton", ["module 4", "@variable"], (_, v) => v.import("backupNowButton", _));
   main.variable(observer()).define(["backups"], _57);
   return main;
 }

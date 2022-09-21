@@ -1,6 +1,4 @@
 // https://observablehq.com/@jimpick/provider-quest-utils@111
-import define1 from "./1d309dbd9697e042@631.js";
-
 function _1(md){return(
 md`# Internal: Utils [Provider.Quest]`
 )}
@@ -129,6 +127,7 @@ backupNowButton()
 
 export default function define(runtime, observer) {
   const main = runtime.module();
+  main.define("module 1", async () => runtime.module((await import("./1d309dbd9697e042@631.js")).default));
   main.variable(observer()).define(["md"], _1);
   main.variable(observer()).define(["md"], _2);
   main.variable(observer()).define(["sortMiners"], _3);
@@ -147,9 +146,8 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md","quickMenu"], _16);
   main.variable(observer()).define(["md"], _17);
   main.variable(observer()).define(["md"], _18);
-  const child1 = runtime.module(define1);
-  main.import("enableGithubBackups", child1);
-  main.import("backupNowButton", child1);
+  main.define("enableGithubBackups", ["module 1", "@variable"], (_, v) => v.import("enableGithubBackups", _));
+  main.define("backupNowButton", ["module 1", "@variable"], (_, v) => v.import("backupNowButton", _));
   main.variable(observer("backupView")).define("backupView", ["enableGithubBackups"], _backupView);
   main.variable(observer("backups")).define("backups", ["backupView","md"], _backups);
   main.variable(observer()).define(["backups"], _22);

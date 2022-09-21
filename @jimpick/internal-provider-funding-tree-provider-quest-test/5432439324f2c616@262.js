@@ -1,6 +1,4 @@
 // https://observablehq.com/@d3/tree@262
-import define1 from "./7a9e12f9fb3d8e06@459.js";
-
 function _1(md){return(
 md`# Tree, Tidy
 
@@ -134,6 +132,7 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
 
 export default function define(runtime, observer) {
   const main = runtime.module();
+  main.define("module 1", async () => runtime.module((await import("./7a9e12f9fb3d8e06@459.js")).default));
   function toString() { return this.url; }
   const fileAttachments = new Map([
     ["flare.json", {url: new URL("./files/85b8f86120ba5c8012f55b82fb5af4fcc9ff5e3cf250d110e111b3ab98c32a3fa8f5c19f956e096fbf550c47d6895783a4edf72a9c474bef5782f879573750ba.json", import.meta.url), mimeType: "application/json", toString}]
@@ -144,7 +143,6 @@ export default function define(runtime, observer) {
   main.variable(observer("flare")).define("flare", ["FileAttachment"], _flare);
   main.variable(observer()).define(["howto"], _4);
   main.variable(observer("Tree")).define("Tree", ["d3"], _Tree);
-  const child1 = runtime.module(define1);
-  main.import("howto", child1);
+  main.define("howto", ["module 1", "@variable"], (_, v) => v.import("howto", _));
   return main;
 }
