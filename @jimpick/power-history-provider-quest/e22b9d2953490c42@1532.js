@@ -1,7 +1,4 @@
 // https://observablehq.com/@jimpick/power-history-provider-quest@1532
-import define1 from "./c4e4a355c53d2a1a@111.js";
-import define2 from "./450051d7f1174df8@254.js";
-
 function _1(md){return(
 md`# Power: History [Provider.Quest]`
 )}
@@ -224,6 +221,8 @@ backups()
 
 export default function define(runtime, observer) {
   const main = runtime.module();
+  main.define("module 1", async () => runtime.module((await import("./c4e4a355c53d2a1a@111.js")).default));
+  main.define("module 2", async () => runtime.module((await import("./450051d7f1174df8@254.js")).default));
   main.variable(observer()).define(["md"], _1);
   main.variable(observer()).define(["md"], _2);
   main.variable(observer()).define(["md","quickMenu"], _3);
@@ -247,15 +246,12 @@ export default function define(runtime, observer) {
   main.variable(observer("startTime")).define("startTime", ["geotaggedEvents"], _startTime);
   main.variable(observer("endTime")).define("endTime", ["geotaggedEvents"], _endTime);
   main.variable(observer()).define(["md"], _22);
-  const child1 = runtime.module(define1);
-  main.import("quickMenu", child1);
+  main.define("quickMenu", ["module 1", "@variable"], (_, v) => v.import("quickMenu", _));
   main.variable(observer("dateFns")).define("dateFns", ["require"], _dateFns);
-  const child2 = runtime.module(define2);
-  main.import("Scrubber", child2);
+  main.define("Scrubber", ["module 2", "@variable"], (_, v) => v.import("Scrubber", _));
   main.variable(observer()).define(["md"], _26);
-  const child3 = runtime.module(define1);
-  main.import("backups", child3);
-  main.import("backupNowButton", child3);
+  main.define("backups", ["module 1", "@variable"], (_, v) => v.import("backups", _));
+  main.define("backupNowButton", ["module 1", "@variable"], (_, v) => v.import("backupNowButton", _));
   main.variable(observer()).define(["backups"], _28);
   return main;
 }
