@@ -1,4 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-funding-tree-test-cases@916
+// https://observablehq.com/@jimpick/provider-quest-funding-tree-test-cases@923
 import define1 from "./8830e2b8532e91c3@857.js";
 import define2 from "./13063df7b34879ca@856.js";
 import define3 from "./5432439324f2c616@262.js";
@@ -153,28 +153,31 @@ function fillFactor (topAncestor, provider) {
 }
 )}
 
-function _coverage(){return(
-function coverage (node) {
-  let total = 0
-  let withRegion = 0
-
-  if (node.children) {
-    for (const child of node.children) {
-      const [branchTotal, branchWithRegion] = coverage(child)
-      total += branchTotal
-      withRegion += branchWithRegion
-    }
-  } else {
-    if (node.data.maxRawBytePower) {
-      total += node.data.maxRawBytePower
-      if (node.data.regions) {
-        withRegion += node.data.maxRawBytePower
+function _coverage(_)
+{
+  return _.memoize(coverage)
+  function coverage (node) {
+    let total = 0
+    let withRegion = 0
+  
+    if (node.children) {
+      for (const child of node.children) {
+        const [branchTotal, branchWithRegion] = coverage(child)
+        total += branchTotal
+        withRegion += branchWithRegion
+      }
+    } else {
+      if (node.data.maxRawBytePower) {
+        total += node.data.maxRawBytePower
+        if (node.data.regions) {
+          withRegion += node.data.maxRawBytePower
+        }
       }
     }
+    return [total, withRegion]
   }
-  return [total, withRegion]
 }
-)}
+
 
 function _powerFromNode(){return(
 function powerFromNode (node) {
@@ -685,7 +688,7 @@ export default function define(runtime, observer) {
   main.variable(observer("childrenWithRegions")).define("childrenWithRegions", _childrenWithRegions);
   main.variable(observer("firstAncestorWithRegions")).define("firstAncestorWithRegions", ["childrenWithRegions"], _firstAncestorWithRegions);
   main.variable(observer("fillFactor")).define("fillFactor", ["getFillFactor"], _fillFactor);
-  main.variable(observer("coverage")).define("coverage", _coverage);
+  main.variable(observer("coverage")).define("coverage", ["_"], _coverage);
   main.variable(observer("powerFromNode")).define("powerFromNode", _powerFromNode);
   main.variable(observer("getPartitions")).define("getPartitions", ["coverage"], _getPartitions);
   main.variable(observer("getFillFactor")).define("getFillFactor", ["getPartitions"], _getFillFactor);
