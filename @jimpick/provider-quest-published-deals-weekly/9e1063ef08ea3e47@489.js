@@ -1,4 +1,3 @@
-// https://observablehq.com/@jimpick/provider-quest-published-deals-weekly@481
 import define1 from "./5cf93b57a7444002@282.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
@@ -244,7 +243,11 @@ function _35(md){return(
 md`## Backups`
 )}
 
-function _37(backups){return(
+function _37(backupNowButton){return(
+backupNowButton()
+)}
+
+function _38(backups){return(
 backups()
 )}
 
@@ -290,6 +293,7 @@ export default function define(runtime, observer) {
   const child3 = runtime.module(define2);
   main.import("backups", child3);
   main.import("backupNowButton", child3);
-  main.variable(observer()).define(["backups"], _37);
+  main.variable(observer()).define(["backupNowButton"], _37);
+  main.variable(observer()).define(["backups"], _38);
   return main;
 }

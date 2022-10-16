@@ -4,7 +4,7 @@
   "trashed": false,
   "description": "",
   "likes": 0,
-  "publish_level": "public",
+  "publish_level": "live",
   "forks": 0,
   "fork_of": {
     "id": "a558fb3444ef7dac",
@@ -23,12 +23,12 @@
     },
     "version": 347
   },
-  "update_time": "2022-03-27T03:34:47.853Z",
+  "update_time": "2022-10-16T22:26:04.456Z",
   "publish_time": "2021-08-25T16:28:48.307Z",
-  "publish_version": 481,
-  "latest_version": 481,
-  "thumbnail": "e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361",
-  "default_thumbnail": "e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361",
+  "publish_version": 489,
+  "latest_version": 489,
+  "thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+  "default_thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
   "roles": [],
   "sharing": null,
   "owner": {
@@ -77,8 +77,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361",
-      "thumbnail": "e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361",
+      "default_thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+      "thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -102,7 +102,7 @@
       "node_id": 455,
       "create_time": "2022-03-29T00:29:27.644Z",
       "update_time": null,
-      "resolved": false,
+      "resolved": true,
       "user": {
         "id": "bda4505ba9a55ac8",
         "github_login": "jimpick",
@@ -118,7 +118,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 481,
+  "version": 489,
   "title": "Published Deals: Weekly [Provider.Quest]",
   "license": "apache-2.0",
   "copyright": "Copyright 2021 Jim Pick",
@@ -406,6 +406,14 @@
     {
       "id": 342,
       "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 486,
+      "value": "backupNowButton()",
       "pinned": false,
       "mode": "js",
       "data": null,
