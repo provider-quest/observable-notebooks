@@ -15,6 +15,9 @@ jobs:
           echo 'author:  ${{github.event.client_payload.author}}'
           echo 'id:      ${{github.event.client_payload.id}}'
           echo 'version: ${{github.event.client_payload.version}}'
+          DOCUMENT_URL=$(echo ${{github.event.client_payload.url}} | sed 's,https://observablehq.com,https://api.observablehq.com/document,')
+          echo "doc_url: $DOCUMENT_URL"
+
           # NOTE: api_key parameter not printed for security reasons, but it may be present
           # Download tar from Observable directly (do not echo, may contain API key)
           curl 'https://api.observablehq.com/d/${{github.event.client_payload.id}}@${{github.event.client_payload.version}}.tgz?v=3&api_key=${{github.event.client_payload.api_key}}' > notebook.tgz
