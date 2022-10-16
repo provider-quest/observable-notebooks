@@ -1,1 +1,424 @@
-{"id":"9e1063ef08ea3e47","slug":"provider-quest-published-deals-weekly","trashed":false,"description":"","likes":0,"publish_level":"public","forks":0,"fork_of":{"id":"a558fb3444ef7dac","slug":"provider-quest-published-deals-daily","title":"Published Deals: Daily [Provider.Quest]","owner":{"id":"bda4505ba9a55ac8","github_login":"jimpick","avatar_url":"https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd","login":"jimpick","name":"Jim Pick","bio":"Freelance Filecoin developer in Victoria, Canada","home_url":"https://github.com/jimpick","type":"individual","tier":"pro"},"version":347},"update_time":"2022-03-27T03:34:47.853Z","publish_time":"2021-08-25T16:28:48.307Z","publish_version":481,"latest_version":481,"thumbnail":"e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361","default_thumbnail":"e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361","roles":[],"sharing":null,"owner":{"id":"bda4505ba9a55ac8","github_login":"jimpick","avatar_url":"https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd","login":"jimpick","name":"Jim Pick","bio":"Freelance Filecoin developer in Victoria, Canada","home_url":"https://github.com/jimpick","type":"individual","tier":"pro"},"creator":{"id":"bda4505ba9a55ac8","github_login":"jimpick","avatar_url":"https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd","login":"jimpick","name":"Jim Pick","bio":"Freelance Filecoin developer in Victoria, Canada","home_url":"https://github.com/jimpick","tier":"pro"},"authors":[{"id":"bda4505ba9a55ac8","avatar_url":"https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd","name":"Jim Pick","login":"jimpick","bio":"Freelance Filecoin developer in Victoria, Canada","home_url":"https://github.com/jimpick","github_login":"jimpick","tier":"pro","approved":true,"description":""}],"collections":[{"id":"242749e359cb986b","type":"public","slug":"provider-quest","title":"Provider.Quest","description":"Analytics and visualizations for the Filecoin network","update_time":"2021-09-27T20:45:27.747Z","pinned":false,"ordered":true,"custom_thumbnail":null,"default_thumbnail":"e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361","thumbnail":"e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361","listing_count":31,"parent_collection_count":1,"owner":{"id":"bda4505ba9a55ac8","github_login":"jimpick","avatar_url":"https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd","login":"jimpick","name":"Jim Pick","bio":"Freelance Filecoin developer in Victoria, Canada","home_url":"https://github.com/jimpick","type":"individual","tier":"pro"}}],"files":[],"comments":[{"id":"70a1674b56cba69a","content":"public auth code: Aoxw1jwx0P_RfhY92Ji2","node_id":455,"create_time":"2022-03-29T00:29:27.644Z","update_time":null,"resolved":false,"user":{"id":"bda4505ba9a55ac8","github_login":"jimpick","avatar_url":"https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd","login":"jimpick","name":"Jim Pick","bio":"Freelance Filecoin developer in Victoria, Canada","home_url":"https://github.com/jimpick","tier":"pro"}}],"commenting_lock":null,"suggestion_from":null,"suggestions_to":[],"version":481,"title":"Published Deals: Weekly [Provider.Quest]","license":"apache-2.0","copyright":"Copyright 2021 Jim Pick","nodes":[{"id":0,"value":"# Published Deals: Weekly [Provider.Quest]","pinned":false,"mode":"md","data":null,"name":""},{"id":345,"value":"md`${quickMenu}`","pinned":false,"mode":"js","data":null,"name":null},{"id":64,"value":"md`Notes:\n\n* Numbers are based on published deal proposals encoded in messages on the Filecoin blockchain.\n* The [scanning script](https://observablehq.com/@jimpick/provider-quest-publish-deal-messages-stream?collection=@jimpick/provider-quest) is usually run multiple times per hour, but there may be gaps in the data from time to time. This system is optimized for timeliness instead of accuracy.\n* Dates are based on when a message was published on the blockchain, not when the deal proposal was sent to a provider, or when the deal proving interval starts or when the sector is created.\n* Not all published deals are successfully committed to sectors by providers, and occasionally providers lose data and get slashed, so these numbers will be greater than the actual amount of data stored to Filecoin. Check the [Starboard Deals](https://dashboard.starboard.ventures/deals) dashboard for information on \"committed\" deals.\n* Distinct counts are calculated continuously with Spark Structured Streaming using an approximation algorithm.\n* A similar report is available for [Daily Deals](https://observablehq.com/@jimpick/provider-quest-published-deals-daily?collection=@jimpick/provider-quest), [Hourly Deals](https://observablehq.com/@jimpick/provider-quest-published-deals-hourly?collection=@jimpick/provider-quest) and [Hourly Deals: Named Clients](https://observablehq.com/@jimpick/provider-quest-deals-named-clients-hourly?collection=@jimpick/provider-quest).\n`","pinned":false,"mode":"js","data":null,"name":null},{"id":25,"value":"md`## Published Deals Per Week`","pinned":false,"mode":"js","data":null,"name":null},{"id":6,"value":"Plot.plot({\n  y: {\n    grid: true\n  },\n  marginLeft: 60,\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"count\", fill: \"#bab0ab\", curve: \"step\" }),\n    Plot.ruleY([0])\n  ]\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":33,"value":"md`## Total Data Size of Published Deals Per Week (TiB)`","pinned":false,"mode":"js","data":null,"name":null},{"id":41,"value":"Plot.plot({\n  y: {\n    grid: true\n  },\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"sumPieceSizeTiB\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":50,"value":"md`## Lifetime Value of Published Deals Per Week (FIL)`","pinned":false,"mode":"js","data":null,"name":null},{"id":55,"value":"Plot.plot({\n  y: {\n    grid: true\n  },\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"sum(lifetimeValue)\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":67,"value":"md`## Number of Providers that Accepted Deals`","pinned":false,"mode":"js","data":null,"name":null},{"id":70,"value":"Plot.plot({\n  y: {\n    grid: true\n  },\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"approx_count_distinct(provider)\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":72,"value":"md`## Number of Clients that Placed Deals`","pinned":false,"mode":"js","data":null,"name":null},{"id":75,"value":"Plot.plot({\n  y: {\n    grid: true\n  },\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"approx_count_distinct(client)\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":79,"value":"md`## Number of Client <-> Provider Pairs`","pinned":false,"mode":"js","data":null,"name":null},{"id":81,"value":"Plot.plot({\n  y: {\n    grid: true\n  },\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"approx_count_distinct(clientProvider)\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":324,"value":"md`## Distinct CIDs (Content Identifiers)`","pinned":false,"mode":"js","data":null,"name":null},{"id":326,"value":"Plot.plot({\n  y: {\n    grid: true\n  },\n  marginLeft: 60,\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"approx_count_distinct(label)\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":201,"value":"md `## Unverified/Verified: Deals Per Day`","pinned":false,"mode":"js","data":null,"name":null},{"id":312,"value":"Plot.plot({\n  marks: [\n    Plot.cell(['Unverified', 'Verified'], {x: d => d, fill: d => d})\n  ]\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":205,"value":"Plot.plot({\n  y: {\n    grid: true\n  },\n  marginLeft: 60,\n  marks: [\n    Plot.areaY(weeklyDealsByVerified, {x: \"date\", y: \"count\", fill: d => `${d.verifiedDeal}`, curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":252,"value":"md`## Unverified/Verified: Total Data Size (TiB)`","pinned":false,"mode":"js","data":null,"name":null},{"id":314,"value":"Plot.plot({\n  marks: [\n    Plot.cell(['Unverified', 'Verified'], {x: d => d, fill: d => d})\n  ]\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":250,"value":"Plot.plot({\n  y: {\n    grid: true,\n    label: `↑ TiB`\n  },\n  marks: [\n    Plot.areaY(weeklyDealsByVerified, {x: \"date\", y: \"sumPieceSizeTiB\", fill: d => `${d.verifiedDeal}`, curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":265,"value":"md`## Data`","pinned":false,"mode":"js","data":null,"name":null},{"id":94,"value":"import { dealsBucketUrl } from '@jimpick/provider-quest-feeds'","pinned":false,"mode":"js","data":null,"name":null},{"id":4,"value":"weeklyDealsRaw = (await fetch(`${dealsBucketUrl}/weekly-totals.json`)).json()","pinned":false,"mode":"js","data":null,"name":null},{"id":20,"value":"weeklyDeals = weeklyDealsRaw.map(record => ({\n  date: d3.isoParse(record.window.start),\n  sumPieceSizeKiB: record['sum(pieceSizeDouble)'] / 1024,\n  sumPieceSizeMiB: record['sum(pieceSizeDouble)'] / 1024 ** 2,\n  sumPieceSizeGiB: record['sum(pieceSizeDouble)'] / 1024 ** 3,\n  sumPieceSizeTiB: record['sum(pieceSizeDouble)'] / 1024 ** 4,\n  ...record\n}))","pinned":false,"mode":"js","data":null,"name":null},{"id":263,"value":"Inputs.table(weeklyDeals.map(({window, ...rest}) => rest))","pinned":false,"mode":"js","data":null,"name":null},{"id":97,"value":"weeklyDealsByVerifiedRaw = (await fetch(`${dealsBucketUrl}/weekly-totals-verified.json`)).json()","pinned":false,"mode":"js","data":null,"name":null},{"id":102,"value":"weeklyDealsByVerified = weeklyDealsByVerifiedRaw.map(record => ({\n  date: d3.isoParse(record.window.start),\n  sumPieceSizeKiB: record['sum(pieceSizeDouble)'] / 1024,\n  sumPieceSizeMiB: record['sum(pieceSizeDouble)'] / 1024 ** 2,\n  sumPieceSizeGiB: record['sum(pieceSizeDouble)'] / 1024 ** 3,\n  sumPieceSizeTiB: record['sum(pieceSizeDouble)'] / 1024 ** 4,\n  ...record\n})).sort((a, b) => {\n  const comp1 = a.date - b.date\n  if (comp1 !== 0) return comp1\n  return Number(a.verifiedDeal) - Number(b.verifiedDeal)\n})","pinned":false,"mode":"js","data":null,"name":null},{"id":272,"value":"Inputs.table(weeklyDealsByVerified.map(({window, ...rest}) => rest))","pinned":false,"mode":"js","data":null,"name":null},{"id":10,"value":"md`## Imports`","pinned":false,"mode":"js","data":null,"name":null},{"id":9,"value":"d3 = require(\"d3@6\")","pinned":false,"mode":"js","data":null,"name":null},{"id":473,"value":"import {quickMenu} from '@jimpick/provider-quest-utils'","pinned":false,"mode":"js","data":null,"name":null},{"id":461,"value":"## Backups","pinned":false,"mode":"md","data":null,"name":""},{"id":342,"value":"import {backups, backupNowButton} from '@jimpick/provider-quest-utils'","pinned":false,"mode":"js","data":null,"name":null},{"id":455,"value":"backups()","pinned":false,"mode":"js","data":null,"name":null}],"resolutions":[]}
+{
+  "id": "9e1063ef08ea3e47",
+  "slug": "provider-quest-published-deals-weekly",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "public",
+  "forks": 0,
+  "fork_of": {
+    "id": "a558fb3444ef7dac",
+    "slug": "provider-quest-published-deals-daily",
+    "title": "Published Deals: Daily [Provider.Quest]",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "pro"
+    },
+    "version": 347
+  },
+  "update_time": "2022-03-27T03:34:47.853Z",
+  "publish_time": "2021-08-25T16:28:48.307Z",
+  "publish_version": 481,
+  "latest_version": 481,
+  "thumbnail": "e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361",
+  "default_thumbnail": "e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "pro"
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "pro"
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "pro",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361",
+      "thumbnail": "e286b5f62d0602ab90bc7ab3ccfc250eb504eba4cc4825905a9b6ab624b58361",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "pro"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [
+    {
+      "id": "70a1674b56cba69a",
+      "content": "public auth code: Aoxw1jwx0P_RfhY92Ji2",
+      "node_id": 455,
+      "create_time": "2022-03-29T00:29:27.644Z",
+      "update_time": null,
+      "resolved": false,
+      "user": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "tier": "pro"
+      }
+    }
+  ],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 481,
+  "title": "Published Deals: Weekly [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Published Deals: Weekly [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 345,
+      "value": "md`${quickMenu}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 64,
+      "value": "md`Notes:\n\n* Numbers are based on published deal proposals encoded in messages on the Filecoin blockchain.\n* The [scanning script](https://observablehq.com/@jimpick/provider-quest-publish-deal-messages-stream?collection=@jimpick/provider-quest) is usually run multiple times per hour, but there may be gaps in the data from time to time. This system is optimized for timeliness instead of accuracy.\n* Dates are based on when a message was published on the blockchain, not when the deal proposal was sent to a provider, or when the deal proving interval starts or when the sector is created.\n* Not all published deals are successfully committed to sectors by providers, and occasionally providers lose data and get slashed, so these numbers will be greater than the actual amount of data stored to Filecoin. Check the [Starboard Deals](https://dashboard.starboard.ventures/deals) dashboard for information on \"committed\" deals.\n* Distinct counts are calculated continuously with Spark Structured Streaming using an approximation algorithm.\n* A similar report is available for [Daily Deals](https://observablehq.com/@jimpick/provider-quest-published-deals-daily?collection=@jimpick/provider-quest), [Hourly Deals](https://observablehq.com/@jimpick/provider-quest-published-deals-hourly?collection=@jimpick/provider-quest) and [Hourly Deals: Named Clients](https://observablehq.com/@jimpick/provider-quest-deals-named-clients-hourly?collection=@jimpick/provider-quest).\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 25,
+      "value": "md`## Published Deals Per Week`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 6,
+      "value": "Plot.plot({\n  y: {\n    grid: true\n  },\n  marginLeft: 60,\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"count\", fill: \"#bab0ab\", curve: \"step\" }),\n    Plot.ruleY([0])\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 33,
+      "value": "md`## Total Data Size of Published Deals Per Week (TiB)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 41,
+      "value": "Plot.plot({\n  y: {\n    grid: true\n  },\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"sumPieceSizeTiB\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 50,
+      "value": "md`## Lifetime Value of Published Deals Per Week (FIL)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 55,
+      "value": "Plot.plot({\n  y: {\n    grid: true\n  },\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"sum(lifetimeValue)\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 67,
+      "value": "md`## Number of Providers that Accepted Deals`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 70,
+      "value": "Plot.plot({\n  y: {\n    grid: true\n  },\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"approx_count_distinct(provider)\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 72,
+      "value": "md`## Number of Clients that Placed Deals`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 75,
+      "value": "Plot.plot({\n  y: {\n    grid: true\n  },\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"approx_count_distinct(client)\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 79,
+      "value": "md`## Number of Client <-> Provider Pairs`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 81,
+      "value": "Plot.plot({\n  y: {\n    grid: true\n  },\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"approx_count_distinct(clientProvider)\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 324,
+      "value": "md`## Distinct CIDs (Content Identifiers)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 326,
+      "value": "Plot.plot({\n  y: {\n    grid: true\n  },\n  marginLeft: 60,\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"approx_count_distinct(label)\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 201,
+      "value": "md `## Unverified/Verified: Deals Per Day`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 312,
+      "value": "Plot.plot({\n  marks: [\n    Plot.cell(['Unverified', 'Verified'], {x: d => d, fill: d => d})\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 205,
+      "value": "Plot.plot({\n  y: {\n    grid: true\n  },\n  marginLeft: 60,\n  marks: [\n    Plot.areaY(weeklyDealsByVerified, {x: \"date\", y: \"count\", fill: d => `${d.verifiedDeal}`, curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 252,
+      "value": "md`## Unverified/Verified: Total Data Size (TiB)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 314,
+      "value": "Plot.plot({\n  marks: [\n    Plot.cell(['Unverified', 'Verified'], {x: d => d, fill: d => d})\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 250,
+      "value": "Plot.plot({\n  y: {\n    grid: true,\n    label: `↑ TiB`\n  },\n  marks: [\n    Plot.areaY(weeklyDealsByVerified, {x: \"date\", y: \"sumPieceSizeTiB\", fill: d => `${d.verifiedDeal}`, curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 265,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 94,
+      "value": "import { dealsBucketUrl } from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 4,
+      "value": "weeklyDealsRaw = (await fetch(`${dealsBucketUrl}/weekly-totals.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 20,
+      "value": "weeklyDeals = weeklyDealsRaw.map(record => ({\n  date: d3.isoParse(record.window.start),\n  sumPieceSizeKiB: record['sum(pieceSizeDouble)'] / 1024,\n  sumPieceSizeMiB: record['sum(pieceSizeDouble)'] / 1024 ** 2,\n  sumPieceSizeGiB: record['sum(pieceSizeDouble)'] / 1024 ** 3,\n  sumPieceSizeTiB: record['sum(pieceSizeDouble)'] / 1024 ** 4,\n  ...record\n}))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 263,
+      "value": "Inputs.table(weeklyDeals.map(({window, ...rest}) => rest))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 97,
+      "value": "weeklyDealsByVerifiedRaw = (await fetch(`${dealsBucketUrl}/weekly-totals-verified.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 102,
+      "value": "weeklyDealsByVerified = weeklyDealsByVerifiedRaw.map(record => ({\n  date: d3.isoParse(record.window.start),\n  sumPieceSizeKiB: record['sum(pieceSizeDouble)'] / 1024,\n  sumPieceSizeMiB: record['sum(pieceSizeDouble)'] / 1024 ** 2,\n  sumPieceSizeGiB: record['sum(pieceSizeDouble)'] / 1024 ** 3,\n  sumPieceSizeTiB: record['sum(pieceSizeDouble)'] / 1024 ** 4,\n  ...record\n})).sort((a, b) => {\n  const comp1 = a.date - b.date\n  if (comp1 !== 0) return comp1\n  return Number(a.verifiedDeal) - Number(b.verifiedDeal)\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 272,
+      "value": "Inputs.table(weeklyDealsByVerified.map(({window, ...rest}) => rest))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 10,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 9,
+      "value": "d3 = require(\"d3@6\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 473,
+      "value": "import {quickMenu} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 461,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 342,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 455,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
