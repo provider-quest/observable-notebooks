@@ -33,6 +33,7 @@ jobs:
           rm -rf "${path}"
           mkdir -p "${path}"
           tar -xf notebook.tgz -C "${path}"
+          curl -o "${path}/document.json" "${DOCUMENT_URL}"
           git config --global user.name 'backup-to-github'
           git config --global user.email 'robot@webcode.run'
           git add "${path}"
