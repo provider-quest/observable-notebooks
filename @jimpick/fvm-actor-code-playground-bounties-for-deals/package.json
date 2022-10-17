@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/fvm-actor-code-playground-bounties-for-deals",
+  "main": "fbbd646d74c5a70c@2222.js",
+  "version": "2222.0.0",
+  "homepage": "https://observablehq.com/@jimpick/fvm-actor-code-playground-bounties-for-deals",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}

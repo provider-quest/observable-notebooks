@@ -1,0 +1,1757 @@
+{
+  "id": "fbbd646d74c5a70c",
+  "slug": "fvm-actor-code-playground-bounties-for-deals",
+  "trashed": false,
+  "description": "",
+  "likes": 1,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": {
+    "id": "5fc7ffd98209cd6a",
+    "slug": "fvm-actor-code-playground-simple-faucet",
+    "title": "FVM Actor Code Playground - \"Simple Faucet\"",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "pro"
+    },
+    "version": 1302
+  },
+  "update_time": "2022-10-17T00:45:38.632Z",
+  "publish_time": "2022-06-03T01:04:27.251Z",
+  "publish_version": 2222,
+  "latest_version": 2222,
+  "thumbnail": null,
+  "default_thumbnail": null,
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "pro"
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "pro"
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "pro",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "f63e6c307ab87e8f",
+      "type": "public",
+      "slug": "filecoin-virtual-machine",
+      "title": "Filecoin Virtual Machine",
+      "description": "",
+      "update_time": "2022-05-02T18:32:44.723Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+      "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+      "listing_count": 7,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "pro"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 2222,
+  "title": "FVM Actor Code Playground - \"Bounties for Deals\"",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2022 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# FVM Actor Code Playground - \"Bounties for Deals\"",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 717,
+      "value": "This demo shows how to implement a minimalist \"bounty actor\" that can be sent funds be awarded (in the future) to anybody that makes a deal that satisfies certain criteria.\n\n* YouTube: [FVM Foundry Update: Learning & Using FVM Actors with Fil-der Jim Pick](https://www.youtube.com/watch?v=jTtZh1zqUr8)\n\nThis notebook does the following:\n\n* Generates 2 client-side addresses + secrets for [\"Alice and Bob\"](https://en.wikipedia.org/wiki/Alice_and_Bob) using [filecoin-js-signer](https://github.com/blitslabs/filecoin-js-signer). The secrets are stored in your browser, not on the Lotus node.\n* Sends starter funds from Lotus to each client address (100 FIL each)\n* Compiles, installs and creates the \"bounty actor\"\n  * Has a method to \"post a bounty\" - a bounty consists of a \"Payload CID\", \"Piece CID\", a Miner ID, and a reward\n  * Has a method to list bounties\n  * Has a method to lookup bounties by Piece CID + Miner ID\n  * Has a method to claim a bounty. In order to claim a bounty, the \"Deal ID\" from a published deal is sent to the actor as a param. If the \"Piece CID\" and the Miner ID match the deal, the client who posted the deal is sent the reward. The bounty is removed from the list of active bounties.\n* Alice generates files consisting of random phrases (plus padding, so they will fit in a 2K sector), and calculates the \"Piece CID\".\n* Alice can choose to post bounties for the phrases, specifying the criteria - a Piece CID matching the phrase, a Provider ID + an amount of funds (sent to the bounty actor) which will be the reward. This is a minimal implementation -- a more complex bounty system might include additional criteria, eg. deal length, proving periods, deal pricing limits, etc.\n* Bob retrieves the list of bounties.\n* Bob encodes a random word into a file and calculates the Piece CID. Bob then makes a deal for each file, and transfers the data to the provider.\n* A trusted \"watcher\" process watches for published deals. For each new deal, it calls the lookup method with the Piece CID and the Miner ID. If there is a bounty, it invokes the method to claim the bounty, sending the Client ID who made the deal, and the client gets paid the reward!\n* Based on https://observablehq.com/@jimpick/fvm-actor-code-playground-simple-faucet",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 154,
+      "value": "**Note:** The on-demand localnet will be reclaimed after 3 minutes of inactivity. Modifications to the blockchain state are ephemeral -- good for testing! Staying on this page will keep it alive, but if you navigate away and then return, it may get restarted with fresh state. If that happens, reload the web page. There is one instance of the localnet shared between all users.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 777,
+      "value": "## Generate Client Side Addresses",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1206,
+      "value": "We use `filecoin-js-signer` to generate a random mnemomic phrase. You could save this phrase and re-use it to generate the secrets. In this notebook, we just use different secrets on each page reload.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 772,
+      "value": "randomMnemonic = {\n  // https://github.com/blitslabs/filecoin-js-signer#filecoin-signer\n  const strength = 128 // 128 => 12 words | 256 => 24 words\n  return filecoin_signer.wallet.generateMnemonic(strength)\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 782,
+      "value": "keys = {\n  const keys = []\n  for (let i = 0; i < 2; i++) {\n    const network = 'testnet'\n\n    const key = await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/461'/0'/0/${i}`, network)\n    key.name = i == 0 ? 'Alice' : 'Bob'\n    keys.push(key)\n  }\n  return keys\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 864,
+      "value": "clientAddresses = keys.map(key => key.address)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 792,
+      "value": "## Wait for Lotus to be ready, then transfer 100 FIL to each address",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1210,
+      "value": "Be patient as it takes a little while for the funds to be sent via the Lotus JSON-RPC API when the notebook is first loaded.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1768,
+      "value": "ready ? md`Lotus ready.` : md `Lotus not ready yet, please wait (this may take up to 60 seconds).`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1167,
+      "value": "{\n  if (transferFundsStatus === undefined || !transferFundsStatus) {\n    yield md``\n    return\n  }\n  if (transferFundsStatus.transferring || transferFundsStatus.waiting) {\n    while (true) {\n      const elapsed = (Date.now() - transferFundsStatus.start) / 1000\n      yield md`Transferring initial funds to client accounts... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFundsStatus.transferred) {\n    yield md`**Funds transferred**!`\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 798,
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      // Sending install actor message...\n      const messageBody = {\n        To: key.address,\n        From: walletDefaultAddress,\n        Value: \"100000000000000000000\",\n        Method: 0\n      }\n      responses.push(await client.mpoolPushMessage(messageBody, null))\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(client.stateWaitMsg(response.CID, 0))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {}\n    for (const key of keys) {\n      lookups[key.address] = await client.stateLookupID(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1310,
+      "value": "aliceId = transferFundsStatus?.transferred && transferFundsStatus.lookups[keys.find(({ name }) => name === 'Alice').address]",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1315,
+      "value": "bobId = transferFundsStatus?.transferred && transferFundsStatus.lookups[keys.find(({ name }) => name === 'Bob').address]",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 818,
+      "value": "## Initial Balances",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1217,
+      "value": "Here are the addresses and IDs of the 2 clients we created, as well at their initial balances (should be 1 FIL each).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 808,
+      "value": "initialBalances = !transferFundsStatus ? md`Waiting...` : transferFundsStatus.transferred && getBalances(clientAddresses)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 825,
+      "value": "Inputs.table(\n  initialBalances ? initialBalances.map(({ address, balance }) => ({\n    name: keys.find(({ address: keyAddress }) => address === keyAddress).name, \n    id: transferFundsStatus.lookups[address],\n    address,\n    balance\n  })) : [],\n  {\n    format: {\n      balance: num => new FilecoinNumber(num, 'attofil').toFil()\n    }\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1479,
+      "value": "aliceAddress = transferFundsStatus?.transferred && Object.entries(transferFundsStatus.lookups).find(([ address, id ]) => id === aliceId)[0]",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1489,
+      "value": "bobAddress = transferFundsStatus?.transferred && Object.entries(transferFundsStatus.lookups).find(([ address, id ]) => id === bobId)[0]",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 805,
+      "value": "async function getBalances (addresses) {\n  return Promise.all(\n    addresses\n      .map(async address => {\n        const response = await client.stateGetActor(address, [])\n        return {\n          address: address,\n          balance: response.Balance\n        }\n      })\n  )\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1861,
+      "value": "## Import Bob's Private Key into the Lotus wallet",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1863,
+      "value": "Bob is going to use the Lotus client to make deals and store files, so we need to import the private key there.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1865,
+      "value": "bobKeyInfoImportResult = {\n  if (!ready) return\n  const privateKeyHex = keys.find(({ name }) => name === 'Bob').privateKey\n  const privateKeyBytes = buffer.Buffer.from(privateKeyHex, 'hex')\n  const privateKeyBase64 = privateKeyBytes.toString('base64')\n  const keyInfoJson = { Type: \"secp256k1\", PrivateKey: privateKeyBase64 }\n  // const keyInfoEncoded = buffer.Buffer.from(JSON.stringify(keyInfoJson)).toString('hex')\n  const result = await client.walletImport(keyInfoJson)\n  return result\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2082,
+      "value": "## Transfer 1 FIL to Bob's Market Balance",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2084,
+      "value": "This enables making deals faster if there is already a \"market\" balance.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2086,
+      "value": "{\n  if (!bobAddress) return\n  const start = Date.now()\n  yield {\n    transferring: true,\n    start\n  }\n  const response = await client.marketAddBalance(bobAddress, bobAddress, \"1000000000000000000\")\n  const waitStart = Date.now()\n  yield { waiting: true, start, waitStart, response }\n  const waitResponse = await client.stateWaitMsg(response, 0)\n  yield { transferred: true, response, waitResponse }\n  mutable invalidatedAt = new Date()\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 243,
+      "value": "## Step 1: Edit Actor Code - src/lib.rc\n\nFeel free to modify this actor code (written in Rust). Don't worry, you can't break anything. This is from [src/lib.rc](https://github.com/raulk/fil-hello-world-actor/blob/master/src/lib.rs) in @raulk's [fil-hello-world-actor](https://github.com/raulk/fil-hello-world-actor) example. We use some JavaScript in this notebook to patch this subset of the code into the original code with some modifications.\n\nGitHub Code Links + useful API Docs:\n\n * https://github.com/raulk/fil-hello-world-actor\n * https://github.com/raulk/fil-hello-world-actor/blob/master/src/blockstore.rs\n * https://github.com/raulk/fil-hello-world-actor/blob/master/Cargo.toml\n * https://docs.rs/fvm_sdk/0.6.1/fvm_sdk/\n * https://docs.rs/fvm_shared/0.6.1/fvm_shared/\n * https://docs.rs/fvm_ipld_encoding/0.2.0/fvm_ipld_encoding/\n * https://docs.rs/fvm_ipld_hamt/0.5.1/fvm_ipld_hamt/\n * https://docs.rs/cid/0.8.4/cid/\n * https://github.com/Schwartz10/sample-erc20-fvm-actor/blob/primary/src/lib.rs\n * https://github.com/jimpick/fvm-ipld-hamt-playground/blob/bounties/src/main.rs\n * https://github.com/jimpick/fil-hello-world-actor/blob/jim-bounties/src/lib.rs\n",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 4,
+      "value": "viewof editor = {\n  const {EditorState, EditorView, basicSetup} = await skypack('@codemirror/next/basic-setup')\n  const {rust} = await skypack('@codemirror/next/lang-rust')\n  \n  const updateViewOf = EditorView.updateListener.of((update) => {\n    const {dom} = update.view\n    dom.value = update\n    dom.dispatchEvent(new CustomEvent('input'))\n  })\n\n  const initialCode = stateObjectCode + `\\n\\n// -- cut --\\n\\n` + methodsCode \n  \n  const view = new EditorView({\n    state: EditorState.create({\n      doc: initialCode,\n      extensions: [basicSetup, rust(), updateViewOf]\n    })\n  })\n  \n  return view.dom\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 593,
+      "value": "If you have changed the code and would like to save it for future use, you can use this button to save it to a file.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1418,
+      "value": "combinedCode = () => {\n  const codeChunks = editor.state.doc.toString().split('// -- cut --').map(chunk => chunk.trim())\n  return templateStart.replace('%%stateObjectCode%%', codeChunks[0]) + '\\n' + codeChunks[1]\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1421,
+      "value": "// combinedCode()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 589,
+      "value": "html`Optional: ${button(combinedCode(), `lib.rs`)}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 597,
+      "value": "**Pro-tip:** *You can also \"fork\" this notebook and use the saved file as an attachment.*",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 222,
+      "value": "## Step 2: Compile\n\nWe have implemented a [simple web service](https://github.com/jimpick/lotus-fvm-localnet-web/blob/main/server.mjs) that accepts a HTTP POST with the code above, and returns a compiled WASM binary (wrapped in a CBOR array, encoded in base64, ready to pass as a 'params' string). The code above is substituted for `src/lib.rs` into the [raulk/fil-hello-world-actor](https://github.com/raulk/fil-hello-world-actor) example and built using `cargo build`. It should compile in less than 70 seconds.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 178,
+      "value": "viewof compileToWasmButton = Inputs.button('Compile to WASM', {value: null, reduce: () => combinedCode()})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 385,
+      "value": "{\n  if (compileStatus === undefined || !compileStatus) {\n    yield md`Status: Code is ready to upload to the compiling service. Not compiled yet.`\n    return\n  }\n  if (compileStatus.compiling) {\n    while (true) {\n      const elapsed = (Date.now() - compileStatus.start) / 1000\n      yield md`Compiling on remote server... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (compileStatus.success) {\n    yield html`<div><b>Successfully compiled!</b></div>\n    <div>Compile time: ${(compileStatus.elapsed / 1000).toFixed(1)}s\n    <div>Compile log:</div>\n    <pre>${stripAnsi(compileStatus.logs)}</pre>`\n  }\n  if (compileStatus.error) {\n    yield html`<div><b>**Error!**</b></div>\n    <div>Compile log:</div>\n    <pre>${stripAnsi(compileStatus.error)}</pre>`\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 617,
+      "value": "compileStatus && compileStatus.wasmBinary ? md`Optional: You can download the compiled WASM bundle here. (Not needed if you are just using it from this notebook)` : md``",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 606,
+      "value": "compileStatus && compileStatus.wasmBinary ? html`Optional: ${button(compileStatus.wasmBinary, 'fil_bounties_actor.wasm')}` : md``",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 365,
+      "value": "compileStatus = {\n  if (compileToWasmButton) {\n    const start = Date.now()\n    yield {\n      compiling: true,\n      start\n    }\n    try {\n      const response = await fetch(`${baseUrl}/compile`, {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json'\n        },\n        body: JSON.stringify({\n          'lib.rs': compileToWasmButton,\n          'Cargo.toml': patchedCargoToml\n        })\n      })\n      const results = await response.json()\n      results.elapsed = Date.now() - start\n      if (results.success) {\n        results.wasmBinary = cbor.decode(results.wasmBinaryParamsEncoded, 'base64')\n      }\n      yield results\n    } catch (e) {\n      yield {\n        error: e.message\n      }\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 216,
+      "value": "## Step 3: Connect to Hosted \"localnet\"\n\nThis notebook connects to a [hosted instance](https://github.com/jimpick/lotus-fvm-localnet-web) of a Lotus \"localnet\" (started on demand) into which you can install the actor code, create an actor instance, and invoke methods against.\n\nIf the localnet is started and online, the following chain height should be increasing every 4-10 seconds (depending on system load):",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 251,
+      "value": "md`**Height: ${currentHeight}**`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 255,
+      "value": "If the connection is working, then proceed to the next step.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 230,
+      "value": "## Step 4: Install the Actor Code",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 497,
+      "value": "Before the actor code can be executed, it must be loaded into the Filecoin blockchain state.\n\n# 💾\n\nIf you are old enough to remember, imagine this step as inserting the [floppy disk](https://en.wikipedia.org/wiki/Floppy_disk) into the Filecoin global computer's floppy drive!\n\nAt the command line, this is the same as: `lotus chain install-actor <wasm-file>`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 180,
+      "value": "viewof installActorButton = Inputs.button('Install Actor Code', {\n  disabled: !compileStatus || !compileStatus.wasmBinaryParamsEncoded,\n  value: null,\n  reduce: () => compileStatus.wasmBinaryParamsEncoded\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 468,
+      "value": "{\n  if (installActorStatus === undefined || !installActorStatus) {\n    yield md`Status: Latest actor code is compiled to WASM, but not installed yet.`\n    return\n  }\n  if (installActorStatus.installing) {\n    while (true) {\n      const elapsed = (Date.now() - installActorStatus.start) / 1000\n      yield md`Sending install actor message... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (installActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Install actor message sent</b></div>\n      <div>Message CID: ${installActorStatus.response.CID['/']}</div>`\n      if (installActorStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${installActorStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${installActorStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div><b>Code CID: ${installActorStatus.waitResponse.ReturnDec.CodeCid['/']}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - installActorStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 369,
+      "value": "installActorStatus = {\n  if (installActorButton) {\n    console.log('Install actor')\n    const start = Date.now()\n    yield {\n      installing: true,\n      start\n    }\n    // Sending install actor message...\n    const messageBody = {\n      To: 't01',\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 3,\n      Params: compileStatus.wasmBinaryParamsEncoded\n    }\n    const response = await client.mpoolPushMessage(messageBody, null)\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await client.stateWaitMsg(response.CID, 0)\n    yield { installed: true, response, waitResponse }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 234,
+      "value": "## Step 5: Create an Actor Instance for the Bounty Actor",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 655,
+      "value": "If you have completed the previous step, you will have a \"Code CID\" for the WASM bundle you just installed. Now we can create an actor instance. It is possible to create lots and lots of actors using the same code, each will get assigned a unique \"ID Address\" (eg. t01001) to which messages and funds can be sent, as well as an equivalent \"Robust Address\" alias (eg. \"t2...\") which maps on the same address (but doesn't change in the event of a chain re-organization).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 492,
+      "value": "At the command line, this is the same as: `lotus chain create-actor <code-cid> <params>`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2048,
+      "value": "We pass in a 'trusted address' (the Lotus default wallet address) as a parameter. This is used for security ... only a service calling methods from the trusted address can call the `award_bounty()` method to award bounties to clients that have stored data.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 184,
+      "value": "viewof createActorButton = Inputs.button('Create Actor', {\n  disabled: !installActorStatus ||\n    !installActorStatus.waitResponse ||\n    !installActorStatus.waitResponse.ReturnDec ||\n    !installActorStatus.waitResponse.ReturnDec.CodeCid,\n  value: null,\n  reduce: () => installActorStatus.waitResponse.ReturnDec.CodeCid['/']\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 548,
+      "value": "{\n  if (createActorStatus === undefined || !createActorStatus) {\n    yield md`Status: Instance of latest installed actor has not been created yet.`\n    return\n  }\n  if (createActorStatus.creating) {\n    while (true) {\n      const elapsed = (Date.now() - createActorStatus.start) / 1000\n      yield md`Sending create actor message... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (createActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Create actor message sent</b></div>\n      <div>Code CID (Param): ${createActorButton}</div>\n      <div>Message CID: ${createActorStatus.response.CID['/']}</div>\n      `\n      if (createActorStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${createActorStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${createActorStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Robust Address: ${createActorStatus.waitResponse.ReturnDec.RobustAddress}</div>`\n        output += `<b><div>ID Address: ${createActorStatus.waitResponse.ReturnDec.IDAddress}</div></b>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - createActorStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 485,
+      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor')\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    const codeCid = new CID(createActorButton)\n    // Needs a zero byte in front\n    const codeCidBytes = new Uint8Array(codeCid.bytes.length + 1)\n    codeCidBytes.set(codeCid.bytes, 1)\n    const trustedAddressBytes = filecoinAddress.newFromString(walletDefaultId).str\n    const params = cbor.encode([new cbor.Tagged(42, codeCidBytes), trustedAddressBytes])\n    // Sending create actor message...\n    const messageBody = {\n      To: 't01',\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    console.log('messageBody', messageBody)\n    const response = await client.mpoolPushMessage(messageBody, null)\n    console.log('Jim response', response)\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await client.stateWaitMsg(response.CID, 0)\n    yield { installed: true, response, waitResponse }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1613,
+      "value": "bountyActorId = createActorStatus?.waitResponse?.ReturnDec?.IDAddress",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1615,
+      "value": "bountyActorAddress = createActorStatus?.waitResponse?.ReturnDec?.RobustAddress",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 841,
+      "value": "## Step 6: Generate Random Phrases and Piece CIDs (aka. CommP)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1599,
+      "value": "Here we generate a list of random phrases - this is the raw file data that will be used to create storage deals. We're just using short strings here because we are limited to under 2K in a sector with the localnet.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1336,
+      "value": "phrases = {\n  const phrases = []\n  for (let i = 0; i < 10; i++) {\n    phrases.push(randomPhrase())\n  }\n  return phrases\n  \n  function getRandom (max) {\n    return Math.floor(Math.random() * Math.floor(max))\n  }\n  \n  function randomPhrase () {\n    const adjective = protocolWords.adjectives[getRandom(protocolWords.adjectives.length)]\n    const noun = protocolWords.nouns[getRandom(protocolWords.nouns.length)]\n    return `${adjective} ${noun}`\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1341,
+      "value": "phraseUploads = {\n  const uploadPromises = []\n  for (const phrase of phrases) {\n    uploadPromises.push((async () => {\n      try {\n        const response = await fetch(`${baseUrl}/upload`, {\n          method: 'POST',\n          headers: {\n            'Content-Type': 'binary/octet-stream'\n          },\n          body: phrase +\n            '\\n' + ' '.repeat(120) + '\\n' // padding\n        })\n        const uploadResults = await response.json()\n        const inputFile = uploadResults.filename\n        const carFile = uploadResults.filename + '.car'\n        await client.clientGenCar(\n          {Path: inputFile, IsCar: false},\n          carFile\n        )\n        const calcCommP = await client.clientCalcCommP(carFile)\n        return {\n          filename: inputFile,\n          calcCommP\n        }\n      } catch (e) {\n        return { error: e }\n      }\n    })())\n  }\n  return Promise.all(uploadPromises)\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1382,
+      "value": "Inputs.table(\n  phrases.map((phrase, i) => ({ phrase, pieceCid: phraseUploads[i].calcCommP.Root['/'] })),\n  { width: { phrase: 200 } }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1656,
+      "value": "pieceCidToPhraseMap = {\n  const pieceCidToPhraseMap = new Map()\n  phrases.forEach((phrase, i) => {\n    pieceCidToPhraseMap.set(phraseUploads[i].calcCommP.Root['/'], phrase)\n  })\n  return pieceCidToPhraseMap\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1696,
+      "value": "pieceCidToFilenameMap = {\n  const pieceCidToFilenameMap = new Map()\n  phrases.forEach((phrase, i) => {\n    pieceCidToFilenameMap.set(phraseUploads[i].calcCommP.Root['/'], phraseUploads[i].filename)\n  })\n  return pieceCidToFilenameMap\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 238,
+      "value": "## Step 7: Alice Posts Some Bounties",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 666,
+      "value": "Now that we've got an actor running with an ID Address, alice can call the method to post a bounty. Pretend that you are Alice, and select a piece of data (a \"phrase\" that has a matching Piece CID), a provider ID (aka miner) that you want the data to be stored on, and an amount you will send to the bounty actor to act as a \"reward\" for whoever makes a deal to store the data.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 671,
+      "value": "At the command line, this is the same as: `lotus chain invoke <actor-id-address> <method-number>`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 889,
+      "value": "viewof postBountyForm = providerIds && phrases && Inputs.form([\n  Inputs.select(\n    phrases.map((phrase, i) => ({\n      phrase,\n      pieceCid: phraseUploads[i].calcCommP.Root['/']\n    })),\n    {\n      label: 'Desired Data',\n      format: x => `\"${x.phrase}\" CID: ${x.pieceCid.slice(0, 4)}...${x.pieceCid.slice(-4)}`\n    }\n  ),\n  Inputs.select(providerIds, { label: \"Desired Provider\" }),\n  Inputs.range([0, 10], {value: 1, step: 1, label: 'Amount for Reward'})\n])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 901,
+      "value": "viewof postBountyButton = Inputs.button('Post Bounty', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => ({\n    pieceCid: postBountyForm[0].pieceCid,\n    providerAddress: postBountyForm[1],\n    amount: postBountyForm[2],\n    clientAddress: aliceAddress\n  })\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 678,
+      "value": "{\n  if (postBountyStatus === undefined || !postBountyStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (postBountyStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - postBountyStatus.start) / 1000\n      yield md`Sending message to actor for method 2... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (postBountyStatus.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${bountyActorId} (Bounty Actor)</div>\n      <div>Method: 2</div>\n      <div>Message CID: ${postBountyStatus.response.CID['/']}</div>\n      `\n      if (postBountyStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${postBountyStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${postBountyStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Exit Code: ${postBountyStatus.waitResponse.Receipt.ExitCode}</div>`\n        output += `<div>Return: ${postBountyStatus.waitResponse.Receipt.Return} (Base64 encoded CBOR)</div>`\n        // output += `<div><b>Decoded Result:</b> <b style=\"font-size: 120%\">${JSON.stringify(postBountyStatus.decodedResult)}</b></div>`\n        yield html`${output}`\n        mutable invalidatedAt = new Date()\n        break\n      }\n      const elapsed = (Date.now() - postBountyStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1137,
+      "value": "**Balances:**",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1664,
+      "value": "After Alice posts a bounty, the Bounty Actor's balance should increase, and Alice's bounty should decrease by the amount of the bounty + gas fees.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2141,
+      "value": "balancesTable()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1162,
+      "value": "Inputs.button(\"Update\", { value: null, reduce: () => { mutable invalidatedAt = new Date() } })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1151,
+      "value": "balancesTable = async () => {\n  invalidatedAt;\n  if (!postBountyStatus || !postBountyStatus.invoked) {\n    return md``\n  }\n  const balances = await getBalances([bountyActorAddress].concat(clientAddresses))\n    \n  return Inputs.table(\n    balances.map(({ address, balance }) => ({\n      name: address === bountyActorAddress ? 'Bounty Actor' : keys.find(({ address: keyAddress }) => address === keyAddress).name,\n      id: address === bountyActorAddress ? bountyActorId :\n        transferFundsStatus.lookups[address],\n      address,\n      balance\n    })),\n    {\n      format: {\n        balance: num => new FilecoinNumber(num, 'attofil').toFil()\n      }\n    }\n  )\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 572,
+      "value": "postBountyStatus = {\n  if (postBountyButton) {\n    const start = Date.now()\n    console.log('Post Bounty', postBountyButton)\n    yield {\n      invoking: true,\n      start\n    }\n    const pieceCid = multiformats.CID.parse(postBountyButton.pieceCid)\n    const pieceCidBytes = new Uint8Array(pieceCid.bytes.length + 1)\n    pieceCidBytes.set(pieceCid.bytes, 1)\n    \n    const providerAddressBytes = filecoinAddress.newFromString(postBountyButton.providerAddress).str\n    const message = {\n      To: bountyActorAddress,\n      From: postBountyButton.clientAddress,\n      Nonce: 0,\n      Value: (new FilecoinNumber(postBountyButton.amount, 'fil')).toAttoFil(),\n      GasLimit: 1000000000,\n      GasFeeCap: new FilecoinNumber(0, 'attofil'),\n      GasPremium: new FilecoinNumber(0, 'attofil'),\n      Method: 2,\n      Params: cbor.encode([\n        new cbor.Tagged(42, pieceCidBytes),\n        providerAddressBytes \n      ]).toString('base64')\n    }\n    const privateKey = keys.find(({ address }) => address === postBountyButton.clientAddress).privateKey\n    console.log('message', message)\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await client.stateWaitMsg(responseCID, 0)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = cbor.decodeAll(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1549,
+      "value": "## Step 8: List the available bounties",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1670,
+      "value": "Here are all the unclaimed bounties that Alice has posted. Anybody can claim these by making a deal to store data with the same Piece CID at the Storage Provider address specified.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2135,
+      "value": "availableBountiesTable()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1646,
+      "value": "availableBountiesTable = () => Inputs.table(\n  bounties,\n  {\n    columns: [ 'phrase', 'piece_cid', 'address', 'amount' ],\n    format: {\n      piece_cid: cid => `${cid.slice(0,4)}..${cid.slice(-4)}`\n    },\n    width: { phrase: 200 },\n    sort: 'amount',\n    reverse: true\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1610,
+      "value": "bountiesCall = {\n  invalidatedAt;\n  const messageBody = {\n      To: bountyActorId,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 3,\n      Params: null\n  }\n  return client.StateCall(messageBody, [])\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1630,
+      "value": "bounties = {\n  if (!bountiesCall?.MsgRct?.Return) return\n  const result = cbor.decode(bountiesCall.MsgRct.Return, 'base64')\n  const mappedResult = result.map(({ piece_cid, address, amount }) => {\n    const cid = multiformats.CID.decode(piece_cid.value.slice(1)).toString()\n    const decodedAddress = filecoinAddress.newAddress(address[0], address.slice(1), 't').toString()\n    const decodedAmount = new filecoinNumber.FilecoinNumber(bytesToBig(amount).toString(), 'attofil')\n    const phrase = pieceCidToPhraseMap.get(cid)\n    return { piece_cid: cid, phrase, address: decodedAddress, amount: decodedAmount }\n  })\n  return mappedResult\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1552,
+      "value": "## Step 9: Bob stores a file with a provider (and wins bounties)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1678,
+      "value": "Bob can take the list of bounties, and make deals to store files on Storage Providers so he can claim the bounties.\n\nWhen the deals are accepted by the Storage Providers and published to the chain, the off-chain service will see the deals, and award the bounty amount to whichever client made the deal.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1681,
+      "value": "viewof selectedBounty = Inputs.select(\n  bounties.sort((a, b) => b.amount - a.amount),\n  {\n    label: 'Select a bounty',\n    format: x => `\"${x.phrase}\" => ${x.address} (${x.amount} FIL)`\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1687,
+      "value": "viewof makeDealButton = Inputs.button('Make a deal', {\n  disabled: !selectedBounty,\n  value: null,\n  reduce: () => selectedBounty\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1828,
+      "value": "Here is the list of deals + deal statuses. **Note:** The Lotus client in the localnet build seems to be a bit slow/buggy, so the deal statuses and deal IDs sometimes don't get updated right away even though the deal has been published. The service that watches all deals (below) will see when the deals are published.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1734,
+      "value": "Inputs.table(\n  dealList.map(deal => {\n    const newDeal = {...deal}\n    const watchedDeal = watchDeals.find(watched => watched.ProposalCid['/'] === deal.proposalCid)\n    if (watchedDeal) {\n      newDeal.status = watchedDeal.Status\n      newDeal.deal_id = watchedDeal.DealID\n    }\n    return newDeal\n  }),\n  {\n    columns: [ 'timestamp', 'phrase', 'address', 'status', 'deal_id' ],\n    format: {\n      timestamp: date => date.toISOString().slice(11, 19),\n      proposalCid: cid => `${cid.slice(0,4)}..${cid.slice(-4)}`,\n      payloadCid: cid => `${cid.slice(0,4)}..${cid.slice(-4)}`,\n      piece_cid: cid => `${cid.slice(0,4)}..${cid.slice(-4)}`\n    },\n    width: {\n      status: 250\n    },\n    sort: 'timestamp'\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1690,
+      "value": "makeDealButton",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1713,
+      "value": "mutable dealList = []",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1694,
+      "value": "makeDealStatus = {\n  if (makeDealButton) {\n    const start = Date.now()\n    console.log('Make deal', makeDealButton)\n    const filename = pieceCidToFilenameMap.get(makeDealButton.piece_cid)\n    yield {\n      dealInProgress: true,\n      filename,\n      start\n    }\n    const importResponse = await client.clientImport({ Path: filename, IsCar: false })\n    yield {\n      dealInProgress: true,\n      filename,\n      importResponse,\n      start\n    }\n    const payloadCid = importResponse.Root['/']\n    const dataRef = {\n      Data: {\n        TransferType: 'graphsync',\n        Root: {\n          '/': payloadCid\n        },\n        PieceCid: null,\n        PieceSize: 0\n      },\n      Wallet: bobAddress,\n      // Wallet: walletDefaultAddress,\n      Miner: makeDealButton.address,\n      EpochPrice: \"1000\",\n      MinBlocksDuration: (200 * 24 * 60 * 60) / 15,\n      FastRetrieval: true,\n      VerifiedDeal: false\n    }\n    try {\n      const dealResponse = await client.clientStartDeal(dataRef)\n      yield {\n        dealCompleted: true,\n        dealResponse\n      }\n      mutable dealList.push({\n        timestamp: new Date(start),\n        proposalCid: dealResponse['/'],\n        payloadCid,\n        ...makeDealButton\n      })\n    } catch (e) {\n      yield {\n        dealCompleted: true,\n        error: e\n      }\n      mutable dealList.push({\n        timestamp: new Date(start),\n        payloadCid,\n        ...makeDealButton,\n        error: e.message\n      })\n    }\n    mutable dealList = mutable dealList\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1788,
+      "value": "watchDeals = {\n  const statusCodes = new Map()\n  while (true) {\n    if (dealList.length > 0) {\n      const listDeals = await client.clientListDeals()\n      for (const deal of listDeals) {\n        if (statusCodes.has(deal.State)) {\n          deal.Status = statusCodes.get(deal.State)\n        } else {\n          const status = await client.clientGetDealStatus(deal.State)\n          statusCodes.set(deal.State, status)\n          deal.Status = status\n        }\n      }\n      yield listDeals\n    }\n    await Promises.delay(4000)\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1558,
+      "value": "## Off-chain service to watch deals and award bounties",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1741,
+      "value": "Because the bounty actor has no access to the state of the Markets system actor which tracks the on-chain deal status, and it doesn't currently expose useful methods we can call to check deals, we need to implement an external off-chain service that watches for deals, and if it sees a deal that satisfies a bounty, it will call a method on the deal to award the bounty to the client that made the deal.\n\nThe award method needs to be restricted so that only the deal monitoring service can call it, otherwise anybody could steal the funds.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1891,
+      "value": "The miners in the localnet have been configured to publish the deals quickly. On mainnet, there is typically an hour delay or more before deals are published so providers can reduce their gas usage.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1857,
+      "value": "Here is a list of the deals observed by the service:",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1831,
+      "value": "Inputs.table(\n  observedDealList.flatMap(([dealId, data]) => {\n    const pieceCid = data.Proposal.PieceCID['/']\n    const phrase = pieceCidToPhraseMap.get(pieceCid)\n    if (!phrase) {\n      return []\n    }\n    return [{\n      dealId,\n      client: data.Proposal.Client,\n      provider: data.Proposal.Provider,\n      pieceCid,\n      phrase\n    }]\n  }),\n  {\n    format: {\n      pieceCid: cid => `${cid.slice(0,4)}..${cid.slice(-4)}`\n    },\n    sort: \"dealId\"\n  }\n)\n",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2012,
+      "value": "If the following checkbox is checked, the service will automatically payout bounties to the client that performed any new matching deals.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1906,
+      "value": "viewof awardOptions = Inputs.checkbox(['Automatically award bounties'], { value: ['Automatically award bounties'] })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2005,
+      "value": "Here is a list of the bounties that have been awarded, based on observed deals, or manually awarded (below):",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2168,
+      "value": "awardedBountyListTable()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2058,
+      "value": "awardedBountyListTable = () => Inputs.table(\n  awardedBountyList.map(bounty => ({...bounty, phrase: pieceCidToPhraseMap.get(bounty.pieceCid)})),\n  {\n    format: {\n      pieceCid: cid => `${cid.slice(0,4)}..${cid.slice(-4)}`,\n      payoutAddress: address => address.length > 8 ? `${address.slice(0,4)}..${address.slice(-4)}` : address\n    },\n    sort: 'timestamp'\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2007,
+      "value": "mutable awardedBountyList = []",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1782,
+      "value": "mutable observedDealList = []",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1747,
+      "value": "async function *DealsStream () {\n  for await (const height of heightStream()) {\n    const marketActorState = await client.stateReadState('t05', [])\n    yield { height, marketActorState }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1749,
+      "value": "serviceStatus = {\n  let lastDealId\n  for await (const deal of DealsStream()) {\n    if (deal.marketActorState.State.NextID - 1 !== lastDealId) {\n      const nextLastDealId = deal.marketActorState.State.NextID - 1\n      for (let dealId = lastDealId + 1; dealId <= nextLastDealId; dealId++) {\n        const dealData = await client.stateMarketStorageDeal(dealId, [])\n        mutable observedDealList.push([dealId, dealData])\n        mutable observedDealList = mutable observedDealList\n        if ((viewof awardOptions.value).includes('Automatically award bounties')) {\n          const pieceCid = dealData.Proposal.PieceCID['/']\n          const provider = dealData.Proposal.Provider\n          const clientAddress = dealData.Proposal.Client\n          const phrase = pieceCidToPhraseMap.get(pieceCid)\n          if (phrase) {\n            const lookupAmount = await lookupBounty(pieceCid, provider)\n            console.log(`Lookup \"${phrase}\"`, pieceCid, provider, `${lookupAmount.toFil()} FIL`)\n            if (lookupAmount.toFil() !== \"0\") {\n              console.log('Awarding bounty', pieceCid, provider, clientAddress)\n              const start = Date.now()\n              const response = await awardBounty(pieceCid, provider, clientAddress)\n              console.log('Bounty awarded, msg id:', response)\n              mutable awardedBountyList.push({\n                timestamp: new Date(start),\n                pieceCid: pieceCid,\n                provider,\n                payoutAddress: clientAddress,\n                amount: lookupAmount\n              })\n              mutable awardedBountyList = mutable awardedBountyList\n              async function invalidateAfterWaitMsg () {\n                await client.stateWaitMsg(response.CID, 0)\n                mutable invalidatedAt = new Date()\n              }\n              invalidateAfterWaitMsg()\n            }\n          } else {\n            console.log(`Couldn't find phrase for ${pieceCid}, skipping.`)\n          }\n        }\n      }\n      lastDealId = nextLastDealId\n    }\n    yield {\n      lastDealId,\n      ...deal\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1987,
+      "value": "async function lookupBounty (pieceCidString, address) {\n  const pieceCid = multiformats.CID.parse(pieceCidString)\n  const pieceCidBytes = new Uint8Array(pieceCid.bytes.length + 1)\n  pieceCidBytes.set(pieceCid.bytes, 1)\n\n  const providerAddressBytes = filecoinAddress.newFromString(address).str\n  \n  const messageBody = {\n    To: bountyActorId,\n    From: walletDefaultAddress,\n    Value: \"0\",\n    Method: 4,\n    Params: cbor.encode([\n      new cbor.Tagged(42, pieceCidBytes),\n      providerAddressBytes \n    ]).toString('base64')\n  }\n  console.log('Lookup bounty', messageBody)\n  const response = await client.StateCall(messageBody, [])\n\n  if (!response?.MsgRct?.Return) return response\n  const amountBytes = cbor.decode(response.MsgRct.Return, 'base64').amount\n  const decodedAmount = new filecoinNumber.FilecoinNumber(bytesToBig(amountBytes).toString(), 'attofil')\n  return decodedAmount\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1915,
+      "value": "## Extra Tool: Manually lookup bounty",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1919,
+      "value": "viewof lookupBountySelection = Inputs.select(\n  bounties.sort((a, b) => b.amount - a.amount),\n  {\n    label: 'Select a bounty',\n    format: x => `\"${x.phrase}\" => ${x.address} (${x.amount} FIL)`\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1924,
+      "value": "viewof lookupBountyButton = Inputs.button('Lookup Bounty', {\n  disabled: !lookupBountySelection,\n  value: null,\n  reduce: () => lookupBountySelection\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1941,
+      "value": "lookup = {\n  if (!lookupBountyButton) return md``\n  // return lookupBountyButton\n\n  const decodedAmount = await lookupBounty(lookupBountyButton.piece_cid, lookupBountyButton.address)\n  return md `**Lookup results:** Piece CID \"${lookupBountyButton.piece_cid.slice(0, 4)}..${lookupBountyButton.piece_cid.slice(-4)}\" on ${lookupBountyButton.address} => ${decodedAmount.toFil()} FIL`\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1995,
+      "value": "## Extra Tool: Manually award bounty",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1997,
+      "value": "The service above should automatically award bounties. If the automatic mode is turned off, or a deal hasn't been published yet, you can use this tool to manually award bounties (paid out to the \"Bob\" actor).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1999,
+      "value": "viewof awardBountySelection = Inputs.select(\n  bounties.sort((a, b) => b.amount - a.amount),\n  {\n    label: 'Select a bounty',\n    format: x => `\"${x.phrase}\" => ${x.address} (${x.amount} FIL)`\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2002,
+      "value": "viewof awardBountyButton = Inputs.button('Manually award bounty', {\n  disabled: !awardBountySelection,\n  value: null,\n  reduce: () => awardBountySelection\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2148,
+      "value": "{\n  if (awardBountyStatus === undefined || !awardBountyStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (awardBountyStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - awardBountyStatus.start) / 1000\n      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (awardBountyStatus.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${bountyActorId} (Bounty Actor)</div>\n      <div>Method: 5</div>\n      <div>Message CID: ${awardBountyStatus.response.CID['/']}</div>\n      `\n      if (awardBountyStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${awardBountyStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${awardBountyStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Exit Code: ${awardBountyStatus.waitResponse.Receipt.ExitCode}</div>`\n        output += `<div>Return: ${awardBountyStatus.waitResponse.Receipt.Return} (Base64 encoded CBOR)</div>`\n        // output += `<div><b>Decoded Result:</b> <b style=\"font-size: 120%\">${JSON.stringify(postBountyStatus.decodedResult)}</b></div>`\n        yield html`${output}`\n        // mutable invalidatedAt = new Date()\n        break\n      }\n      const elapsed = (Date.now() - awardBountyStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2120,
+      "value": "After awarding the bounty, the bounty will be deleted from the list of bounties, and the balance of the Bounty Actor will decrease, and the balance of the account receiving the payout will increase by the amount of the bounty.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2109,
+      "value": "Awarded bounties:",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2106,
+      "value": "awardedBountyListTable()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2129,
+      "value": "Available bounties:",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2131,
+      "value": "availableBountiesTable()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2124,
+      "value": "Balances:",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2126,
+      "value": "balancesTable()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2020,
+      "value": "awardBountyStatus = {\n  if (awardBountyButton) {\n    const start = Date.now()\n    console.log('Award Bounty', awardBountyButton)\n    yield {\n      invoking: true,\n      start\n    }\n\n    const response = await awardBounty(awardBountyButton.piece_cid, awardBountyButton.address, bobId)\n\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await client.stateWaitMsg(response.CID, 0)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = cbor.decodeAll(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response, waitResponse, decodedResult }\n    mutable awardedBountyList.push({\n      timestamp: new Date(start),\n      pieceCid: awardBountyButton.piece_cid,\n      provider: awardBountyButton.address,\n      payoutAddress: bobAddress,\n      amount: awardBountyButton.amount\n    })\n    mutable awardedBountyList = mutable awardedBountyList\n    mutable invalidatedAt = new Date()\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2111,
+      "value": "async function awardBounty (pieceCidString, providerAddress, payoutAddress) {\n  const pieceCid = multiformats.CID.parse(pieceCidString)\n  const pieceCidBytes = new Uint8Array(pieceCid.bytes.length + 1)\n  pieceCidBytes.set(pieceCid.bytes, 1)\n\n  const providerAddressBytes = filecoinAddress.newFromString(providerAddress).str\n  const payoutAddressBytes = filecoinAddress.newFromString(payoutAddress).str\n\n  const messageBody = {\n    To: bountyActorAddress,\n    From: walletDefaultAddress,\n    Value: \"0\",\n    Method: 5,\n    Params: cbor.encode([\n      new cbor.Tagged(42, pieceCidBytes),\n      providerAddressBytes,\n      payoutAddressBytes,\n    ]).toString('base64')\n  }\n  console.log('Award bounty message', messageBody)\n  const response = await client.mpoolPushMessage(messageBody, null)\n  return response\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1133,
+      "value": "## Serialize/Deserialize Filecoin Bigints",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 950,
+      "value": "new FilecoinNumber('5', 'attofil')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 956,
+      "value": "cbor.encode([new FilecoinNumber('5', 'attofil')]).toString('base64')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1013,
+      "value": "function bigToBytes(num) {\n  // https://github.com/Zondax/filecoin-signing-tools/blob/5a126fa599695dac720c692cb286a8c572187f88/signer-npm/js/src/index.js#L54\n  // https://github.com/spacegap/spacegap.github.io/blob/ccfa30a3e5303c4538c59f3a23186882eddf810e/src/services/filecoin/index.js#L145\n\n  if (num === '0' || num === 0) {\n    return new Uint8Array(0)\n  }\n  const numBigInt = (typeof num === 'object') ? (new BN(num.toAttoFil(), 10)) : (new BN(num, 10))\n  const numArray = numBigInt.toArrayLike(Array, 'be', numBigInt.byteLength())\n  if (numBigInt.isNeg()) {\n    numArray.unshift(1)\n  } else {\n    numArray.unshift(0)\n  }\n  return new Uint8Array(numArray)\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1026,
+      "value": "bigToBytes(-1234)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1040,
+      "value": "bigToBytes(1234)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1068,
+      "value": "bigToBytes(new FilecoinNumber(1234, 'attofil'))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1080,
+      "value": "({ x: 1 }).toString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1042,
+      "value": "bigToBytes(\"1234\")",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1044,
+      "value": "bigToBytes(\"12345678901234567890\")",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1049,
+      "value": "bigToBytes(12345678901234567890n)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1018,
+      "value": "function bytesToBig (p) { // https://github.com/spacegap/spacegap.github.io/blob/ccfa30a3e5303c4538c59f3a23186882eddf810e/src/services/filecoin/index.js#L145\n  let sign = p[0]\n  let acc = new BN(0)\n  for (let i = 1; i < p.length; i++) {\n    acc = acc.mul(new BN(256))\n    acc = acc.add(new BN(p[i]))\n  }\n  if (sign === 1) {\n    return -acc\n  } else if (sign === 0) {\n    return acc\n  } else {\n    throw new Error('Unexpected value for first byte, expected 0 or 1 for sign')\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1058,
+      "value": "bytesToBig(bigToBytes(12345678901234567890n)).toString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1064,
+      "value": "bytesToBig(bigToBytes(-1234)).toString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 693,
+      "value": "# Final notes",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 695,
+      "value": "Thank you for trying out this demo.\n\nIf the backend is not working, please get in touch with me. Feel free to fork this notebook to customize your own actors and build scenarios using the on-demand localnet that supports this early version of actors / smart contracts.\n\nI can also deploy custom instances of the localnet and the API for compiling actors ... feel free to contact me at @jimpick on the Filecoin Slack.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 150,
+      "value": "## Imports",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 50,
+      "value": "skypack = (library) => import(`https://cdn.skypack.dev/${library}?min`)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 198,
+      "value": "LotusRPC = (await import('@filecoin-shipyard/lotus-client-rpc')).LotusRPC",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 205,
+      "value": "BrowserProvider = (await import('@filecoin-shipyard/lotus-client-provider-browser')).BrowserProvider",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 211,
+      "value": "schema = (await import('@filecoin-shipyard/lotus-client-schema')).mainnet.fullNode",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 402,
+      "value": "stripAnsi = (await import('https://unpkg.com/strip-ansi@7.0.1/index.js?module')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 501,
+      "value": "cbor = import('https://cdn.skypack.dev/pin/borc@v3.0.0-uvbwT4SVvOaMhkLqIBOF/mode=imports,min/optimized/borc.js')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 503,
+      "value": "CID = (await import('https://jspm.dev/cids')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 584,
+      "value": "import {button} from '@jimpick/download-data-button-with-wasm-support'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 752,
+      "value": "filecoinJsSigner = import('https://jspm.dev/@blitslabs/filecoin-js-signer')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 767,
+      "value": "FilecoinClient = filecoinJsSigner.FilecoinClient",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 770,
+      "value": "FilecoinSigner = filecoinJsSigner.FilecoinSigner",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 785,
+      "value": "filecoin_signer = new FilecoinSigner()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 815,
+      "value": "filecoinNumber = import('https://cdn.skypack.dev/pin/@glif/filecoin-number@v2.0.0-beta.0-iQnBkhznGjB3HsyiyYB8/mode=imports,min/optimized/@glif/filecoin-number.js')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 835,
+      "value": "FilecoinNumber = filecoinNumber.FilecoinNumber",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1021,
+      "value": "BN = require('https://bundle.run/bn.js@5.2.0')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1330,
+      "value": "protocolWords = import('https://cdn.skypack.dev/protocol-words@0.0.7?min')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1500,
+      "value": "filecoinAddress = import('https://cdn.skypack.dev/pin/@glif/filecoin-address@v2.0.0-beta.3-EOQV1pNtsg3BOYA74Vst/mode=imports,min/optimized/@glif/filecoin-address.js')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1513,
+      "value": "multiformats = import('https://cdn.skypack.dev/pin/multiformats@v9.6.5-93rn6JH3zqEZdoz77NBu/mode=imports,min/optimized/multiformats.js')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1874,
+      "value": "buffer = require('https://bundle.run/buffer@6.0.3')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 721,
+      "value": "## Boilerplate Code",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 171,
+      "value": "initialCodeUrl = `https://raw.githubusercontent.com/raulk/fil-hello-world-actor/1b8aaab57ca82d296c041752b364c6685d57e84d/src/lib.rs`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 730,
+      "value": "initialCode = (await fetch(initialCodeUrl)).text()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1409,
+      "value": "stateObjectCode = `\n#[derive(Serialize, Deserialize, Debug)]\npub struct BountyKey {\n    pub piece_cid: Cid,\n    pub address: Address,\n}\n\n#[derive(Serialize, Deserialize, PartialEq, Debug)]\npub struct BountyValue {\n    #[serde(with = \"bigint_ser\")]\n    pub amount: TokenAmount,\n}\n\n/// The state object.\n#[derive(Serialize_tuple, Deserialize_tuple, Clone, Debug)]\npub struct State {\n    pub trusted_address: Address,\n    pub bounties_map: Cid,\n}\n`.trim()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 725,
+      "value": "methodsCode = `\n/// The constructor populates the initial state.\n///\n/// Method num 1. This is part of the Filecoin calling convention.\n/// InitActor#Exec will call the constructor on method_num = 1.\npub fn constructor(params: u32) -> Option<RawBytes> {\n    let params = sdk::message::params_raw(params).unwrap().1;\n    let trusted_address = Address::from_bytes(&params).unwrap();\n\n    // This constant should be part of the SDK.\n    const INIT_ACTOR_ADDR: ActorID = 1;\n\n    // Should add SDK sugar to perform ACL checks more succinctly.\n    // i.e. the equivalent of the validate_* builtin-actors runtime methods.\n    // https://github.com/filecoin-project/builtin-actors/blob/master/actors/runtime/src/runtime/fvm.rs#L110-L146\n    if sdk::message::caller() != INIT_ACTOR_ADDR {\n        abort!(USR_FORBIDDEN, \"constructor invoked by non-init actor\");\n    }\n\n    let mut state = State {\n        trusted_address,\n        bounties_map: Cid::default(),\n    };\n    let mut bounties: Hamt<Blockstore, BountyValue, BytesKey> = Hamt::new(Blockstore);\n    let bounties_cid = match bounties.flush() {\n        Ok(map) => map,\n        Err(_e) => abort!(USR_ILLEGAL_STATE, \"failed to create bounties hamt\"),\n    };\n    state.bounties_map = bounties_cid;\n    state.save();\n    None\n}\n\n#[derive(Debug, Deserialize_tuple)]\npub struct PostBountyParams {\n    pub piece_cid: Cid,\n    pub address: Address,\n}   \n\n/// Method num 2.\npub fn post_bounty(params: u32) -> Option<RawBytes> {\n    let params = sdk::message::params_raw(params).unwrap().1;\n    let params = RawBytes::new(params);\n    let params: PostBountyParams = params.deserialize().unwrap();\n\n    let mut state = State::load();\n\n    let mut bounties =\n        match Hamt::<Blockstore, BountyValue, BytesKey>::load(&state.bounties_map, Blockstore) {\n            Ok(map) => map,\n            Err(err) => abort!(USR_ILLEGAL_STATE, \"failed to load bounties hamt: {:?}\", err),\n        };\n\n    let key = BountyKey {\n        piece_cid: params.piece_cid,\n        address: params.address,\n    };\n    let raw_bytes = RawBytes::serialize(&key).unwrap();\n    let bytes = raw_bytes.bytes();\n    let key = BytesKey::from(bytes);\n\n    let mut amount = match bounties.get(&key) {\n        Ok(Some(bounty_value)) => bounty_value.amount.clone(),\n        Ok(None) => TokenAmount::from(0),\n        Err(err) => abort!(\n            USR_ILLEGAL_STATE,\n            \"failed to query hamt when getting bounty balance: {:?}\",\n            err\n        ),\n    };\n    amount += sdk::message::value_received();\n\n    if amount > TokenAmount::from(0) {\n        let bounty_value = BountyValue { amount: amount };\n        bounties.set(key, bounty_value).unwrap();\n\n        // Flush the HAMT to generate the new root CID to update the actor's state.\n        let cid = match bounties.flush() {\n            Ok(cid) => cid,\n            Err(err) => abort!(USR_ILLEGAL_STATE, \"failed to flush hamt: {:?}\", err),\n        };\n\n        // Update the actor's state.\n        state.bounties_map = cid;\n        state.save();\n    }\n\n    None\n}\n\n#[derive(Debug, Serialize)]\npub struct PostedBounty {\n    pub piece_cid: Cid,\n    pub address: Address,\n    #[serde(with = \"bigint_ser\")]\n    pub amount: TokenAmount,\n}\n\n/// Method num 3.\npub fn list_bounties() -> Option<RawBytes> {\n    let mut bounties_vec = Vec::new();\n\n    let state = State::load();\n    let bounties =\n        match Hamt::<Blockstore, BountyValue, BytesKey>::load(&state.bounties_map, Blockstore) {\n            Ok(map) => map,\n            Err(err) => abort!(USR_ILLEGAL_STATE, \"failed to load bounties hamt: {:?}\", err),\n        };\n    bounties\n        .for_each(|k, v: &BountyValue| {\n            let raw_bytes = RawBytes::new(k.as_slice().to_vec());\n            let key: BountyKey = raw_bytes.deserialize().unwrap();\n            let posted_bounty = PostedBounty {\n                piece_cid: key.piece_cid,\n                address: key.address,\n                amount: v.amount.clone(),\n            };\n            bounties_vec.push(posted_bounty);\n            Ok(())\n        })\n        .unwrap();\n\n    Some(RawBytes::serialize(&bounties_vec).unwrap())\n}\n\n/// Method num 4.\npub fn lookup_bounty(params: u32) -> Option<RawBytes> {\n    let params = sdk::message::params_raw(params).unwrap().1;\n    let params = RawBytes::new(params);\n    let params: PostBountyParams = params.deserialize().unwrap();\n\n    let state = State::load();\n    let bounties =\n        match Hamt::<Blockstore, BountyValue, BytesKey>::load(&state.bounties_map, Blockstore) {\n            Ok(map) => map,\n            Err(err) => abort!(USR_ILLEGAL_STATE, \"failed to load bounties hamt: {:?}\", err),\n        };\n\n    let key = BountyKey {\n        piece_cid: params.piece_cid,\n        address: params.address,\n    };\n    let raw_bytes = RawBytes::serialize(&key).unwrap();\n    let bytes = raw_bytes.bytes();\n    let key = BytesKey::from(bytes);\n    let amount = match bounties.get(&key) {\n        Ok(Some(bounty_value)) => bounty_value.amount.clone(),\n        Ok(None) => TokenAmount::from(0),\n        Err(err) => abort!(\n            USR_ILLEGAL_STATE,\n            \"failed to query hamt when getting bounty balance: {:?}\",\n            err\n        ),\n    };\n    let bounty_value = BountyValue { amount: amount };\n    Some(RawBytes::serialize(&bounty_value).unwrap())\n}\n\n#[derive(Debug, Deserialize_tuple)]\npub struct AwardBountyParams {\n    pub piece_cid: Cid,\n    pub address: Address,\n    pub payout_address: Address,\n}\n\n/// Method num 5.\npub fn award_bounty(params: u32) -> Option<RawBytes> {\n    let params = sdk::message::params_raw(params).unwrap().1;\n    let params = RawBytes::new(params);\n    let params: AwardBountyParams = params.deserialize().unwrap();\n\n    let mut state = State::load();\n\n    let caller = sdk::message::caller();\n    let address = Address::new_id(caller);\n    if state.trusted_address != address.clone() {\n        abort!(\n            USR_FORBIDDEN,\n            \"caller not trusted {:?} != {:?} (trusted)\",\n            address,\n            &state.trusted_address\n        );\n    }\n\n    let mut bounties =\n        match Hamt::<Blockstore, BountyValue, BytesKey>::load(&state.bounties_map, Blockstore) {\n            Ok(map) => map,\n            Err(err) => abort!(USR_ILLEGAL_STATE, \"failed to load bounties hamt: {:?}\", err),\n        };\n\n    let key = BountyKey {\n        piece_cid: params.piece_cid,\n        address: params.address,\n    };\n    let raw_bytes = RawBytes::serialize(&key).unwrap();\n    let bytes = raw_bytes.bytes();\n    let key = BytesKey::from(bytes);\n\n    let amount = match bounties.get(&key) {\n        Ok(Some(bounty_value)) => bounty_value.amount.clone(),\n        Ok(None) => TokenAmount::from(0),\n        Err(err) => abort!(\n            USR_ILLEGAL_STATE,\n            \"failed to query hamt when getting bounty balance: {:?}\",\n            err\n        ),\n    };\n\n    if amount > TokenAmount::from(0) {\n        let send_params = RawBytes::default();\n        let _receipt =\n            fvm_sdk::send::send(&params.payout_address, METHOD_SEND, send_params, amount).unwrap();\n\n        bounties.delete(&key).unwrap();\n\n        // Flush the HAMT to generate the new root CID to update the actor's state.\n        let cid = match bounties.flush() {\n            Ok(cid) => cid,\n            Err(err) => abort!(USR_ILLEGAL_STATE, \"failed to flush hamt: {:?}\", err),\n        };\n\n        // Update the actor's state.\n        state.bounties_map = cid;\n        state.save();\n    }\n\n    None\n}\n`.trim()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 733,
+      "value": "templateStart = {\n  const code = initialCode\n    .replace('pub fn invoke(_: u32)', 'pub fn invoke(params: u32)')\n    .replace('constructor()', 'constructor(params)')\n    .replace('say_hello()', 'post_bounty(params)')\n    .replace(/\\/\\/\\/ The state object.[^}]*}/s, '%%stateObjectCode%%')\n    .replace(/\\/\\/\\/ The constructor populates the initial state.*/s, '')\n    .split('\\n')\n\n  const insertAt = code.findIndex(line => line.match(/post_bounty/)) + 1\n  code.splice(\n    insertAt, 0,\n    '        3 => list_bounties(),',\n    '        4 => lookup_bounty(params),',\n    '        5 => award_bounty(params),',    \n  )\n  code.splice(\n    10, 0,\n    'use serde::{Serialize, Deserialize};',\n    'use fvm_shared::METHOD_SEND;',\n    'use fvm_shared::address::Address;',\n    'use fvm_shared::bigint::bigint_ser;',\n    'use fvm_shared::econ::TokenAmount;',\n    'use fvm_ipld_hamt::{BytesKey, Hamt};',\n  )\n  return code.join('\\n')\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1185,
+      "value": "initialCargoTomlUrl = 'https://raw.githubusercontent.com/raulk/fil-hello-world-actor/c0ea4bde7da49c6d5b0d3ba01d592f553dd9589c/Cargo.toml'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1189,
+      "value": "initialCargoToml = (await fetch(initialCargoTomlUrl)).text()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1191,
+      "value": "patchedCargoToml = {\n  function gitVersion (version) {\n    const rev = '297a7694'\n    return `{ version = \"${version}\", git = \"https://github.com/filecoin-project/ref-fvm\", rev = \"${rev}\" }`\n  }\n  const replaced = initialCargoToml\n    .replace(/fvm_sdk = .*/, `fvm_sdk = ${gitVersion('0.6.1')}`)\n    .replace(/fvm_shared = .*/, `fvm_shared = ${gitVersion('0.6.1')}`)\n    .replace(/fvm_ipld_blockstore = .*/, `fvm_ipld_blockstore = ${gitVersion('0.1.0')}`)\n    .replace(/fvm_ipld_encoding = .*/, `fvm_ipld_encoding = ${gitVersion('0.2.0')}`)\n  const lines = replaced.split('\\n')\n  const insertAt = lines.findIndex(line => line.match(/dev-dependencies/)) - 1\n  lines.splice(\n    insertAt, 0,\n    `fvm_ipld_hamt = ${gitVersion('0.5.1')}`,\n  )\n  return lines.join('\\n')\n}  ",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 270,
+      "value": "## Lotus Utilities",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 373,
+      "value": "baseUrl = \"https://fvm-2.default.knative.hex.camp\"",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 355,
+      "value": "token = (await fetch(`${baseUrl}/public/token`)).text()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 209,
+      "value": "client = {\n  const provider = new BrowserProvider(`${baseUrl}/rpc/v0`, { token })\n  return new LotusRPC(provider, { schema })\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 914,
+      "value": "filecoin_client = new FilecoinClient(`${baseUrl}/rpc/v0`, token)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 303,
+      "value": "async function *heightStream () {\n  let last\n  while (true) {\n    try {\n      const newHeight = (await client.chainHead()).Height\n      if (newHeight !== last) {\n        yield newHeight\n        last = newHeight\n      }\n    } catch (e) {\n      yield 0\n    }\n    await Promises.delay(4000)\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 328,
+      "value": "mutable ready = false",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1573,
+      "value": "mutable invalidatedAt = new Date()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1459,
+      "value": "providerIds = ready && (await client.stateListMiners([])).sort(sortMiners)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1463,
+      "value": "sortMiners = (a, b) => Number(a.slice(1)) - Number(b.slice(1))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 312,
+      "value": "async function *heightReadyTapStream () {\n  let lastReady = false\n  let enoughProviders = false\n  for await (const height of heightStream()) {\n    const newReady = height > 7\n    if (newReady && !enoughProviders) {\n      const providerIds = await client.stateListMiners([])\n      enoughProviders = providerIds.length >= 3\n    }\n    if (enoughProviders && newReady !== lastReady) {\n      mutable ready = newReady\n      lastReady = newReady\n    }\n    yield height\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 308,
+      "value": "currentHeight = heightReadyTapStream()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 353,
+      "value": "walletDefaultAddress = ready && client.walletDefaultAddress()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2050,
+      "value": "walletDefaultId = walletDefaultAddress && client.stateLookupID(walletDefaultAddress, [])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2186,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2188,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2217,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2220,
+      "value": "backupNowButton()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": [
+    {
+      "type": "notebook",
+      "specifier": "@jeremiak/download-data-button",
+      "value": "bedb50933413e557@45"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/github-backups",
+      "value": "1d309dbd9697e042@631"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/onversion",
+      "value": "8aac8b2cb06bf434@263"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/footer",
+      "value": "58f3eb7334551ae6@215"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/safe-local-storage",
+      "value": "c2dae147641e012a@46"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/sentry",
+      "value": "a81f2a20664080d3@245"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/catch-all",
+      "value": "fa1f6059e44da1d5@425"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/repository-dispatch-min",
+      "value": "b09f1f038b1040e3@76"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/webcode",
+      "value": "6eda90668ae03044@836"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/webcode-ui",
+      "value": "cbc2e7f6260d11b1@2790"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/endpoint-login-with-comment",
+      "value": "027541187c96745d@147"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/login-with-comment",
+      "value": "c16efae137e70585@1444"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/firebase",
+      "value": "993a0c51ef1175ea@1396"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/synchronized-views",
+      "value": "3df1b33bb2cfcd3c@475"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/disposal",
+      "value": "4caee69e966109c8@35"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/get-comments",
+      "value": "d84ccee0a2202d45@356"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/view",
+      "value": "f92778131fd76559@1174"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/endpoint-services-footer",
+      "value": "58f3eb7334551ae6@215"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/viewroutine",
+      "value": "4a1fa3c167b752e5@304"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/serverless-cells",
+      "value": "dff1e917c89f5e76@1964"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/secure-random-id@65",
+      "value": "316f0885d15ab671@65"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/firebase-admin",
+      "value": "698257e86fae4586@378"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/utils",
+      "value": "b8a500058f806a6b@11"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@nebrius/indented-toc",
+      "value": "9bed702f80a3797e@402"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/randomid",
+      "value": "316f0885d15ab671@69"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mootari/notebook-data",
+      "value": "55bed46f68a80641@366"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/metadata",
+      "value": "e6f8b27a19576fcb@428"
+    }
+  ]
+}
