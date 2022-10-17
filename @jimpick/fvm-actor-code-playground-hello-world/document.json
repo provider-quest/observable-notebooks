@@ -27,8 +27,8 @@
   "publish_time": "2022-04-29T20:09:13.300Z",
   "publish_version": 789,
   "latest_version": 789,
-  "thumbnail": null,
-  "default_thumbnail": null,
+  "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+  "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
   "roles": [],
   "sharing": null,
   "owner": {
@@ -77,8 +77,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": null,
-      "thumbnail": null,
+      "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+      "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
       "listing_count": 7,
       "parent_collection_count": 0,
       "owner": {
