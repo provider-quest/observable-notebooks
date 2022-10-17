@@ -1,0 +1,1225 @@
+{
+  "id": "c96312e9d904c8b1",
+  "slug": "fvm-actor-code-playground-erc20-sans-events-wallaby-testne",
+  "trashed": false,
+  "description": "",
+  "likes": 1,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": {
+    "id": "c7e7e39ebd4ccf64",
+    "slug": "fvm-actor-code-playground-erc20-sans-events",
+    "title": "FVM Actor Code Playground - ERC20 Sans Events",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "pro"
+    },
+    "version": 1610
+  },
+  "update_time": "2022-10-17T00:38:01.563Z",
+  "publish_time": "2022-09-22T01:38:12.148Z",
+  "publish_version": 2041,
+  "latest_version": 2041,
+  "thumbnail": null,
+  "default_thumbnail": null,
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "pro"
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "pro"
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "pro",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "f63e6c307ab87e8f",
+      "type": "public",
+      "slug": "filecoin-virtual-machine",
+      "title": "Filecoin Virtual Machine",
+      "description": "",
+      "update_time": "2022-05-02T18:32:44.723Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+      "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+      "listing_count": 7,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "pro"
+      }
+    }
+  ],
+  "files": [
+    {
+      "id": "2aa607f0a34ff42eed6860893616da5b8d2a255af2899d5b8f0391c18b9912a5994354f7a65c3d1439809ab4ecded309de0654d7dc3fac8d10bd17140d642d0c",
+      "url": "https://static.observableusercontent.com/files/2aa607f0a34ff42eed6860893616da5b8d2a255af2899d5b8f0391c18b9912a5994354f7a65c3d1439809ab4ecded309de0654d7dc3fac8d10bd17140d642d0c",
+      "download_url": "https://static.observableusercontent.com/files/2aa607f0a34ff42eed6860893616da5b8d2a255af2899d5b8f0391c18b9912a5994354f7a65c3d1439809ab4ecded309de0654d7dc3fac8d10bd17140d642d0c?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27ERC20.bin",
+      "name": "ERC20.bin",
+      "create_time": "2022-09-21T02:07:41.391Z",
+      "status": "public",
+      "size": 7322,
+      "mime_type": "application/octet-stream",
+      "content_encoding": null
+    }
+  ],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 2041,
+  "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2022 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 154,
+      "value": "Try a real [ERC20](https://docs.openzeppelin.com/contracts/4.x/erc20) Smart Contract on the [Filecoin Virtual Machine](https://fvm.filecoin.io/)!\n\nHere is an example EVM Smart Contract, from:\n\n* https://github.com/filecoin-project/testnet-wallaby/issues/8\n* https://github.com/filecoin-project/fvm-example-actors/tree/main/erc20-sans-events\n* https://github.com/jimpick/fvm-example-actors/tree/jim-erc20/erc20-sans-events (same as above, but with extra build scripts and missing files)\n\nYou can modify it here, then scroll down and click the buttons to compile it, then load onto the [Wallaby Testnet](https://kb.factor8.io/en/docs/fil/wallabynet), and invoke methods against it.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1617,
+      "value": "This is a modified version of the [ERC20 Sans Events](https://observablehq.com/@jimpick/fvm-actor-code-playground-erc20-sans-events) notebook (that version deploys the contract to an on-demand localnet instead of a live testnet). This demo runs much slower because the testnet has a 30 second block time, whereas the localnet has a 10 second block time.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1993,
+      "value": "It communicates with the network using the [Wallaby Public GLIF API Gateway](https://wallaby.node.glif.io/) ... so it needs to keep all the secrets local in the web browser.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1619,
+      "value": "## Development Funds",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1621,
+      "value": "Since we're going to deploy against the Wallaby Testnet, we'll need some funds to do that. First, we'll create a \"seed phrase\" (aka. \"mnemonic\") and store that (very insecurely) in the browser's localStorage so that it can be accessed from any notebook. Cryptographic keys can be derived from the passphrase so you have an address to send funds to. This is super dangerous! You wouldn't want to do this with real funds!",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1853,
+      "value": "md`**Developer funds seed phrase:**\n\n\\`\\`\\`\n${devFundsMnemonic.split(' ').slice(0,12).join(' ')}\n${devFundsMnemonic.split(' ').slice(-12).join(' ')}\n\\`\\`\\`\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1658,
+      "value": "**Tip:** You can import the seed phrase from above to create a \"burner wallet\" using the [GLIF Wallet](https://wallet.glif.io/?network=wallaby) (optional)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1635,
+      "value": "{\n  return md`\nAddress: **\\`${devFundsKey.address}\\`**\n\nID: ${!devFundsId || devFundsId.error ? \"Doesn't exist yet, transfer in some funds.\" : devFundsId} \\ \nBalance: ${!devFundsBalance || devFundsBalance.error ? '0 FIL' : devFundsBalance.toFil() + ' FIL'}\n`\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1710,
+      "value": "Inputs.button(\"Re-check ID and Balance\", { value: null, reduce: () => {\n  mutable invalidatedDevFundsIdAt = new Date();\n  mutable invalidatedDevFundsBalanceAt = new Date();\n} })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1712,
+      "value": "You can get some funds from the [Wallaby Faucet](https://wallaby.network/#faucet) ... just submit the address above, complete the captcha, and wait for the funds to be deposited. (Be sure to scroll down to see the form)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1649,
+      "value": "md`Also, check out the [GLIF Explorer](https://explorer.glif.io/actor/?network=wallaby&address=${devFundsKey.address}) to watch the transactions for the address in real time.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1777,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1625,
+      "value": "devFundsMnemonic = {\n  const localStorageKey = 'fvm_playground_dev_funds_phrase'\n  let phrase = localStorage.getItem(localStorageKey)\n  if (!phrase) {\n    // https://github.com/blitslabs/filecoin-js-signer#filecoin-signer\n    const strength = 256 // 128 => 12 words | 256 => 24 words\n    phrase = filecoin_signer.wallet.generateMnemonic(strength)\n    localStorage.setItem(localStorageKey, phrase)\n  }\n  return phrase\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1632,
+      "value": "devFundsKey = {\n  const network = 'testnet'\n\n  const key = await filecoin_signer.wallet.keyDerive(devFundsMnemonic, `m/44'/1'/0'/0/0`, network)\n  key.name = 'Owner'\n  return key\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1869,
+      "value": "devFundsId = {\n  invalidatedDevFundsIdAt;\n  try {\n    return await lotusApiClient.state.lookupId(devFundsKey.address, [])\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1873,
+      "value": "mutable invalidatedDevFundsIdAt = new Date()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1672,
+      "value": "devFundsBalance = {\n  invalidatedDevFundsBalanceAt;\n  try {\n    const result = await lotusApiClient.state.getActor(devFundsKey.address, [])\n    return new FilecoinNumber(result.Balance, 'attofil')\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1705,
+      "value": "mutable invalidatedDevFundsBalanceAt = new Date()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1770,
+      "value": "devFundsReady = devFundsId && !devFundsId.error",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1092,
+      "value": "## Generate Client Side Addresses",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1094,
+      "value": "We use `filecoin-js-signer` to generate a random mnemomic phrase. You could save this phrase and re-use it to generate the secrets. In this notebook, we just use different secrets on each page reload.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1847,
+      "value": "md`**Random temporary seed phrase:**\n\n\\`\\`\\`\n${randomMnemonic}\n\\`\\`\\`\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1850,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1096,
+      "value": "randomMnemonic = {\n  // https://github.com/blitslabs/filecoin-js-signer#filecoin-signer\n  const strength = 128 // 128 => 12 words | 256 => 24 words\n  return filecoin_signer.wallet.generateMnemonic(strength)\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1106,
+      "value": "keys = {\n  const keys = []\n  const names = [ 'Alice', 'Bob', 'Carol' ]\n  for (let i = 0; i < names.length; i++) {\n    const network = 'testnet'\n\n    const key = await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/461'/0'/0/${i}`, network)\n    \n    key.name = names[i]\n    keys.push(key)\n  }\n  return keys\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1109,
+      "value": "clientAddresses = keys.map(key => key.address)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1112,
+      "value": "## Wait for Lotus to be ready, then transfer 1 FIL to each address",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1114,
+      "value": "Be patient as it takes a little while for the funds to be sent via the Lotus JSON-RPC API when the notebook is first loaded. Transferring the funds might take up to 2 minutes.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1116,
+      "value": "{\n  if (transferFundsStatus === undefined || !transferFundsStatus) {\n    yield md``\n    return\n  }\n  if (transferFundsStatus.transferring || transferFundsStatus.waiting) {\n    while (true) {\n      const elapsed = (Date.now() - transferFundsStatus.start) / 1000\n      yield md`Transferring initial funds to client accounts... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFundsStatus.transferred) {\n    yield md`**Funds transferred**!`\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1845,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1118,
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const privateKey = devFundsKey.privateKey\n    const responses = []\n    for (const key of keys) {\n      responses.push(await filecoin_client.tx.send(\n        key.address, // to\n        '1000000000000000000',\n        1000000000, // gaslimit\n        privateKey,\n        'testnet', // network\n        false // waitMsg\n      ))\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1122,
+      "value": "## Initial Balances",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1124,
+      "value": "Here are the addresses and IDs of the 3 clients we created, as well at their initial balances (should be 1 FIL each).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1130,
+      "value": "Inputs.table(\n  initialBalances ? initialBalances.map(({ address, balance }) => ({\n    name: keys.find(({ address: keyAddress }) => address === keyAddress).name, \n    id: transferFundsStatus.lookups[address],\n    address,\n    balance\n  })) : [],\n  {\n    format: {\n      balance: num => new FilecoinNumber(num, 'attofil').toFil()\n    }\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1843,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1126,
+      "value": "initialBalances = !transferFundsStatus ? md`Waiting...` : transferFundsStatus.transferred && getBalances(clientAddresses)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1128,
+      "value": "async function getBalances (addresses) {\n  return Promise.all(\n    addresses\n      .map(async address => {\n        const response = await lotusApiClient.state.getActor(address, [])\n        return {\n          address: address,\n          balance: response.Balance\n        }\n      })\n  )\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 243,
+      "value": "## Step 1: Define deployment parameters for your token",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1409,
+      "value": "viewof constructorParamsForm = Inputs.form([\n  Inputs.text({label: \"Name for your token\", value: \"littlecoin\"}),\n  Inputs.text({label: \"Symbol for your token\", value: \"LIT\"}),\n  Inputs.number({label: \"Initial supply\", value: 1000000 })\n])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1418,
+      "value": "md`The \"address\" will be set to \\`${devFundsId}\\`, which is the address for our developer funds.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1456,
+      "value": "The code below uses the [`.encodeDeploy()`](https://docs.ethers.io/v5/api/utils/abi/interface/#Interface--encoding) method from ethers.js to encode the constructor parameters which are appended to the contract binary.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1488,
+      "value": "evmBytes ? html`Optional: ${button(evmBytes, constructorParamsForm[0] + '.bin')}` : md``",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1998,
+      "value": "**Tip:** You could use this binary and load it into the Wallaby testnet using the [wallaby-fevm-msg-signer](https://github.com/jimpick/wallaby-fevm-msg-signer) command line tool.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1907,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 794,
+      "value": "contractBytes = {\n  // Using prebuilt example from https://github.com/filecoin-project/fvm-example-actors/tree/main/erc20-sans-events/bin\n  const buf = new Uint8Array(await FileAttachment(\"ERC20.bin\").arrayBuffer())\n  const bytes = buffer.Buffer.from(buf)\n  return bytes.subarray(0, bytes.length - 256) // Remove initcode\n\n  /*\n  const buf = await (await fetch('https://raw.githubusercontent.com/jimpick/fvm-example-actors/jim-erc20/erc20-sans-events/output/ERC20PresetFixedSupply.bin')).arrayBuffer()\n  return buffer.Buffer.from(buf, 'hex')\n  */\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1339,
+      "value": "abi = (await fetch('https://raw.githubusercontent.com/jimpick/fvm-example-actors/jim-erc20/erc20-sans-events/output/ERC20PresetFixedSupply.abi')).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1343,
+      "value": "iface = new ethers.utils.Interface(abi)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1347,
+      "value": "deployBytes = buffer.Buffer.from(\n  iface.encodeDeploy(\n    [ \n      constructorParamsForm[0], // name - string\n      constructorParamsForm[1], // symbol - string\n      constructorParamsForm[2], // initialSupply - uint256\n      \"0x\" + getEvmAddress(devFundsId).slice(24), // owner - address (genesis miner)\n    ]\n  ).slice(2), 'hex'\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1379,
+      "value": "evmBytes = buffer.Buffer.concat([contractBytes, deployBytes])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 234,
+      "value": "## Step 2: Create an EVM actor instance",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 655,
+      "value": "Now we can create an actor instance from the compiled EVM smart contract. It is possible to create lots and lots of actors using the same code, each will get assigned a unique \"ID Address\" (eg. t01001) to which messages and funds can be sent, as well as an equivalent \"Robust Address\" alias (eg. \"t2...\") which maps on the same address (but doesn't change in the event of a chain re-organization).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 492,
+      "value": "At the command line, this is the same as: `lotus chain create-evm-actor <bytecode file>`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 184,
+      "value": "viewof createActorButton = Inputs.button(\n  'Create EVM Actor',\n  {\n    disabled: !devFundsReady\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 548,
+      "value": "{\n  if (createActorStatus === undefined || !createActorStatus) {\n    yield md`Status: Instance has not been created yet.`\n    return\n  }\n  if (createActorStatus.creating) {\n    while (true) {\n      const elapsed = (Date.now() - createActorStatus.start) / 1000\n      yield md`Sending create actor message... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (createActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Create actor message sent</b></div>\n      <div>Message CID: <a href=\"https://explorer.glif.io/message/?network=wallaby&cid=${createActorStatus.response.CID['/']}\">${createActorStatus.response.CID['/']}</a></div>\n      `\n      if (createActorStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${createActorStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${createActorStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Robust Address: ${createActorStatus.waitResponse.ReturnDec.RobustAddress}</div>`\n        output += `<b><div>ID Address: ${createActorStatus.waitResponse.ReturnDec.IDAddress}</div></b>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - createActorStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1932,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 836,
+      "value": "evmActorCid = multiformats.CID.parse('bafk2bzacecgwjrepfw6r4ozuw47qw435n2jwgxnkdy7yrkbnsdgnqwd2wkcve') // Iron release (reset)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 838,
+      "value": "evmBytesCbor = cbor.encode([evmBytes])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 485,
+      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor')\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    // Needs a zero byte in front\n    const evmActorCidBytes = new Uint8Array(evmActorCid.bytes.length + 1)\n    evmActorCidBytes.set(evmActorCid.bytes, 1)\n    const params = cbor.encode([new cbor.Tagged(42, evmActorCidBytes), evmBytesCbor])\n    // Sending create actor message...\n    const message = {\n      To: 't01',\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    console.log('message', message)\n    const privateKey = devFundsKey.privateKey\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await waitMsg(responseCID)\n    const base64Result = waitResponse.Receipt.Return\n    const decoded = cbor.decode(base64Result, 'base64')\n    const idAddress = filecoinAddress.newAddress(\n      decoded[0][0],\n      decoded[0].slice(1),\n      't'\n    )\n    const robustAddress = filecoinAddress.newAddress(\n      decoded[1][0],\n      decoded[1].slice(1),\n      't'\n    )\n    waitResponse.ReturnDec = {\n      IDAddress: idAddress.toString(),\n      RobustAddress: robustAddress.toString()\n    }\n    yield { installed: true, response: { CID: responseCID }, waitResponse }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1157,
+      "value": "**Signatures:**\n\n```\n${await (await fetch('https://raw.githubusercontent.com/jimpick/fvm-example-actors/jim-erc20/erc20-sans-events/output/ERC20Burnable.signatures')).text()}\n```",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 238,
+      "value": "md`## Step 3: Invoke a method to get the ERC20 token balance for the owner address (${devFundsId})`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 666,
+      "value": "Now that we've got an actor running with an ID Address, we can call the methods we have defined. Let's check the balance of the addresses. The method signature (from above) to get the balance is => `70a08231: balanceOf(address)`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 187,
+      "value": "viewof invokeEvmMethodButton = Inputs.button(`Get ERC20 Token Balance for Owner (${devFundsId})`, {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 678,
+      "value": "{\n  if (invokeEvmMethodStatus === undefined || !invokeEvmMethodStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (invokeEvmMethodStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - invokeEvmMethodStatus.start) / 1000\n      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (invokeEvmMethodStatus.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${invokeEvmMethodButton}</div>\n      <div>Message CID: <a href=\"https://explorer.glif.io/message/?network=wallaby&cid=${invokeEvmMethodStatus.response.CID['/']}\">${invokeEvmMethodStatus.response.CID['/']}</a></div>\n      `\n      if (invokeEvmMethodStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${invokeEvmMethodStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${invokeEvmMethodStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Return: ${invokeEvmMethodStatus.waitResponse.Receipt.Return} (Base64 encoded binary array)</div>`\n        output += `<div><b>Decoded Result (Hex):</b> <b style=\"font-size: 100%\">${JSON.stringify(invokeEvmMethodStatus.decodedResult.toString('hex'))}</b></div>`\n        output += `<div><b>Decoded Result (Decimal):</b> <b style=\"font-size: 100%\">${Number(`0x${invokeEvmMethodStatus.decodedResult.toString('hex')}`)} tokens</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - invokeEvmMethodStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1949,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 572,
+      "value": "invokeEvmMethodStatus = {\n  if (invokeEvmMethodButton) {\n    const start = Date.now()\n    yield {\n      invoking: true,\n      start\n    }\n    const params = buffer.Buffer.concat([\n      buffer.Buffer.from('70a08231', 'hex'),\n      buffer.Buffer.from(getEvmAddress(devFundsId), 'hex')]\n    )\n    const message = {\n      To: invokeEvmMethodButton,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    console.log('message', message)\n    const privateKey = devFundsKey.privateKey\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await waitMsg(responseCID)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1254,
+      "value": "md`## Step 4: Invoke a method to transfer ERC20 tokens from the owner address (${devFundsId}) to a user address`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1276,
+      "value": "The method signature is => `a9059cbb: transfer(address,uint256)`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1259,
+      "value": "viewof transferFromOwnerForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys, { label: \"Transfer from Owner to User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})` }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1522,
+      "value": "viewof transferFromOwnerButton = Inputs.button(`Transfer From Owner (${devFundsId})`, {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => ({\n    actorId: createActorStatus.waitResponse.ReturnDec.IDAddress,\n    dest: transferFromOwnerForm[0],\n    amount: transferFromOwnerForm[1]\n  })\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1530,
+      "value": "{\n  if (transferFromOwnerStatus === undefined || !transferFromOwnerStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromOwnerStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromOwnerStatus.start) / 1000\n      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromOwnerStatus.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${transferFromOwnerButton.actorId}</div>\n      <div>Message CID: <a href=\"https://explorer.glif.io/message/?network=wallaby&cid=${transferFromOwnerStatus.response.CID['/']}\">${transferFromOwnerStatus.response.CID['/']}</a></div>\n      `\n      if (transferFromOwnerStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${transferFromOwnerStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${transferFromOwnerStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Return: ${transferFromOwnerStatus.waitResponse.Receipt.Return} (Base64 encoded binary array)</div>`\n        output += `<div><b>Decoded Result (Hex):</b> <b style=\"font-size: 100%\">${JSON.stringify(transferFromOwnerStatus.decodedResult.toString('hex'))}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - transferFromOwnerStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1960,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1520,
+      "value": "transferFromOwnerStatus = {\n  if (transferFromOwnerButton) {\n    const start = Date.now()\n    yield {\n      invoking: true,\n      start\n    }\n    const dest = getEvmAddress(transferFundsStatus.lookups[transferFromOwnerButton.dest.address])\n    const amount = transferFromOwnerButton.amount.toString(16).padStart(64, '0')\n    const params = buffer.Buffer.concat([\n      buffer.Buffer.from('a9059cbb', 'hex'),\n      buffer.Buffer.from(dest, 'hex'),\n      buffer.Buffer.from(amount, 'hex')\n    ])\n    const message = {\n      To: transferFromOwnerButton.actorId,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    console.log('message', message)\n    const privateKey = devFundsKey.privateKey\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await waitMsg(responseCID)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1496,
+      "value": "## Step 5: Retrieve the ERC20 token balances for all the addresses",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1600,
+      "value": "This is the same as Step 3, where we got the token balance for a single account. But here we retrieve all the account token balances in parallel to make it easier to observe what's going on.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1499,
+      "value": "{\n  if (tokenBalancesStatus?.retrieving || tokenBalancesStatus?.waiting) {\n    while (true) {\n      const elapsed = (Date.now() - tokenBalancesStatus.start) / 1000\n      yield md`Retrieving balances... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  } else {\n    const rows = tokenBalancesStatus?.retrieved ? tokenBalancesStatus.balances.map((balance, i) => {\n        return {\n          name: tokenBalancesStatus.allKeys[i].name,\n          id: transferFundsStatus.lookups[tokenBalancesStatus.allKeys[i].address], \n          balance\n        }\n      }) : []\n    yield Inputs.table(rows)\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1554,
+      "value": "Inputs.button(\"Update\", { value: null, reduce: () => { mutable invalidatedBalancesAt = new Date() } })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1985,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1317,
+      "value": "tokenBalancesStatus = {\n  invalidatedBalancesAt;\n  const evmActorId = createActorStatus?.waitResponse?.ReturnDec?.IDAddress\n  if (walletDefaultAddress && keys && evmActorId) {\n    const start = Date.now()\n    yield {\n      retrieving: true,\n      start\n    }\n    const ownerKey = {\n      name: 'Owner',\n      address: walletDefaultAddress\n    }\n    const allKeys = [ownerKey].concat(keys)\n    const responses = []\n    const privateKey = devFundsKey.privateKey\n    for (const key of allKeys) {\n      const keyActorId = transferFundsStatus.lookups[key.address]\n      const addressEvm = getEvmAddress(keyActorId)\n      const params = buffer.Buffer.concat([\n        buffer.Buffer.from('70a08231', 'hex'),\n        buffer.Buffer.from(addressEvm, 'hex')\n      ])\n      const message = {\n        To: evmActorId,\n        From: walletDefaultAddress,\n        Value: \"0\",\n        Method: 2,\n        Params: params.toString('base64')\n      }\n      responses.push(await filecoin_client.tx.sendMessage(\n        message,\n        privateKey,\n        true, // updateMsgNonce\n        false // waitMsg\n      ))\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const balances = waitResponses.map(waitResponse => {\n      const base64 = waitResponse?.Receipt?.Return\n      if (base64) {\n        const bytes = buffer.Buffer.from(base64, 'base64')\n        let multiplier = 1n\n        let acc = 0n\n        for (let i = 0; i < bytes.length; i++) {\n          const value = bytes[bytes.length - i - 1]\n          acc += BigInt(value) * multiplier\n          multiplier *= 256n\n        }\n        return acc\n      }\n    })\n    yield { retrieved: true, responses, waitResponses, balances, allKeys }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1556,
+      "value": "mutable invalidatedBalancesAt = new Date()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1564,
+      "value": "## Step 6: Transfer ERC20 tokens from user to user",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1566,
+      "value": "This is almost the same as Step 4, where we transferred from the owner (the genesis address on the Lotus node). But this time we will use secrets on the client side (in the browser) and sign the message from a non-owner address.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1568,
+      "value": "viewof transferFromUserForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys, { label: \"Transfer from User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})` }),\n  Inputs.select(keys, {\n    label: \"Transfer to User\",\n    format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})`,\n    value: keys[1]\n  }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1572,
+      "value": "viewof transferFromUserButton = Inputs.button('Transfer From User to User', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress ||\n    transferFromUserForm[0] === transferFromUserForm[1],\n  value: null,\n  reduce: () => ({\n    actorId: createActorStatus.waitResponse.ReturnDec.IDAddress,\n    source: transferFromUserForm[0],\n    dest: transferFromUserForm[1],\n    amount: transferFromUserForm[2]\n  })\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1588,
+      "value": "{\n  if (transferFromUserStatus === undefined || !transferFromUserStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromUserStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromUserStatus.start) / 1000\n      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromUserStatus.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${transferFromUserButton.actorId}</div>\n      <div>Message CID: <a href=\"https://explorer.glif.io/message/?network=wallaby&cid=${transferFromUserStatus.response.CID['/']}\">${transferFromUserStatus.response.CID['/']}</a></div>\n      `\n      if (transferFromUserStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${transferFromUserStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${transferFromUserStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Return: ${transferFromUserStatus.waitResponse.Receipt.Return} (Base64 encoded binary array)</div>`\n        output += `<div><b>Decoded Result (Hex):</b> <b style=\"font-size: 100%\">${JSON.stringify(transferFromUserStatus.decodedResult.toString('hex'))}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - transferFromUserStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1987,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1578,
+      "value": "transferFromUserStatus = {\n  if (transferFromUserButton) {\n    const start = Date.now()\n    yield {\n      invoking: true,\n      start\n    }\n    const dest = getEvmAddress(transferFundsStatus.lookups[transferFromUserButton.dest.address])\n    const amount = transferFromUserButton.amount.toString(16).padStart(64, '0')\n    const params = buffer.Buffer.concat([\n      buffer.Buffer.from('a9059cbb', 'hex'),\n      buffer.Buffer.from(dest, 'hex'),\n      buffer.Buffer.from(amount, 'hex')\n    ])\n    const message = {\n      To: transferFromUserButton.actorId,\n      From: transferFromUserButton.source.address,\n      Nonce: 0,\n      Value: \"0\",\n      GasLimit: 1000000000,\n      GasFeeCap: new FilecoinNumber(0, 'attofil'),\n      GasPremium: new FilecoinNumber(0, 'attofil'),\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    const privateKey = keys.find(({ address }) => address === transferFromUserButton.source.address).privateKey\n    console.log('message', message)\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await waitMsg(responseCID)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 693,
+      "value": "# Final notes",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 695,
+      "value": "Thank you for trying out this demo.\n\nIf the backend is not working, please get in touch with me. Feel free to fork this notebook to customize your own actors and build scenarios using the on-demand localnet that supports this early version of actors / smart contracts.\n\nI can also deploy custom instances of the localnet and the API for compiling actors ... feel free to contact me at @jimpick on the Filecoin Slack.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 150,
+      "value": "## Imports",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 50,
+      "value": "skypack = (library) => import(`https://cdn.skypack.dev/${library}?min`)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 211,
+      "value": "schema = (await import('@filecoin-shipyard/lotus-client-schema')).mainnet.fullNode",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 402,
+      "value": "stripAnsi = (await import('https://unpkg.com/strip-ansi@7.0.1/index.js?module')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 501,
+      "value": "cbor = import('https://cdn.skypack.dev/borc')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 727,
+      "value": "multiformats = import('https://cdn.skypack.dev/pin/multiformats@v9.6.5-93rn6JH3zqEZdoz77NBu/mode=imports,min/optimized/multiformats.js')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 584,
+      "value": "import {button} from '@jimpick/download-data-button-with-wasm-support'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 821,
+      "value": "buffer = require('https://bundle.run/buffer@6.0.3')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1098,
+      "value": "filecoinJsSigner = import('https://jspm.dev/@blitslabs/filecoin-js-signer')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1683,
+      "value": "filecoinJs = (await import('https://jspm.dev/filecoin.js')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1100,
+      "value": "FilecoinClient = filecoinJsSigner.FilecoinClient",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1102,
+      "value": "FilecoinSigner = filecoinJsSigner.FilecoinSigner",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1104,
+      "value": "filecoin_signer = new FilecoinSigner()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1135,
+      "value": "filecoinNumber = import('https://cdn.skypack.dev/pin/@glif/filecoin-number@v2.0.0-beta.0-iQnBkhznGjB3HsyiyYB8/mode=imports,min/optimized/@glif/filecoin-number.js')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1137,
+      "value": "FilecoinNumber = filecoinNumber.FilecoinNumber",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1336,
+      "value": "ethers = import('https://cdn.skypack.dev/ethers@5.7.1?min')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1643,
+      "value": "import {localStorage} from \"@mbostock/safe-local-storage\"",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1929,
+      "value": "filecoinAddress = import('https://cdn.skypack.dev/@glif/filecoin-address')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 270,
+      "value": "## Lotus Utilities",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 743,
+      "value": "simpleCoinSol = `\n// SPDX-License-Identifier: MIT\npragma solidity >=0.4.25 <= 0.8.17;\n\ncontract SimpleCoin {\n        mapping (address => uint) balances;\n\n        event Transfer(address indexed _from, address indexed _to, uint256 _value);\n\n        constructor() {\n                balances[tx.origin] = 10000;\n        }\n\n        function sendCoin(address receiver, uint amount) public returns(bool sufficient) {\n                if (balances[msg.sender] < amount) return false;\n                balances[msg.sender] -= amount;\n                balances[receiver] += amount;\n                emit Transfer(msg.sender, receiver, amount);\n                return true;\n        }\n\n        function getBalanceInEth(address addr) public view returns(uint){\n                return getBalance(addr) * 2;\n        }\n\n        function getBalance(address addr) public view returns(uint) {\n                return balances[addr];\n        }\n}\n`.trim()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 171,
+      "value": "initialCodeUrl = `https://raw.githubusercontent.com/raulk/fil-hello-world-actor/695eed038c48bfff97c29fdc25d00aa7363ee47d/src/lib.rs`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 373,
+      "value": "baseUrl = \"https://wallaby.node.glif.io\"",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1692,
+      "value": "token = ''",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1582,
+      "value": "filecoin_client = new FilecoinClient(baseUrl, token)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1690,
+      "value": "lotusApiClient = {\n  const connector = new filecoinJs.HttpJsonRpcConnector({ url: baseUrl, token })\n  return new filecoinJs.LotusClient(connector)\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 353,
+      "value": "walletDefaultAddress = devFundsReady && devFundsKey.address",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1165,
+      "value": "function getEvmAddress (address) {\n  return '000000000000000000000000ff' + Number(address.slice(1)).toString(16).padStart(38, '0')\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1915,
+      "value": "async function waitMsg (cid) {\n  // console.log('Waiting for', cid)\n  let waitResponse\n  for (let i = 0; i < 36; i++) { // 36 attempts at 5s each\n    waitResponse = await lotusApiClient.state.searchMsg(cid)\n    if (!waitResponse) {\n      // console.log('Sleeping 5s - ', cid['/'], i)\n      await Promises.delay(5000)\n      continue\n    }\n  }\n  return waitResponse\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2005,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2007,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2036,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2039,
+      "value": "backupNowButton()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": [
+    {
+      "type": "notebook",
+      "specifier": "@jeremiak/download-data-button",
+      "value": "bedb50933413e557@45"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/safe-local-storage",
+      "value": "c2dae147641e012a@46"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/github-backups",
+      "value": "1d309dbd9697e042@631"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/onversion",
+      "value": "8aac8b2cb06bf434@263"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/footer",
+      "value": "58f3eb7334551ae6@215"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/sentry",
+      "value": "a81f2a20664080d3@245"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/catch-all",
+      "value": "fa1f6059e44da1d5@425"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/repository-dispatch-min",
+      "value": "b09f1f038b1040e3@76"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/webcode",
+      "value": "6eda90668ae03044@836"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/webcode-ui",
+      "value": "cbc2e7f6260d11b1@2790"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/endpoint-login-with-comment",
+      "value": "027541187c96745d@147"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/login-with-comment",
+      "value": "c16efae137e70585@1444"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/firebase",
+      "value": "993a0c51ef1175ea@1396"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/synchronized-views",
+      "value": "3df1b33bb2cfcd3c@475"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/disposal",
+      "value": "4caee69e966109c8@35"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/get-comments",
+      "value": "d84ccee0a2202d45@356"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/view",
+      "value": "f92778131fd76559@1174"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/endpoint-services-footer",
+      "value": "58f3eb7334551ae6@215"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/viewroutine",
+      "value": "4a1fa3c167b752e5@304"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/serverless-cells",
+      "value": "dff1e917c89f5e76@1964"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/secure-random-id@65",
+      "value": "316f0885d15ab671@65"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/firebase-admin",
+      "value": "698257e86fae4586@378"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/utils",
+      "value": "b8a500058f806a6b@11"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@nebrius/indented-toc",
+      "value": "9bed702f80a3797e@402"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/randomid",
+      "value": "316f0885d15ab671@69"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mootari/notebook-data",
+      "value": "55bed46f68a80641@366"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/metadata",
+      "value": "e6f8b27a19576fcb@428"
+    }
+  ]
+}
