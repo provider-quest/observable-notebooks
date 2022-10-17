@@ -582,6 +582,10 @@ function _65(backups){return(
 backups()
 )}
 
+function _66(backupNowButton){return(
+backupNowButton()
+)}
+
 export default function define(runtime, observer) {
   const main = runtime.module();
   main.variable(observer()).define(["md"], _1);
@@ -659,5 +663,6 @@ export default function define(runtime, observer) {
   main.import("backups", child2);
   main.import("backupNowButton", child2);
   main.variable(observer()).define(["backups"], _65);
+  main.variable(observer()).define(["backupNowButton"], _66);
   return main;
 }
