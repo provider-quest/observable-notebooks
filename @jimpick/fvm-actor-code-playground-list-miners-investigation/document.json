@@ -1,0 +1,1445 @@
+{
+  "id": "6026663f356c4a72",
+  "slug": "fvm-actor-code-playground-list-miners-investigation",
+  "trashed": false,
+  "description": "",
+  "likes": 1,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": {
+    "id": "5fc7ffd98209cd6a",
+    "slug": "fvm-actor-code-playground-simple-faucet",
+    "title": "FVM Actor Code Playground - \"Simple Faucet\"",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "pro"
+    },
+    "version": 1302
+  },
+  "update_time": "2022-10-17T00:42:21.153Z",
+  "publish_time": "2022-05-12T17:50:44.804Z",
+  "publish_version": 1905,
+  "latest_version": 1905,
+  "thumbnail": null,
+  "default_thumbnail": null,
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "pro"
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "pro"
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "pro",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "f63e6c307ab87e8f",
+      "type": "public",
+      "slug": "filecoin-virtual-machine",
+      "title": "Filecoin Virtual Machine",
+      "description": "",
+      "update_time": "2022-05-02T18:32:44.723Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+      "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+      "listing_count": 7,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "pro"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 1905,
+  "title": "FVM Actor Code Playground - \"List Miners\" Investigation",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2022 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# FVM Actor Code Playground - \"List Miners\" Investigation",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 717,
+      "value": "* Can we make a method to list miner actors?\n* This is a test to see if it is possible to load the HAMT from the state used by the built-in system \"power actor\" and access the data from a custom actor. It works!\n* The on-demand localnet has been configured so that it will run 3 miner processes.\n* Try running all the steps. The final step (#16) will retrieve the list of the 3 miner IDs from the custom actor.\n* Code links:\n  * Lotus CLI: `lotus state list-miners` https://github.com/filecoin-project/lotus/blob/514c756570911d18c985d2f6243609286271a9b4/cli/state.go#L597\n  * API: `StateListMiners()` https://github.com/filecoin-project/lotus/blob/514c756570911d18c985d2f6243609286271a9b4/api/api_full.go#L512\n  * Node Impl: `StateListMiners()` https://github.com/filecoin-project/lotus/blob/514c756570911d18c985d2f6243609286271a9b4/node/impl/full/state.go#L618\n  * Chain Impl: `ListMinerActors()` https://github.com/filecoin-project/lotus/blob/514c756570911d18c985d2f6243609286271a9b4/chain/stmgr/actors.go#L290\n  * Lotus Power Actor: `ListAllMiners()` https://github.com/filecoin-project/lotus/blob/514c756570911d18c985d2f6243609286271a9b4/chain/actors/builtin/power/power.go#L168\n  * Lotus Power Actor v7: `ListAllMiners()` https://github.com/filecoin-project/lotus/blob/514c756570911d18c985d2f6243609286271a9b4/chain/actors/builtin/power/v7.go#L96\n  * Lotus Power Actor v7: `claims()` https://github.com/filecoin-project/lotus/blob/514c756570911d18c985d2f6243609286271a9b4/chain/actors/builtin/power/v7.go#L170\n  * Rust Power Actor: `claims` (Map, HAMT\\[address\\]Claim) https://github.com/filecoin-project/builtin-actors/blob/cf69be5eb2fee10173eb0ffda723f2dc9fcb15dd/actors/power/src/state.rs#L72\n  * Forest: `state_list_actors()` https://github.com/ChainSafe/forest/blob/cd27985df1ef1469fab70f83d2122c96ac66506a/node/rpc/src/state_api.rs#L410\n  * Forest: `list_miner_actors()` https://github.com/ChainSafe/forest/blob/cd27985df1ef1469fab70f83d2122c96ac66506a/blockchain/state_manager/src/utils.rs#L261\n  * Forest Power Actor: `list_all_miners()` https://github.com/ChainSafe/forest/blob/cd27985df1ef1469fab70f83d2122c96ac66506a/vm/actor_interface/src/builtin/power/mod.rs#L154\n* Based on https://observablehq.com/@jimpick/fvm-actor-code-playground-hello-world",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 154,
+      "value": "**Note:** The on-demand localnet will be reclaimed after 3 minutes of inactivity. Modifications to the blockchain state are ephemeral -- good for testing! Staying on this page will keep it alive, but if you navigate away and then return, it may get restarted with fresh state. If that happens, reload the web page. There is one instance of the localnet shared between all users.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 805,
+      "value": "async function getBalances (addresses) {\n  return Promise.all(\n    addresses\n      .map(async address => {\n        const response = await client.stateGetActor(address, [])\n        return {\n          address: address,\n          balance: response.Balance\n        }\n      })\n  )\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 243,
+      "value": "## Step 1: Edit Actor Code - src/lib.rc\n\nFeel free to modify this actor code (written in Rust). Don't worry, you can't break anything. This is from [src/lib.rc](https://github.com/raulk/fil-hello-world-actor/blob/master/src/lib.rs) in @raulk's [fil-hello-world-actor](https://github.com/raulk/fil-hello-world-actor) example. We use some JavaScript in this notebook to patch this subset of the code into the original code with some modifications.\n\nGitHub Code Links + useful API Docs:\n\n * https://github.com/raulk/fil-hello-world-actor\n * https://github.com/raulk/fil-hello-world-actor/blob/master/src/blockstore.rs\n * https://github.com/raulk/fil-hello-world-actor/blob/master/Cargo.toml\n * https://docs.rs/fvm_sdk/0.6.1/fvm_sdk/\n * https://docs.rs/fvm_shared/0.6.1/fvm_shared/\n * https://docs.rs/cid/0.8.4/cid/\n * https://docs.rs/fvm_ipld_encoding/0.2.0/fvm_ipld_encoding/\n * https://docs.rs/fvm_ipld_hamt/0.5.1/fvm_ipld_hamt/\n",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 4,
+      "value": "viewof editor = {\n  const {EditorState, EditorView, basicSetup} = await skypack('@codemirror/next/basic-setup')\n  const {rust} = await skypack('@codemirror/next/lang-rust')\n  \n  const updateViewOf = EditorView.updateListener.of((update) => {\n    const {dom} = update.view\n    dom.value = update\n    dom.dispatchEvent(new CustomEvent('input'))\n  })\n\n  const initialCode = method2Code\n  \n  const view = new EditorView({\n    state: EditorState.create({\n      doc: initialCode,\n      extensions: [basicSetup, rust(), updateViewOf]\n    })\n  })\n  \n  return view.dom\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 593,
+      "value": "If you have changed the code and would like to save it for future use, you can use this button to save it to a file.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 589,
+      "value": "{\n  const code = templateStart + '\\n' + editor.state.doc.toString()\n  return html`Optional: ${button(code, `lib.rs`)}`\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 597,
+      "value": "**Pro-tip:** *You can also \"fork\" this notebook and use the saved file as an attachment.*",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 222,
+      "value": "## Step 2: Compile\n\nWe have implemented a [simple web service](https://github.com/jimpick/lotus-fvm-localnet-web/blob/main/server.mjs) that accepts a HTTP POST with the code above, and returns a compiled WASM binary (wrapped in a CBOR array, encoded in base64, ready to pass as a 'params' string). The code above is substituted for `src/lib.rs` into the [raulk/fil-hello-world-actor](https://github.com/raulk/fil-hello-world-actor) example and built using `cargo build`. It should compile in less than 60 seconds.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 178,
+      "value": "viewof compileToWasmButton = {\n  const code = templateStart + '\\n' + editor.state.doc.toString()\n  return Inputs.button('Compile to WASM', {value: null, reduce: () => code})\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 385,
+      "value": "{\n  if (compileStatus === undefined || !compileStatus) {\n    yield md`Status: Code is ready to upload to the compiling service. Not compiled yet.`\n    return\n  }\n  if (compileStatus.compiling) {\n    while (true) {\n      const elapsed = (Date.now() - compileStatus.start) / 1000\n      yield md`Compiling on remote server... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (compileStatus.success) {\n    yield html`<div><b>Successfully compiled!</b></div>\n    <div>Compile time: ${(compileStatus.elapsed / 1000).toFixed(1)}s\n    <div>Compile log:</div>\n    <pre>${stripAnsi(compileStatus.logs)}</pre>`\n  }\n  if (compileStatus.error) {\n    yield html`<div><b>**Error!**</b></div>\n    <div>Compile log:</div>\n    <pre>${stripAnsi(compileStatus.error)}</pre>`\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 617,
+      "value": "compileStatus && compileStatus.wasmBinary ? md`Optional: You can download the compiled WASM bundle here. (Not needed if you are just using it from this notebook)` : md``",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 606,
+      "value": "compileStatus && compileStatus.wasmBinary ? html`Optional: ${button(compileStatus.wasmBinary, 'fil_hello_world_actor.wasm')}` : md``",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 365,
+      "value": "compileStatus = {\n  if (compileToWasmButton) {\n    const start = Date.now()\n    yield {\n      compiling: true,\n      start\n    }\n    try {\n      const response = await fetch(`${baseUrl}/compile`, {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json'\n        },\n        body: JSON.stringify({\n          'lib.rs': compileToWasmButton,\n          'Cargo.toml': patchedCargoToml\n        })\n      })\n      const results = await response.json()\n      results.elapsed = Date.now() - start\n      if (results.success) {\n        results.wasmBinary = cbor.decode(results.wasmBinaryParamsEncoded, 'base64')\n      }\n      yield results\n    } catch (e) {\n      yield {\n        error: e.message\n      }\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 216,
+      "value": "## Step 3: Connect to Hosted \"localnet\"\n\nThis notebook connects to a [hosted instance](https://github.com/jimpick/lotus-fvm-localnet-web) of a Lotus \"localnet\" (started on demand) into which you can install the actor code, create an actor instance, and invoke methods against.\n\nIf the localnet is started and online, the following chain height should be increasing every 4-10 seconds (depending on system load):",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 251,
+      "value": "md`**Height: ${currentHeight}**`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 255,
+      "value": "If the connection is working, then proceed to the next step.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 230,
+      "value": "## Step 4: Install the Actor Code",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 497,
+      "value": "Before the actor code can be executed, it must be loaded into the Filecoin blockchain state.\n\n# 💾\n\nIf you are old enough to remember, imagine this step as inserting the [floppy disk](https://en.wikipedia.org/wiki/Floppy_disk) into the Filecoin global computer's floppy drive!\n\nAt the command line, this is the same as: `lotus chain install-actor <wasm-file>`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 180,
+      "value": "viewof installActorButton = Inputs.button('Install Actor Code', {\n  disabled: !compileStatus || !compileStatus.wasmBinaryParamsEncoded,\n  value: null,\n  reduce: () => compileStatus.wasmBinaryParamsEncoded\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 468,
+      "value": "{\n  if (installActorStatus === undefined || !installActorStatus) {\n    yield md`Status: Latest actor code is compiled to WASM, but not installed yet.`\n    return\n  }\n  if (installActorStatus.installing) {\n    while (true) {\n      const elapsed = (Date.now() - installActorStatus.start) / 1000\n      yield md`Sending install actor message... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (installActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Install actor message sent</b></div>\n      <div>Message CID: ${installActorStatus.response.CID['/']}</div>`\n      if (installActorStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${installActorStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${installActorStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div><b>Code CID: ${installActorStatus.waitResponse.ReturnDec.CodeCid['/']}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - installActorStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 369,
+      "value": "installActorStatus = {\n  if (installActorButton) {\n    console.log('Install actor')\n    const start = Date.now()\n    yield {\n      installing: true,\n      start\n    }\n    // Sending install actor message...\n    const messageBody = {\n      To: 't01',\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 3,\n      Params: compileStatus.wasmBinaryParamsEncoded\n    }\n    const response = await client.mpoolPushMessage(messageBody, null)\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await client.stateWaitMsg(response.CID, 0)\n    yield { installed: true, response, waitResponse }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 234,
+      "value": "## Step 5: Create an Actor Instance",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 655,
+      "value": "If you have completed the previous step, you will have a \"Code CID\" for the WASM bundle you just installed. Now we can create an actor instance. It is possible to create lots and lots of actors using the same code, each will get assigned a unique \"ID Address\" (eg. t01001) to which messages and funds can be sent, as well as an equivalent \"Robust Address\" alias (eg. \"t2...\") which maps on the same address (but doesn't change in the event of a chain re-organization).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 492,
+      "value": "At the command line, this is the same as: `lotus chain create-actor <code-cid>`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 184,
+      "value": "viewof createActorButton = Inputs.button('Create Actor', {\n  disabled: !installActorStatus ||\n    !installActorStatus.waitResponse ||\n    !installActorStatus.waitResponse.ReturnDec ||\n    !installActorStatus.waitResponse.ReturnDec.CodeCid,\n  value: null,\n  reduce: () => installActorStatus.waitResponse.ReturnDec.CodeCid['/']\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 548,
+      "value": "{\n  if (createActorStatus === undefined || !createActorStatus) {\n    yield md`Status: Instance of latest installed actor has not been created yet.`\n    return\n  }\n  if (createActorStatus.creating) {\n    while (true) {\n      const elapsed = (Date.now() - createActorStatus.start) / 1000\n      yield md`Sending create actor message... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (createActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Create actor message sent</b></div>\n      <div>Code CID (Param): ${createActorButton}</div>\n      <div>Message CID: ${createActorStatus.response.CID['/']}</div>\n      `\n      if (createActorStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${createActorStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${createActorStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Robust Address: ${createActorStatus.waitResponse.ReturnDec.RobustAddress}</div>`\n        output += `<b><div>ID Address: ${createActorStatus.waitResponse.ReturnDec.IDAddress}</div></b>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - createActorStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 485,
+      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor')\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    const codeCid = new CID(createActorButton)\n    // Needs a zero byte in front\n    const codeCidBytes = new Uint8Array(codeCid.bytes.length + 1)\n    codeCidBytes.set(codeCid.bytes, 1)\n    const params = cbor.encode([new cbor.Tagged(42, codeCidBytes), new Uint8Array(0)])\n    // Sending create actor message...\n    const messageBody = {\n      To: 't01',\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    console.log('messageBody', messageBody)\n    const response = await client.mpoolPushMessage(messageBody, null)\n    console.log('Jim response', response)\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await client.stateWaitMsg(response.CID, 0)\n    yield { installed: true, response, waitResponse }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1386,
+      "value": "actorId = createActorStatus?.waitResponse?.ReturnDec?.IDAddress",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1367,
+      "value": "## Step 6: Invoke #2",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1369,
+      "value": "viewof invokeMethod2Button = Inputs.button('Invoke Method #2', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1373,
+      "value": "{\n  if (invokeMethod2Status === undefined || !invokeMethod2Status) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (invokeMethod2Status.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - invokeMethod2Status.start) / 1000\n      yield md`Sending message to actor for method 2... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (invokeMethod2Status.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${invokeMethod2Button}</div>\n      <div>Method: 2</div>\n      <div>Message CID: ${invokeMethod2Status.response.CID['/']}</div>\n      `\n      if (invokeMethod2Status.waitResponse) {\n        output += `<div>Message executed in block at height: ${invokeMethod2Status.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${invokeMethod2Status.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Return: ${invokeMethod2Status.waitResponse.Receipt.Return} (Base64 encoded CBOR)</div>`\n        output += `<div><b>Decoded Result:</b> <b style=\"font-size: 150%\">${JSON.stringify(invokeMethod2Status.decodedResult)}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - invokeMethod2Status.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1375,
+      "value": "invokeMethod2Status = {\n  if (invokeMethod2Button) {\n    const start = Date.now()\n    yield {\n      invoking: true,\n      start\n    }\n    const messageBody = {\n      To: invokeMethod2Button,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 2,\n      Params: null\n    }\n    console.log('messageBody', messageBody)\n    const response = await client.mpoolPushMessage(messageBody, null)\n    console.log('Jim response', response)\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await client.stateWaitMsg(response.CID, 0)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = cbor.decodeAll(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response, waitResponse, decodedResult }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1400,
+      "value": "## Step 7: Call #3 - Get State CID (binary response, no CBOR)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1404,
+      "value": "viewof callMethod3Button = Inputs.button('Call Method #3', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1448,
+      "value": "callMethod3Result = {\n  if (callMethod3Button) {\n    const messageBody = {\n      To: callMethod3Button,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 3,\n      Params: null\n    }\n    return client.StateCall(messageBody, [])\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1432,
+      "value": "stateCid = {\n  if (!callMethod3Result?.MsgRct) return\n  const cidBytes = new Uint8Array(base64ArrayBuffer.decode(callMethod3Result.MsgRct.Return))\n  return multiformats.CID.decode(cidBytes).toString()\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1465,
+      "value": "## Step 8: Call #4 - Pass CID back as debug string showing bytes",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1469,
+      "value": "viewof callMethod4Button = Inputs.button('Call Method #4', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1486,
+      "value": "(new CID(stateCid)).bytes",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1550,
+      "value": "callMethod4Params = {\n    const cid = new CID(stateCid)\n    // Needs a zero byte in front\n    const cidBytes = new Uint8Array(cid.bytes.length + 1)\n    cidBytes.set(cid.bytes, 1)\n    return cbor.encode([new cbor.Tagged(42, cidBytes), new Uint8Array(0)]).toString('base64')\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1473,
+      "value": "callMethod4Result = {\n  if (callMethod4Button) {\n    const messageBody = {\n      To: callMethod4Button,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 4,\n      Params: callMethod4Params\n    }\n    return client.StateCall(messageBody, [])\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1484,
+      "value": "{\n  if (!callMethod4Result?.MsgRct) return\n  return cbor.decode(callMethod4Result.MsgRct.Return, 'base64')\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1535,
+      "value": "## Step 9: Call #5 - Get State CID (serialized in CBOR)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1539,
+      "value": "viewof callMethod5Button = Inputs.button('Call Method #5', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1545,
+      "value": "callMethod5Result = {\n  if (callMethod5Button) {\n    const messageBody = {\n      To: callMethod5Button,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 5,\n      Params: null\n    }\n    return client.StateCall(messageBody, [])\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1582,
+      "value": "decodedCallMethod5Result = callMethod5Result?.MsgRct?.Return && cbor.decode(callMethod5Result.MsgRct.Return, 'base64')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1585,
+      "value": " decodedCallMethod5Result && multiformats.CID.decode(decodedCallMethod5Result[0].value.slice(1)).toString()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1501,
+      "value": "## Step 10: Call #6 - Pass CID back (parse as CID)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1512,
+      "value": "oldStateCid = {\n  return \"bafy2bzacece6ioczclolgntuhvnqseyloiz37gikrwyh2f6vbiwlw7etkll3q\" // 1\n  // return \"bafy2bzaced5acjdnxwtqqd6uylw5nsqa5ffu6vp54mx6cowjzwnyvuy3t7rhw\" // 2\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1505,
+      "value": "viewof callMethod6Button = Inputs.button('Call Method #6', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1560,
+      "value": "callMethod6Params = {\n    const cid = new CID(oldStateCid)\n    // Needs a zero byte in front\n    const cidBytes = new Uint8Array(cid.bytes.length + 1)\n    cidBytes.set(cid.bytes, 1)\n    // return cbor.encode([new cbor.Tagged(42, cidBytes), new Uint8Array(0)]).toString('base64')\n    return cbor.encode([new cbor.Tagged(42, cidBytes)]).toString('base64')\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1508,
+      "value": "callMethod6Result = {\n  if (callMethod6Button) {\n    const messageBody = {\n      To: callMethod6Button,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 6,\n      Params: callMethod6Params\n    }\n    return client.StateCall(messageBody, [])\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1510,
+      "value": "decodedCallMethod6Result = {\n  if (!callMethod6Result?.MsgRct?.Return) return\n  return cbor.decode(callMethod6Result.MsgRct.Return, 'base64')\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1570,
+      "value": "## Step 11: Call #7 - Pass CID, get historical state date",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1574,
+      "value": "viewof callMethod7Button = Inputs.button('Call Method #7', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1577,
+      "value": "callMethod7Params = {\n    const cid = new CID(oldStateCid)\n    // Needs a zero byte in front\n    const cidBytes = new Uint8Array(cid.bytes.length + 1)\n    cidBytes.set(cid.bytes, 1)\n    return cbor.encode([new cbor.Tagged(42, cidBytes)]).toString('base64')\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1580,
+      "value": "callMethod7Result = {\n  if (callMethod7Button) {\n    const messageBody = {\n      To: callMethod7Button,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 7,\n      Params: callMethod7Params\n    }\n    return client.StateCall(messageBody, [])\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1633,
+      "value": "{\n  if (!callMethod7Result?.MsgRct?.Return) return\n  return JSON.stringify(cbor.decode(callMethod7Result.MsgRct.Return, 'base64'))\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1658,
+      "value": "## Step 12: Call #8 - Pass State CID, get state as bytes",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1669,
+      "value": "Returned bytes can be parsed as a CBOR object.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1664,
+      "value": "viewof callMethod8Button = Inputs.button('Call Method #8', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1662,
+      "value": "callMethod8Params = {\n    const cid = new CID(oldStateCid)\n    // Needs a zero byte in front\n    const cidBytes = new Uint8Array(cid.bytes.length + 1)\n    cidBytes.set(cid.bytes, 1)\n    return cbor.encode([new cbor.Tagged(42, cidBytes)]).toString('base64')\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1667,
+      "value": "callMethod8Result = {\n  if (callMethod8Button) {\n    const messageBody = {\n      To: callMethod8Button,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 8,\n      Params: callMethod8Params\n    }\n    return client.StateCall(messageBody, [])\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1674,
+      "value": "{\n  if (!callMethod8Result?.MsgRct?.Return) return\n  return JSON.stringify(cbor.decode(callMethod8Result.MsgRct.Return, 'base64'))\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1349,
+      "value": "## Step 13: Get State CID for Power Actor via JSON-RPC",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1355,
+      "value": "viewof getPowerActorStateButton = Inputs.button(`Get Current State for Power Actor t04`)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1353,
+      "value": "getPowerActor = getPowerActorStateButton && client.stateGetActor('t04', [])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1359,
+      "value": "powerActorStateCid = getPowerActor && getPowerActor.Head['/']",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1680,
+      "value": "## Step 14: Call #8 - Pass State CID for Power Actor, get state as bytes",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1684,
+      "value": "viewof callMethod8PowerButton = Inputs.button('Call Method #8 for Power Actor', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1687,
+      "value": "callMethod8PowerParams = {\n    const cid = new CID(powerActorStateCid)\n    // Needs a zero byte in front\n    const cidBytes = new Uint8Array(cid.bytes.length + 1)\n    cidBytes.set(cid.bytes, 1)\n    return cbor.encode([new cbor.Tagged(42, cidBytes)]).toString('base64')\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1690,
+      "value": "callMethod8PowerResult = {\n  if (callMethod8PowerButton) {\n    const messageBody = {\n      To: callMethod8PowerButton,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 8,\n      Params: callMethod8PowerParams\n    }\n    return client.StateCall(messageBody, [])\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1692,
+      "value": "powerStateRaw = {\n  if (!callMethod8PowerResult?.MsgRct?.Return) return\n  return cbor.decode(callMethod8PowerResult.MsgRct.Return, 'base64')\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1696,
+      "value": "Rust Actor State Struct: https://github.com/filecoin-project/builtin-actors/blob/cf69be5eb2fee10173eb0ffda723f2dc9fcb15dd/actors/power/src/state.rs#L40",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1701,
+      "value": "powerActorState = powerStateRaw && ({\n  total_raw_byte_power: bytesToBig(powerStateRaw[0]).toString(), // StoragePower (bigint)\n  total_bytes_committed: bytesToBig(powerStateRaw[1]).toString(), // StoragePower (bigint)\n  total_quality_adj_power: bytesToBig(powerStateRaw[2]).toString(), // StoragePower (bigint)\n  total_qa_bytes_committed: bytesToBig(powerStateRaw[3]).toString(), // StoragePower (bigint)\n  total_pledge_collateral: bytesToBig(powerStateRaw[4]).toString(), // TokenAmount (bigint)\n  this_epoch_raw_byte_power: bytesToBig(powerStateRaw[5]).toString(), // StoragePower (bigint)\n  this_epoch_quality_adj_power: bytesToBig(powerStateRaw[6]).toString(), // StoragePower (bigint)\n  this_epoch_pledge_collateral: bytesToBig(powerStateRaw[7]).toString(), // TokenAmount (bigint)\n  this_epoch_qa_power_smoothed: {\n    // https://docs.rs/fvm_shared/0.6.1/fvm_shared/smooth/struct.FilterEstimate.html\n    filter_estimate_position: bytesToBig(powerStateRaw[8][0]).toString(), // bigint\n    filter_estimate_velocity: bytesToBig(powerStateRaw[8][1]).toString(), // bigint\n  },\n  miner_count: powerStateRaw[9],\n  miner_above_min_power_count: powerStateRaw[10],\n  cron_event_queue: multiformats.CID.decode(powerStateRaw[11].value.slice(1)).toString(), // cid\n  first_cron_epoch: powerStateRaw[12],\n  claims: multiformats.CID.decode(powerStateRaw[13].value.slice(1)).toString(), // cid - HAMT[address]Claim\n  proof_validation_batch: powerStateRaw[14] && multiformats.CID.decode(powerStateRaw[14].value.slice(1)).toString() // Option<Cid>\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1738,
+      "value": "JSON.stringify(powerActorState, null, 2)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1724,
+      "value": "## Step 15: Call #9 - Pass State CID for Power Actor, load state in actor, get state as bytes",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1731,
+      "value": "viewof callMethod9Button = Inputs.button('Call Method #9', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1728,
+      "value": "callMethod9Params = {\n    const cid = new CID(powerActorStateCid)\n    // Needs a zero byte in front\n    const cidBytes = new Uint8Array(cid.bytes.length + 1)\n    cidBytes.set(cid.bytes, 1)\n    return cbor.encode([new cbor.Tagged(42, cidBytes)]).toString('base64')\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1734,
+      "value": "callMethod9Result = {\n  if (callMethod9Button) {\n    const messageBody = {\n      To: callMethod9Button,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 9,\n      Params: callMethod9Params\n    }\n    return client.StateCall(messageBody, [])\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1741,
+      "value": "powerState9Raw = {\n  if (!callMethod9Result?.MsgRct?.Return) return\n  return cbor.decode(callMethod9Result.MsgRct.Return, 'base64')\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1768,
+      "value": "## Step 16: Call #10 - Get list of miners from Power Actor",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1772,
+      "value": "viewof callMethod10Button = Inputs.button('Call Method #10', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1775,
+      "value": "callMethod10Params = {\n    const cid = new CID(powerActorStateCid)\n    // Needs a zero byte in front\n    const cidBytes = new Uint8Array(cid.bytes.length + 1)\n    cidBytes.set(cid.bytes, 1)\n    return cbor.encode([new cbor.Tagged(42, cidBytes)]).toString('base64')\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1778,
+      "value": "callMethod10Result = {\n  if (callMethod10Button) {\n    const messageBody = {\n      To: callMethod9Button,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 10,\n      Params: callMethod10Params\n    }\n    return client.StateCall(messageBody, [])\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1818,
+      "value": "callMethod10ResultDecoded = {\n  if (!callMethod10Result?.MsgRct?.Return) return\n  return cbor.decode(callMethod10Result.MsgRct.Return, 'base64')\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1822,
+      "value": "miners = callMethod10ResultDecoded && callMethod10ResultDecoded.map(buf => filecoinAddress.newAddress(buf[0], buf.slice(1), 't').toString()).sort()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1845,
+      "value": "miners && Inputs.table(miners.map(miner => ({miner})))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1858,
+      "value": "miners && md`**Done!** (You should see 3 miner IDs)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1133,
+      "value": "## Serialize/Deserialize Filecoin Bigints",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 950,
+      "value": "new FilecoinNumber('5', 'attofil')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 956,
+      "value": "cbor.encode([new FilecoinNumber('5', 'attofil')]).toString('base64')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1013,
+      "value": "function bigToBytes(num) {\n  // https://github.com/Zondax/filecoin-signing-tools/blob/5a126fa599695dac720c692cb286a8c572187f88/signer-npm/js/src/index.js#L54\n  // https://github.com/spacegap/spacegap.github.io/blob/ccfa30a3e5303c4538c59f3a23186882eddf810e/src/services/filecoin/index.js#L145\n\n  if (num === '0' || num === 0) {\n    return new Uint8Array(0)\n  }\n  const numBigInt = (typeof num === 'object') ? (new BN(num.toAttoFil(), 10)) : (new BN(num, 10))\n  const numArray = numBigInt.toArrayLike(Array, 'be', numBigInt.byteLength())\n  if (numBigInt.isNeg()) {\n    numArray.unshift(1)\n  } else {\n    numArray.unshift(0)\n  }\n  return new Uint8Array(numArray)\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1026,
+      "value": "bigToBytes(-1234)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1040,
+      "value": "bigToBytes(1234)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1068,
+      "value": "bigToBytes(new FilecoinNumber(1234, 'attofil'))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1080,
+      "value": "({ x: 1 }).toString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1042,
+      "value": "bigToBytes(\"1234\")",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1044,
+      "value": "bigToBytes(\"12345678901234567890\")",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1049,
+      "value": "bigToBytes(12345678901234567890n)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1018,
+      "value": "function bytesToBig (p) { // https://github.com/spacegap/spacegap.github.io/blob/ccfa30a3e5303c4538c59f3a23186882eddf810e/src/services/filecoin/index.js#L145\n  let sign = p[0]\n  let acc = new BN(0)\n  for (let i = 1; i < p.length; i++) {\n    acc = acc.mul(new BN(256))\n    acc = acc.add(new BN(p[i]))\n  }\n  if (sign === 1) {\n    return -acc\n  } else if (sign === 0) {\n    return acc\n  } else {\n    throw new Error('Unexpected value for first byte, expected 0 or 1 for sign')\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1058,
+      "value": "bytesToBig(bigToBytes(12345678901234567890n)).toString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1064,
+      "value": "bytesToBig(bigToBytes(-1234)).toString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 693,
+      "value": "# Final notes",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 695,
+      "value": "Thank you for trying out this demo.\n\nIf the backend is not working, please get in touch with me. Feel free to fork this notebook to customize your own actors and build scenarios using the on-demand localnet that supports this early version of actors / smart contracts.\n\nI can also deploy custom instances of the localnet and the API for compiling actors ... feel free to contact me at @jimpick on the Filecoin Slack.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 150,
+      "value": "## Imports",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 50,
+      "value": "skypack = (library) => import(`https://cdn.skypack.dev/${library}?min`)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 198,
+      "value": "LotusRPC = (await import('@filecoin-shipyard/lotus-client-rpc')).LotusRPC",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 205,
+      "value": "BrowserProvider = (await import('@filecoin-shipyard/lotus-client-provider-browser')).BrowserProvider",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 211,
+      "value": "schema = (await import('@filecoin-shipyard/lotus-client-schema')).mainnet.fullNode",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 402,
+      "value": "stripAnsi = (await import('https://unpkg.com/strip-ansi@7.0.1/index.js?module')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 501,
+      "value": "cbor = import('https://cdn.skypack.dev/borc')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1475,
+      "value": "ipldDagCbor = import('https://cdn.skypack.dev/@ipld/dag-cbor@7.0.1?min')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 503,
+      "value": "CID = (await import('https://jspm.dev/cids')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 584,
+      "value": "import {button} from '@jimpick/download-data-button-with-wasm-support'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 752,
+      "value": "filecoinJsSigner = import('https://jspm.dev/@blitslabs/filecoin-js-signer')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 767,
+      "value": "FilecoinClient = filecoinJsSigner.FilecoinClient",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 770,
+      "value": "FilecoinSigner = filecoinJsSigner.FilecoinSigner",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 785,
+      "value": "filecoin_signer = new FilecoinSigner()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 815,
+      "value": "filecoinNumber = import('https://cdn.skypack.dev/@glif/filecoin-number')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 835,
+      "value": "FilecoinNumber = filecoinNumber.FilecoinNumber",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1021,
+      "value": "BN = require('https://bundle.run/bn.js@5.2.0')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1420,
+      "value": "multiformats = import('https://cdn.skypack.dev/multiformats@9.6.5?min')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1425,
+      "value": "base64ArrayBuffer = import('https://cdn.skypack.dev/base64-arraybuffer@1.0.2?min')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1520,
+      "value": "utilHexEncoding = import('https://cdn.skypack.dev/@aws-sdk/util-hex-encoding@3.58.0?min')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1820,
+      "value": "filecoinAddress = import('https://cdn.skypack.dev/@glif/filecoin-address')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 721,
+      "value": "## Boilerplate Code",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 171,
+      "value": "initialCodeUrl = `https://raw.githubusercontent.com/raulk/fil-hello-world-actor/1b8aaab57ca82d296c041752b364c6685d57e84d/src/lib.rs`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 730,
+      "value": "initialCode = (await fetch(initialCodeUrl)).text()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 725,
+      "value": "method2Code = `\n/// Method num 2.\npub fn say_hello() -> Option<RawBytes> {\n    let mut state = State::load();\n    state.count += 1;\n    let state_cid = state.save();\n\n    let ret = to_vec(format!(\"Hello world #{}! CID: {}\", &state.count, &state_cid).as_str());\n    match ret {\n        Ok(ret) => Some(RawBytes::new(ret)),\n        Err(err) => {\n            abort!(\n                USR_ILLEGAL_STATE,\n                \"failed to serialize return value: {:?}\",\n                err\n            );\n        }\n    }\n}\n\n/// Method num 3.\npub fn get_state_cid() -> Option<RawBytes> {\n    let state_cid = sdk::sself::root().unwrap();\n    Some(RawBytes::new(state_cid.to_bytes()))\n}\n\n/// Method num 4.\npub fn echo_raw_bytes(params: u32) -> Option<RawBytes> {\n    let params = sdk::message::params_raw(params).unwrap().1;\n    let params = RawBytes::new(params);\n    \n    let ret = to_vec(format!(\"Params {:?}\",\n      params).as_str());\n\n    match ret {\n        Ok(ret) => Some(RawBytes::new(ret)),\n        Err(err) => {\n            abort!(\n                USR_ILLEGAL_STATE,\n                \"failed to serialize return value: {:?}\",\n                err\n            );\n        }\n    }\n}\n\n#[derive(Debug, Serialize_tuple, Deserialize_tuple)]\npub struct CidParams {\n    pub cid: Cid,\n}\n\n/// Method num 5.\npub fn get_state_cid_cbor() -> Option<RawBytes> {\n    let state_cid = sdk::sself::root().unwrap();\n    let cid_for_cbor = CidParams {\n      cid: state_cid\n    };\n    Some(RawBytes::serialize(cid_for_cbor).unwrap())\n}\n\n/// Method num 6.\npub fn echo_cid_params(params: u32) -> Option<RawBytes> {\n    let params = sdk::message::params_raw(params).unwrap().1;\n    let params = RawBytes::new(params);\n    let params: CidParams = params.deserialize().unwrap();\n    \n    let ret = to_vec(format!(\"Params {:?}\",\n     params).as_str());\n\nmatch ret {\n     Ok(ret) => Some(RawBytes::new(ret)),\n     Err(err) => {\n         abort!(\n             USR_ILLEGAL_STATE,\n             \"failed to serialize return value: {:?}\",\n             err\n         );\n     }\n }\n}\n\n/// Method num 7.\npub fn get_old_state(params: u32) -> Option<RawBytes> {\n    let params = sdk::message::params_raw(params).unwrap().1;\n    let params = RawBytes::new(params);\n    let params: CidParams = params.deserialize().unwrap();\n    let old_state_cid = params.cid;\n\n    let old_state = Blockstore.get_cbor::<State>(&old_state_cid).unwrap();\n    Some(RawBytes::serialize(&old_state).unwrap())\n}\n\n/// Method num 8.\npub fn get_state_as_bytes(params: u32) -> Option<RawBytes> {\n    let params = sdk::message::params_raw(params).unwrap().1;\n    let params = RawBytes::new(params);\n    let params: CidParams = params.deserialize().unwrap();\n    let old_state_cid = params.cid;\n\n    let old_state_vec = sdk::ipld::get(&old_state_cid).unwrap();\n    Some(RawBytes::new(old_state_vec))\n}\n\n/// Storage power actor state\n#[derive(Default, Serialize_tuple, Deserialize_tuple)]\npub struct PowerActorState {\n    #[serde(with = \"bigint_ser\")]\n    pub total_raw_byte_power: StoragePower,\n    #[serde(with = \"bigint_ser\")]\n    pub total_bytes_committed: StoragePower,\n    #[serde(with = \"bigint_ser\")]\n    pub total_quality_adj_power: StoragePower,\n    #[serde(with = \"bigint_ser\")]\n    pub total_qa_bytes_committed: StoragePower,\n    #[serde(with = \"bigint_ser\")]\n    pub total_pledge_collateral: TokenAmount,\n\n    #[serde(with = \"bigint_ser\")]\n    pub this_epoch_raw_byte_power: StoragePower,\n    #[serde(with = \"bigint_ser\")]\n    pub this_epoch_quality_adj_power: StoragePower,\n    #[serde(with = \"bigint_ser\")]\n    pub this_epoch_pledge_collateral: TokenAmount,\n    pub this_epoch_qa_power_smoothed: FilterEstimate,\n\n    pub miner_count: i64,\n    /// Number of miners having proven the minimum consensus power.\n    pub miner_above_min_power_count: i64,\n\n    /// A queue of events to be triggered by cron, indexed by epoch.\n    pub cron_event_queue: Cid, // Multimap, (HAMT[ChainEpoch]AMT[CronEvent]\n\n    /// First epoch in which a cron task may be stored. Cron will iterate every epoch between this\n    /// and the current epoch inclusively to find tasks to execute.\n    pub first_cron_epoch: ChainEpoch,\n\n    /// Claimed power for each miner.\n    pub claims: Cid, // Map, HAMT[address]Claim\n\n    pub proof_validation_batch: Option<Cid>,\n}\n\n/// Method num 9.\npub fn get_power_actor_state(params: u32) -> Option<RawBytes> {\n    let params = sdk::message::params_raw(params).unwrap().1;\n    let params = RawBytes::new(params);\n    let params: CidParams = params.deserialize().unwrap();\n    let state_cid = params.cid;\n\n    let state = Blockstore.get_cbor::<PowerActorState>(&state_cid).unwrap();\n    Some(RawBytes::serialize(&state).unwrap())\n}\n\n#[derive(Debug, Serialize_tuple, Deserialize_tuple, Clone, PartialEq)]\npub struct Claim {\n    /// Miner's proof type used to determine minimum miner size\n    pub window_post_proof_type: RegisteredPoStProof,\n    /// Sum of raw byte power for a miner's sectors.\n    #[serde(with = \"bigint_ser\")]\n    pub raw_byte_power: StoragePower,\n    /// Sum of quality adjusted power for a miner's sectors.\n    #[serde(with = \"bigint_ser\")]\n    pub quality_adj_power: StoragePower,\n}\n\n/// Method num 10.\npub fn get_power_actor_miners(params: u32) -> Option<RawBytes> {\n    let params = sdk::message::params_raw(params).unwrap().1;\n    let params = RawBytes::new(params);\n    let params: CidParams = params.deserialize().unwrap();\n    let state_cid = params.cid;\n\n    let state = Blockstore.get_cbor::<PowerActorState>(&state_cid).unwrap().unwrap();\n    let claims = Hamt::<Blockstore, _>::load_with_bit_width(&state.claims, Blockstore, HAMT_BIT_WIDTH).unwrap();\n    let mut miners = Vec::new();\n    claims.for_each(|k, _: &Claim| {\n      miners.push(Address::from_bytes(&k.0)?);\n      Ok(())\n    }).ok()?;\n    Some(RawBytes::serialize(&miners).unwrap())\n}\n\n`.trim()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 733,
+      "value": "templateStart = {\n  const code = initialCode\n    .replace('pub fn invoke(_: u32)', 'pub fn invoke(params: u32)')\n    .replace(/\\/\\/\\/ Method num 2.*/s, '')\n    .split('\\n')\n\n  const insertAt = code.findIndex(line => line.match(/say_hello\\(\\)/)) + 1\n  code.splice(\n    insertAt, 0,\n    '        3 => get_state_cid(),',\n    '        4 => echo_raw_bytes(params),',\n    '        5 => get_state_cid_cbor(),',\n    '        6 => echo_cid_params(params),',\n    '        7 => get_old_state(params),',\n    '        8 => get_state_as_bytes(params),',\n    '        9 => get_power_actor_state(params),',\n    '        10 => get_power_actor_miners(params),',\n  )\n  code.splice(\n    10, 0,\n    'use fvm_shared::bigint::bigint_ser;',\n    'use fvm_shared::econ::TokenAmount;',\n    'use fvm_shared::sector::{RegisteredPoStProof, StoragePower};',\n    'use fvm_shared::clock::ChainEpoch;',\n    'use fvm_shared::smooth::FilterEstimate;',\n    'use fvm_ipld_hamt::Hamt;',\n    'use fvm_shared::HAMT_BIT_WIDTH;',\n    'use fvm_shared::address::Address;',\n  )\n  return code.join('\\n')\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1185,
+      "value": "initialCargoTomlUrl = 'https://raw.githubusercontent.com/raulk/fil-hello-world-actor/c0ea4bde7da49c6d5b0d3ba01d592f553dd9589c/Cargo.toml'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1189,
+      "value": "initialCargoToml = (await fetch(initialCargoTomlUrl)).text()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1191,
+      "value": "patchedCargoToml = {\n  function gitVersion (version) {\n    const rev = '297a7694'\n    return `{ version = \"${version}\", git = \"https://github.com/filecoin-project/ref-fvm\", rev = \"${rev}\" }`\n  }\n  const replaced = initialCargoToml\n    .replace(/fvm_sdk = .*/, `fvm_sdk = ${gitVersion('0.6.1')}`)\n    .replace(/fvm_shared = .*/, `fvm_shared = ${gitVersion('0.6.1')}`)\n    .replace(/fvm_ipld_blockstore = .*/, `fvm_ipld_blockstore = ${gitVersion('0.1.0')}`)\n    .replace(/fvm_ipld_encoding = .*/, `fvm_ipld_encoding = ${gitVersion('0.2.0')}`)\n  const lines = replaced.split('\\n')\n  const insertAt = lines.findIndex(line => line.match(/dev-dependencies/)) - 1\n  lines.splice(\n    insertAt, 0,\n    `fvm_ipld_hamt = ${gitVersion('0.5.1')}`,\n  )\n  return lines.join('\\n')\n}  ",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 270,
+      "value": "## Lotus Utilities",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 373,
+      "value": "baseUrl = \"https://fvm-2.default.knative.hex.camp\"",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 355,
+      "value": "token = (await fetch(`${baseUrl}/public/token`)).text()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 209,
+      "value": "client = {\n  const provider = new BrowserProvider(`${baseUrl}/rpc/v0`, { token })\n  return new LotusRPC(provider, { schema })\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 914,
+      "value": "filecoin_client = new FilecoinClient(`${baseUrl}/rpc/v0`, token)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 303,
+      "value": "async function *heightStream () {\n  let last\n  while (true) {\n    try {\n      const newHeight = (await client.chainHead()).Height\n      if (newHeight !== last) {\n        yield newHeight\n        last = newHeight\n      }\n    } catch (e) {\n      yield 0\n    }\n    await Promises.delay(4000)\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 328,
+      "value": "mutable ready = false",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 312,
+      "value": "async function *heightReadyTapStream () {\n  let lastReady = false\n  for await (const height of heightStream()) {\n    const newReady = height > 7\n    if (newReady !== lastReady) {\n      mutable ready = newReady\n      lastReady = newReady\n    }\n    yield height\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 308,
+      "value": "currentHeight = heightReadyTapStream()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 353,
+      "value": "walletDefaultAddress = ready && client.walletDefaultAddress()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1869,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1871,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1900,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1903,
+      "value": "backupNowButton()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": [
+    {
+      "type": "notebook",
+      "specifier": "@jeremiak/download-data-button",
+      "value": "bedb50933413e557@45"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/github-backups",
+      "value": "1d309dbd9697e042@631"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/onversion",
+      "value": "8aac8b2cb06bf434@263"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/footer",
+      "value": "58f3eb7334551ae6@215"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/safe-local-storage",
+      "value": "c2dae147641e012a@46"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/sentry",
+      "value": "a81f2a20664080d3@245"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/catch-all",
+      "value": "fa1f6059e44da1d5@425"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/repository-dispatch-min",
+      "value": "b09f1f038b1040e3@76"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/webcode",
+      "value": "6eda90668ae03044@836"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/webcode-ui",
+      "value": "cbc2e7f6260d11b1@2790"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/endpoint-login-with-comment",
+      "value": "027541187c96745d@147"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/login-with-comment",
+      "value": "c16efae137e70585@1444"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/firebase",
+      "value": "993a0c51ef1175ea@1396"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/synchronized-views",
+      "value": "3df1b33bb2cfcd3c@475"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/disposal",
+      "value": "4caee69e966109c8@35"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/get-comments",
+      "value": "d84ccee0a2202d45@356"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/view",
+      "value": "f92778131fd76559@1174"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/endpoint-services-footer",
+      "value": "58f3eb7334551ae6@215"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/viewroutine",
+      "value": "4a1fa3c167b752e5@304"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/serverless-cells",
+      "value": "dff1e917c89f5e76@1964"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/secure-random-id@65",
+      "value": "316f0885d15ab671@65"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/firebase-admin",
+      "value": "698257e86fae4586@378"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/utils",
+      "value": "b8a500058f806a6b@11"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@nebrius/indented-toc",
+      "value": "9bed702f80a3797e@402"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/randomid",
+      "value": "316f0885d15ab671@69"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mootari/notebook-data",
+      "value": "55bed46f68a80641@366"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/metadata",
+      "value": "e6f8b27a19576fcb@428"
+    }
+  ]
+}
