@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/fvm-actor-code-playground-simplecoin-evm-contract",
+  "main": "98ea42d48a05c8ca@1126.js",
+  "version": "1126.0.0",
+  "homepage": "https://observablehq.com/@jimpick/fvm-actor-code-playground-simplecoin-evm-contract",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
