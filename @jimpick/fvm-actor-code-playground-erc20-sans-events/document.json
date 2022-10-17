@@ -1,0 +1,1169 @@
+{
+  "id": "c7e7e39ebd4ccf64",
+  "slug": "fvm-actor-code-playground-erc20-sans-events",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 4,
+  "fork_of": {
+    "id": "98ea42d48a05c8ca",
+    "slug": "fvm-actor-code-playground-simplecoin-evm-contract",
+    "title": "FVM Actor Code Playground - SimpleCoin EVM Contract",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "pro"
+    },
+    "version": 1076
+  },
+  "update_time": "2022-10-17T00:35:50.997Z",
+  "publish_time": "2022-09-15T08:51:24.968Z",
+  "publish_version": 1846,
+  "latest_version": 1846,
+  "thumbnail": null,
+  "default_thumbnail": null,
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "pro"
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "pro"
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "pro",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "f63e6c307ab87e8f",
+      "type": "public",
+      "slug": "filecoin-virtual-machine",
+      "title": "Filecoin Virtual Machine",
+      "description": "",
+      "update_time": "2022-05-02T18:32:44.723Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+      "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+      "listing_count": 7,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "pro"
+      }
+    }
+  ],
+  "files": [
+    {
+      "id": "2aa607f0a34ff42eed6860893616da5b8d2a255af2899d5b8f0391c18b9912a5994354f7a65c3d1439809ab4ecded309de0654d7dc3fac8d10bd17140d642d0c",
+      "url": "https://static.observableusercontent.com/files/2aa607f0a34ff42eed6860893616da5b8d2a255af2899d5b8f0391c18b9912a5994354f7a65c3d1439809ab4ecded309de0654d7dc3fac8d10bd17140d642d0c",
+      "download_url": "https://static.observableusercontent.com/files/2aa607f0a34ff42eed6860893616da5b8d2a255af2899d5b8f0391c18b9912a5994354f7a65c3d1439809ab4ecded309de0654d7dc3fac8d10bd17140d642d0c?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27ERC20.bin",
+      "name": "ERC20.bin",
+      "create_time": "2022-09-14T02:46:56.604Z",
+      "status": "public",
+      "size": 7322,
+      "mime_type": "application/octet-stream",
+      "content_encoding": null
+    }
+  ],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 1846,
+  "title": "FVM Actor Code Playground - ERC20 Sans Events",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2022 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# FVM Actor Code Playground - ERC20 Sans Events",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 154,
+      "value": "Try a real [ERC20](https://docs.openzeppelin.com/contracts/4.x/erc20) Smart Contract on the [Filecoin Virtual Machine](https://fvm.filecoin.io/)!\n\nHere is an example EVM Smart Contract, from:\n\n* https://github.com/filecoin-project/testnet-wallaby/issues/8\n* https://github.com/filecoin-project/fvm-example-actors/tree/main/erc20-sans-events\n* https://github.com/jimpick/fvm-example-actors/tree/jim-erc20/erc20-sans-events (same as above, but with extra build scripts and missing files)\n\nYou can modify it here, then scroll down and click the buttons to compile it, then load it into a on-demand hosted [Lotus localnet](https://lotus.filecoin.io/developers/local-network/) created from the [experimental/fvm-m2](https://github.com/filecoin-project/lotus/tree/experimental/fvm-m2) branch, and invoke methods against it.\n\n**Note:** The on-demand localnet will be reclaimed after 3 minutes of inactivity. Modifications to the blockchain state are ephemeral -- good for testing! Staying on this page will keep it alive, but if you navigate away and then return, it may get restarted with fresh state. If that happens, reload the web page. There is one instance of the localnet shared between all users.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1775,
+      "value": "This notebook is currently using a mix of Lotus JSON-RPC APIs + Ethereum JSON-RPC APIs. As more of the Ethereum JSON-RPC API is implemented, the plan is to migrate entirely to using Ethereum APIs.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1611,
+      "value": "After you try this demo out, try out the version that runs on the live Wallaby testnet!\n\n* [ERC20 Sans Events - Wallaby Testnet](https://observablehq.com/@jimpick/fvm-actor-code-playground-erc20-sans-events-wallaby-testne?collection=@jimpick/filecoin-virtual-machine)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1607,
+      "value": "## Video Demo",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1609,
+      "value": "* YouTube: [FVM ERC20 Demo](https://www.youtube.com/watch?v=VXZL5r8rIz8)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1092,
+      "value": "## Generate Client Side Addresses",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1094,
+      "value": "We use `filecoin-js-signer` to generate a random mnemomic phrase. You could save this phrase and re-use it to generate the secrets. In this notebook, we just use different secrets on each page reload.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1096,
+      "value": "randomMnemonic = {\n  // return 'cycle raccoon pool vintage unusual note twelve morning program glare salon survey'\n  // https://github.com/blitslabs/filecoin-js-signer#filecoin-signer\n  const strength = 128 // 128 => 12 words | 256 => 24 words\n  return filecoin_signer.wallet.generateMnemonic(strength)\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1773,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1106,
+      "value": "keys = {\n  const keys = []\n  const names = [ 'Owner', 'Alice', 'Bob', 'Carol' ]\n  for (let i = 0; i < names.length; i++) {\n    const network = 'testnet'\n\n    const key = await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/60'/0'/0/${i}`, network)\n    \n    key.name = names[i]\n    key.privateKeyBase64 = buffer.Buffer.from(key.privateKey.slice(2), 'hex').toString('base64')\n    key.privateKeyLotusExport = buffer.Buffer.from(`{\"Type\":\"secp256k1\",\"PrivateKey\":\"${key.privateKeyBase64}\"}`).toString('hex')\n    key.ethKey = await ethers.Wallet.fromMnemonic(randomMnemonic, `m/44'/60'/0'/0/${i}`)\n    keys.push(key)\n  }\n  return keys\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1109,
+      "value": "clientAddresses = keys.map(key => key.address)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1771,
+      "value": "ownerKey = keys.find(({ name }) => name === 'Owner')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1112,
+      "value": "## Wait for Lotus to be ready, then transfer 10 FIL to each address",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1114,
+      "value": "Be patient as it takes a little while for the funds to be sent via the Lotus JSON-RPC API when the notebook is first loaded.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1116,
+      "value": "{\n  if (transferFundsStatus === undefined || !transferFundsStatus) {\n    yield md``\n    return\n  }\n  if (transferFundsStatus.transferring || transferFundsStatus.waiting) {\n    while (true) {\n      const elapsed = (Date.now() - transferFundsStatus.start) / 1000\n      yield md`Transferring initial funds to client accounts... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFundsStatus.transferred) {\n    yield md`**Funds transferred**!`\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1118,
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      // Sending install actor message...\n      const messageBody = {\n        To: key.address,\n        From: walletDefaultAddress,\n        Value: \"10000000000000000000\",\n        Method: 0\n      }\n      responses.push(await client.mpoolPushMessage(messageBody, null))\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(client.stateWaitMsg(response.CID, 0))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: 't0100'\n    }\n    for (const key of keys) {\n      lookups[key.address] = await client.stateLookupID(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1122,
+      "value": "## Initial Balances",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1124,
+      "value": "Here are the addresses and IDs of the 3 clients we created, as well at their initial balances (should be 1 FIL each).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1126,
+      "value": "initialBalances = !transferFundsStatus ? md`Waiting...` : transferFundsStatus.transferred && getBalances(clientAddresses)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1130,
+      "value": "Inputs.table(\n  initialBalances ? initialBalances.map(({ address, balance }) => ({\n    name: keys.find(({ address: keyAddress }) => address === keyAddress).name, \n    id: transferFundsStatus.lookups[address],\n    address,\n    eth_address: keys.find(({ address: keyAddress }) => address === keyAddress).ethKey.address,\n    balance\n  })) : [],\n  {\n    width: {\n      name: 60,\n      id: 60,\n      address: 300,\n      eth_address: 340,\n      balance: 100\n    },\n    format: {\n   \n      balance: num => new FilecoinNumber(num, 'attofil').toFil()\n    }\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1128,
+      "value": "async function getBalances (addresses) {\n  return Promise.all(\n    addresses\n      .map(async address => {\n        const response = await client.stateGetActor(address, [])\n        return {\n          address: address,\n          balance: response.Balance\n        }\n      })\n  )\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1767,
+      "value": "ownerId = transferFundsStatus?.lookups && transferFundsStatus.lookups[keys[0].address]",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1766,
+      "value": "## Zero nonce workaround",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1765,
+      "value": "As these are new accounts, the nonce for each will be zero initially. Currently, the Ethers.js library doesn't work well when the nonce is zero due to some unimplemented JSON-RPC methods. So we workaround that by sending `0.0001 FIL` to `t099` (the system burn actor) so that that the nonces will be non-zero.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1764,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1763,
+      "value": "noncesFixed = {\n  if (!transferFundsStatus?.transferred) yield undefined\n  const start = Date.now()\n  yield {\n    transferring: true,\n    start\n  }\n  const responses = []\n  for (const key of keys) {\n    responses.push(await filecoin_client.tx.send(\n      't099', // to\n      '1000000000000000',\n      1000000000, // gaslimit\n      key.privateKey,\n      'testnet', // network\n      false // waitMsg\n    ))\n  }\n  const waitStart = Date.now()\n  yield { waiting: true, start, waitStart, responses }\n  const promises = []\n  for (const response of responses) {\n    promises.push(waitMsg(response))\n  }\n  const waitResponses = await Promise.all(promises)\n  yield { transferred: true, responses, waitResponses }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 243,
+      "value": "## Step 1: Define deployment parameters for your token",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1409,
+      "value": "viewof constructorParamsForm = Inputs.form([\n  Inputs.text({label: \"Name for your token\", value: \"littlecoin\"}),\n  Inputs.text({label: \"Symbol for your token\", value: \"LIT\"}),\n  Inputs.number({label: \"Initial supply\", value: 1000000 })\n])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1418,
+      "value": "The \"address\" will be set to `t0100`, which is the genesis actor for the localnet (same as the default Lotus wallet address which we are using for the API calls).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1762,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 216,
+      "value": "## Step 2: Connect to Hosted \"localnet\"\n\nThis notebook connects to a [hosted instance](https://github.com/jimpick/lotus-fvm-localnet-web) of a Lotus \"localnet\" (started on demand) into which you can install the actor code, create an actor instance, and invoke methods against.\n\nIf the localnet is started and online, the following chain height should be increasing every 4-10 seconds (depending on system load):",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 251,
+      "value": "md`**Height: ${currentHeight}**`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 255,
+      "value": "If the connection is working, then proceed to the next step.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 234,
+      "value": "## Step 3: Create an EVM actor instance",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 655,
+      "value": "Now we can create an actor instance from the compiled EVM smart contract. It is possible to create lots and lots of actors using the same code, each will get assigned a unique \"ID Address\" (eg. t01001) to which messages and funds can be sent, as well as an equivalent \"Robust Address\" alias (eg. \"t2...\") which maps on the same address (but doesn't change in the event of a chain re-organization).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1761,
+      "value": "This code uses the Ethers.js library to format and sign the messages to send to the JSON-RPC API.",
+      "pinned": false,
+      "mode": "html",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 492,
+      "value": "At the command line, this is the same as: `lotus chain create-evm-actor <bytecode file>`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 184,
+      "value": "viewof createActorButton = Inputs.button(\n  'Create EVM Actor',\n  {\n    disabled: !noncesFixed?.transferred,\n    value: null,\n    reduce: async () => ({\n      name: constructorParamsForm[0],\n      symbol: constructorParamsForm[1],\n      initialSupply: constructorParamsForm[2],\n      nonce: await client.mpoolGetNonce(ownerKey.address)\n    })\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 548,
+      "value": "{\n  if (createActorStatus === undefined || !createActorStatus) {\n    yield md`Status: Contract has not been created yet.`\n    return\n  }\n  if (createActorStatus.creating) {\n    while (true) {\n      const elapsed = (Date.now() - createActorStatus.start) / 1000\n      yield md`Sending create contract transaction... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (createActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Create contract transaction sent</b></div>\n      <div>Txn Hash: ${createActorStatus.response}</div>\n      `\n      if (createActorStatus.waitResponse) {\n        output += `<div>Transaction executed in block at height: ${Number.parseInt(createActorStatus.waitResponse.blockNumber.slice(2), 16)}</div>`\n        output += `<div>Gas used: ${Number.parseInt(createActorStatus.waitResponse.gasUsed.slice(2), 16)}</div>`\n        output += `<div>Contract address (Eth): ${createActorStatus.waitResponse.contractAddress}</div>`\n        output += `<b><div>ID Address: ${createActorStatus.waitResponse.actorId}</div></b>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - createActorStatus.waitStart) / 1000\n      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1758,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 794,
+      "value": "contractBytes = {\n  // Using prebuilt example from https://github.com/filecoin-project/fvm-example-actors/tree/main/erc20-sans-events/bin\n  const buf = new Uint8Array(await FileAttachment(\"ERC20.bin\").arrayBuffer())\n  const bytes = buffer.Buffer.from(buf)\n  return bytes.subarray(0, bytes.length - 256) // Remove initcode\n\n  /*\n  const buf = await (await fetch('https://raw.githubusercontent.com/jimpick/fvm-example-actors/jim-erc20/erc20-sans-events/output/ERC20PresetFixedSupply.bin')).arrayBuffer()\n  return buffer.Buffer.from(buf, 'hex')\n  */\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1339,
+      "value": "abi = (await fetch('https://raw.githubusercontent.com/jimpick/fvm-example-actors/jim-erc20/erc20-sans-events/output/ERC20PresetFixedSupply.abi')).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1343,
+      "value": "iface = new ethers.utils.Interface(abi)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1754,
+      "value": "provider = new ethers.providers.JsonRpcProvider(`${baseUrl}/rpc/v0?token=${token}`)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1753,
+      "value": "deployer = new ethers.Wallet(ownerKey.ethKey.privateKey, provider)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1752,
+      "value": "factory = new ethers.ContractFactory(iface, contractBytes, deployer)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 485,
+      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor', createActorButton)\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    const unsignedTx = await factory.getDeployTransaction(\n      createActorButton.name,\n      createActorButton.symbol,\n      createActorButton.initialSupply,\n      `0x${getEvmAddress(ownerId).slice(24)}`,\n      {\n        gasLimit: 1000000000,\n        gasPrice: undefined,\n        maxFeePerGas: undefined,\n        maxPriorityFeePerGas: priorityFee,\n        value: undefined,\n        nonce: createActorButton.nonce\n      }\n    )\n    const populatedTx = await deployer.populateTransaction(unsignedTx)\n    const signedTx = await deployer.signTransaction(populatedTx)\n    console.log('Create Actor Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    if (waitResponse?.contractAddress) {\n      waitResponse.actorId = `t0${Number.parseInt(waitResponse.contractAddress.slice(4), 16)}`\n    }\n    yield { installed: true, response, waitResponse }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1797,
+      "value": "contract = factory.attach(createActorStatus.waitResponse.contractAddress)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1157,
+      "value": "**Signatures:**\n\n```\n${await (await fetch('https://raw.githubusercontent.com/jimpick/fvm-example-actors/jim-erc20/erc20-sans-events/output/ERC20Burnable.signatures')).text()}\n```",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 238,
+      "value": "md`## Step 4: Invoke a method to get the ERC20 token balance for the owner address (${ownerId})`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 666,
+      "value": "Now that we've got an actor running with an ID Address, we can call the methods we have defined. Let's check the balance of the addresses. The method signature (from above) to get the balance is => `70a08231: balanceOf(address)`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1749,
+      "value": "md`From the Lotus command line, we could call the method like this:\n\n\\`./lotus chain invoke-evm-actor ${createActorStatus.waitResponse.actorId} 70a08231 ${getEvmAddress(ownerId)}\\``",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1796,
+      "value": "But we can use Ethers.js to make a JSON-RPC call to get the value from the state immediately.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 187,
+      "value": "viewof invokeEvmMethodButton = Inputs.button(`Get ERC20 Token Balance for Owner (${ownerId})`, {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.actorId,\n  value: null,\n  reduce: async () => (await contract.balanceOf(`0x${getEvmAddress(ownerId).slice(24)}`)).toString()\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1794,
+      "value": "invokeEvmMethodButton ? md`Balance: ${invokeEvmMethodButton}` : md``",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1254,
+      "value": "md`## Step 5: Invoke a method to transfer ERC20 tokens from the owner address (${ownerId}) to a user address`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1276,
+      "value": "The method signature is => `a9059cbb: transfer(address,uint256)`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1259,
+      "value": "viewof transferFromOwnerForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys.slice(1), { label: \"Transfer from Owner to User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})` }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1522,
+      "value": "viewof transferFromOwnerButton = Inputs.button(`Transfer From Owner (${ownerId})`, {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.actorId,\n  value: null,\n  reduce: () => ({\n    actorId: createActorStatus.waitResponse.actorId,\n    dest: transferFromOwnerForm[0],\n    amount: transferFromOwnerForm[1]\n  })\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1530,
+      "value": "{\n  if (transferFromOwnerStatus === undefined || !transferFromOwnerStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromOwnerStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromOwnerStatus.start) / 1000\n      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromOwnerStatus.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${transferFromOwnerButton.actorId}</div>\n      <div>Message CID: ${transferFromOwnerStatus.response.CID['/']}</div>\n      `\n      if (transferFromOwnerStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${transferFromOwnerStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${transferFromOwnerStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Return: ${transferFromOwnerStatus.waitResponse.Receipt.Return} (Base64 encoded binary array)</div>`\n        output += `<div><b>Decoded Result (Hex):</b> <b style=\"font-size: 100%\">${JSON.stringify(transferFromOwnerStatus.decodedResult.toString('hex'))}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - transferFromOwnerStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1520,
+      "value": "transferFromOwnerStatus = {\n  if (transferFromOwnerButton) {\n    const start = Date.now()\n    yield {\n      invoking: true,\n      start\n    }\n    const dest = getEvmAddress(transferFundsStatus.lookups[transferFromOwnerButton.dest.address])\n    const amount = transferFromOwnerButton.amount.toString(16).padStart(64, '0')\n    const params = buffer.Buffer.concat([\n      buffer.Buffer.from('a9059cbb', 'hex'),\n      buffer.Buffer.from(dest, 'hex'),\n      buffer.Buffer.from(amount, 'hex')\n    ])\n    const message = {\n      To: transferFromOwnerButton.actorId,\n      From: keys[0].address,\n      Value: \"0\",\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    console.log('message', message)\n    const privateKey = keys[0].privateKey\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await waitMsg(responseCID)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1496,
+      "value": "## Step 6: Retrieve the ERC20 token balances for all the addresses",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1600,
+      "value": "This is the same as Step 4, where we got the token balance for a single account. But here we retrieve all the account token balances in parallel to make it easier to observe what's going on.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1499,
+      "value": "{\n  if (!tokenBalances) {\n    return md``\n  } else {\n    return Inputs.table(\n      tokenBalances.map((balance, i) => {\n        return {\n          name: keys[i].name,\n          id: transferFundsStatus.lookups[keys[i].address], \n          balance\n        }\n      }),\n      {\n        format: {\n        }\n      }\n    )\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1554,
+      "value": "Inputs.button(\"Update\", { value: null, reduce: () => { mutable invalidatedBalancesAt = new Date() } })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1317,
+      "value": "tokenBalances = {\n  invalidatedBalancesAt;\n  const evmActorId = createActorStatus?.waitResponse?.actorId\n  if (keys && evmActorId) {\n    const responses = []\n    for (const key of keys) {\n      const keyActorId = transferFundsStatus.lookups[key.address]\n      const addressEvm = `0x${getEvmAddress(keyActorId).slice(24)}`\n      responses.push((await contract.balanceOf(addressEvm)).toBigInt())\n    }\n    return await Promise.all(responses)\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1556,
+      "value": "mutable invalidatedBalancesAt = new Date()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1564,
+      "value": "## Step 7: Transfer ERC20 tokens from user to user",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1566,
+      "value": "This is almost the same as Step 5, where we transferred from the owner (the genesis address on the Lotus node). But this time we will use secrets on the client side (in the browser) and sign the message from a non-owner address.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1568,
+      "value": "viewof transferFromUserForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys.slice(1), { label: \"Transfer from User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})` }),\n  Inputs.select(keys.slice(1), {\n    label: \"Transfer to User\",\n    format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})`,\n    value: keys[1]\n  }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1572,
+      "value": "viewof transferFromUserButton = Inputs.button('Transfer From User to User', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.actorId ||\n    transferFromUserForm[0] === transferFromUserForm[1],\n  value: null,\n  reduce: () => ({\n    actorId: createActorStatus.waitResponse.actorId,\n    source: transferFromUserForm[0],\n    dest: transferFromUserForm[1],\n    amount: transferFromUserForm[2]\n  })\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1588,
+      "value": "{\n  if (transferFromUserStatus === undefined || !transferFromUserStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromUserStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromUserStatus.start) / 1000\n      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromUserStatus.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${transferFromUserButton.actorId}</div>\n      <div>Message CID: ${transferFromUserStatus.response.CID['/']}</div>\n      `\n      if (transferFromUserStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${transferFromUserStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${transferFromUserStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Return: ${transferFromUserStatus.waitResponse.Receipt.Return} (Base64 encoded binary array)</div>`\n        output += `<div><b>Decoded Result (Hex):</b> <b style=\"font-size: 100%\">${JSON.stringify(transferFromUserStatus.decodedResult.toString('hex'))}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - transferFromUserStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1578,
+      "value": "transferFromUserStatus = {\n  if (transferFromUserButton) {\n    const start = Date.now()\n    yield {\n      invoking: true,\n      start\n    }\n    const dest = getEvmAddress(transferFundsStatus.lookups[transferFromUserButton.dest.address])\n    const amount = transferFromUserButton.amount.toString(16).padStart(64, '0')\n    const params = buffer.Buffer.concat([\n      buffer.Buffer.from('a9059cbb', 'hex'),\n      buffer.Buffer.from(dest, 'hex'),\n      buffer.Buffer.from(amount, 'hex')\n    ])\n    const message = {\n      To: transferFromUserButton.actorId,\n      From: transferFromUserButton.source.address,\n      Nonce: 0,\n      Value: \"0\",\n      GasLimit: 1000000000,\n      GasFeeCap: new FilecoinNumber(0, 'attofil'),\n      GasPremium: new FilecoinNumber(0, 'attofil'),\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    const privateKey = keys.find(({ address }) => address === transferFromUserButton.source.address).privateKey\n    console.log('message', message)\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await client.stateWaitMsg(responseCID, 0)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 693,
+      "value": "# Final notes",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 695,
+      "value": "Thank you for trying out this demo.\n\nIf the backend is not working, please get in touch with me. Feel free to fork this notebook to customize your own actors and build scenarios using the on-demand localnet that supports this early version of actors / smart contracts.\n\nI can also deploy custom instances of the localnet and the API for compiling actors ... feel free to contact me at @jimpick on the Filecoin Slack.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 150,
+      "value": "## Imports",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 50,
+      "value": "skypack = (library) => import(`https://cdn.skypack.dev/${library}?min`)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 198,
+      "value": "LotusRPC = (await import('@filecoin-shipyard/lotus-client-rpc')).LotusRPC",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 205,
+      "value": "BrowserProvider = (await import('@filecoin-shipyard/lotus-client-provider-browser')).BrowserProvider",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 211,
+      "value": "schema = (await import('@filecoin-shipyard/lotus-client-schema')).mainnet.fullNode",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 402,
+      "value": "stripAnsi = (await import('https://unpkg.com/strip-ansi@7.0.1/index.js?module')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 501,
+      "value": "cbor = import('https://cdn.skypack.dev/borc')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 727,
+      "value": "multiformats = import('https://cdn.skypack.dev/pin/multiformats@v9.6.5-93rn6JH3zqEZdoz77NBu/mode=imports,min/optimized/multiformats.js')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 584,
+      "value": "import {button} from '@jimpick/download-data-button-with-wasm-support'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 821,
+      "value": "buffer = require('https://bundle.run/buffer@6.0.3')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1098,
+      "value": "filecoinJsSigner = import('https://jspm.dev/@blitslabs/filecoin-js-signer')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1738,
+      "value": "filecoinJs = (await import('https://jspm.dev/filecoin.js')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1100,
+      "value": "FilecoinClient = filecoinJsSigner.FilecoinClient",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1102,
+      "value": "FilecoinSigner = filecoinJsSigner.FilecoinSigner",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1104,
+      "value": "filecoin_signer = new FilecoinSigner()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1135,
+      "value": "filecoinNumber = import('https://cdn.skypack.dev/pin/@glif/filecoin-number@v2.0.0-beta.0-iQnBkhznGjB3HsyiyYB8/mode=imports,min/optimized/@glif/filecoin-number.js')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1137,
+      "value": "FilecoinNumber = filecoinNumber.FilecoinNumber",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1336,
+      "value": "ethers = import('https://cdn.skypack.dev/ethers@5.7.1?min')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 270,
+      "value": "## Lotus Utilities",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 743,
+      "value": "simpleCoinSol = `\n// SPDX-License-Identifier: MIT\npragma solidity >=0.4.25 <= 0.8.17;\n\ncontract SimpleCoin {\n        mapping (address => uint) balances;\n\n        event Transfer(address indexed _from, address indexed _to, uint256 _value);\n\n        constructor() {\n                balances[tx.origin] = 10000;\n        }\n\n        function sendCoin(address receiver, uint amount) public returns(bool sufficient) {\n                if (balances[msg.sender] < amount) return false;\n                balances[msg.sender] -= amount;\n                balances[receiver] += amount;\n                emit Transfer(msg.sender, receiver, amount);\n                return true;\n        }\n\n        function getBalanceInEth(address addr) public view returns(uint){\n                return getBalance(addr) * 2;\n        }\n\n        function getBalance(address addr) public view returns(uint) {\n                return balances[addr];\n        }\n}\n`.trim()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 171,
+      "value": "initialCodeUrl = `https://raw.githubusercontent.com/raulk/fil-hello-world-actor/695eed038c48bfff97c29fdc25d00aa7363ee47d/src/lib.rs`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 373,
+      "value": "baseUrl = \"https://fvm-7.default.knative.hex.camp\"",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 355,
+      "value": "token = (await fetch(`${baseUrl}/public/token`)).text()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 209,
+      "value": "client = {\n  const provider = new BrowserProvider(`${baseUrl}/rpc/v0`, { token })\n  // Monkey-patch in a method to call eth_* JSON-RPC methods\n  LotusRPC.prototype.callEthMethod = async function (method, args) {\n    await this.provider.connect()\n    const request = {\n      method: `eth_${method}`\n    }\n    request.params = args\n    return this.provider.send(request, {})\n  }\n  return new LotusRPC(provider, { schema })\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1582,
+      "value": "filecoin_client = new FilecoinClient(`${baseUrl}/rpc/v0`, token)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1736,
+      "value": "lotusApiClient = {\n  const connector = new filecoinJs.HttpJsonRpcConnector({ url: baseUrl, token })\n  return new filecoinJs.LotusClient(connector)\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 303,
+      "value": "async function *heightStream () {\n  let last\n  while (true) {\n    try {\n      const newHeight = (await client.chainHead()).Height\n      if (newHeight !== last) {\n        yield newHeight\n        last = newHeight\n      }\n    } catch (e) {\n      yield 0\n    }\n    await Promises.delay(4000)\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 328,
+      "value": "mutable ready = false",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 312,
+      "value": "async function *heightReadyTapStream () {\n  let lastReady = false\n  for await (const height of heightStream()) {\n    const newReady = height > 7\n    if (newReady !== lastReady) {\n      mutable ready = newReady\n      lastReady = newReady\n    }\n    yield height\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 308,
+      "value": "currentHeight = heightReadyTapStream()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 353,
+      "value": "walletDefaultAddress = ready && client.walletDefaultAddress()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1165,
+      "value": "function getEvmAddress (address) {\n  return '000000000000000000000000ff' + Number(address.slice(1)).toString(16).padStart(38, '0')\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1735,
+      "value": "async function waitMsg (cid) {\n  return await client.stateWaitMsg(cid, 0)\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1734,
+      "value": "async function waitEthTx (txId) {\n  console.log('Waiting for', txId)\n  let waitResponse\n  for (let i = 0; i < 36; i++) { // 36 attempts at 5s each\n    try {\n      waitResponse = await client.callEthMethod('getTransactionReceipt', [txId])\n    } catch (e) {\n      if (e.message !== 'msg does not exist') {\n        console.log('Get transaction error', txId, e)\n        throw (e)\n      }\n    }\n    if (!waitResponse) {\n      console.log('Sleeping 5s - ', txId, i)\n      await Promises.delay(5000)\n      continue\n    }\n  }\n  return waitResponse\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1808,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1812,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1841,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1844,
+      "value": "backupNowButton()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": [
+    {
+      "type": "notebook",
+      "specifier": "@jeremiak/download-data-button",
+      "value": "bedb50933413e557@45"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/github-backups",
+      "value": "1d309dbd9697e042@631"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/onversion",
+      "value": "8aac8b2cb06bf434@263"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/footer",
+      "value": "58f3eb7334551ae6@215"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/safe-local-storage",
+      "value": "c2dae147641e012a@46"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/sentry",
+      "value": "a81f2a20664080d3@245"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/catch-all",
+      "value": "fa1f6059e44da1d5@425"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/repository-dispatch-min",
+      "value": "b09f1f038b1040e3@76"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/webcode",
+      "value": "6eda90668ae03044@836"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/webcode-ui",
+      "value": "cbc2e7f6260d11b1@2790"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/endpoint-login-with-comment",
+      "value": "027541187c96745d@147"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/login-with-comment",
+      "value": "c16efae137e70585@1444"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/firebase",
+      "value": "993a0c51ef1175ea@1396"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/synchronized-views",
+      "value": "3df1b33bb2cfcd3c@475"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/disposal",
+      "value": "4caee69e966109c8@35"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/get-comments",
+      "value": "d84ccee0a2202d45@356"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/view",
+      "value": "f92778131fd76559@1174"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/endpoint-services-footer",
+      "value": "58f3eb7334551ae6@215"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/viewroutine",
+      "value": "4a1fa3c167b752e5@304"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/serverless-cells",
+      "value": "dff1e917c89f5e76@1964"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/secure-random-id@65",
+      "value": "316f0885d15ab671@65"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/firebase-admin",
+      "value": "698257e86fae4586@378"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/utils",
+      "value": "b8a500058f806a6b@11"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@nebrius/indented-toc",
+      "value": "9bed702f80a3797e@402"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/randomid",
+      "value": "316f0885d15ab671@69"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mootari/notebook-data",
+      "value": "55bed46f68a80641@366"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/metadata",
+      "value": "e6f8b27a19576fcb@428"
+    }
+  ]
+}
