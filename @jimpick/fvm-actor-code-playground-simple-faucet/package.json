@@ -1,0 +1,14 @@
+{
+  "name": "@jimpick/fvm-actor-code-playground-simple-faucet",
+  "main": "5fc7ffd98209cd6a@1344.js",
+  "version": "1344.0.0",
+  "homepage": "https://observablehq.com/@jimpick/fvm-actor-code-playground-simple-faucet",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}

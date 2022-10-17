@@ -1,0 +1,1197 @@
+{
+  "id": "5fc7ffd98209cd6a",
+  "slug": "fvm-actor-code-playground-simple-faucet",
+  "trashed": false,
+  "description": "",
+  "likes": 1,
+  "publish_level": "live",
+  "forks": 2,
+  "fork_of": {
+    "id": "a153cf753740c27f",
+    "slug": "fvm-actor-code-playground-hello-world",
+    "title": "FVM Actor Code Playground - \"Hello World\"",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "pro"
+    },
+    "version": 714
+  },
+  "update_time": "2022-10-17T00:40:03.523Z",
+  "publish_time": "2022-05-03T16:14:45.847Z",
+  "publish_version": 1344,
+  "latest_version": 1344,
+  "thumbnail": null,
+  "default_thumbnail": null,
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "pro"
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "pro"
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "pro",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "f63e6c307ab87e8f",
+      "type": "public",
+      "slug": "filecoin-virtual-machine",
+      "title": "Filecoin Virtual Machine",
+      "description": "",
+      "update_time": "2022-05-02T18:32:44.723Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+      "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
+      "listing_count": 7,
+      "parent_collection_count": 0,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "pro"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 1344,
+  "title": "FVM Actor Code Playground - \"Simple Faucet\"",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2022 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# FVM Actor Code Playground - \"Simple Faucet\"",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 717,
+      "value": "A super simple actor that stores some funds and lets any actor withdraw any requested amount.\n\nThis notebook:\n\n* Generates 3 client-side addresses + secrets using [filecoin-js-signer](https://github.com/blitslabs/filecoin-js-signer). The secrets are stored in your browser, not on the Lotus node.\n* Send starter funds from Lotus to each client address (1 FIL each)\n* Compiles, installs and creates the \"faucet actor\"\n  * Has a single method to \"withdraw\" funds (no security - basically a \"cookie jar\")\n* Funds the faucet actor with 100 FIL\n* Has a UI to select any of the 3 actors, choose an amount, and make the withdrawal, showing the balances afterwards\n* Bonus: What happens when multiple withdrawals happen at once for more than the available funds?\n* When there are insufficient funds, we just panic. We probably should be aborting using an [exit code](https://docs.rs/fvm_shared/0.6.1/fvm_shared/error/struct.ExitCode.html).\n* Based on https://observablehq.com/@jimpick/fvm-actor-code-playground-hello-world",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 154,
+      "value": "**Note:** The on-demand localnet will be reclaimed after 3 minutes of inactivity. Modifications to the blockchain state are ephemeral -- good for testing! Staying on this page will keep it alive, but if you navigate away and then return, it may get restarted with fresh state. If that happens, reload the web page. There is one instance of the localnet shared between all users.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 777,
+      "value": "## Generate Client Side Addresses",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1206,
+      "value": "We use `filecoin-js-signer` to generate a random mnemomic phrase. You could save this phrase and re-use it to generate the secrets. In this notebook, we just use different secrets on each page reload.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 772,
+      "value": "randomMnemonic = {\n  // https://github.com/blitslabs/filecoin-js-signer#filecoin-signer\n  const strength = 128 // 128 => 12 words | 256 => 24 words\n  return filecoin_signer.wallet.generateMnemonic(strength)\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 782,
+      "value": "keys = {\n  const keys = []\n  for (let i = 0; i < 3; i++) {\n    const network = 'testnet'\n    \n    keys.push(await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/461'/0'/0/${i}`, network))\n  }\n  return keys\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 864,
+      "value": "clientAddresses = keys.map(key => key.address)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 792,
+      "value": "## Wait for Lotus to be ready, then transfer 1 FIL to each address",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1210,
+      "value": "Be patient as it takes a little while for the funds to be sent via the Lotus JSON-RPC API when the notebook is first loaded.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1167,
+      "value": "{\n  if (transferFundsStatus === undefined || !transferFundsStatus) {\n    yield md``\n    return\n  }\n  if (transferFundsStatus.transferring || transferFundsStatus.waiting) {\n    while (true) {\n      const elapsed = (Date.now() - transferFundsStatus.start) / 1000\n      yield md`Transferring initial funds to client accounts... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFundsStatus.transferred) {\n    yield md`**Funds transferred**!`\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 798,
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      // Sending install actor message...\n      const messageBody = {\n        To: key.address,\n        From: walletDefaultAddress,\n        Value: \"1000000000000000000\",\n        Method: 0\n      }\n      responses.push(await client.mpoolPushMessage(messageBody, null))\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(client.stateWaitMsg(response.CID, 0))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {}\n    for (const key of keys) {\n      lookups[key.address] = await client.stateLookupID(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 818,
+      "value": "## Initial Balances",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1217,
+      "value": "Here are the addresses and IDs of the 3 clients we created, as well at their initial balances (should be 1 FIL each).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 808,
+      "value": "initialBalances = !transferFundsStatus ? md`Waiting...` : transferFundsStatus.transferred && getBalances(clientAddresses)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 825,
+      "value": "initialBalances && Inputs.table(\n  initialBalances.map(({ address, balance }) => ({\n    id: transferFundsStatus.lookups[address],\n    address,\n    balance\n  })),\n  {\n    format: {\n      balance: num => new FilecoinNumber(num, 'attofil').toFil()\n    }\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 805,
+      "value": "async function getBalances (addresses) {\n  return Promise.all(\n    addresses\n      .map(async address => {\n        const response = await client.stateGetActor(address, [])\n        return {\n          address: address,\n          balance: response.Balance\n        }\n      })\n  )\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 243,
+      "value": "## Step 1: Edit Actor Code - src/lib.rc\n\nFeel free to modify this actor code (written in Rust). Don't worry, you can't break anything. This is from [src/lib.rc](https://github.com/raulk/fil-hello-world-actor/blob/master/src/lib.rs) in @raulk's [fil-hello-world-actor](https://github.com/raulk/fil-hello-world-actor) example. We use some JavaScript in this notebook to patch this subset of the code into the original code with some modifications.\n\nGitHub Code Links + useful API Docs:\n\n * https://github.com/raulk/fil-hello-world-actor\n * https://github.com/raulk/fil-hello-world-actor/blob/master/src/blockstore.rs\n * https://github.com/raulk/fil-hello-world-actor/blob/master/Cargo.toml\n * https://docs.rs/fvm_sdk/0.6.1/fvm_sdk/\n * https://docs.rs/fvm_shared/0.6.1/fvm_shared/\n * https://docs.rs/cid/0.8.4/cid/\n * https://docs.rs/fvm_ipld_encoding/0.2.0/fvm_ipld_encoding/\n",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 4,
+      "value": "viewof editor = {\n  const {EditorState, EditorView, basicSetup} = await skypack('@codemirror/next/basic-setup')\n  const {rust} = await skypack('@codemirror/next/lang-rust')\n  \n  const updateViewOf = EditorView.updateListener.of((update) => {\n    const {dom} = update.view\n    dom.value = update\n    dom.dispatchEvent(new CustomEvent('input'))\n  })\n\n  const initialCode = method2Code\n  \n  const view = new EditorView({\n    state: EditorState.create({\n      doc: initialCode,\n      extensions: [basicSetup, rust(), updateViewOf]\n    })\n  })\n  \n  return view.dom\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 593,
+      "value": "If you have changed the code and would like to save it for future use, you can use this button to save it to a file.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 589,
+      "value": "{\n  const code = templateStart + '\\n' + editor.state.doc.toString()\n  return html`Optional: ${button(code, `lib.rs`)}`\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 597,
+      "value": "**Pro-tip:** *You can also \"fork\" this notebook and use the saved file as an attachment.*",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 222,
+      "value": "## Step 2: Compile\n\nWe have implemented a [simple web service](https://github.com/jimpick/lotus-fvm-localnet-web/blob/main/server.mjs) that accepts a HTTP POST with the code above, and returns a compiled WASM binary (wrapped in a CBOR array, encoded in base64, ready to pass as a 'params' string). The code above is substituted for `src/lib.rs` into the [raulk/fil-hello-world-actor](https://github.com/raulk/fil-hello-world-actor) example and built using `cargo build`. It should compile in less than 30 seconds.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 178,
+      "value": "viewof compileToWasmButton = {\n  const code = templateStart + '\\n' + editor.state.doc.toString()\n  return Inputs.button('Compile to WASM', {value: null, reduce: () => code})\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 385,
+      "value": "{\n  if (compileStatus === undefined || !compileStatus) {\n    yield md`Status: Code is ready to upload to the compiling service. Not compiled yet.`\n    return\n  }\n  if (compileStatus.compiling) {\n    while (true) {\n      const elapsed = (Date.now() - compileStatus.start) / 1000\n      yield md`Compiling on remote server... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (compileStatus.success) {\n    yield html`<div><b>Successfully compiled!</b></div>\n    <div>Compile time: ${(compileStatus.elapsed / 1000).toFixed(1)}s\n    <div>Compile log:</div>\n    <pre>${stripAnsi(compileStatus.logs)}</pre>`\n  }\n  if (compileStatus.error) {\n    yield html`<div><b>**Error!**</b></div>\n    <div>Compile log:</div>\n    <pre>${stripAnsi(compileStatus.error)}</pre>`\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 617,
+      "value": "compileStatus && compileStatus.wasmBinary ? md`Optional: You can download the compiled WASM bundle here. (Not needed if you are just using it from this notebook)` : md``",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 606,
+      "value": "compileStatus && compileStatus.wasmBinary ? html`Optional: ${button(compileStatus.wasmBinary, 'fil_hello_world_actor.wasm')}` : md``",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 365,
+      "value": "compileStatus = {\n  if (compileToWasmButton) {\n    const start = Date.now()\n    yield {\n      compiling: true,\n      start\n    }\n    try {\n      const response = await fetch(`${baseUrl}/compile`, {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json'\n        },\n        body: JSON.stringify({\n          'lib.rs': compileToWasmButton,\n          'Cargo.toml': patchedCargoToml\n        })\n      })\n      const results = await response.json()\n      results.elapsed = Date.now() - start\n      if (results.success) {\n        results.wasmBinary = cbor.decode(results.wasmBinaryParamsEncoded, 'base64')\n      }\n      yield results\n    } catch (e) {\n      yield {\n        error: e.message\n      }\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 216,
+      "value": "## Step 3: Connect to Hosted \"localnet\"\n\nThis notebook connects to a [hosted instance](https://github.com/jimpick/lotus-fvm-localnet-web) of a Lotus \"localnet\" (started on demand) into which you can install the actor code, create an actor instance, and invoke methods against.\n\nIf the localnet is started and online, the following chain height should be increasing every 4-10 seconds (depending on system load):",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 251,
+      "value": "md`**Height: ${currentHeight}**`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 255,
+      "value": "If the connection is working, then proceed to the next step.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 230,
+      "value": "## Step 4: Install the Actor Code",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 497,
+      "value": "Before the actor code can be executed, it must be loaded into the Filecoin blockchain state.\n\n# 💾\n\nIf you are old enough to remember, imagine this step as inserting the [floppy disk](https://en.wikipedia.org/wiki/Floppy_disk) into the Filecoin global computer's floppy drive!\n\nAt the command line, this is the same as: `lotus chain install-actor <wasm-file>`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 180,
+      "value": "viewof installActorButton = Inputs.button('Install Actor Code', {\n  disabled: !compileStatus || !compileStatus.wasmBinaryParamsEncoded,\n  value: null,\n  reduce: () => compileStatus.wasmBinaryParamsEncoded\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 468,
+      "value": "{\n  if (installActorStatus === undefined || !installActorStatus) {\n    yield md`Status: Latest actor code is compiled to WASM, but not installed yet.`\n    return\n  }\n  if (installActorStatus.installing) {\n    while (true) {\n      const elapsed = (Date.now() - installActorStatus.start) / 1000\n      yield md`Sending install actor message... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (installActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Install actor message sent</b></div>\n      <div>Message CID: ${installActorStatus.response.CID['/']}</div>`\n      if (installActorStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${installActorStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${installActorStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div><b>Code CID: ${installActorStatus.waitResponse.ReturnDec.CodeCid['/']}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - installActorStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 369,
+      "value": "installActorStatus = {\n  if (installActorButton) {\n    console.log('Install actor')\n    const start = Date.now()\n    yield {\n      installing: true,\n      start\n    }\n    // Sending install actor message...\n    const messageBody = {\n      To: 't01',\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 3,\n      Params: compileStatus.wasmBinaryParamsEncoded\n    }\n    const response = await client.mpoolPushMessage(messageBody, null)\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await client.stateWaitMsg(response.CID, 0)\n    yield { installed: true, response, waitResponse }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 234,
+      "value": "## Step 5: Create an Actor Instance for the Faucet",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 655,
+      "value": "If you have completed the previous step, you will have a \"Code CID\" for the WASM bundle you just installed. Now we can create an actor instance. It is possible to create lots and lots of actors using the same code, each will get assigned a unique \"ID Address\" (eg. t01001) to which messages and funds can be sent, as well as an equivalent \"Robust Address\" alias (eg. \"t2...\") which maps on the same address (but doesn't change in the event of a chain re-organization).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 492,
+      "value": "At the command line, this is the same as: `lotus chain create-actor <code-cid>`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 184,
+      "value": "viewof createActorButton = Inputs.button('Create Actor', {\n  disabled: !installActorStatus ||\n    !installActorStatus.waitResponse ||\n    !installActorStatus.waitResponse.ReturnDec ||\n    !installActorStatus.waitResponse.ReturnDec.CodeCid,\n  value: null,\n  reduce: () => installActorStatus.waitResponse.ReturnDec.CodeCid['/']\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 548,
+      "value": "{\n  if (createActorStatus === undefined || !createActorStatus) {\n    yield md`Status: Instance of latest installed actor has not been created yet.`\n    return\n  }\n  if (createActorStatus.creating) {\n    while (true) {\n      const elapsed = (Date.now() - createActorStatus.start) / 1000\n      yield md`Sending create actor message... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (createActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Create actor message sent</b></div>\n      <div>Code CID (Param): ${createActorButton}</div>\n      <div>Message CID: ${createActorStatus.response.CID['/']}</div>\n      `\n      if (createActorStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${createActorStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${createActorStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Robust Address: ${createActorStatus.waitResponse.ReturnDec.RobustAddress}</div>`\n        output += `<b><div>ID Address: ${createActorStatus.waitResponse.ReturnDec.IDAddress}</div></b>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - createActorStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 485,
+      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor')\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    const codeCid = new CID(createActorButton)\n    // Needs a zero byte in front\n    const codeCidBytes = new Uint8Array(codeCid.bytes.length + 1)\n    codeCidBytes.set(codeCid.bytes, 1)\n    const params = cbor.encode([new cbor.Tagged(42, codeCidBytes), new Uint8Array(0)])\n    // Sending create actor message...\n    const messageBody = {\n      To: 't01',\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    console.log('messageBody', messageBody)\n    const response = await client.mpoolPushMessage(messageBody, null)\n    console.log('Jim response', response)\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await client.stateWaitMsg(response.CID, 0)\n    yield { installed: true, response, waitResponse }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 841,
+      "value": "## Step 6: Send funds to Faucet Actor",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 845,
+      "value": "viewof sendFundsToFaucetButton = Inputs.button('Send Funds to Faucet (100 FIL)', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1291,
+      "value": "{\n  if (sendFundsToFaucetStatus === undefined || !sendFundsToFaucetStatus) {\n    yield md`Status: Funds have not been sent yet.`\n    return\n  }\n  if (sendFundsToFaucetStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - sendFundsToFaucetStatus.start) / 1000\n      yield md`Sending message... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (sendFundsToFaucetStatus.response) {\n    while (true) {\n      let output = `<div><b>Send funds message sent</b></div>\n      <div>Message CID: ${sendFundsToFaucetStatus.response.CID['/']}</div>`\n      if (sendFundsToFaucetStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${sendFundsToFaucetStatus.waitResponse.Height}</div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - sendFundsToFaucetStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 854,
+      "value": "fundedFaucetAddress ? md`Faucet Balance after funding: **${fundedFaucetAddress && new FilecoinNumber((await getBalances([fundedFaucetAddress]))[0].balance, 'attofil').toFil()} FIL**` : md``",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 847,
+      "value": "sendFundsToFaucetStatus = {\n  if (sendFundsToFaucetButton) {\n    const start = Date.now()\n    yield {\n      invoking: true,\n      start\n    }\n    const messageBody = {\n      To: sendFundsToFaucetButton,\n      From: walletDefaultAddress,\n      Value: \"100000000000000000000\",\n      Method: 0,\n      Params: null\n    }\n    const response = await client.mpoolPushMessage(messageBody, null)\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await client.stateWaitMsg(response.CID, 0)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = cbor.decodeAll(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response, waitResponse, decodedResult }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 857,
+      "value": "fundedFaucetAddress = sendFundsToFaucetStatus && sendFundsToFaucetStatus.invoked && createActorStatus.waitResponse.ReturnDec.RobustAddress",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 238,
+      "value": "## Step 7: Call Withdraw Method",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 666,
+      "value": "Now that we've got an actor running with an ID Address, we can call the method we have defined. In the Hello World example, method #2 is dispatched in the invoke() function to call the say_hello() function, which returns a message (with a counter that increments each time it is called).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 671,
+      "value": "At the command line, this is the same as: `lotus chain invoke <actor-id-address> <method-number>`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 889,
+      "value": "viewof withdrawForm = Inputs.form([\n  Inputs.select(\n    clientAddresses.map(address => ({\n      id: transferFundsStatus.lookups[address],\n      address\n    })),\n    {\n      label: 'Client Address',\n      format: x => `${x.id}: ${x.address}`\n    }\n  ),\n  Inputs.range([0, 200], {value: 5, step: 0.1, label: 'Amount to Withdraw'})\n])",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 901,
+      "value": "viewof withdrawButton = Inputs.button('Withdraw from Faucet', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => ({\n    faucetAddress: createActorStatus.waitResponse.ReturnDec.IDAddress,\n    clientAddress: withdrawForm[0].address,\n    amount: withdrawForm[1]\n  })\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 678,
+      "value": "{\n  if (invokeMethod2Status === undefined || !invokeMethod2Status) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (invokeMethod2Status.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - invokeMethod2Status.start) / 1000\n      yield md`Sending message to actor for method 2... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (invokeMethod2Status.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${withdrawButton.faucetAddress} (Faucet)</div>\n      <div>Method: 2</div>\n      <div>Message CID: ${invokeMethod2Status.response.CID['/']}</div>\n      `\n      if (invokeMethod2Status.waitResponse) {\n        output += `<div>Message executed in block at height: ${invokeMethod2Status.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${invokeMethod2Status.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Exit Code: ${invokeMethod2Status.waitResponse.Receipt.ExitCode}</div>`\n        output += `<div>Return: ${invokeMethod2Status.waitResponse.Receipt.Return} (Base64 encoded CBOR)</div>`\n        output += `<div><b>Decoded Result:</b> <b style=\"font-size: 200%\">${JSON.stringify(invokeMethod2Status.decodedResult)}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - invokeMethod2Status.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1137,
+      "value": "New balances:",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1151,
+      "value": "{\n  updateButton;\n  if (!invokeMethod2Status || !invokeMethod2Status.invoked) {\n    return md``\n  }\n  const balances = await getBalances([fundedFaucetAddress].concat(clientAddresses))\n  return Inputs.table(\n    balances.map(({ address, balance }) => ({\n      id: address === fundedFaucetAddress ? `${withdrawButton.faucetAddress} (Faucet)` :\n        transferFundsStatus.lookups[address],\n      address,\n      balance\n    })),\n    {\n      format: {\n        balance: num => new FilecoinNumber(num, 'attofil').toFil()\n      }\n    }\n  )\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1162,
+      "value": "viewof updateButton = Inputs.button(\"Update\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 572,
+      "value": "invokeMethod2Status = {\n  if (withdrawButton) {\n    const start = Date.now()\n    console.log('Withdraw', withdrawButton)\n    yield {\n      invoking: true,\n      start\n    }\n    const message = {\n      To: withdrawButton.faucetAddress,\n      From: withdrawButton.clientAddress,\n      Nonce: 0,\n      Value: new FilecoinNumber(0, 'attofil'),\n      GasLimit: 1000000000,\n      GasFeeCap: new FilecoinNumber(0, 'attofil'),\n      GasPremium: new FilecoinNumber(0, 'attofil'),\n      Method: 2,\n      Params: cbor.encode([bigToBytes(new FilecoinNumber(withdrawButton.amount, 'fil'))]).toString('base64')\n    }\n    const privateKey = keys.find(({ address }) => address === withdrawButton.clientAddress).privateKey\n    console.log('message', message)\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await client.stateWaitMsg(responseCID, 0)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = cbor.decodeAll(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1228,
+      "value": "## Step 9: What happens if multiple clients withdraw all funds at the same time?",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1234,
+      "value": "If everybody tries to drain the faucet of all funds at the same moment in time, what happens? Does only one client get the funds? Which one? Maybe nobody gets the funds?",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1240,
+      "value": "viewof drainRaceButton = Inputs.button(\"Withdraw entire faucet balance from 3 clients at once!\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1272,
+      "value": "{\n  if (drainRaceStatus === undefined || !drainRaceStatus) {\n    yield md`Status: Methods have not been invoked yet.`\n    return\n  }\n  if (drainRaceStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - drainRaceStatus.start) / 1000\n      yield md`Sending message to all 3 client actors for method 2... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (drainRaceStatus.responses) {\n    while (true) {\n      let output = `<div><b>Messages sent to faucet actor from 3 clients</b></div>\n      <div>To: ${fundedFaucetAddress} (Faucet)</div>\n      <div>Method: 2</div>\n      <div>Message CIDs: ${drainRaceStatus.responses.map(cid => cid['/']).join(', ')}</div>\n      `\n      if (drainRaceStatus.waitResponses) {\n        output += `<div>Messages executed:</div>`\n        output += `<ul>`\n        for (let i in drainRaceStatus.waitResponses) {\n          const waitResponse = drainRaceStatus.waitResponses[i]\n          output += '<li>'\n          output += `<div>From: ${keys[i].address} (${transferFundsStatus.lookups[keys[i].address]})</div>`\n          output += `<div>Message executed in block at height: ${waitResponse.Height}</div>`\n          output += `<div>Gas used: ${waitResponse.Receipt.GasUsed}</div>`\n          output += `<div>Exit Code: ${waitResponse.Receipt.ExitCode}</div>`\n          output += `<div>Return: ${waitResponse.Receipt.Return} (Base64 encoded CBOR)</div>`\n          if (drainRaceStatus.decodedResults[i]) {\n            output += `<div><b>Decoded Result:</b> <b style=\"font-size: 200%\">${JSON.stringify(drainRaceStatus.decodedResults[i])}</b></div>`\n          }\n          output += '</li>'\n        }\n        output += `</ul>`\n        /*\n        output += `<div>Message executed in block at height: ${invokeMethod2Status.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${invokeMethod2Status.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Exit Code: ${invokeMethod2Status.waitResponse.Receipt.ExitCode}</div>`\n        output += `<div>Return: ${invokeMethod2Status.waitResponse.Receipt.Return} (Base64 encoded CBOR)</div>`\n        output += `<div><b>Decoded Result:</b> <b style=\"font-size: 200%\">${JSON.stringify(invokeMethod2Status.decodedResult)}</b></div>`\n        */\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - drainRaceStatus.waitStart) / 1000\n      output += `<div>Waiting for messages to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1282,
+      "value": "{\n  if (!drainRaceStatus || !drainRaceStatus.decodedResults) {\n    return md``\n  }\n  const balances = await getBalances([fundedFaucetAddress].concat(clientAddresses))\n  return Inputs.table(\n    balances.map(({ address, balance }) => ({\n      id: address === fundedFaucetAddress ? `${withdrawButton.faucetAddress} (Faucet)` :\n        transferFundsStatus.lookups[address],\n      address,\n      balance\n    })),\n    {\n      format: {\n        balance: num => new FilecoinNumber(num, 'attofil').toFil()\n      }\n    }\n  )\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1286,
+      "value": "{\n  if (!drainRaceStatus || !drainRaceStatus.decodedResults) {\n    return md``\n  }\n  return md`If things worked, only one of the clients (randomly) will have got the funds!\n\nTry funding the faucet again and try again.\n`\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1244,
+      "value": "drainRaceStatus = {\n  const faucetAddress = createActorStatus.waitResponse.ReturnDec.IDAddress\n  if (drainRaceButton) {\n    const start = Date.now()\n    console.log('Drain race started')\n    yield {\n      invoking: true,\n      start\n    }\n    const balances = await getBalances([faucetAddress])\n    const faucetBalance = new FilecoinNumber(balances[0].balance, 'attofil')\n    console.log('Faucet balance:', faucetBalance.toFil())\n    yield {\n      invoking: true,\n      initialFaucetBalance: faucetBalance.toFil(),\n      start\n    }\n    const responsePromises = []\n    for (const key of keys) {\n      const message = {\n        To: faucetAddress,\n        From: key.address,\n        Nonce: 0,\n        Value: new FilecoinNumber(0, 'attofil'),\n        GasLimit: 1000000000,\n        GasFeeCap: new FilecoinNumber(0, 'attofil'),\n        GasPremium: new FilecoinNumber(0, 'attofil'),\n        Method: 2,\n        Params: cbor.encode([bigToBytes(faucetBalance)]).toString('base64')\n      }\n      const privateKey = key.privateKey\n      console.log('message', message)\n      responsePromises.push(filecoin_client.tx.sendMessage(\n        message,\n        privateKey,\n        true, // updateMsgNonce\n        false // waitMsg\n      ))\n    }\n    const responses = await Promise.all(responsePromises)\n    const waitStart = Date.now()\n    yield {\n      waiting: true,\n      start,\n      waitStart,\n      initialFaucetBalance: faucetBalance.toFil(),\n      responses\n    }\n    const promises = []\n    for (const response of responses) {\n      promises.push(client.stateWaitMsg(response, 0))\n    }\n    const waitResponses = await Promise.all(promises)\n    const decodedResults = []\n    for (const waitResponse of waitResponses) {\n      let decodedResult = null\n      if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n        decodedResult = cbor.decodeAll(waitResponse.Receipt.Return, 'base64')\n      }\n      decodedResults.push(decodedResult)\n    }\n    yield { invoked: true, responses, waitResponses, decodedResults }\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1133,
+      "value": "## Serialize/Deserialize Filecoin Bigints",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 950,
+      "value": "new FilecoinNumber('5', 'attofil')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 956,
+      "value": "cbor.encode([new FilecoinNumber('5', 'attofil')]).toString('base64')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1013,
+      "value": "function bigToBytes(num) {\n  // https://github.com/Zondax/filecoin-signing-tools/blob/5a126fa599695dac720c692cb286a8c572187f88/signer-npm/js/src/index.js#L54\n  // https://github.com/spacegap/spacegap.github.io/blob/ccfa30a3e5303c4538c59f3a23186882eddf810e/src/services/filecoin/index.js#L145\n\n  if (num === '0' || num === 0) {\n    return new Uint8Array(0)\n  }\n  const numBigInt = (typeof num === 'object') ? (new BN(num.toAttoFil(), 10)) : (new BN(num, 10))\n  const numArray = numBigInt.toArrayLike(Array, 'be', numBigInt.byteLength())\n  if (numBigInt.isNeg()) {\n    numArray.unshift(1)\n  } else {\n    numArray.unshift(0)\n  }\n  return new Uint8Array(numArray)\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1026,
+      "value": "bigToBytes(-1234)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1040,
+      "value": "bigToBytes(1234)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1068,
+      "value": "bigToBytes(new FilecoinNumber(1234, 'attofil'))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1080,
+      "value": "({ x: 1 }).toString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1042,
+      "value": "bigToBytes(\"1234\")",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1044,
+      "value": "bigToBytes(\"12345678901234567890\")",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1049,
+      "value": "bigToBytes(12345678901234567890n)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1018,
+      "value": "function bytesToBig (p) { // https://github.com/spacegap/spacegap.github.io/blob/ccfa30a3e5303c4538c59f3a23186882eddf810e/src/services/filecoin/index.js#L145\n  let sign = p[0]\n  let acc = new BN(0)\n  for (let i = 1; i < p.length; i++) {\n    acc = acc.mul(new BN(256))\n    acc = acc.add(new BN(p[i]))\n  }\n  if (sign === 1) {\n    return -acc\n  } else if (sign === 0) {\n    return acc\n  } else {\n    throw new Error('Unexpected value for first byte, expected 0 or 1 for sign')\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1058,
+      "value": "bytesToBig(bigToBytes(12345678901234567890n)).toString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1064,
+      "value": "bytesToBig(bigToBytes(-1234)).toString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 693,
+      "value": "# Final notes",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 695,
+      "value": "Thank you for trying out this demo.\n\nIf the backend is not working, please get in touch with me. Feel free to fork this notebook to customize your own actors and build scenarios using the on-demand localnet that supports this early version of actors / smart contracts.\n\nI can also deploy custom instances of the localnet and the API for compiling actors ... feel free to contact me at @jimpick on the Filecoin Slack.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 150,
+      "value": "## Imports",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 50,
+      "value": "skypack = (library) => import(`https://cdn.skypack.dev/${library}?min`)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 198,
+      "value": "LotusRPC = (await import('@filecoin-shipyard/lotus-client-rpc')).LotusRPC",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 205,
+      "value": "BrowserProvider = (await import('@filecoin-shipyard/lotus-client-provider-browser')).BrowserProvider",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 211,
+      "value": "schema = (await import('@filecoin-shipyard/lotus-client-schema')).mainnet.fullNode",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 402,
+      "value": "stripAnsi = (await import('https://unpkg.com/strip-ansi@7.0.1/index.js?module')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 501,
+      "value": "cbor = import('https://cdn.skypack.dev/borc')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 503,
+      "value": "CID = (await import('https://jspm.dev/cids')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 584,
+      "value": "import {button} from '@jimpick/download-data-button-with-wasm-support'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 752,
+      "value": "filecoinJsSigner = import('https://jspm.dev/@blitslabs/filecoin-js-signer')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 767,
+      "value": "FilecoinClient = filecoinJsSigner.FilecoinClient",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 770,
+      "value": "FilecoinSigner = filecoinJsSigner.FilecoinSigner",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 785,
+      "value": "filecoin_signer = new FilecoinSigner()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 815,
+      "value": "filecoinNumber = import('https://cdn.skypack.dev/@glif/filecoin-number')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 835,
+      "value": "FilecoinNumber = filecoinNumber.FilecoinNumber",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1021,
+      "value": "BN = require('https://bundle.run/bn.js@5.2.0')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 721,
+      "value": "## Boilerplate Code",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 171,
+      "value": "initialCodeUrl = `https://raw.githubusercontent.com/raulk/fil-hello-world-actor/1b8aaab57ca82d296c041752b364c6685d57e84d/src/lib.rs`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 730,
+      "value": "initialCode = (await fetch(initialCodeUrl)).text()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 725,
+      "value": "method2Code = `\n#[derive(Debug, Deserialize_tuple)]\npub struct WithdrawalParams {\n    #[serde(with = \"bigint_ser\")]\n    pub amount: TokenAmount,\n}\n\n/// Method num 2.\npub fn withdraw(params: u32) -> Option<RawBytes> {\n    let params = sdk::message::params_raw(params).unwrap().1;\n    let params = RawBytes::new(params);\n    let params: WithdrawalParams = params.deserialize().unwrap();\n    let caller = sdk::message::caller();\n    let address = Address::new_id(caller);\n    let send_params = RawBytes::default();\n\n    let _receipt = fvm_sdk::send::send(\n      &address,\n      METHOD_SEND,\n      send_params,\n      params.amount.clone()\n    ).unwrap();\n    \n    let ret = to_vec(format!(\"Withdraw {:?} => t0{}\",\n      params, caller).as_str());\n\n    match ret {\n        Ok(ret) => Some(RawBytes::new(ret)),\n        Err(err) => {\n            abort!(\n                USR_ILLEGAL_STATE,\n                \"failed to serialize return value: {:?}\",\n                err\n            );\n        }\n    }\n}\n`.trim()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 733,
+      "value": "templateStart = {\n  const code = initialCode\n    .replace('pub fn invoke(_: u32)', 'pub fn invoke(params: u32)')\n    .replace('say_hello()', 'withdraw(params)')\n    .replace(/\\/\\/\\/ Method num 2.*/s, '')\n    .split('\\n')\n\n  code.splice(\n    10, 0,\n    'use fvm_shared::bigint::bigint_ser;',\n    'use fvm_shared::econ::TokenAmount;',\n    'use fvm_shared::METHOD_SEND;',\n    'use fvm_shared::address::Address;',\n  )\n  return code.join('\\n')\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1185,
+      "value": "initialCargoTomlUrl = 'https://raw.githubusercontent.com/raulk/fil-hello-world-actor/c0ea4bde7da49c6d5b0d3ba01d592f553dd9589c/Cargo.toml'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1189,
+      "value": "initialCargoToml = (await fetch(initialCargoTomlUrl)).text()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1191,
+      "value": "patchedCargoToml = {\n  function gitVersion (version) {\n    const rev = '297a7694'\n    return `{ version = \"${version}\", git = \"https://github.com/filecoin-project/ref-fvm\", rev = \"${rev}\" }`\n  }\n  return (\n    initialCargoToml\n      .replace(/fvm_sdk = .*/, `fvm_sdk = ${gitVersion('0.6.1')}`)\n      .replace(/fvm_shared = .*/, `fvm_shared = ${gitVersion('0.6.1')}`)\n      .replace(/fvm_ipld_blockstore = .*/, `fvm_ipld_blockstore = ${gitVersion('0.1.0')}`)\n      .replace(/fvm_ipld_encoding = .*/, `fvm_ipld_encoding = ${gitVersion('0.2.0')}`)\n    )\n}  ",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 270,
+      "value": "## Lotus Utilities",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 373,
+      "value": "baseUrl = \"https://fvm-2.default.knative.hex.camp\"",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 355,
+      "value": "token = (await fetch(`${baseUrl}/public/token`)).text()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 209,
+      "value": "client = {\n  const provider = new BrowserProvider(`${baseUrl}/rpc/v0`, { token })\n  return new LotusRPC(provider, { schema })\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 914,
+      "value": "filecoin_client = new FilecoinClient(`${baseUrl}/rpc/v0`, token)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 303,
+      "value": "async function *heightStream () {\n  let last\n  while (true) {\n    try {\n      const newHeight = (await client.chainHead()).Height\n      if (newHeight !== last) {\n        yield newHeight\n        last = newHeight\n      }\n    } catch (e) {\n      yield 0\n    }\n    await Promises.delay(4000)\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 328,
+      "value": "mutable ready = false",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 312,
+      "value": "async function *heightReadyTapStream () {\n  let lastReady = false\n  for await (const height of heightStream()) {\n    const newReady = height > 7\n    if (newReady !== lastReady) {\n      mutable ready = newReady\n      lastReady = newReady\n    }\n    yield height\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 308,
+      "value": "currentHeight = heightReadyTapStream()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 353,
+      "value": "walletDefaultAddress = ready && client.walletDefaultAddress()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1305,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1310,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1339,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1342,
+      "value": "backupNowButton()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": [
+    {
+      "type": "notebook",
+      "specifier": "@jeremiak/download-data-button",
+      "value": "bedb50933413e557@45"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/github-backups",
+      "value": "1d309dbd9697e042@631"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/onversion",
+      "value": "8aac8b2cb06bf434@263"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/footer",
+      "value": "58f3eb7334551ae6@215"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/safe-local-storage",
+      "value": "c2dae147641e012a@46"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/sentry",
+      "value": "a81f2a20664080d3@245"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/catch-all",
+      "value": "fa1f6059e44da1d5@425"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/repository-dispatch-min",
+      "value": "b09f1f038b1040e3@76"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/webcode",
+      "value": "6eda90668ae03044@836"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/webcode-ui",
+      "value": "cbc2e7f6260d11b1@2790"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/endpoint-login-with-comment",
+      "value": "027541187c96745d@147"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/login-with-comment",
+      "value": "c16efae137e70585@1444"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/firebase",
+      "value": "993a0c51ef1175ea@1396"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/synchronized-views",
+      "value": "3df1b33bb2cfcd3c@475"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mbostock/disposal",
+      "value": "4caee69e966109c8@35"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/get-comments",
+      "value": "d84ccee0a2202d45@356"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/view",
+      "value": "f92778131fd76559@1174"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/endpoint-services-footer",
+      "value": "58f3eb7334551ae6@215"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/viewroutine",
+      "value": "4a1fa3c167b752e5@304"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/serverless-cells",
+      "value": "dff1e917c89f5e76@1964"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/secure-random-id@65",
+      "value": "316f0885d15ab671@65"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/firebase-admin",
+      "value": "698257e86fae4586@378"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/utils",
+      "value": "b8a500058f806a6b@11"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@nebrius/indented-toc",
+      "value": "9bed702f80a3797e@402"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@tomlarkworthy/randomid",
+      "value": "316f0885d15ab671@69"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@mootari/notebook-data",
+      "value": "55bed46f68a80641@366"
+    },
+    {
+      "type": "notebook",
+      "specifier": "@endpointservices/metadata",
+      "value": "e6f8b27a19576fcb@428"
+    }
+  ]
+}
