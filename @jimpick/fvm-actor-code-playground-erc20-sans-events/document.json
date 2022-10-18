@@ -5,7 +5,7 @@
   "description": "",
   "likes": 0,
   "publish_level": "live",
-  "forks": 4,
+  "forks": 5,
   "fork_of": {
     "id": "98ea42d48a05c8ca",
     "slug": "fvm-actor-code-playground-simplecoin-evm-contract",
@@ -19,14 +19,14 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "type": "individual",
-      "tier": "pro"
+      "tier": "public"
     },
     "version": 1076
   },
-  "update_time": "2022-10-17T00:35:50.997Z",
+  "update_time": "2022-10-18T23:51:55.064Z",
   "publish_time": "2022-09-15T08:51:24.968Z",
-  "publish_version": 1846,
-  "latest_version": 1846,
+  "publish_version": 1847,
+  "latest_version": 1847,
   "thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "default_thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "roles": [],
@@ -40,7 +40,7 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "pro"
+    "tier": "public"
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -50,7 +50,7 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "pro"
+    "tier": "public"
   },
   "authors": [
     {
@@ -61,7 +61,7 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "github_login": "jimpick",
-      "tier": "pro",
+      "tier": "public",
       "approved": true,
       "description": ""
     }
@@ -90,7 +90,7 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "pro"
+        "tier": "public"
       }
     }
   ],
@@ -111,7 +111,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 1846,
+  "version": 1847,
   "title": "FVM Actor Code Playground - ERC20 Sans Events",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -894,7 +894,7 @@
     },
     {
       "id": 373,
-      "value": "baseUrl = \"https://fvm-7.default.knative.hex.camp\"",
+      "value": "baseUrl = \"https://fvm-8.default.knative.hex.camp\"",
       "pinned": false,
       "mode": "js",
       "data": null,
