@@ -5,7 +5,7 @@
   "description": "",
   "likes": 1,
   "publish_level": "live",
-  "forks": 2,
+  "forks": 3,
   "fork_of": {
     "id": "1f6a1da49a337f42",
     "slug": "codemirror-6",
@@ -23,10 +23,10 @@
     },
     "version": 136
   },
-  "update_time": "2022-10-17T00:30:10.236Z",
+  "update_time": "2022-10-18T23:35:30.062Z",
   "publish_time": "2022-04-29T20:09:13.300Z",
-  "publish_version": 789,
-  "latest_version": 789,
+  "publish_version": 790,
+  "latest_version": 790,
   "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
   "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
   "roles": [],
@@ -40,7 +40,7 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "pro"
+    "tier": "public"
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -50,7 +50,7 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "pro"
+    "tier": "public"
   },
   "authors": [
     {
@@ -61,7 +61,7 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "github_login": "jimpick",
-      "tier": "pro",
+      "tier": "public",
       "approved": true,
       "description": ""
     }
@@ -90,7 +90,7 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "pro"
+        "tier": "public"
       }
     }
   ],
@@ -99,7 +99,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 789,
+  "version": 790,
   "title": "FVM Actor Code Playground - \"Hello World\"",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -514,7 +514,7 @@
     },
     {
       "id": 373,
-      "value": "baseUrl = \"https://fvm-7.default.knative.hex.camp\"",
+      "value": "baseUrl = \"https://fvm-8.default.knative.hex.camp\"",
       "pinned": false,
       "mode": "js",
       "data": null,
