@@ -5,7 +5,7 @@
   "description": "",
   "likes": 1,
   "publish_level": "live",
-  "forks": 1,
+  "forks": 2,
   "fork_of": {
     "id": "a153cf753740c27f",
     "slug": "fvm-actor-code-playground-hello-world",
@@ -19,14 +19,14 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "type": "individual",
-      "tier": "pro"
+      "tier": "public"
     },
     "version": 736
   },
-  "update_time": "2022-10-17T00:33:06.976Z",
+  "update_time": "2022-10-18T23:39:20.283Z",
   "publish_time": "2022-09-01T02:24:12.996Z",
-  "publish_version": 1129,
-  "latest_version": 1129,
+  "publish_version": 1130,
+  "latest_version": 1130,
   "thumbnail": "fdb055590bbd165d6f8884e25c232fceea6802105af3c0b6bb55ffecc2305e94",
   "default_thumbnail": "fdb055590bbd165d6f8884e25c232fceea6802105af3c0b6bb55ffecc2305e94",
   "roles": [],
@@ -40,7 +40,7 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "pro"
+    "tier": "public"
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -50,7 +50,7 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "pro"
+    "tier": "public"
   },
   "authors": [
     {
@@ -61,7 +61,7 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "github_login": "jimpick",
-      "tier": "pro",
+      "tier": "public",
       "approved": true,
       "description": ""
     }
@@ -90,7 +90,7 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "pro"
+        "tier": "public"
       }
     }
   ],
@@ -99,7 +99,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 1129,
+  "version": 1130,
   "title": "FVM Actor Code Playground - SimpleCoin EVM Contract",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -538,7 +538,7 @@
     },
     {
       "id": 373,
-      "value": "baseUrl = \"https://fvm-7.default.knative.hex.camp\"",
+      "value": "baseUrl = \"https://fvm-8.default.knative.hex.camp\"",
       "pinned": false,
       "mode": "js",
       "data": null,
