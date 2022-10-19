@@ -23,10 +23,10 @@
     },
     "version": 1076
   },
-  "update_time": "2022-10-18T23:51:55.064Z",
+  "update_time": "2022-10-19T00:01:50.188Z",
   "publish_time": "2022-09-15T08:51:24.968Z",
-  "publish_version": 1847,
-  "latest_version": 1847,
+  "publish_version": 1852,
+  "latest_version": 1852,
   "thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "default_thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "roles": [],
@@ -111,7 +111,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 1847,
+  "version": 1852,
   "title": "FVM Actor Code Playground - ERC20 Sans Events",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -301,38 +301,6 @@
       "name": null
     },
     {
-      "id": 1766,
-      "value": "## Zero nonce workaround",
-      "pinned": false,
-      "mode": "md",
-      "data": null,
-      "name": ""
-    },
-    {
-      "id": 1765,
-      "value": "As these are new accounts, the nonce for each will be zero initially. Currently, the Ethers.js library doesn't work well when the nonce is zero due to some unimplemented JSON-RPC methods. So we workaround that by sending `0.0001 FIL` to `t099` (the system burn actor) so that that the nonces will be non-zero.",
-      "pinned": false,
-      "mode": "md",
-      "data": null,
-      "name": ""
-    },
-    {
-      "id": 1764,
-      "value": "---",
-      "pinned": false,
-      "mode": "md",
-      "data": null,
-      "name": ""
-    },
-    {
-      "id": 1763,
-      "value": "noncesFixed = {\n  if (!transferFundsStatus?.transferred) yield undefined\n  const start = Date.now()\n  yield {\n    transferring: true,\n    start\n  }\n  const responses = []\n  for (const key of keys) {\n    responses.push(await filecoin_client.tx.send(\n      't099', // to\n      '1000000000000000',\n      1000000000, // gaslimit\n      key.privateKey,\n      'testnet', // network\n      false // waitMsg\n    ))\n  }\n  const waitStart = Date.now()\n  yield { waiting: true, start, waitStart, responses }\n  const promises = []\n  for (const response of responses) {\n    promises.push(waitMsg(response))\n  }\n  const waitResponses = await Promise.all(promises)\n  yield { transferred: true, responses, waitResponses }\n}",
-      "pinned": false,
-      "mode": "js",
-      "data": null,
-      "name": null
-    },
-    {
       "id": 243,
       "value": "## Step 1: Define deployment parameters for your token",
       "pinned": false,
@@ -422,7 +390,7 @@
     },
     {
       "id": 184,
-      "value": "viewof createActorButton = Inputs.button(\n  'Create EVM Actor',\n  {\n    disabled: !noncesFixed?.transferred,\n    value: null,\n    reduce: async () => ({\n      name: constructorParamsForm[0],\n      symbol: constructorParamsForm[1],\n      initialSupply: constructorParamsForm[2],\n      nonce: await client.mpoolGetNonce(ownerKey.address)\n    })\n  }\n)",
+      "value": "viewof createActorButton = Inputs.button(\n  'Create EVM Actor',\n  {\n    disabled: !ready,\n    value: null,\n    reduce: async () => ({\n      name: constructorParamsForm[0],\n      symbol: constructorParamsForm[1],\n      initialSupply: constructorParamsForm[2],\n      nonce: await client.mpoolGetNonce(ownerKey.address)\n    })\n  }\n)",
       "pinned": false,
       "mode": "js",
       "data": null,
