@@ -1,0 +1,365 @@
+{
+  "id": "66c1d12ad1b65054",
+  "slug": "provider-quest-baidu-ip-geo-lookups",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": null,
+  "update_time": "2022-06-06T05:22:02.463Z",
+  "publish_time": "2021-08-02T02:20:31.327Z",
+  "publish_version": 179,
+  "latest_version": 179,
+  "thumbnail": "028da9f37f085fd0270717448b8c425873496be1f4f3968ba154e52b8311b17c",
+  "default_thumbnail": "028da9f37f085fd0270717448b8c425873496be1f4f3968ba154e52b8311b17c",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public"
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public"
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+      "thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 179,
+  "title": "Internal: Scanner: Baidu IP Geo Lookups [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Internal: Scanner: Baidu IP Geo Lookups [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 6,
+      "value": "currentEpoch = 78000",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 15,
+      "value": "currentEpochDate = epochToDate(currentEpoch).toISOString()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 18,
+      "value": "import {geoIpLookupsBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 157,
+      "value": "latestIpsGeoLite2ReportUrl = `http://localhost:3000/ips-geolite2/ips-geolite2-2020-09-21.json`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 20,
+      "value": "latestIpsGeoLite2Report = (await fetch(latestIpsGeoLite2ReportUrl)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 24,
+      "value": "chinaIpRecords = Object.entries(latestIpsGeoLite2Report.ipsGeoLite2).map(([ip, record]) => ({ ip, ...record })).filter(({ country }) => country === 'CN')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 166,
+      "value": "latestIpsBaiduReportUrl = `http://localhost:3000/ips-baidu/ips-baidu-2020-09-20.json`",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 118,
+      "value": "latestIpsBaiduReport = (await fetch(latestIpsBaiduReportUrl)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 120,
+      "value": "missingChinaIpRecords = chinaIpRecords.filter(({ ip: ipAddress }) => {\n  if (!ip.isV4Format(ipAddress)) {\n    return false \n  }\n  const baidu = latestIpsBaiduReport.ipsBaidu[ipAddress]\n  if (baidu) {\n    if (baidu.baidu && baidu.baidu.status !== 0) {\n      if (baidu.baidu.message.match(/loc failed/)) return false\n      return true\n    }\n    return false \n  }\n  return true\n})",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 32,
+      "value": "maxLookups = 500",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 34,
+      "value": "maxElapsed = 1 * 60 * 1000",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 38,
+      "value": "geoApiBaseUrl = 'https://geoip.miner.report/api/geoip'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 91,
+      "value": "md`We use ObservableHQ \"Secrets\" and HTTP Basic Auth to prevent the public from misusing the private Baidu lookup API.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 87,
+      "value": "geoIpBaiduKey = 'jim' //Secret(\"geoIpBaiduKey\")",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 89,
+      "value": "geoIpBaiduSecret = 'baidu123' // Secret(\"geoIpBaiduSecret\")",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 85,
+      "value": "basicAuthToken = base64.encode(`${geoIpBaiduKey}:${geoIpBaiduSecret}`)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 70,
+      "value": "import {legacyWorkshopClientBucketUrl} from '@jimpick/miner-report-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 73,
+      "value": "baiduCities = (await fetch(`${legacyWorkshopClientBucketUrl}/baidu-cities.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 42,
+      "value": "viewof start = Inputs.button(\"Start\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 54,
+      "value": "newIps = d3.shuffle(missingChinaIpRecords.map(({ ip }) => ip).filter(ipAddress => ip.isV4Format(ipAddress)))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 46,
+      "value": "async function* lookupIpsStream() {\n  const concurrency = 1\n  const callGeoLookupsStream = transform(concurrency, async ip => {\n    const baiduApiUrl = `${geoApiBaseUrl}/baidu/${ip}`\n    try {\n      const baidu = await (await fetch(\n        baiduApiUrl,\n        { headers: new Headers({ \"Authorization\": `Basic ${basicAuthToken}` }) }\n      )).json()\n      const result = {\n        ip,\n        baidu\n      }\n      if (baidu.content) {\n        if (baidu.content.address_detail) {\n          const cityCode = baidu.content.address_detail.city_code\n          if (baiduCities[cityCode]) {\n            result.city = baiduCities[cityCode]\n          }\n        }\n        if (baidu.content.point) {\n          result.long = Number(baidu.content.point.x)\n          result.lat = Number(baidu.content.point.y)\n        }\n      }\n      return result\n    } catch (e) {\n      console.info('IP lookup error', ip, e.message)\n      return {\n        error: `${e.message}, ${baiduApiUrl}`\n      }\n    }\n  })\n  const startTime = new Date()\n  let counter = 0\n  let hits = 0\n  let errors = 0\n  let lastError = ''\n  for await (const geoLookup of callGeoLookupsStream([...newIps])) {\n    const now = new Date()\n    if (now - startTime > maxElapsed || counter >= maxLookups) {\n      yield {\n        done: true,\n        timeout: true,\n        counter,\n        hits,\n        errors,\n        lastError\n      }\n      return\n    }\n    if (geoLookup.ip) {\n      hits++\n      yield {\n        counter,\n        hits,\n        errors,\n        lastError,\n        ...geoLookup\n      }\n    } else {\n      errors++\n      if (geoLookup.error) {\n        lastError = geoLookup.error\n      }\n      yield {\n        counter,\n        hits,\n        errors,\n        lastError\n      }\n    }\n    counter++\n  }\n  yield {\n    done: true,\n    counter,\n    hits,\n    errors,\n    lastError\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 57,
+      "value": "// lookupIpsStream()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 66,
+      "value": "ipsCount = newIps.length",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 64,
+      "value": "ipsBaidu = {\n  if (start === 0) {\n    yield {\n      state: 'paused'\n    }\n    return\n  }\n  yield {\n    state: 'starting'\n  } \n  let records = []\n  let totalErrors = 0\n  let lastCounter = 0\n  let lastError = ''\n  const startTime = new Date()\n  for await (const {counter, hits, errors, ...record} of lookupIpsStream()) {\n    totalErrors = errors\n    lastCounter = counter\n    lastError = record.lastError\n    if (record.ip) {\n      records.push(record)\n    }\n    yield {\n      state: \"streaming\",\n      elapsed: ((new Date()) - startTime) / 1000,\n      scannedIps: counter,\n      totalIps: ipsCount,\n      recordsLength: records.length,\n      errors,\n      lastError\n    }\n  }\n  const endTime = new Date()\n  yield {\n    state: \"done\",\n    elapsed: (endTime - startTime) / 1000,\n    scannedIps: lastCounter,\n    totalIps: ipsCount,\n    records: records.sort(),\n    startTime,\n    endTime,\n    errors: totalErrors,\n    lastError\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 8,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 59,
+      "value": "d3 = require(\"d3@6\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 51,
+      "value": "transform = (await import('streaming-iterables')).transform",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 10,
+      "value": "import {dateToEpoch, epochToDate} from '@jbenet/filecoin-chain-time-calculator'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 82,
+      "value": "base64 = require(\"base-64\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 113,
+      "value": "ip = require('https://bundle.run/ip@1.1.5')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 129,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 133,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 136,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
