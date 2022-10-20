@@ -1,0 +1,261 @@
+{
+  "id": "10b0a3f6caf23e88",
+  "slug": "provider-quest-documentation",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 1,
+  "fork_of": null,
+  "update_time": "2022-09-28T19:40:03.752Z",
+  "publish_time": "2021-07-06T18:36:34.638Z",
+  "publish_version": 136,
+  "latest_version": 136,
+  "thumbnail": "0c64b2dadb7cbc78a52b5c3b1fa51c34800f011e3cabe0015af429664fb5fdf6",
+  "default_thumbnail": "0c64b2dadb7cbc78a52b5c3b1fa51c34800f011e3cabe0015af429664fb5fdf6",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public"
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public"
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+      "thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 136,
+  "title": "Documentation [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Documentation [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 41,
+      "value": "md`${quickMenu}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 5,
+      "value": "md`\nProvider.Quest (originally known as Miner.Report) is a project to collect analytics data from the Filecoin blockchain. It is also a collection of notebooks on ObservableHQ with interactive visualizations that use the data.\n\nIt can always be found at https://provider.quest/ (which just redirects to the collection on ObservableHQ)\n\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 55,
+      "value": "md`\n## Repos\n\n* GitHub: [provider-quest/provider-quest-spark](https://github.com/provider-quest/provider-quest-spark)\n* GitHub: [provider-quest/provider.quest-website](https://github.com/provider-quest/provider.quest-website)\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 87,
+      "value": "md`\n## Pipeline\n\nData collectors (aka. \"scanners\") are written in JavaScript as Observable Notebooks, eg.\n\n* [@jimpick/provider-quest-miner-power-scanner](https://observablehq.com/@jimpick/provider-quest-miner-power-scanner?collection=@jimpick/provider-quest)\n* [@jimpick/provider-quest-miner-info-scanner](https://observablehq.com/@jimpick/provider-quest-miner-info-scanner?collection=@jimpick/provider-quest)\n* [@jimpick/provider-quest-storage-ask-scanner](https://observablehq.com/@jimpick/provider-quest-storage-ask-scanner?collection=@jimpick/provider-quest)\n* [@jimpick/provider-quest-publish-deal-messages-stream](https://observablehq.com/@jimpick/provider-quest-publish-deal-messages-stream?collection=@jimpick/provider-quest)\n* [@jimpick/provider-quest-dht-miner-peer-scanner](https://observablehq.com/@jimpick/provider-quest-dht-miner-peer-scanner?collection=@jimpick/provider-quest)\n* [@jimpick/provider-quest-multiaddr-ip-tool](https://observablehq.com/@jimpick/provider-quest-multiaddr-ip-tool?collection=@jimpick/provider-quest)\n* [@jimpick/provider-quest-maxmind-geolite2-lookups](https://observablehq.com/@jimpick/provider-quest-maxmind-geolite2-lookups?collection=@jimpick/provider-quest)\n* [@jimpick/provider-quest-baidu-ip-geo-lookups](https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups?collection=@jimpick/provider-quest)\n* [@jimpick/provider-quest-storage-provider-to-region-mapper](https://observablehq.com/@jimpick/provider-quest-storage-provider-to-region-mapper?collection=@jimpick/provider-quest)\n\nOn a dedicated machine, a [shell script](https://github.com/jimpick/provider-quest-spark/blob/main/scan-worker.sh) is run to continuously collected data from the Observable notebooks in a loop. The notebooks are executed using [Puppeteer](https://github.com/puppeteer/puppeteer) (headless Chrome) and [@alex.garcia/observable-prerender](https://github.com/asg017/observable-prerender). The data from the notebooks is collected into simple JSON files. The JSON files are also archived to [Estuary](https://estuary.tech/) on a daily basis. \n\nA [PySpark](https://spark.apache.org/docs/latest/api/python/) script ([pyspark_main.py](https://github.com/jimpick/provider-quest-spark/blob/main/pyspark_main.py)) is also kept running to execute a bunch of never-ending [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) queries that use SQL to filter/partion the data and to compute aggregated sums, averages, etc. over tumbling windows. All the output is written out as simple JSON files.\n\nThe scanning script also executes the [publish script](https://github.com/jimpick/provider-quest-spark/blob/main/publish.sh) on a periodic basis. The publishing scripts take the JSON files output from Spark and publish them to a set of [Textile Buckets](https://docs.textile.io/buckets/) on IPFS for public distribution (see below).\n\nNotebooks on ObservableHQ and other places can use the published data to generate visualization and reports.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 83,
+      "value": "md`\n## Published Data\n\nData is published to [Textile Buckets](https://docs.textile.io/buckets/) on IPFS. See the [@jimpick/provider-quest-feeds](https://observablehq.com/@jimpick/provider-quest-feeds?collection=@jimpick/provider-quest) notebook for the list of buckets and URLs.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 80,
+      "value": "md`\n## Legacy Repos\n\nMiner.Report will eventually replace the functionality of the following projects, which are used to scan the network for new miners, make test storage deals, and test retrievals.\n\n* GitHub: [jimpick/workshop-client-mainnet](https://github.com/jimpick/workshop-client-mainnet)\n* GitHub: [jimpick/filecoin-wiki-test](https://github.com/jimpick/filecoin-wiki-test)\n* GitHub: [jimpick/slingshot-scraper](https://github.com/jimpick/slingshot-scraper)\n\nSome prior art for querying/visualizing data from Filecoin:\n\n* GitHub: [jimpick/perspective-filecoin-remote-deals](https://github.com/jimpick/perspective-filecoin-remote-deals)\n* GitHub: [jimpick/perspective-filecoin-asks](https://github.com/jimpick/perspective-filecoin-asks)\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 77,
+      "value": "md`\n## Community Discussion\n\n* There is a [Provider.Quest discussion thread](https://github.com/filecoin-project/community/discussions/208) in the Filecoin community GitHub repo\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 73,
+      "value": "md`\n## Grants\n\nThe following grants were applied for and/or awarded:\n\n* Awarded 2021.07: [Next Step Microgrant: Provider.Quest - Accurate geolocation data for visualizations](https://github.com/filecoin-project/devgrants/issues/266)\n* Awarded 2021.12: [Next Step Microgrant: Provider.Quest - Add Historical Published Deal Data + Active/Slashed Deals](https://github.com/filecoin-project/devgrants/issues/397)\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 69,
+      "value": "md`\n## Applications using the data\n\n* https://twitter.com/SFilecoin (from @Phi-rjan)\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 65,
+      "value": "md`\n## Contributing\n\nContributions are welcome! Feel free to use the data and fork any notebooks on ObservableHQ. I'll happily link to anything interesting. Also, ObservableHQ has good support for teams and collaborative editing, so I'd be happy to experiment with using those as part of this project/collection.\n\nFor many types of visualizations, it's pretty easy to modify the Spark Structured Streaming SQL to output a different aggregation or grouping/partitioning scheme from the input data that is already there. I can easily publish a new dataset to a Textile Bucket. If you have a request, feel free to leave a comment or chat with me on the Filecoin Community Slack.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 62,
+      "value": "md`\n## Other Filecoin/IPFS related links\n\nLots of interesting ObservableHQ notebooks from the Protocol Labs team and others!\n\n* https://observablehq.com/@protocol\n* https://observablehq.com/@nicola\n* https://observablehq.com/@jbenet\n* https://observablehq.com/@hugomrdias\n* https://observablehq.com/@gozala\n* https://observablehq.com/@olizilla\n* https://observablehq.com/@raulk\n* https://observablehq.com/@rafaelramalho19\n* https://observablehq.com/@andrewnez\n* https://observablehq.com/@adlrocha\n* https://observablehq.com/@kubuxu\n* https://observablehq.com/@mrsmkl\n* https://observablehq.com/@alanshaw\n* https://observablehq.com/@starboard\n* https://observablehq.com/@827f69a0d38074d6\n* https://observablehq.com/@vkalghatgi\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 107,
+      "value": "## Similar Projects",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 111,
+      "value": "There are other teams also building interesting tools off of Filecoin chain data.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 114,
+      "value": "* https://www.starboard.ventures/\n  * https://dashboard.starboard.ventures/\n  * https://sprd.starboard.ventures/\n* https://spacegap.github.io/\n  * https://github.com/Digital-MOB-Filecoin/spacegap-backend\n  * https://github.com/spacegap/spacegap.github.io\n* https://altlabs.dev/\n  * https://filmine.io/\n  * https://filmine.io/filgram",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 58,
+      "value": "md`\n## License\n\nDual-licensed under [MIT](https://github.com/filecoin-project/lotus/blob/master/LICENSE-MIT) + [Apache 2.0](https://github.com/filecoin-project/lotus/blob/master/LICENSE-APACHE)\n\nData is licenced as [CC-BY-SA 3.0](https://ipfs.io/ipfs/QmVreNvKsQmQZ83T86cWSjPu2vR3yZHGPm5jnxFuunEB9u) unless otherwised noted.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 35,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 38,
+      "value": "import {quickMenu} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 122,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 126,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 129,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
