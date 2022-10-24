@@ -5,7 +5,7 @@
   "description": "",
   "likes": 1,
   "publish_level": "live",
-  "forks": 0,
+  "forks": 1,
   "fork_of": {
     "id": "c7e7e39ebd4ccf64",
     "slug": "fvm-actor-code-playground-erc20-sans-events",
@@ -19,16 +19,16 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "type": "individual",
-      "tier": "pro"
+      "tier": "public"
     },
     "version": 1610
   },
-  "update_time": "2022-10-17T00:38:01.563Z",
+  "update_time": "2022-10-24T01:35:38.290Z",
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2041,
-  "latest_version": 2041,
-  "thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
-  "default_thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
+  "publish_version": 2046,
+  "latest_version": 2046,
+  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
   "roles": [],
   "sharing": null,
   "owner": {
@@ -40,7 +40,7 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "pro"
+    "tier": "public"
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -50,7 +50,7 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "pro"
+    "tier": "public"
   },
   "authors": [
     {
@@ -61,7 +61,7 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "github_login": "jimpick",
-      "tier": "pro",
+      "tier": "public",
       "approved": true,
       "description": ""
     }
@@ -90,7 +90,7 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "pro"
+        "tier": "public"
       }
     }
   ],
@@ -111,7 +111,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2041,
+  "version": 2046,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -119,6 +119,14 @@
     {
       "id": 0,
       "value": "# FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2042,
+      "value": "**ALERT: Not working on current version of the testnet!**\n\n*(The code needs to be updated to use the Ethereum JSON-RPC APIs and f4 addresses)*",
       "pinned": false,
       "mode": "md",
       "data": null,
