@@ -407,10 +407,10 @@ function _48(md){return(
 md`Now that we've got an actor running with an ID Address, we can call the methods we have defined. Let's check the balance of the addresses. The method signature (from above) to get the balance is => \`70a08231: balanceOf(address)\``
 )}
 
-function _49(md,createActorStatus,ownerId){return(
+function _49(md,createActorStatus,ownerKey){return(
 md`From the Lotus command line, we could call the method like this:
 
-\`./lotus chain invoke-evm-actor ${createActorStatus.waitResponse.actorId} 70a08231 ${ownerId.address}\``
+\`./lotus chain invoke-evm-actor ${createActorStatus.waitResponse.actorId} 70a08231 000000000000000000000000000000000000000000000000${ownerKey.address.slice(2)}\``
 )}
 
 function _50(md){return(
@@ -1020,7 +1020,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _46);
   main.variable(observer()).define(["md","ownerId"], _47);
   main.variable(observer()).define(["md"], _48);
-  main.variable(observer()).define(["md","createActorStatus","ownerId"], _49);
+  main.variable(observer()).define(["md","createActorStatus","ownerKey"], _49);
   main.variable(observer()).define(["md"], _50);
   main.variable(observer("viewof invokeEvmMethodButton")).define("viewof invokeEvmMethodButton", ["Inputs","ownerId","createActorStatus","contract","getEvmAddress"], _invokeEvmMethodButton);
   main.variable(observer("invokeEvmMethodButton")).define("invokeEvmMethodButton", ["Generators", "viewof invokeEvmMethodButton"], (G, _) => G.input(_));
