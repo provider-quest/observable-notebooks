@@ -460,7 +460,7 @@ Inputs.button(`Transfer From Owner (${ownerId})`, {
 })
 )}
 
-async function* _57(transferFromOwnerStatus,md,Promises,transferFromOwnerButton,html)
+async function* _57(transferFromOwnerStatus,md,Promises,createActorStatus,html)
 {
   if (transferFromOwnerStatus === undefined || !transferFromOwnerStatus) {
     yield md`Status: Method has not been invoked yet.`
@@ -469,16 +469,16 @@ async function* _57(transferFromOwnerStatus,md,Promises,transferFromOwnerButton,
   if (transferFromOwnerStatus.invoking) {
     while (true) {
       const elapsed = (Date.now() - transferFromOwnerStatus.start) / 1000
-      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`
+      yield md`Sending transaction for method... (${elapsed.toFixed(1)}s)`
       await Promises.delay(1000)
     }
   }
   if (transferFromOwnerStatus.response) {
     while (true) {
-      let output = `<div><b>Message sent to actor</b></div>
-      <div>To: ${transferFromOwnerButton.actorId}</div>
-      <div>Message CID: ${transferFromOwnerStatus.response.CID['/']}</div>
+      let output = `<div><b>Transaction sent</b></div>
+      <div>Txn Hash: ${createActorStatus.response}</div>
       `
+      /*
       if (transferFromOwnerStatus.waitResponse) {
         output += `<div>Message executed in block at height: ${transferFromOwnerStatus.waitResponse.Height}</div>`
         output += `<div>Gas used: ${transferFromOwnerStatus.waitResponse.Receipt.GasUsed}</div>`
@@ -487,8 +487,9 @@ async function* _57(transferFromOwnerStatus,md,Promises,transferFromOwnerButton,
         yield html`${output}`
         break
       }
+      */
       const elapsed = (Date.now() - transferFromOwnerStatus.waitStart) / 1000
-      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`
+      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`
       yield html`${output}`
       await Promises.delay(1000)
     }
@@ -496,7 +497,7 @@ async function* _57(transferFromOwnerStatus,md,Promises,transferFromOwnerButton,
 }
 
 
-async function* _transferFromOwnerStatus(transferFromOwnerButton,contract,deployer,provider,client,waitEthTx)
+async function* _transferFromOwnerStatus(transferFromOwnerButton,contract,deployer,provider,client,waitEthTx,$0)
 {
   if (transferFromOwnerButton) {
     const start = Date.now()
@@ -507,7 +508,6 @@ async function* _transferFromOwnerStatus(transferFromOwnerButton,contract,deploy
     const dest = transferFromOwnerButton.dest.address
     const amount = transferFromOwnerButton.amount
     const unsignedTx = await contract.populateTransaction.transfer(dest, amount)
-    yield unsignedTx
     const populatedTx = await deployer.populateTransaction(unsignedTx)
     const signedTx = await deployer.signTransaction(populatedTx)
     console.log('Transfer From Owner Transaction:', provider.formatter.transaction(signedTx))
@@ -515,46 +515,8 @@ async function* _transferFromOwnerStatus(transferFromOwnerButton,contract,deploy
     const waitStart = Date.now()
     yield { waiting: true, waitStart, response }
     const waitResponse = await waitEthTx(response)
-    /*
-    if (waitResponse?.contractAddress) {
-      waitResponse.delegated = filecoinAddress.newDelegatedEthAddress(waitResponse.contractAddress, 't')
-      waitResponse.actorId = await client.stateLookupID(waitResponse.delegated.toString(), [])
-    }
-    */
-    yield { installed: true, response, waitResponse }
-    
-    // yield await contract.transfer(dest, amount)
-    /*
-    const params = buffer.Buffer.concat([
-      buffer.Buffer.from('a9059cbb', 'hex'),
-      buffer.Buffer.from(dest, 'hex'),
-      buffer.Buffer.from(amount, 'hex')
-    ])
-    const message = {
-      To: transferFromOwnerButton.actorId,
-      From: keys[0].address,
-      Value: "0",
-      Method: 2,
-      Params: params.toString('base64')
-    }
-    console.log('message', message)
-    const privateKey = keys[0].privateKey
-    const responseCID = await filecoin_client.tx.sendMessage(
-      message,
-      privateKey,
-      true, // updateMsgNonce
-      false // waitMsg
-    )
-    const waitStart = Date.now()
-    yield { waiting: true, waitStart, response: { CID: responseCID } }
-    const waitResponse = await waitMsg(responseCID)
-    let decodedResult
-    if (waitResponse.Receipt && waitResponse.Receipt.Return) {
-      decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')
-    }
-    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }
-    mutable invalidatedBalancesAt = new Date()
-    */
+    yield { invoked: true, response, waitResponse }
+    $0.value = new Date()
   }
 }
 
@@ -576,7 +538,7 @@ function _61(tokenBalances,md,Inputs,keys,transferFundsStatus)
       tokenBalances.map((balance, i) => {
         return {
           name: keys[i].name,
-          id: transferFundsStatus.lookups[keys[i].address], 
+          id: transferFundsStatus.lookups[keys[i].delegated.toString()], 
           balance
         }
       }),
@@ -1049,8 +1011,8 @@ export default function define(runtime, observer) {
   main.variable(observer("transferFromOwnerForm")).define("transferFromOwnerForm", ["Generators", "viewof transferFromOwnerForm"], (G, _) => G.input(_));
   main.variable(observer("viewof transferFromOwnerButton")).define("viewof transferFromOwnerButton", ["Inputs","ownerId","createActorStatus","transferFromOwnerForm"], _transferFromOwnerButton);
   main.variable(observer("transferFromOwnerButton")).define("transferFromOwnerButton", ["Generators", "viewof transferFromOwnerButton"], (G, _) => G.input(_));
-  main.variable(observer()).define(["transferFromOwnerStatus","md","Promises","transferFromOwnerButton","html"], _57);
-  main.variable(observer("transferFromOwnerStatus")).define("transferFromOwnerStatus", ["transferFromOwnerButton","contract","deployer","provider","client","waitEthTx"], _transferFromOwnerStatus);
+  main.variable(observer()).define(["transferFromOwnerStatus","md","Promises","createActorStatus","html"], _57);
+  main.variable(observer("transferFromOwnerStatus")).define("transferFromOwnerStatus", ["transferFromOwnerButton","contract","deployer","provider","client","waitEthTx","mutable invalidatedBalancesAt"], _transferFromOwnerStatus);
   main.variable(observer()).define(["md"], _59);
   main.variable(observer()).define(["md"], _60);
   main.variable(observer()).define(["tokenBalances","md","Inputs","keys","transferFundsStatus"], _61);
