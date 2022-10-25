@@ -242,7 +242,7 @@ md`If the connection is working, then proceed to the next step.`
 )}
 
 function _31(md){return(
-md`## Step 3: Create an EVM actor instance`
+md`## Step 3: Create an EVM smart contract`
 )}
 
 function _32(md){return(
@@ -259,7 +259,7 @@ md`At the command line, this is the same as: \`lotus chain create-evm-actor <byt
 
 function _createActorButton(Inputs,ready,constructorParamsForm,client,ownerKey){return(
 Inputs.button(
-  'Create EVM Actor',
+  'Create EVM Smart Contract',
   {
     disabled: !ready,
     value: null,
