@@ -154,7 +154,7 @@ md`## Initial Balances`
 )}
 
 function _19(md){return(
-md`Here are the addresses and IDs of the 3 clients we created, as well at their initial balances (should be 1 FIL each).`
+md`Here are the addresses and IDs of the 4 clients we created, as well at their initial balances (should be 10 FIL each).`
 )}
 
 function _initialBalances(transferFundsStatus,md,getBalances,clientAddresses){return(
@@ -202,7 +202,7 @@ async function getBalances (addresses) {
 )}
 
 function _ownerId(transferFundsStatus,keys){return(
-transferFundsStatus?.lookups && transferFundsStatus.lookups[keys[0].address]
+transferFundsStatus?.lookups && transferFundsStatus.lookups[keys[0].delegated.toString()]
 )}
 
 function _24(md){return(
@@ -387,8 +387,8 @@ async function* _createActorStatus(createActorButton,client,factory,ownerKey,dep
 }
 
 
-function _contract(factory,createActorStatus){return(
-factory.attach(createActorStatus.waitResponse.contractAddress)
+function _contract(createActorStatus,factory){return(
+createActorStatus?.waitResponse?.contractAddress && factory.attach(createActorStatus.waitResponse.contractAddress)
 )}
 
 async function _46(md){return(
@@ -417,13 +417,13 @@ function _50(md){return(
 md`But we can use Ethers.js to make a JSON-RPC call to get the value from the state immediately.`
 )}
 
-function _invokeEvmMethodButton(Inputs,ownerId,createActorStatus,contract,getEvmAddress){return(
+function _invokeEvmMethodButton(Inputs,ownerId,createActorStatus,contract,keys){return(
 Inputs.button(`Get ERC20 Token Balance for Owner (${ownerId})`, {
   disabled: !createActorStatus ||
     !createActorStatus.waitResponse ||
     !createActorStatus.waitResponse.actorId,
   value: null,
-  reduce: async () => (await contract.balanceOf(`0x${getEvmAddress(ownerId).slice(24)}`)).toString()
+  reduce: async () => (await contract.balanceOf(keys[0].address)).toString()
 })
 )}
 
@@ -441,7 +441,7 @@ md`The method signature is => \`a9059cbb: transfer(address,uint256)\``
 
 function _transferFromOwnerForm(keys,transferFundsStatus,Inputs){return(
 keys && transferFundsStatus && Inputs.form([
-  Inputs.select(keys.slice(1), { label: "Transfer from Owner to User", format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})` }),
+  Inputs.select(keys.slice(1), { label: "Transfer from Owner to User", format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})` }),
   Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})
 ])
 )}
@@ -1016,13 +1016,13 @@ export default function define(runtime, observer) {
   main.variable(observer("deployer")).define("deployer", ["ethers","ownerKey","provider"], _deployer);
   main.variable(observer("factory")).define("factory", ["ethers","iface","contractBytes","deployer"], _factory);
   main.variable(observer("createActorStatus")).define("createActorStatus", ["createActorButton","client","factory","ownerKey","deployer","provider","waitEthTx","filecoinAddress"], _createActorStatus);
-  main.variable(observer("contract")).define("contract", ["factory","createActorStatus"], _contract);
+  main.variable(observer("contract")).define("contract", ["createActorStatus","factory"], _contract);
   main.variable(observer()).define(["md"], _46);
   main.variable(observer()).define(["md","ownerId"], _47);
   main.variable(observer()).define(["md"], _48);
   main.variable(observer()).define(["md","createActorStatus","ownerKey"], _49);
   main.variable(observer()).define(["md"], _50);
-  main.variable(observer("viewof invokeEvmMethodButton")).define("viewof invokeEvmMethodButton", ["Inputs","ownerId","createActorStatus","contract","getEvmAddress"], _invokeEvmMethodButton);
+  main.variable(observer("viewof invokeEvmMethodButton")).define("viewof invokeEvmMethodButton", ["Inputs","ownerId","createActorStatus","contract","keys"], _invokeEvmMethodButton);
   main.variable(observer("invokeEvmMethodButton")).define("invokeEvmMethodButton", ["Generators", "viewof invokeEvmMethodButton"], (G, _) => G.input(_));
   main.variable(observer()).define(["invokeEvmMethodButton","md"], _52);
   main.variable(observer()).define(["md","ownerId"], _53);
