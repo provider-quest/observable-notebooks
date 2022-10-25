@@ -20,7 +20,7 @@ You can modify it here, then scroll down and click the buttons to compile it, th
 )}
 
 function _3(md){return(
-md`This notebook is currently using a mix of Lotus JSON-RPC APIs + Ethereum JSON-RPC APIs. As more of the Ethereum JSON-RPC API is implemented, the plan is to migrate entirely to using Ethereum APIs.`
+md`This notebook is currently using a mix of Lotus JSON-RPC APIs + Ethereum JSON-RPC APIs. It is mostly using Ethereum APIs which are partly working now.`
 )}
 
 function _4(md){return(
