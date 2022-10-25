@@ -58,19 +58,19 @@ function _10(md){return(
 md`---`
 )}
 
-async function _keys(filecoin_signer,randomMnemonic,buffer,ethers)
+async function _keys(ethers,randomMnemonic,filecoinAddress)
 {
   const keys = []
   const names = [ 'Owner', 'Alice', 'Bob', 'Carol' ]
   for (let i = 0; i < names.length; i++) {
     const network = 'testnet'
 
-    const key = await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/60'/0'/0/${i}`, network)
+    // const key = await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/60'/0'/0/${i}`, network)
+    const key = await ethers.Wallet.fromMnemonic(randomMnemonic, `m/44'/60'/0'/0/${i}`)
+    key.deletegated = filecoinAddress.newDelegatedEthAddress(key.address, 't')
     
     key.name = names[i]
-    key.privateKeyBase64 = buffer.Buffer.from(key.privateKey.slice(2), 'hex').toString('base64')
-    key.privateKeyLotusExport = buffer.Buffer.from(`{"Type":"secp256k1","PrivateKey":"${key.privateKeyBase64}"}`).toString('hex')
-    key.ethKey = await ethers.Wallet.fromMnemonic(randomMnemonic, `m/44'/60'/0'/0/${i}`)
+
     keys.push(key)
   }
   return keys
@@ -124,7 +124,7 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,client)
     for (const key of keys) {
       // Sending install actor message...
       const messageBody = {
-        To: key.address,
+        To: key.delegated.address,
         From: walletDefaultAddress,
         Value: "10000000000000000000",
         Method: 0
@@ -309,11 +309,11 @@ async function* _36(createActorStatus,md,Promises,html)
 
 
 function _37(keys){return(
-keys[0].ethKey
+keys[0].ethKey.address
 )}
 
-function _38(filecoinAddress){return(
-filecoinAddress
+function _38(filecoinAddress,keys){return(
+filecoinAddress.newDelegatedEthAddress(keys[0].ethKey.address).toString()
 )}
 
 function _39(md){return(
@@ -986,7 +986,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _8);
   main.variable(observer("randomMnemonic")).define("randomMnemonic", ["filecoin_signer"], _randomMnemonic);
   main.variable(observer()).define(["md"], _10);
-  main.variable(observer("keys")).define("keys", ["filecoin_signer","randomMnemonic","buffer","ethers"], _keys);
+  main.variable(observer("keys")).define("keys", ["ethers","randomMnemonic","filecoinAddress"], _keys);
   main.variable(observer("clientAddresses")).define("clientAddresses", ["keys"], _clientAddresses);
   main.variable(observer("ownerKey")).define("ownerKey", ["keys"], _ownerKey);
   main.variable(observer()).define(["md"], _14);
@@ -1015,7 +1015,7 @@ export default function define(runtime, observer) {
   main.variable(observer("createActorButton")).define("createActorButton", ["Generators", "viewof createActorButton"], (G, _) => G.input(_));
   main.variable(observer()).define(["createActorStatus","md","Promises","html"], _36);
   main.variable(observer()).define(["keys"], _37);
-  main.variable(observer()).define(["filecoinAddress"], _38);
+  main.variable(observer()).define(["filecoinAddress","keys"], _38);
   main.variable(observer()).define(["md"], _39);
   main.variable(observer("contractBytes")).define("contractBytes", ["FileAttachment","buffer"], _contractBytes);
   main.variable(observer("abi")).define("abi", _abi);
