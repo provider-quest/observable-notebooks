@@ -644,16 +644,22 @@ async function* _70(transferFromUserStatus,md,Promises,transferFromUserButton,ht
 }
 
 
-async function* _transferFromUserStatus(transferFromUserButton,contract,deployer,provider,client,waitEthTx,$0)
+function _signerAlice(ethers,transferFromUserButton,provider){return(
+new ethers.Wallet(transferFromUserButton.source.privateKey, provider)
+)}
+
+async function* _transferFromUserStatus(transferFromUserButton,contract,ethers,provider,client,waitEthTx,$0)
 {
   if (transferFromUserButton) {
     const start = Date.now()
     yield { invoking: true, start }
+    const source = transferFromUserButton.source
     const dest = transferFromUserButton.dest.address
     const amount = transferFromUserButton.amount
     const unsignedTx = await contract.populateTransaction.transfer(dest, amount)
-    const populatedTx = await deployer.populateTransaction(unsignedTx)
-    const signedTx = await deployer.signTransaction(populatedTx)
+    const signer = new ethers.Wallet(source.privateKey, provider)
+    const populatedTx = await signer.populateTransaction(unsignedTx)
+    const signedTx = await signer.signTransaction(populatedTx)
     console.log('Transfer From User Transaction:', provider.formatter.transaction(signedTx))
     const response = await client.callEthMethod('sendRawTransaction', [signedTx])
     const waitStart = Date.now()
@@ -665,11 +671,11 @@ async function* _transferFromUserStatus(transferFromUserButton,contract,deployer
 }
 
 
-function _72(md){return(
+function _73(md){return(
 md`# Final notes`
 )}
 
-function _73(md){return(
+function _74(md){return(
 md`Thank you for trying out this demo.
 
 If the backend is not working, please get in touch with me. Feel free to fork this notebook to customize your own actors and build scenarios using the on-demand localnet that supports this early version of actors / smart contracts.
@@ -677,7 +683,7 @@ If the backend is not working, please get in touch with me. Feel free to fork th
 I can also deploy custom instances of the localnet and the API for compiling actors ... feel free to contact me at @jimpick on the Filecoin Slack.`
 )}
 
-function _74(md){return(
+function _75(md){return(
 md`## Imports`
 )}
 
@@ -749,7 +755,7 @@ function _filecoinAddress(){return(
 import('https://cdn.skypack.dev/@glif/filecoin-address')
 )}
 
-function _93(md){return(
+function _94(md){return(
 md`## Lotus Utilities`
 )}
 
@@ -904,15 +910,15 @@ async function waitEthTx (txId) {
 }
 )}
 
-function _109(md){return(
+function _110(md){return(
 md`## Backups`
 )}
 
-function _111(backups){return(
+function _112(backups){return(
 backups()
 )}
 
-function _112(backupNowButton){return(
+function _113(backupNowButton){return(
 backupNowButton()
 )}
 
@@ -1002,10 +1008,11 @@ export default function define(runtime, observer) {
   main.variable(observer("viewof transferFromUserButton")).define("viewof transferFromUserButton", ["Inputs","createActorStatus","transferFromUserForm"], _transferFromUserButton);
   main.variable(observer("transferFromUserButton")).define("transferFromUserButton", ["Generators", "viewof transferFromUserButton"], (G, _) => G.input(_));
   main.variable(observer()).define(["transferFromUserStatus","md","Promises","transferFromUserButton","html"], _70);
-  main.variable(observer("transferFromUserStatus")).define("transferFromUserStatus", ["transferFromUserButton","contract","deployer","provider","client","waitEthTx","mutable invalidatedBalancesAt"], _transferFromUserStatus);
-  main.variable(observer()).define(["md"], _72);
+  main.variable(observer("signerAlice")).define("signerAlice", ["ethers","transferFromUserButton","provider"], _signerAlice);
+  main.variable(observer("transferFromUserStatus")).define("transferFromUserStatus", ["transferFromUserButton","contract","ethers","provider","client","waitEthTx","mutable invalidatedBalancesAt"], _transferFromUserStatus);
   main.variable(observer()).define(["md"], _73);
   main.variable(observer()).define(["md"], _74);
+  main.variable(observer()).define(["md"], _75);
   main.variable(observer("skypack")).define("skypack", _skypack);
   main.variable(observer("LotusRPC")).define("LotusRPC", _LotusRPC);
   main.variable(observer("BrowserProvider")).define("BrowserProvider", _BrowserProvider);
@@ -1025,7 +1032,7 @@ export default function define(runtime, observer) {
   main.variable(observer("FilecoinNumber")).define("FilecoinNumber", ["filecoinNumber"], _FilecoinNumber);
   main.variable(observer("ethers")).define("ethers", _ethers);
   main.variable(observer("filecoinAddress")).define("filecoinAddress", _filecoinAddress);
-  main.variable(observer()).define(["md"], _93);
+  main.variable(observer()).define(["md"], _94);
   main.variable(observer("simpleCoinSol")).define("simpleCoinSol", _simpleCoinSol);
   main.variable(observer("initialCodeUrl")).define("initialCodeUrl", _initialCodeUrl);
   main.variable(observer("baseUrl")).define("baseUrl", _baseUrl);
@@ -1043,11 +1050,11 @@ export default function define(runtime, observer) {
   main.variable(observer("getEvmAddress")).define("getEvmAddress", _getEvmAddress);
   main.variable(observer("waitMsg")).define("waitMsg", ["client"], _waitMsg);
   main.variable(observer("waitEthTx")).define("waitEthTx", ["client","Promises"], _waitEthTx);
-  main.variable(observer()).define(["md"], _109);
+  main.variable(observer()).define(["md"], _110);
   const child2 = runtime.module(define2);
   main.import("backups", child2);
   main.import("backupNowButton", child2);
-  main.variable(observer()).define(["backups"], _111);
-  main.variable(observer()).define(["backupNowButton"], _112);
+  main.variable(observer()).define(["backups"], _112);
+  main.variable(observer()).define(["backupNowButton"], _113);
   return main;
 }
