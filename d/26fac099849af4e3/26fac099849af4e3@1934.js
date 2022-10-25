@@ -503,10 +503,7 @@ async function* _transferFromOwnerStatus(transferFromOwnerButton,contract,deploy
 {
   if (transferFromOwnerButton) {
     const start = Date.now()
-    yield {
-      invoking: true,
-      start
-    }
+    yield { invoking: true, start }
     const dest = transferFromOwnerButton.dest.address
     const amount = transferFromOwnerButton.amount
     const unsignedTx = await contract.populateTransaction.transfer(dest, amount)
@@ -585,10 +582,10 @@ md`This is almost the same as Step 5, where we transferred from the owner (the g
 
 function _transferFromUserForm(keys,transferFundsStatus,Inputs){return(
 keys && transferFundsStatus && Inputs.form([
-  Inputs.select(keys.slice(1), { label: "Transfer from User", format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})` }),
+  Inputs.select(keys.slice(1), { label: "Transfer from User", format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})` }),
   Inputs.select(keys.slice(1), {
     label: "Transfer to User",
-    format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})`,
+    format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})`,
     value: keys[1]
   }),
   Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})
@@ -647,48 +644,22 @@ async function* _70(transferFromUserStatus,md,Promises,transferFromUserButton,ht
 }
 
 
-async function* _transferFromUserStatus(transferFromUserButton,getEvmAddress,transferFundsStatus,buffer,FilecoinNumber,keys,filecoin_client,client,$0)
+async function* _transferFromUserStatus(transferFromUserButton,contract,deployer,provider,client,waitEthTx,$0)
 {
   if (transferFromUserButton) {
     const start = Date.now()
-    yield {
-      invoking: true,
-      start
-    }
-    const dest = getEvmAddress(transferFundsStatus.lookups[transferFromUserButton.dest.address])
-    const amount = transferFromUserButton.amount.toString(16).padStart(64, '0')
-    const params = buffer.Buffer.concat([
-      buffer.Buffer.from('a9059cbb', 'hex'),
-      buffer.Buffer.from(dest, 'hex'),
-      buffer.Buffer.from(amount, 'hex')
-    ])
-    const message = {
-      To: transferFromUserButton.actorId,
-      From: transferFromUserButton.source.address,
-      Nonce: 0,
-      Value: "0",
-      GasLimit: 1000000000,
-      GasFeeCap: new FilecoinNumber(0, 'attofil'),
-      GasPremium: new FilecoinNumber(0, 'attofil'),
-      Method: 2,
-      Params: params.toString('base64')
-    }
-    const privateKey = keys.find(({ address }) => address === transferFromUserButton.source.address).privateKey
-    console.log('message', message)
-    const responseCID = await filecoin_client.tx.sendMessage(
-      message,
-      privateKey,
-      true, // updateMsgNonce
-      false // waitMsg
-    )
+    yield { invoking: true, start }
+    const dest = transferFromUserButton.dest.address
+    const amount = transferFromUserButton.amount
+    const unsignedTx = await contract.populateTransaction.transfer(dest, amount)
+    const populatedTx = await deployer.populateTransaction(unsignedTx)
+    const signedTx = await deployer.signTransaction(populatedTx)
+    console.log('Transfer From User Transaction:', provider.formatter.transaction(signedTx))
+    const response = await client.callEthMethod('sendRawTransaction', [signedTx])
     const waitStart = Date.now()
-    yield { waiting: true, waitStart, response: { CID: responseCID } }
-    const waitResponse = await client.stateWaitMsg(responseCID, 0)
-    let decodedResult
-    if (waitResponse.Receipt && waitResponse.Receipt.Return) {
-      decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')
-    }
-    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }
+    yield { waiting: true, waitStart, response }
+    const waitResponse = await waitEthTx(response)
+    yield { invoked: true, response, waitResponse }
     $0.value = new Date()
   }
 }
@@ -1031,7 +1002,7 @@ export default function define(runtime, observer) {
   main.variable(observer("viewof transferFromUserButton")).define("viewof transferFromUserButton", ["Inputs","createActorStatus","transferFromUserForm"], _transferFromUserButton);
   main.variable(observer("transferFromUserButton")).define("transferFromUserButton", ["Generators", "viewof transferFromUserButton"], (G, _) => G.input(_));
   main.variable(observer()).define(["transferFromUserStatus","md","Promises","transferFromUserButton","html"], _70);
-  main.variable(observer("transferFromUserStatus")).define("transferFromUserStatus", ["transferFromUserButton","getEvmAddress","transferFundsStatus","buffer","FilecoinNumber","keys","filecoin_client","client","mutable invalidatedBalancesAt"], _transferFromUserStatus);
+  main.variable(observer("transferFromUserStatus")).define("transferFromUserStatus", ["transferFromUserButton","contract","deployer","provider","client","waitEthTx","mutable invalidatedBalancesAt"], _transferFromUserStatus);
   main.variable(observer()).define(["md"], _72);
   main.variable(observer()).define(["md"], _73);
   main.variable(observer()).define(["md"], _74);
