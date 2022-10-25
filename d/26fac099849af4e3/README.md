@@ -1,6 +1,6 @@
 # FVM Actor Code Playground - ERC20 Sans Events
 
-https://observablehq.com/d/26fac099849af4e3@1853
+https://observablehq.com/d/26fac099849af4e3@1859
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/26fac099849af4e3@1853.tgz?v=3
+npm install https://api.observablehq.com/d/26fac099849af4e3@1859.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
