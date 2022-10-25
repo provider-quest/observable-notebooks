@@ -86,7 +86,7 @@ keys.find(({ name }) => name === 'Owner')
 )}
 
 function _14(md){return(
-md`## Wait for Lotus to be ready, then transfer 10 FIL to each address`
+md`## Wait for Lotus to be ready, then transfer 100 FIL to each address`
 )}
 
 function _15(md){return(
@@ -126,7 +126,7 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,client)
       const messageBody = {
         To: key.delegated.toString(),
         From: walletDefaultAddress,
-        Value: "10000000000000000000",
+        Value: "100000000000000000000",
         Method: 0
       }
       responses.push(await client.mpoolPushMessage(messageBody, null))
@@ -154,7 +154,7 @@ md`## Initial Balances`
 )}
 
 function _19(md){return(
-md`Here are the addresses and IDs of the 4 clients we created, as well at their initial balances (should be 10 FIL each).`
+md`Here are the addresses and IDs of the 4 clients we created, as well at their initial balances (should be 100 FIL each).`
 )}
 
 function _initialBalances(transferFundsStatus,md,getBalances,clientAddresses){return(
@@ -496,7 +496,7 @@ async function* _57(transferFromOwnerStatus,md,Promises,transferFromOwnerButton,
 }
 
 
-async function* _transferFromOwnerStatus(transferFromOwnerButton,getEvmAddress,transferFundsStatus,buffer,keys,filecoin_client,waitMsg,$0)
+async function* _transferFromOwnerStatus(transferFromOwnerButton,contract)
 {
   if (transferFromOwnerButton) {
     const start = Date.now()
@@ -504,8 +504,10 @@ async function* _transferFromOwnerStatus(transferFromOwnerButton,getEvmAddress,t
       invoking: true,
       start
     }
-    const dest = getEvmAddress(transferFundsStatus.lookups[transferFromOwnerButton.dest.address])
-    const amount = transferFromOwnerButton.amount.toString(16).padStart(64, '0')
+    const dest = transferFromOwnerButton.dest.address
+    const amount = transferFromOwnerButton.amount
+    yield await contract.transfer(dest, amount)
+    /*
     const params = buffer.Buffer.concat([
       buffer.Buffer.from('a9059cbb', 'hex'),
       buffer.Buffer.from(dest, 'hex'),
@@ -534,7 +536,8 @@ async function* _transferFromOwnerStatus(transferFromOwnerButton,getEvmAddress,t
       decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')
     }
     yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }
-    $0.value = new Date()
+    mutable invalidatedBalancesAt = new Date()
+    */
   }
 }
 
@@ -1032,7 +1035,7 @@ export default function define(runtime, observer) {
   main.variable(observer("viewof transferFromOwnerButton")).define("viewof transferFromOwnerButton", ["Inputs","ownerId","createActorStatus","transferFromOwnerForm"], _transferFromOwnerButton);
   main.variable(observer("transferFromOwnerButton")).define("transferFromOwnerButton", ["Generators", "viewof transferFromOwnerButton"], (G, _) => G.input(_));
   main.variable(observer()).define(["transferFromOwnerStatus","md","Promises","transferFromOwnerButton","html"], _57);
-  main.variable(observer("transferFromOwnerStatus")).define("transferFromOwnerStatus", ["transferFromOwnerButton","getEvmAddress","transferFundsStatus","buffer","keys","filecoin_client","waitMsg","mutable invalidatedBalancesAt"], _transferFromOwnerStatus);
+  main.variable(observer("transferFromOwnerStatus")).define("transferFromOwnerStatus", ["transferFromOwnerButton","contract"], _transferFromOwnerStatus);
   main.variable(observer()).define(["md"], _59);
   main.variable(observer()).define(["md"], _60);
   main.variable(observer()).define(["tokenBalances","md","Inputs","keys","transferFundsStatus"], _61);
