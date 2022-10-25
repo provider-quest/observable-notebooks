@@ -5,7 +5,7 @@
   "description": "",
   "likes": 0,
   "publish_level": "live",
-  "forks": 5,
+  "forks": 6,
   "fork_of": {
     "id": "98ea42d48a05c8ca",
     "slug": "fvm-actor-code-playground-simplecoin-evm-contract",
@@ -23,10 +23,10 @@
     },
     "version": 1076
   },
-  "update_time": "2022-10-19T00:01:50.188Z",
+  "update_time": "2022-10-25T02:31:59.439Z",
   "publish_time": "2022-09-15T08:51:24.968Z",
-  "publish_version": 1852,
-  "latest_version": 1852,
+  "publish_version": 1886,
+  "latest_version": 1886,
   "thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "default_thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "roles": [],
@@ -111,7 +111,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 1852,
+  "version": 1886,
   "title": "FVM Actor Code Playground - ERC20 Sans Events",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -134,7 +134,7 @@
     },
     {
       "id": 1775,
-      "value": "This notebook is currently using a mix of Lotus JSON-RPC APIs + Ethereum JSON-RPC APIs. As more of the Ethereum JSON-RPC API is implemented, the plan is to migrate entirely to using Ethereum APIs.",
+      "value": "This notebook is currently using a mix of Lotus JSON-RPC APIs + Ethereum JSON-RPC APIs. It is mostly using Ethereum APIs which are partly working now.",
       "pinned": false,
       "mode": "md",
       "data": null,
@@ -198,7 +198,7 @@
     },
     {
       "id": 1106,
-      "value": "keys = {\n  const keys = []\n  const names = [ 'Owner', 'Alice', 'Bob', 'Carol' ]\n  for (let i = 0; i < names.length; i++) {\n    const network = 'testnet'\n\n    const key = await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/60'/0'/0/${i}`, network)\n    \n    key.name = names[i]\n    key.privateKeyBase64 = buffer.Buffer.from(key.privateKey.slice(2), 'hex').toString('base64')\n    key.privateKeyLotusExport = buffer.Buffer.from(`{\"Type\":\"secp256k1\",\"PrivateKey\":\"${key.privateKeyBase64}\"}`).toString('hex')\n    key.ethKey = await ethers.Wallet.fromMnemonic(randomMnemonic, `m/44'/60'/0'/0/${i}`)\n    keys.push(key)\n  }\n  return keys\n}",
+      "value": "keys = {\n  const keys = []\n  const names = [ 'Owner', 'Alice', 'Bob', 'Carol' ]\n  for (let i = 0; i < names.length; i++) {\n    const network = 'testnet'\n\n    // const key = await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/60'/0'/0/${i}`, network)\n    const key = await ethers.Wallet.fromMnemonic(randomMnemonic, `m/44'/60'/0'/0/${i}`)\n    key.delegated = filecoinAddress.newDelegatedEthAddress(key.address, 't')\n    \n    key.name = names[i]\n\n    keys.push(key)\n  }\n  return keys\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -206,7 +206,7 @@
     },
     {
       "id": 1109,
-      "value": "clientAddresses = keys.map(key => key.address)",
+      "value": "clientAddresses = keys.map(key => key.delegated.toString())",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -222,7 +222,7 @@
     },
     {
       "id": 1112,
-      "value": "## Wait for Lotus to be ready, then transfer 10 FIL to each address",
+      "value": "## Wait for Lotus to be ready, then transfer 100 FIL to each address",
       "pinned": false,
       "mode": "md",
       "data": null,
@@ -246,7 +246,7 @@
     },
     {
       "id": 1118,
-      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      // Sending install actor message...\n      const messageBody = {\n        To: key.address,\n        From: walletDefaultAddress,\n        Value: \"10000000000000000000\",\n        Method: 0\n      }\n      responses.push(await client.mpoolPushMessage(messageBody, null))\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(client.stateWaitMsg(response.CID, 0))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: 't0100'\n    }\n    for (const key of keys) {\n      lookups[key.address] = await client.stateLookupID(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n  }\n}",
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      // Sending install actor message...\n      const messageBody = {\n        To: key.delegated.toString(),\n        From: walletDefaultAddress,\n        Value: \"100000000000000000000\",\n        Method: 0\n      }\n      responses.push(await client.mpoolPushMessage(messageBody, null))\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(client.stateWaitMsg(response.CID, 0))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: 't0100'\n    }\n    for (const key of keys) {\n      lookups[key.delegated.toString()] = await client.stateLookupID(key.delegated.toString(), [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -262,7 +262,7 @@
     },
     {
       "id": 1124,
-      "value": "Here are the addresses and IDs of the 3 clients we created, as well at their initial balances (should be 1 FIL each).",
+      "value": "Here are the addresses and IDs of the 4 clients we created, as well at their initial balances (should be 100 FIL each).",
       "pinned": false,
       "mode": "md",
       "data": null,
@@ -278,7 +278,7 @@
     },
     {
       "id": 1130,
-      "value": "Inputs.table(\n  initialBalances ? initialBalances.map(({ address, balance }) => ({\n    name: keys.find(({ address: keyAddress }) => address === keyAddress).name, \n    id: transferFundsStatus.lookups[address],\n    address,\n    eth_address: keys.find(({ address: keyAddress }) => address === keyAddress).ethKey.address,\n    balance\n  })) : [],\n  {\n    width: {\n      name: 60,\n      id: 60,\n      address: 300,\n      eth_address: 340,\n      balance: 100\n    },\n    format: {\n   \n      balance: num => new FilecoinNumber(num, 'attofil').toFil()\n    }\n  }\n)",
+      "value": "Inputs.table(\n  initialBalances ? initialBalances.map(({ address, balance }) => ({\n    name: keys.find(({ delegated }) => address === delegated.toString()).name, \n    id: transferFundsStatus.lookups[address],\n    address,\n    eth_address: keys.find(({ delegated }) => address === delegated.toString()).address,\n    balance\n  })) : [],\n  {\n    width: {\n      name: 60,\n      id: 60,\n      address: 300,\n      eth_address: 340,\n      balance: 100\n    },\n    format: {\n   \n      balance: num => new FilecoinNumber(num, 'attofil').toFil()\n    }\n  }\n)",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -294,7 +294,7 @@
     },
     {
       "id": 1767,
-      "value": "ownerId = transferFundsStatus?.lookups && transferFundsStatus.lookups[keys[0].address]",
+      "value": "ownerId = transferFundsStatus?.lookups && transferFundsStatus.lookups[keys[0].delegated.toString()]",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -390,7 +390,7 @@
     },
     {
       "id": 184,
-      "value": "viewof createActorButton = Inputs.button(\n  'Create EVM Actor',\n  {\n    disabled: !ready,\n    value: null,\n    reduce: async () => ({\n      name: constructorParamsForm[0],\n      symbol: constructorParamsForm[1],\n      initialSupply: constructorParamsForm[2],\n      nonce: await client.mpoolGetNonce(ownerKey.address)\n    })\n  }\n)",
+      "value": "viewof createActorButton = Inputs.button(\n  'Create EVM Actor',\n  {\n    disabled: !ready,\n    value: null,\n    reduce: async () => ({\n      name: constructorParamsForm[0],\n      symbol: constructorParamsForm[1],\n      initialSupply: constructorParamsForm[2],\n      nonce: await client.mpoolGetNonce(ownerKey.delegated.toString())\n    })\n  }\n)",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -398,7 +398,7 @@
     },
     {
       "id": 548,
-      "value": "{\n  if (createActorStatus === undefined || !createActorStatus) {\n    yield md`Status: Contract has not been created yet.`\n    return\n  }\n  if (createActorStatus.creating) {\n    while (true) {\n      const elapsed = (Date.now() - createActorStatus.start) / 1000\n      yield md`Sending create contract transaction... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (createActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Create contract transaction sent</b></div>\n      <div>Txn Hash: ${createActorStatus.response}</div>\n      `\n      if (createActorStatus.waitResponse) {\n        output += `<div>Transaction executed in block at height: ${Number.parseInt(createActorStatus.waitResponse.blockNumber.slice(2), 16)}</div>`\n        output += `<div>Gas used: ${Number.parseInt(createActorStatus.waitResponse.gasUsed.slice(2), 16)}</div>`\n        output += `<div>Contract address (Eth): ${createActorStatus.waitResponse.contractAddress}</div>`\n        output += `<b><div>ID Address: ${createActorStatus.waitResponse.actorId}</div></b>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - createActorStatus.waitStart) / 1000\n      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "value": "{\n  if (createActorStatus === undefined || !createActorStatus) {\n    yield md`Status: Contract has not been created yet.`\n    return\n  }\n  if (createActorStatus.creating) {\n    while (true) {\n      const elapsed = (Date.now() - createActorStatus.start) / 1000\n      yield md`Sending create contract transaction... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (createActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Create contract transaction sent</b></div>\n      <div>Txn Hash: ${createActorStatus.response}</div>\n      `\n      if (createActorStatus.waitResponse) {\n        output += `<div>Transaction executed in block at height: ${Number.parseInt(createActorStatus.waitResponse.blockNumber.slice(2), 16)}</div>`\n        output += `<div>Gas used: ${Number.parseInt(createActorStatus.waitResponse.gasUsed.slice(2), 16)}</div>`\n        output += `<div>Contract address (Eth): ${createActorStatus.waitResponse.contractAddress}</div>`\n        output += `<div>Contract address (t4): ${createActorStatus.waitResponse.delegated.toString()}</div>`\n        output += `<b><div>ID Address: ${createActorStatus.waitResponse.actorId}</div></b>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - createActorStatus.waitStart) / 1000\n      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -446,7 +446,7 @@
     },
     {
       "id": 1753,
-      "value": "deployer = new ethers.Wallet(ownerKey.ethKey.privateKey, provider)",
+      "value": "deployer = new ethers.Wallet(ownerKey.privateKey, provider)",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -462,7 +462,7 @@
     },
     {
       "id": 485,
-      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor', createActorButton)\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    const unsignedTx = await factory.getDeployTransaction(\n      createActorButton.name,\n      createActorButton.symbol,\n      createActorButton.initialSupply,\n      `0x${getEvmAddress(ownerId).slice(24)}`,\n      {\n        gasLimit: 1000000000,\n        gasPrice: undefined,\n        maxFeePerGas: undefined,\n        maxPriorityFeePerGas: priorityFee,\n        value: undefined,\n        nonce: createActorButton.nonce\n      }\n    )\n    const populatedTx = await deployer.populateTransaction(unsignedTx)\n    const signedTx = await deployer.signTransaction(populatedTx)\n    console.log('Create Actor Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    if (waitResponse?.contractAddress) {\n      waitResponse.actorId = `t0${Number.parseInt(waitResponse.contractAddress.slice(4), 16)}`\n    }\n    yield { installed: true, response, waitResponse }\n  }\n}",
+      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor', createActorButton)\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    const unsignedTx = await factory.getDeployTransaction(\n      createActorButton.name,\n      createActorButton.symbol,\n      createActorButton.initialSupply,\n      ownerKey.address,\n      {\n        gasLimit: 1000000000,\n        gasPrice: undefined,\n        maxFeePerGas: undefined,\n        maxPriorityFeePerGas: priorityFee,\n        value: undefined,\n        nonce: createActorButton.nonce\n      }\n    )\n    const populatedTx = await deployer.populateTransaction(unsignedTx)\n    const signedTx = await deployer.signTransaction(populatedTx)\n    console.log('Create Actor Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    if (waitResponse?.contractAddress) {\n      waitResponse.delegated = filecoinAddress.newDelegatedEthAddress(waitResponse.contractAddress, 't')\n      waitResponse.actorId = await client.stateLookupID(waitResponse.delegated.toString(), [])\n    }\n    yield { installed: true, response, waitResponse }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -470,7 +470,7 @@
     },
     {
       "id": 1797,
-      "value": "contract = factory.attach(createActorStatus.waitResponse.contractAddress)",
+      "value": "contract = createActorStatus?.waitResponse?.contractAddress && factory.attach(createActorStatus.waitResponse.contractAddress)",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -502,7 +502,7 @@
     },
     {
       "id": 1749,
-      "value": "md`From the Lotus command line, we could call the method like this:\n\n\\`./lotus chain invoke-evm-actor ${createActorStatus.waitResponse.actorId} 70a08231 ${getEvmAddress(ownerId)}\\``",
+      "value": "md`From the Lotus command line, we could call the method like this:\n\n\\`./lotus chain invoke-evm-actor ${createActorStatus.waitResponse.actorId} 70a08231 000000000000000000000000000000000000000000000000${ownerKey.address.slice(2)}\\``",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -518,7 +518,7 @@
     },
     {
       "id": 187,
-      "value": "viewof invokeEvmMethodButton = Inputs.button(`Get ERC20 Token Balance for Owner (${ownerId})`, {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.actorId,\n  value: null,\n  reduce: async () => (await contract.balanceOf(`0x${getEvmAddress(ownerId).slice(24)}`)).toString()\n})",
+      "value": "viewof invokeEvmMethodButton = Inputs.button(`Get ERC20 Token Balance for Owner (${ownerId})`, {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.actorId,\n  value: null,\n  reduce: async () => (await contract.balanceOf(keys[0].address)).toString()\n})",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -550,7 +550,7 @@
     },
     {
       "id": 1259,
-      "value": "viewof transferFromOwnerForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys.slice(1), { label: \"Transfer from Owner to User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})` }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
+      "value": "viewof transferFromOwnerForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys.slice(1), { label: \"Transfer from Owner to User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})` }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -566,15 +566,23 @@
     },
     {
       "id": 1530,
-      "value": "{\n  if (transferFromOwnerStatus === undefined || !transferFromOwnerStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromOwnerStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromOwnerStatus.start) / 1000\n      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromOwnerStatus.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${transferFromOwnerButton.actorId}</div>\n      <div>Message CID: ${transferFromOwnerStatus.response.CID['/']}</div>\n      `\n      if (transferFromOwnerStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${transferFromOwnerStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${transferFromOwnerStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Return: ${transferFromOwnerStatus.waitResponse.Receipt.Return} (Base64 encoded binary array)</div>`\n        output += `<div><b>Decoded Result (Hex):</b> <b style=\"font-size: 100%\">${JSON.stringify(transferFromOwnerStatus.decodedResult.toString('hex'))}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - transferFromOwnerStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "value": "{\n  if (transferFromOwnerStatus === undefined || !transferFromOwnerStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromOwnerStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromOwnerStatus.start) / 1000\n      yield md`Sending transaction for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromOwnerStatus.response) {\n    while (true) {\n      let output = `<div><b>Transaction sent</b></div>\n      <div>Txn Hash: ${createActorStatus.response}</div>\n      `\n      if (transferFromOwnerStatus.waitResponse) {\n        output += `<div>Transaction executed in block at height: ${Number.parseInt(transferFromOwnerStatus.waitResponse.blockNumber.slice(2), 16)}</div>`\n        output += `<div>Gas used: ${Number.parseInt(transferFromOwnerStatus.waitResponse.gasUsed.slice(2), 16)}</div>`\n        output += `<div>Status: ${transferFromOwnerStatus.waitResponse.status}</div>`\n        yield html`${output}`\n        break\n      }\n\n      const elapsed = (Date.now() - transferFromOwnerStatus.waitStart) / 1000\n      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
     },
     {
+      "id": 1869,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
       "id": 1520,
-      "value": "transferFromOwnerStatus = {\n  if (transferFromOwnerButton) {\n    const start = Date.now()\n    yield {\n      invoking: true,\n      start\n    }\n    const dest = getEvmAddress(transferFundsStatus.lookups[transferFromOwnerButton.dest.address])\n    const amount = transferFromOwnerButton.amount.toString(16).padStart(64, '0')\n    const params = buffer.Buffer.concat([\n      buffer.Buffer.from('a9059cbb', 'hex'),\n      buffer.Buffer.from(dest, 'hex'),\n      buffer.Buffer.from(amount, 'hex')\n    ])\n    const message = {\n      To: transferFromOwnerButton.actorId,\n      From: keys[0].address,\n      Value: \"0\",\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    console.log('message', message)\n    const privateKey = keys[0].privateKey\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await waitMsg(responseCID)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
+      "value": "transferFromOwnerStatus = {\n  if (transferFromOwnerButton) {\n    const start = Date.now()\n    yield { invoking: true, start }\n    const dest = transferFromOwnerButton.dest.address\n    const amount = transferFromOwnerButton.amount\n    const unsignedTx = await contract.populateTransaction.transfer(dest, amount)\n    const populatedTx = await deployer.populateTransaction(unsignedTx)\n    const signedTx = await deployer.signTransaction(populatedTx)\n    console.log('Transfer From Owner Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    yield { invoked: true, response, waitResponse }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -598,7 +606,7 @@
     },
     {
       "id": 1499,
-      "value": "{\n  if (!tokenBalances) {\n    return md``\n  } else {\n    return Inputs.table(\n      tokenBalances.map((balance, i) => {\n        return {\n          name: keys[i].name,\n          id: transferFundsStatus.lookups[keys[i].address], \n          balance\n        }\n      }),\n      {\n        format: {\n        }\n      }\n    )\n  }\n}",
+      "value": "{\n  if (!tokenBalances) {\n    return md``\n  } else {\n    return Inputs.table(\n      tokenBalances.map((balance, i) => {\n        return {\n          name: keys[i].name,\n          id: transferFundsStatus.lookups[keys[i].delegated.toString()], \n          balance\n        }\n      }),\n      {\n        format: {\n        }\n      }\n    )\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -613,8 +621,16 @@
       "name": null
     },
     {
+      "id": 1866,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
       "id": 1317,
-      "value": "tokenBalances = {\n  invalidatedBalancesAt;\n  const evmActorId = createActorStatus?.waitResponse?.actorId\n  if (keys && evmActorId) {\n    const responses = []\n    for (const key of keys) {\n      const keyActorId = transferFundsStatus.lookups[key.address]\n      const addressEvm = `0x${getEvmAddress(keyActorId).slice(24)}`\n      responses.push((await contract.balanceOf(addressEvm)).toBigInt())\n    }\n    return await Promise.all(responses)\n  }\n}",
+      "value": "tokenBalances = {\n  invalidatedBalancesAt;\n  const evmActorId = createActorStatus?.waitResponse?.actorId\n  if (keys && evmActorId) {\n    const responses = []\n    for (const key of keys) {\n      responses.push((await contract.balanceOf(key.address)).toBigInt())\n    }\n    return await Promise.all(responses)\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -646,7 +662,7 @@
     },
     {
       "id": 1568,
-      "value": "viewof transferFromUserForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys.slice(1), { label: \"Transfer from User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})` }),\n  Inputs.select(keys.slice(1), {\n    label: \"Transfer to User\",\n    format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})`,\n    value: keys[1]\n  }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
+      "value": "viewof transferFromUserForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys.slice(1), { label: \"Transfer from User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})` }),\n  Inputs.select(keys.slice(1), {\n    label: \"Transfer to User\",\n    format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})`,\n    value: keys[1]\n  }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -662,15 +678,23 @@
     },
     {
       "id": 1588,
-      "value": "{\n  if (transferFromUserStatus === undefined || !transferFromUserStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromUserStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromUserStatus.start) / 1000\n      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromUserStatus.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${transferFromUserButton.actorId}</div>\n      <div>Message CID: ${transferFromUserStatus.response.CID['/']}</div>\n      `\n      if (transferFromUserStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${transferFromUserStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${transferFromUserStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Return: ${transferFromUserStatus.waitResponse.Receipt.Return} (Base64 encoded binary array)</div>`\n        output += `<div><b>Decoded Result (Hex):</b> <b style=\"font-size: 100%\">${JSON.stringify(transferFromUserStatus.decodedResult.toString('hex'))}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - transferFromUserStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "value": "{\n  if (transferFromUserStatus === undefined || !transferFromUserStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromUserStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromUserStatus.start) / 1000\n      yield md`Sending transaction for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromUserStatus.response) {\n    while (true) {\n      let output = `<div><b>Transaction sent</b></div>\n      <div>Txn Hash: ${createActorStatus.response}</div>\n      `\n      if (transferFromUserStatus.waitResponse) {\n        output += `<div>Transaction executed in block at height: ${Number.parseInt(transferFromUserStatus.waitResponse.blockNumber.slice(2), 16)}</div>`\n        output += `<div>Gas used: ${Number.parseInt(transferFromUserStatus.waitResponse.gasUsed.slice(2), 16)}</div>`\n        output += `<div>Status: ${transferFromUserStatus.waitResponse.status}</div>`\n        yield html`${output}`\n        break\n      }\n\n      const elapsed = (Date.now() - transferFromUserStatus.waitStart) / 1000\n      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
     },
     {
+      "id": 1862,
+      "value": "---",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
       "id": 1578,
-      "value": "transferFromUserStatus = {\n  if (transferFromUserButton) {\n    const start = Date.now()\n    yield {\n      invoking: true,\n      start\n    }\n    const dest = getEvmAddress(transferFundsStatus.lookups[transferFromUserButton.dest.address])\n    const amount = transferFromUserButton.amount.toString(16).padStart(64, '0')\n    const params = buffer.Buffer.concat([\n      buffer.Buffer.from('a9059cbb', 'hex'),\n      buffer.Buffer.from(dest, 'hex'),\n      buffer.Buffer.from(amount, 'hex')\n    ])\n    const message = {\n      To: transferFromUserButton.actorId,\n      From: transferFromUserButton.source.address,\n      Nonce: 0,\n      Value: \"0\",\n      GasLimit: 1000000000,\n      GasFeeCap: new FilecoinNumber(0, 'attofil'),\n      GasPremium: new FilecoinNumber(0, 'attofil'),\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    const privateKey = keys.find(({ address }) => address === transferFromUserButton.source.address).privateKey\n    console.log('message', message)\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await client.stateWaitMsg(responseCID, 0)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
+      "value": "transferFromUserStatus = {\n  if (transferFromUserButton) {\n    const start = Date.now()\n    yield { invoking: true, start }\n    const source = transferFromUserButton.source\n    const dest = transferFromUserButton.dest.address\n    const amount = transferFromUserButton.amount\n    const signer = new ethers.Wallet(source.privateKey, provider)\n    const factory = new ethers.ContractFactory(iface, contractBytes, signer)\n    const contract = factory.attach(createActorStatus.waitResponse.contractAddress)\n    const unsignedTx = await contract.populateTransaction.transfer(dest, amount)\n    const populatedTx = await signer.populateTransaction(unsignedTx)\n    const signedTx = await signer.signTransaction(populatedTx)\n    console.log('Transfer From User Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    yield { invoked: true, response, waitResponse }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -837,6 +861,14 @@
       "name": null
     },
     {
+      "id": 1860,
+      "value": "filecoinAddress = import('https://cdn.skypack.dev/@glif/filecoin-address')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
       "id": 270,
       "value": "## Lotus Utilities",
       "pinned": false,
@@ -862,7 +894,7 @@
     },
     {
       "id": 373,
-      "value": "baseUrl = \"https://fvm-8.default.knative.hex.camp\"",
+      "value": "baseUrl = \"https://fvm-9.default.knative.hex.camp\"",
       "pinned": false,
       "mode": "js",
       "data": null,
