@@ -496,7 +496,7 @@ async function* _57(transferFromOwnerStatus,md,Promises,transferFromOwnerButton,
 }
 
 
-async function* _transferFromOwnerStatus(transferFromOwnerButton,contract)
+async function* _transferFromOwnerStatus(transferFromOwnerButton,contract,deployer,provider,client,waitEthTx)
 {
   if (transferFromOwnerButton) {
     const start = Date.now()
@@ -506,7 +506,24 @@ async function* _transferFromOwnerStatus(transferFromOwnerButton,contract)
     }
     const dest = transferFromOwnerButton.dest.address
     const amount = transferFromOwnerButton.amount
-    yield await contract.transfer(dest, amount)
+    const unsignedTx = await contract.populateTransaction.transfer(dest, amount)
+    yield unsignedTx
+    const populatedTx = await deployer.populateTransaction(unsignedTx)
+    const signedTx = await deployer.signTransaction(populatedTx)
+    console.log('Transfer From Owner Transaction:', provider.formatter.transaction(signedTx))
+    const response = await client.callEthMethod('sendRawTransaction', [signedTx])
+    const waitStart = Date.now()
+    yield { waiting: true, waitStart, response }
+    const waitResponse = await waitEthTx(response)
+    /*
+    if (waitResponse?.contractAddress) {
+      waitResponse.delegated = filecoinAddress.newDelegatedEthAddress(waitResponse.contractAddress, 't')
+      waitResponse.actorId = await client.stateLookupID(waitResponse.delegated.toString(), [])
+    }
+    */
+    yield { installed: true, response, waitResponse }
+    
+    // yield await contract.transfer(dest, amount)
     /*
     const params = buffer.Buffer.concat([
       buffer.Buffer.from('a9059cbb', 'hex'),
@@ -576,16 +593,14 @@ function _62(Inputs,$0){return(
 Inputs.button("Update", { value: null, reduce: () => { $0.value = new Date() } })
 )}
 
-async function _tokenBalances(invalidatedBalancesAt,createActorStatus,keys,transferFundsStatus,getEvmAddress,contract)
+async function _tokenBalances(invalidatedBalancesAt,createActorStatus,keys,contract)
 {
   invalidatedBalancesAt;
   const evmActorId = createActorStatus?.waitResponse?.actorId
   if (keys && evmActorId) {
     const responses = []
     for (const key of keys) {
-      const keyActorId = transferFundsStatus.lookups[key.address]
-      const addressEvm = `0x${getEvmAddress(keyActorId).slice(24)}`
-      responses.push((await contract.balanceOf(addressEvm)).toBigInt())
+      responses.push((await contract.balanceOf(key.address)).toBigInt())
     }
     return await Promise.all(responses)
   }
@@ -1035,12 +1050,12 @@ export default function define(runtime, observer) {
   main.variable(observer("viewof transferFromOwnerButton")).define("viewof transferFromOwnerButton", ["Inputs","ownerId","createActorStatus","transferFromOwnerForm"], _transferFromOwnerButton);
   main.variable(observer("transferFromOwnerButton")).define("transferFromOwnerButton", ["Generators", "viewof transferFromOwnerButton"], (G, _) => G.input(_));
   main.variable(observer()).define(["transferFromOwnerStatus","md","Promises","transferFromOwnerButton","html"], _57);
-  main.variable(observer("transferFromOwnerStatus")).define("transferFromOwnerStatus", ["transferFromOwnerButton","contract"], _transferFromOwnerStatus);
+  main.variable(observer("transferFromOwnerStatus")).define("transferFromOwnerStatus", ["transferFromOwnerButton","contract","deployer","provider","client","waitEthTx"], _transferFromOwnerStatus);
   main.variable(observer()).define(["md"], _59);
   main.variable(observer()).define(["md"], _60);
   main.variable(observer()).define(["tokenBalances","md","Inputs","keys","transferFundsStatus"], _61);
   main.variable(observer()).define(["Inputs","mutable invalidatedBalancesAt"], _62);
-  main.variable(observer("tokenBalances")).define("tokenBalances", ["invalidatedBalancesAt","createActorStatus","keys","transferFundsStatus","getEvmAddress","contract"], _tokenBalances);
+  main.variable(observer("tokenBalances")).define("tokenBalances", ["invalidatedBalancesAt","createActorStatus","keys","contract"], _tokenBalances);
   main.define("initial invalidatedBalancesAt", _invalidatedBalancesAt);
   main.variable(observer("mutable invalidatedBalancesAt")).define("mutable invalidatedBalancesAt", ["Mutable", "initial invalidatedBalancesAt"], (M, _) => new M(_));
   main.variable(observer("invalidatedBalancesAt")).define("invalidatedBalancesAt", ["mutable invalidatedBalancesAt"], _ => _.generator);
