@@ -1,6 +1,6 @@
 # FVM Actor Code Playground - "Simple Faucet"
 
-https://observablehq.com/@jimpick/fvm-actor-code-playground-simple-faucet@1345
+https://observablehq.com/@jimpick/fvm-actor-code-playground-simple-faucet@1346
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/5fc7ffd98209cd6a@1345.tgz?v=3
+npm install https://api.observablehq.com/d/5fc7ffd98209cd6a@1346.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
