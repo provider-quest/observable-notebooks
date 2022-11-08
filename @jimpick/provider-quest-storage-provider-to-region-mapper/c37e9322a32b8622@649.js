@@ -1,4 +1,3 @@
-// https://observablehq.com/@jimpick/provider-quest-storage-provider-to-region-mapper@647
 import define1 from "./5cf93b57a7444002@282.js";
 import define2 from "./5cf93b57a7444002@282.js";
 import define3 from "./a957eb792b00ff81@406.js";
@@ -15,6 +14,10 @@ md`This notebook cross-references the list of storage providers with multiaddres
 
 function _currentEpoch(dateToEpoch){return(
 dateToEpoch(new Date())
+)}
+
+function _5(multiaddrsIpsLatestBucketUrl){return(
+multiaddrsIpsLatestBucketUrl
 )}
 
 async function _multiaddrsIpsReport(multiaddrsIpsLatestBucketUrl){return(
@@ -764,11 +767,11 @@ function _root(d3,_,regionHierarchy){return(
 d3.hierarchy(_.cloneDeep(regionHierarchy))
 )}
 
-function _26(root){return(
+function _27(root){return(
 root.children[6].data
 )}
 
-function _27(graph,root){return(
+function _28(graph,root){return(
 graph(root, {label: d => `${d.data.code ? d.data.code + ': ' : ''}${d.data.name}`})
 )}
 
@@ -891,11 +894,11 @@ function _minerRegions(minerIps)
 }
 
 
-function _33(md){return(
+function _34(md){return(
 md`## Zero-region miners`
 )}
 
-function _34(md){return(
+function _35(md){return(
 md`For some reason, the IP addresses for these miners didn't have any geolocation results.`
 )}
 
@@ -907,7 +910,7 @@ function _zeroRegionMiners(zeroRegionMinersList,sortMiners){return(
 zeroRegionMinersList.map(({ miner }) => miner).sort(sortMiners)
 )}
 
-function _37(md){return(
+function _38(md){return(
 md`## One-region miners`
 )}
 
@@ -944,7 +947,7 @@ selectedOneRegionMiners.reduce((countryCounts, minerRecord) => {
 }, {})
 )}
 
-function _43(Inputs,selectedOneRegionMinerCountries){return(
+function _44(Inputs,selectedOneRegionMinerCountries){return(
 Inputs.table(Object.entries(selectedOneRegionMinerCountries).map(([country, minerSet]) => ({ country, minerCount: minerSet.size, miners: [...minerSet].join(', ') })))
 )}
 
@@ -977,7 +980,7 @@ Object.entries(countryPowerAndDeals).map(d => ({
 })).sort((a, b) => b.qualityAdjPower - a.qualityAdjPower)
 )}
 
-function _46(Inputs,countryPowerAndDealsBytes){return(
+function _47(Inputs,countryPowerAndDealsBytes){return(
 Inputs.table(countryPowerAndDealsBytes)
 )}
 
@@ -998,7 +1001,7 @@ selectedOneRegionMiners.reduce((provinceCounts, minerRecord) => {
 }, {})
 )}
 
-function _48(Inputs,selectedOneRegionMinerStateProvinces){return(
+function _49(Inputs,selectedOneRegionMinerStateProvinces){return(
 Inputs.table(Object.entries(selectedOneRegionMinerStateProvinces).map(([stateProvince, minerSet]) => ({ stateProvince, minerCount: minerSet.size, miners: [...minerSet].join(', ') })))
 )}
 
@@ -1031,11 +1034,11 @@ Object.entries(stateProvincePowerAndDeals).map(d => ({
 })).sort((a, b) => b.qualityAdjPower - a.qualityAdjPower)
 )}
 
-function _51(Inputs,stateProvincePowerAndDealsBytes){return(
+function _52(Inputs,stateProvincePowerAndDealsBytes){return(
 Inputs.table(stateProvincePowerAndDealsBytes)
 )}
 
-function _52(md){return(
+function _53(md){return(
 md`## Multi-region miners`
 )}
 
@@ -1059,7 +1062,7 @@ function _selectedMultiRegionMiners(multiRegionMinersList,multiRegionSelected,mi
 multiRegionMinersList.filter(({ regions }) => regions === multiRegionSelected.regions).map(({ miner }) => ({ miner, multiaddrIps: minerIps.get(miner) })).sort(sortMinerRecords)
 )}
 
-function _57(md){return(
+function _58(md){return(
 md`## Exported Maps`
 )}
 
@@ -1119,7 +1122,7 @@ function _minerLocationsTable(minerIps,sortMinerRecords)
 }
 
 
-function _60(md){return(
+function _61(md){return(
 md`## Imports`
 )}
 
@@ -1135,11 +1138,11 @@ async function _bytes(){return(
 (await import('https://unpkg.com/@jimpick/bytes-iec@3.1.0-2?module')).default
 )}
 
-function _67(md){return(
+function _68(md){return(
 md`## Backups`
 )}
 
-function _69(backups){return(
+function _70(backups){return(
 backups()
 )}
 
@@ -1155,6 +1158,7 @@ export default function define(runtime, observer) {
   main.variable(observer("currentEpoch")).define("currentEpoch", ["dateToEpoch"], _currentEpoch);
   const child1 = runtime.module(define1);
   main.import("multiaddrsIpsLatestBucketUrl", child1);
+  main.variable(observer()).define(["multiaddrsIpsLatestBucketUrl"], _5);
   main.variable(observer("multiaddrsIpsReport")).define("multiaddrsIpsReport", ["multiaddrsIpsLatestBucketUrl"], _multiaddrsIpsReport);
   const child2 = runtime.module(define1);
   main.import("geoIpLookupsBucketUrl", child2);
@@ -1183,43 +1187,43 @@ export default function define(runtime, observer) {
   main.variable(observer("minerIps")).define("minerIps", ["multiaddrsIpsReport","restrictResults","filteredAsks","latestIpsGeoLite2Report","latestIpsBaiduReport","chinaProvincesByCnName","regionMapper"], _minerIps);
   main.variable(observer("regionHierarchy")).define("regionHierarchy", ["chinaProvincesByCode"], _regionHierarchy);
   main.variable(observer("root")).define("root", ["d3","_","regionHierarchy"], _root);
-  main.variable(observer()).define(["root"], _26);
-  main.variable(observer()).define(["graph","root"], _27);
+  main.variable(observer()).define(["root"], _27);
+  main.variable(observer()).define(["graph","root"], _28);
   main.variable(observer("numberOfLeaves")).define("numberOfLeaves", ["root"], _numberOfLeaves);
   main.variable(observer("numberOfNodes")).define("numberOfNodes", ["root"], _numberOfNodes);
   main.variable(observer("indexedRoot")).define("indexedRoot", ["d3","root"], _indexedRoot);
   main.variable(observer("regionMapper")).define("regionMapper", ["indexedRoot"], _regionMapper);
   main.variable(observer("minerRegions")).define("minerRegions", ["minerIps"], _minerRegions);
-  main.variable(observer()).define(["md"], _33);
   main.variable(observer()).define(["md"], _34);
+  main.variable(observer()).define(["md"], _35);
   main.variable(observer("zeroRegionMinersList")).define("zeroRegionMinersList", ["minerRegions"], _zeroRegionMinersList);
   main.variable(observer("zeroRegionMiners")).define("zeroRegionMiners", ["zeroRegionMinersList","sortMiners"], _zeroRegionMiners);
-  main.variable(observer()).define(["md"], _37);
+  main.variable(observer()).define(["md"], _38);
   main.variable(observer("oneRegionMinersList")).define("oneRegionMinersList", ["minerRegions"], _oneRegionMinersList);
   main.variable(observer("regionCounts")).define("regionCounts", ["oneRegionMinersList"], _regionCounts);
   main.variable(observer("viewof oneRegionSelected")).define("viewof oneRegionSelected", ["Inputs","regionCounts"], _oneRegionSelected);
   main.variable(observer("oneRegionSelected")).define("oneRegionSelected", ["Generators", "viewof oneRegionSelected"], (G, _) => G.input(_));
   main.variable(observer("selectedOneRegionMiners")).define("selectedOneRegionMiners", ["oneRegionMinersList","oneRegionSelected","minerIps","sortMinerRecords"], _selectedOneRegionMiners);
   main.variable(observer("selectedOneRegionMinerCountries")).define("selectedOneRegionMinerCountries", ["selectedOneRegionMiners"], _selectedOneRegionMinerCountries);
-  main.variable(observer()).define(["Inputs","selectedOneRegionMinerCountries"], _43);
+  main.variable(observer()).define(["Inputs","selectedOneRegionMinerCountries"], _44);
   main.variable(observer("countryPowerAndDeals")).define("countryPowerAndDeals", ["selectedOneRegionMinerCountries","latestPowerReport","multidayDeals"], _countryPowerAndDeals);
   main.variable(observer("countryPowerAndDealsBytes")).define("countryPowerAndDealsBytes", ["countryPowerAndDeals","bytes"], _countryPowerAndDealsBytes);
-  main.variable(observer()).define(["Inputs","countryPowerAndDealsBytes"], _46);
+  main.variable(observer()).define(["Inputs","countryPowerAndDealsBytes"], _47);
   main.variable(observer("selectedOneRegionMinerStateProvinces")).define("selectedOneRegionMinerStateProvinces", ["selectedOneRegionMiners"], _selectedOneRegionMinerStateProvinces);
-  main.variable(observer()).define(["Inputs","selectedOneRegionMinerStateProvinces"], _48);
+  main.variable(observer()).define(["Inputs","selectedOneRegionMinerStateProvinces"], _49);
   main.variable(observer("stateProvincePowerAndDeals")).define("stateProvincePowerAndDeals", ["selectedOneRegionMinerStateProvinces","latestPowerReport","multidayDeals"], _stateProvincePowerAndDeals);
   main.variable(observer("stateProvincePowerAndDealsBytes")).define("stateProvincePowerAndDealsBytes", ["stateProvincePowerAndDeals","bytes"], _stateProvincePowerAndDealsBytes);
-  main.variable(observer()).define(["Inputs","stateProvincePowerAndDealsBytes"], _51);
-  main.variable(observer()).define(["md"], _52);
+  main.variable(observer()).define(["Inputs","stateProvincePowerAndDealsBytes"], _52);
+  main.variable(observer()).define(["md"], _53);
   main.variable(observer("multiRegionMinersList")).define("multiRegionMinersList", ["minerRegions"], _multiRegionMinersList);
   main.variable(observer("multiRegionCounts")).define("multiRegionCounts", ["multiRegionMinersList"], _multiRegionCounts);
   main.variable(observer("viewof multiRegionSelected")).define("viewof multiRegionSelected", ["Inputs","multiRegionCounts"], _multiRegionSelected);
   main.variable(observer("multiRegionSelected")).define("multiRegionSelected", ["Generators", "viewof multiRegionSelected"], (G, _) => G.input(_));
   main.variable(observer("selectedMultiRegionMiners")).define("selectedMultiRegionMiners", ["multiRegionMinersList","multiRegionSelected","minerIps","sortMinerRecords"], _selectedMultiRegionMiners);
-  main.variable(observer()).define(["md"], _57);
+  main.variable(observer()).define(["md"], _58);
   main.variable(observer("minerRegionsTable")).define("minerRegionsTable", ["minerRegions","sortMinerRecords"], _minerRegionsTable);
   main.variable(observer("minerLocationsTable")).define("minerLocationsTable", ["minerIps","sortMinerRecords"], _minerLocationsTable);
-  main.variable(observer()).define(["md"], _60);
+  main.variable(observer()).define(["md"], _61);
   main.variable(observer("d3")).define("d3", ["require"], _d3);
   main.variable(observer("dateFns")).define("dateFns", ["require"], _dateFns);
   const child7 = runtime.module(define3);
@@ -1231,10 +1235,10 @@ export default function define(runtime, observer) {
   const child9 = runtime.module(define5);
   main.import("graph", child9);
   main.variable(observer("bytes")).define("bytes", _bytes);
-  main.variable(observer()).define(["md"], _67);
+  main.variable(observer()).define(["md"], _68);
   const child10 = runtime.module(define4);
   main.import("backups", child10);
   main.import("backupNowButton", child10);
-  main.variable(observer()).define(["backups"], _69);
+  main.variable(observer()).define(["backups"], _70);
   return main;
 }
