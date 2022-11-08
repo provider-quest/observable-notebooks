@@ -1,0 +1,165 @@
+{
+  "id": "8d7bcbca81864bd7",
+  "slug": "videos-provider-quest",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": null,
+  "update_time": "2022-03-27T02:20:39.361Z",
+  "publish_time": "2021-10-21T19:06:30.791Z",
+  "publish_version": 50,
+  "latest_version": 50,
+  "thumbnail": "00cdcfef3b671c059ab0094f916bd389e6dbb35abd0d05e203d33b28a691d9a0",
+  "default_thumbnail": "00cdcfef3b671c059ab0094f916bd389e6dbb35abd0d05e203d33b28a691d9a0",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public"
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public"
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+      "thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 50,
+  "title": "Videos [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Videos [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 30,
+      "value": "md`${quickMenu}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 8,
+      "value": "md`\n## Provider Power Growth\n<video controls style=\"width: 100%\" src=\"https://bafybeicgs6duc5yrk6inbfhosi5r6hbwpijoxurlhvfvt32pr3o7oj7dgy.ipfs.dweb.link/filecoin-orbit-1.mp4\"></video>\n\n[Download from IPFS Gateway (70MB)](https://bafybeicgs6duc5yrk6inbfhosi5r6hbwpijoxurlhvfvt32pr3o7oj7dgy.ipfs.dweb.link/filecoin-orbit-1.mp4) | [Download from Pinata (70MB)](https://gateway.pinata.cloud/ipfs/QmT6DG5dtNrzgsJB9LWqfkRd9DgFQY2PmHAauLKeCoEqVP/filecoin-orbit-1.mp4)\n\nSource notebook: [@jimpick/power-history-provider-quest](https://observablehq.com/@jimpick/power-history-provider-quest?collection=@jimpick/provider-quest)\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 14,
+      "value": "md`\n## Published Deals\n<video controls style=\"width: 100%\" src=\"https://bafybeiawk5qceaux6443qsp6ggihki25vzojsxcfrhcv3n74yq63oy5cum.ipfs.dweb.link/filecoin-orbit-2.mp4\"></video>\n\n[Download from IPFS Gateway (68MB)](https://bafybeiawk5qceaux6443qsp6ggihki25vzojsxcfrhcv3n74yq63oy5cum.ipfs.dweb.link/filecoin-orbit-2.mp4) | [Download from Pinata (68MB)](https://gateway.pinata.cloud/ipfs/QmPqrxJKR4xuUzcjbAB5KnpmdUnoHPGkWs1XqerSWkgPNa/filecoin-orbit-2.mp4)\n\n\nSource notebook: [@jimpick/deals-trips-provider-quest](https://observablehq.com/@jimpick/deals-trips-provider-quest?collection=@jimpick/provider-quest)\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 23,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 22,
+      "value": "import {quickMenu} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 40,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 44,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 47,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
