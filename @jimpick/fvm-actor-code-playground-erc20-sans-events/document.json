@@ -23,10 +23,11 @@
     },
     "version": 1076
   },
-  "update_time": "2022-10-26T21:23:14.182Z",
+  "has_importers": false,
+  "update_time": "2022-11-10T20:21:40.553Z",
   "publish_time": "2022-09-15T08:51:24.968Z",
-  "publish_version": 1890,
-  "latest_version": 1890,
+  "publish_version": 1891,
+  "latest_version": 1891,
   "thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "default_thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "roles": [],
@@ -111,7 +112,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 1890,
+  "version": 1891,
   "title": "FVM Actor Code Playground - ERC20 Sans Events",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -199,7 +200,7 @@
     {
       "id": 1106,
       "value": "keys = {\n  const keys = []\n  const names = [ 'Owner', 'Alice', 'Bob', 'Carol' ]\n  for (let i = 0; i < names.length; i++) {\n    const network = 'testnet'\n\n    // const key = await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/60'/0'/0/${i}`, network)\n    const key = await ethers.Wallet.fromMnemonic(randomMnemonic, `m/44'/60'/0'/0/${i}`)\n    key.delegated = filecoinAddress.newDelegatedEthAddress(key.address, 't')\n    \n    key.name = names[i]\n\n    keys.push(key)\n  }\n  return keys\n}",
-      "pinned": false,
+      "pinned": true,
       "mode": "js",
       "data": null,
       "name": null
