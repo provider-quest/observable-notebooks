@@ -1,6 +1,6 @@
 # FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet
 
-https://observablehq.com/@jimpick/fvm-actor-code-playground-erc20-sans-events-wallaby-testne@2046
+https://observablehq.com/@jimpick/fvm-actor-code-playground-erc20-sans-events-wallaby-testne@2054
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -13,8 +13,8 @@ Or, use the [Observable Runtime](https://github.com/observablehq/runtime) to
 import this module directly into your application. To npm install:
 
 ~~~sh
-npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/c96312e9d904c8b1@2046.tgz?v=3
+npm install @observablehq/runtime@5
+npm install https://api.observablehq.com/d/c96312e9d904c8b1@2054.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:

@@ -23,12 +23,13 @@
     },
     "version": 1610
   },
-  "update_time": "2022-10-24T01:35:38.290Z",
+  "has_importers": false,
+  "update_time": "2022-11-10T20:24:01.725Z",
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2046,
-  "latest_version": 2046,
-  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
-  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "publish_version": 2055,
+  "latest_version": 2055,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
   "owner": {
@@ -111,7 +112,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2046,
+  "version": 2055,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -326,7 +327,7 @@
     },
     {
       "id": 1106,
-      "value": "keys = {\n  const keys = []\n  const names = [ 'Alice', 'Bob', 'Carol' ]\n  for (let i = 0; i < names.length; i++) {\n    const network = 'testnet'\n\n    const key = await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/461'/0'/0/${i}`, network)\n    \n    key.name = names[i]\n    keys.push(key)\n  }\n  return keys\n}",
+      "value": "keys = {\n  const keys = []\n  const names = [ 'Owner', 'Alice', 'Bob', 'Carol' ]\n  for (let i = 0; i < names.length; i++) {\n    const network = 'testnet'\n\n    // const key = await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/60'/0'/0/${i}`, network)\n    const key = await ethers.Wallet.fromMnemonic(randomMnemonic, `m/44'/60'/0'/0/${i}`)\n    key.delegated = filecoinAddress.newDelegatedEthAddress(key.address, 't')\n    \n    key.name = names[i]\n\n    keys.push(key)\n  }\n  return keys\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -334,7 +335,15 @@
     },
     {
       "id": 1109,
-      "value": "clientAddresses = keys.map(key => key.address)",
+      "value": "clientAddresses = keys.map(key => key.delegated.toString())",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2051,
+      "value": "ownerKey = keys.find(({ name }) => name === 'Owner')",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -342,7 +351,7 @@
     },
     {
       "id": 1112,
-      "value": "## Wait for Lotus to be ready, then transfer 1 FIL to each address",
+      "value": "## Wait for Lotus to be ready, then transfer 100 FIL to each address",
       "pinned": false,
       "mode": "md",
       "data": null,
@@ -375,7 +384,7 @@
     {
       "id": 1118,
       "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const privateKey = devFundsKey.privateKey\n    const responses = []\n    for (const key of keys) {\n      responses.push(await filecoin_client.tx.send(\n        key.address, // to\n        '1000000000000000000',\n        1000000000, // gaslimit\n        privateKey,\n        'testnet', // network\n        false // waitMsg\n      ))\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n  }\n}",
-      "pinned": false,
+      "pinned": true,
       "mode": "js",
       "data": null,
       "name": null
