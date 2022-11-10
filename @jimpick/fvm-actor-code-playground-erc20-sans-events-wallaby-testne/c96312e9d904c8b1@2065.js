@@ -243,7 +243,7 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsKey,filec
     for (const key of keys) {
       console.log('Jim1', key.delegated.toString(), key.delegated.address)
       responses.push(await filecoin_client.tx.send(
-        key.delegated.address, // to
+        key.delegated.toString(), // to
         '1000000000000000000',
         1000000000, // gaslimit
         privateKey,
