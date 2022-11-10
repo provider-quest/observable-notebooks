@@ -230,7 +230,7 @@ function _33(md){return(
 md`---`
 )}
 
-async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsKey,filecoin_client,waitMsg,devFundsId,lotusApiClient,$0)
+async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsKey,filecoin_client)
 {
   if (walletDefaultAddress && keys) {
     const start = Date.now()
@@ -241,8 +241,9 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsKey,filec
     const privateKey = devFundsKey.privateKey
     const responses = []
     for (const key of keys) {
+      console.log('Jim1', key.delegated.toString(), key.delegated.address)
       responses.push(await filecoin_client.tx.send(
-        key.address, // to
+        key.delegated.address, // to
         '1000000000000000000',
         1000000000, // gaslimit
         privateKey,
@@ -252,6 +253,7 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsKey,filec
     }
     const waitStart = Date.now()
     yield { waiting: true, start, waitStart, responses }
+    /*
     const promises = []
     for (const response of responses) {
       promises.push(waitMsg(response))
@@ -264,7 +266,8 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsKey,filec
       lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])
     }
     yield { transferred: true, responses, waitResponses, lookups }
-    $0.value = new Date()
+    mutable invalidatedDevFundsBalanceAt = new Date()
+    */
   }
 }
 
@@ -1175,7 +1178,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _31);
   main.variable(observer()).define(["transferFundsStatus","md","Promises"], _32);
   main.variable(observer()).define(["md"], _33);
-  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","devFundsKey","filecoin_client","waitMsg","devFundsId","lotusApiClient","mutable invalidatedDevFundsBalanceAt"], _transferFundsStatus);
+  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","devFundsKey","filecoin_client"], _transferFundsStatus);
   main.variable(observer()).define(["md"], _35);
   main.variable(observer()).define(["md"], _36);
   main.variable(observer()).define(["Inputs","initialBalances","keys","transferFundsStatus","FilecoinNumber"], _37);
