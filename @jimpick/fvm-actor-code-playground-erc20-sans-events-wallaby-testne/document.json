@@ -24,12 +24,12 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-11T00:09:14.961Z",
+  "update_time": "2022-11-11T00:12:06.356Z",
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2076,
-  "latest_version": 2076,
-  "thumbnail": null,
-  "default_thumbnail": null,
+  "publish_version": 2085,
+  "latest_version": 2085,
+  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
   "roles": [],
   "sharing": null,
   "owner": {
@@ -112,7 +112,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2076,
+  "version": 2085,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -191,7 +191,7 @@
     },
     {
       "id": 1635,
-      "value": "{\n  return md`\nAddress: **\\`${devFundsKey.address}\\`**\n\nID: ${!devFundsId || devFundsId.error ? \"Doesn't exist yet, transfer in some funds.\" : devFundsId} \\ \nBalance: ${!devFundsBalance || devFundsBalance.error ? '0 FIL' : devFundsBalance.toFil() + ' FIL'}\n`\n}",
+      "value": "{\n  return md`\nAddress: **\\`${devFundsAddress}\\`**\n\nID: ${!devFundsId || devFundsId.error ? \"Doesn't exist yet, transfer in some funds.\" : devFundsId} \\ \nBalance: ${!devFundsBalance || devFundsBalance.error ? '0 FIL' : devFundsBalance.toFil() + ' FIL'}\n`\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -215,7 +215,7 @@
     },
     {
       "id": 1649,
-      "value": "md`Also, check out the [GLIF Explorer](https://explorer.glif.io/actor/?network=wallaby&address=${devFundsKey.address}) to watch the transactions for the address in real time.`",
+      "value": "md`Also, check out the [GLIF Explorer](https://explorer.glif.io/actor/?network=wallaby&address=${devFundsAddress}) to watch the transactions for the address in real time.`",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -239,7 +239,7 @@
     },
     {
       "id": 1632,
-      "value": "devFundsKey = {\n  const network = 'testnet'\n\n  const key = await filecoin_signer.wallet.keyDerive(devFundsMnemonic, `m/44'/1'/0'/0/0`, network)\n  key.name = 'Owner'\n  return key\n}",
+      "value": "devFundsKeyX = {\n  const network = 'testnet'\n\n  const key = await filecoin_signer.wallet.keyDerive(devFundsMnemonic, `m/44'/1'/0'/0/0`, network)\n  key.name = 'Owner'\n  return key\n}",
       "pinned": true,
       "mode": "js",
       "data": null,
@@ -247,7 +247,7 @@
     },
     {
       "id": 1869,
-      "value": "devFundsId = {\n  invalidatedDevFundsIdAt;\n  try {\n    return await lotusApiClient.state.lookupId(devFundsKey.address, [])\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
+      "value": "devFundsId = {\n  invalidatedDevFundsIdAt;\n  try {\n    return await lotusApiClient.state.lookupId(devFundsAddress, [])\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -263,7 +263,7 @@
     },
     {
       "id": 1672,
-      "value": "devFundsBalance = {\n  invalidatedDevFundsBalanceAt;\n  try {\n    const result = await lotusApiClient.state.getActor(devFundsKey.address, [])\n    return new FilecoinNumber(result.Balance, 'attofil')\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
+      "value": "devFundsBalance = {\n  invalidatedDevFundsBalanceAt;\n  try {\n    const result = await lotusApiClient.state.getActor(devFundsAddress, [])\n    return new FilecoinNumber(result.Balance, 'attofil')\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -295,8 +295,8 @@
     },
     {
       "id": 2071,
-      "value": "walletProvider.signer.getDefaultAddress()",
-      "pinned": true,
+      "value": "devFundsAddress = walletProvider.signer.getDefaultAddress()",
+      "pinned": false,
       "mode": "js",
       "data": null,
       "name": null

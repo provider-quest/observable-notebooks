@@ -54,10 +54,10 @@ function _9(md){return(
 md`**Tip:** You can import the seed phrase from above to create a "burner wallet" using the [GLIF Wallet](https://wallet.glif.io/?network=wallaby) (optional)`
 )}
 
-function _10(md,devFundsKey,devFundsId,devFundsBalance)
+function _10(md,devFundsAddress,devFundsId,devFundsBalance)
 {
   return md`
-Address: **\`${devFundsKey.address}\`**
+Address: **\`${devFundsAddress}\`**
 
 ID: ${!devFundsId || devFundsId.error ? "Doesn't exist yet, transfer in some funds." : devFundsId} \ 
 Balance: ${!devFundsBalance || devFundsBalance.error ? '0 FIL' : devFundsBalance.toFil() + ' FIL'}
@@ -76,8 +76,8 @@ function _12(md){return(
 md`You can get some funds from the [Wallaby Faucet](https://wallaby.network/#faucet) ... just submit the address above, complete the captcha, and wait for the funds to be deposited. (Be sure to scroll down to see the form)`
 )}
 
-function _13(md,devFundsKey){return(
-md`Also, check out the [GLIF Explorer](https://explorer.glif.io/actor/?network=wallaby&address=${devFundsKey.address}) to watch the transactions for the address in real time.`
+function _13(md,devFundsAddress){return(
+md`Also, check out the [GLIF Explorer](https://explorer.glif.io/actor/?network=wallaby&address=${devFundsAddress}) to watch the transactions for the address in real time.`
 )}
 
 function _14(md){return(
@@ -98,7 +98,7 @@ function _devFundsMnemonic(localStorage,filecoin_signer)
 }
 
 
-async function _devFundsKey(filecoin_signer,devFundsMnemonic)
+async function _devFundsKeyX(filecoin_signer,devFundsMnemonic)
 {
   const network = 'testnet'
 
@@ -108,11 +108,11 @@ async function _devFundsKey(filecoin_signer,devFundsMnemonic)
 }
 
 
-async function _devFundsId(invalidatedDevFundsIdAt,lotusApiClient,devFundsKey)
+async function _devFundsId(invalidatedDevFundsIdAt,lotusApiClient,devFundsAddress)
 {
   invalidatedDevFundsIdAt;
   try {
-    return await lotusApiClient.state.lookupId(devFundsKey.address, [])
+    return await lotusApiClient.state.lookupId(devFundsAddress, [])
   } catch (e) {
     return { error: e.message }
   }
@@ -123,11 +123,11 @@ function _invalidatedDevFundsIdAt(){return(
 new Date()
 )}
 
-async function _devFundsBalance(invalidatedDevFundsBalanceAt,lotusApiClient,devFundsKey,FilecoinNumber)
+async function _devFundsBalance(invalidatedDevFundsBalanceAt,lotusApiClient,devFundsAddress,FilecoinNumber)
 {
   invalidatedDevFundsBalanceAt;
   try {
-    const result = await lotusApiClient.state.getActor(devFundsKey.address, [])
+    const result = await lotusApiClient.state.getActor(devFundsAddress, [])
     return new FilecoinNumber(result.Balance, 'attofil')
   } catch (e) {
     return { error: e.message }
@@ -154,7 +154,7 @@ function _walletProvider(filecoinJs,lotusApiClient,devFundsMnemonic)
 }
 
 
-function _23(walletProvider){return(
+function _devFundsAddress(walletProvider){return(
 walletProvider.signer.getDefaultAddress()
 )}
 
@@ -1165,24 +1165,24 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _7);
   main.variable(observer()).define(["md","devFundsMnemonic"], _8);
   main.variable(observer()).define(["md"], _9);
-  main.variable(observer()).define(["md","devFundsKey","devFundsId","devFundsBalance"], _10);
+  main.variable(observer()).define(["md","devFundsAddress","devFundsId","devFundsBalance"], _10);
   main.variable(observer()).define(["Inputs","mutable invalidatedDevFundsIdAt","mutable invalidatedDevFundsBalanceAt"], _11);
   main.variable(observer()).define(["md"], _12);
-  main.variable(observer()).define(["md","devFundsKey"], _13);
+  main.variable(observer()).define(["md","devFundsAddress"], _13);
   main.variable(observer()).define(["md"], _14);
   main.variable(observer("devFundsMnemonic")).define("devFundsMnemonic", ["localStorage","filecoin_signer"], _devFundsMnemonic);
-  main.variable(observer("devFundsKey")).define("devFundsKey", ["filecoin_signer","devFundsMnemonic"], _devFundsKey);
-  main.variable(observer("devFundsId")).define("devFundsId", ["invalidatedDevFundsIdAt","lotusApiClient","devFundsKey"], _devFundsId);
+  main.variable(observer("devFundsKeyX")).define("devFundsKeyX", ["filecoin_signer","devFundsMnemonic"], _devFundsKeyX);
+  main.variable(observer("devFundsId")).define("devFundsId", ["invalidatedDevFundsIdAt","lotusApiClient","devFundsAddress"], _devFundsId);
   main.define("initial invalidatedDevFundsIdAt", _invalidatedDevFundsIdAt);
   main.variable(observer("mutable invalidatedDevFundsIdAt")).define("mutable invalidatedDevFundsIdAt", ["Mutable", "initial invalidatedDevFundsIdAt"], (M, _) => new M(_));
   main.variable(observer("invalidatedDevFundsIdAt")).define("invalidatedDevFundsIdAt", ["mutable invalidatedDevFundsIdAt"], _ => _.generator);
-  main.variable(observer("devFundsBalance")).define("devFundsBalance", ["invalidatedDevFundsBalanceAt","lotusApiClient","devFundsKey","FilecoinNumber"], _devFundsBalance);
+  main.variable(observer("devFundsBalance")).define("devFundsBalance", ["invalidatedDevFundsBalanceAt","lotusApiClient","devFundsAddress","FilecoinNumber"], _devFundsBalance);
   main.define("initial invalidatedDevFundsBalanceAt", _invalidatedDevFundsBalanceAt);
   main.variable(observer("mutable invalidatedDevFundsBalanceAt")).define("mutable invalidatedDevFundsBalanceAt", ["Mutable", "initial invalidatedDevFundsBalanceAt"], (M, _) => new M(_));
   main.variable(observer("invalidatedDevFundsBalanceAt")).define("invalidatedDevFundsBalanceAt", ["mutable invalidatedDevFundsBalanceAt"], _ => _.generator);
   main.variable(observer("devFundsReady")).define("devFundsReady", ["devFundsId"], _devFundsReady);
   main.variable(observer("walletProvider")).define("walletProvider", ["filecoinJs","lotusApiClient","devFundsMnemonic"], _walletProvider);
-  main.variable(observer()).define(["walletProvider"], _23);
+  main.variable(observer("devFundsAddress")).define("devFundsAddress", ["walletProvider"], _devFundsAddress);
   main.variable(observer()).define(["md"], _24);
   main.variable(observer()).define(["md"], _25);
   main.variable(observer()).define(["md","randomMnemonic"], _26);
