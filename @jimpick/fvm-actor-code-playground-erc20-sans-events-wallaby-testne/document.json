@@ -24,12 +24,12 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-11T00:47:59.879Z",
+  "update_time": "2022-11-11T01:02:02.875Z",
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2109,
-  "latest_version": 2109,
-  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
-  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "publish_version": 2117,
+  "latest_version": 2117,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
   "edits": [
@@ -118,7 +118,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2109,
+  "version": 2117,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -237,7 +237,7 @@
     },
     {
       "id": 1625,
-      "value": "devFundsMnemonic = {\n  const localStorageKey = 'fvm_playground_dev_funds_phrase'\n  let phrase = localStorage.getItem(localStorageKey)\n  if (!phrase) {\n    // https://github.com/blitslabs/filecoin-js-signer#filecoin-signer\n    const strength = 256 // 128 => 12 words | 256 => 24 words\n    phrase = filecoin_signer.wallet.generateMnemonic(strength)\n    localStorage.setItem(localStorageKey, phrase)\n  }\n  return phrase\n}",
+      "value": "devFundsMnemonic = {\n  const localStorageKey = 'fvm_playground_dev_funds_phrase'\n  let phrase = localStorage.getItem(localStorageKey)\n  if (!phrase) {\n    phrase = bip39.generateMnemonic()\n    localStorage.setItem(localStorageKey, phrase)\n  }\n  return phrase\n}",
       "pinned": true,
       "mode": "js",
       "data": null,
@@ -934,6 +934,14 @@
     {
       "id": 1683,
       "value": "filecoinJs = (await import('https://jspm.dev/filecoin.js')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2110,
+      "value": "bip39 = require('https://bundle.run/bip39@3.0.4')",
       "pinned": true,
       "mode": "js",
       "data": null,
