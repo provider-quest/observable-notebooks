@@ -24,12 +24,12 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-11T00:32:55.866Z",
+  "update_time": "2022-11-11T00:42:07.884Z",
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2096,
-  "latest_version": 2096,
-  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
-  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "publish_version": 2103,
+  "latest_version": 2103,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
   "owner": {
@@ -112,7 +112,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2096,
+  "version": 2103,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -279,23 +279,15 @@
     },
     {
       "id": 2066,
-      "value": "walletProvider = {\n  // https://filecoin-shipyard.github.io/filecoin.js/docs/setup-mnemonic-provider\n  return filecoinJs.MnemonicWalletProvider(\n    lotusApiClient,\n    devFundsMnemonic,\n    `m/44'/1'/0'/0/0`\n  )\n}",
+      "value": "walletProvider = {\n  // https://filecoin-shipyard.github.io/filecoin.js/docs/setup-mnemonic-provider\n  return new filecoinJs.MnemonicWalletProvider(\n    lotusApiClient,\n    devFundsMnemonic,\n    `m/44'/1'/0'/0/0`\n  )\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
     },
     {
-      "id": 2093,
-      "value": "walletProvider.LotusWalletProvider()",
-      "pinned": true,
-      "mode": "js",
-      "data": null,
-      "name": null
-    },
-    {
       "id": 2071,
-      "value": "devFundsAddress = walletProvider.signer.getDefaultAddress()",
+      "value": "devFundsAddress = walletProvider.getDefaultAddress()",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -399,7 +391,7 @@
     },
     {
       "id": 1118,
-      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      responses.push(await send())\n\n      async function send () {\n        // https://filecoin-shipyard.github.io/filecoin.js/docs/send-message\n        const message = await walletProvider.createMessage({\n          To: key.delegated.toString(),\n          From: devFundsAddress,\n          Value: new filecoinNumber.FilecoinNumber(100, 'fil')\n        })\n        const msg = await walletProvider.sendMessage(message)\n        return msg\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    /*\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n    */\n  }\n}",
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      responses.push(await send())\n\n      async function send () {\n        // https://filecoin-shipyard.github.io/filecoin.js/docs/send-message\n        const message = await walletProvider.createMessage({\n          To: key.delegated.toString(),\n          From: devFundsAddress,\n          Value: (new filecoinNumber.FilecoinNumber(100, 'fil')).toAttoFil()\n        })\n        console.log('Jim1', message)\n        /*\n        const msg = await walletProvider.sendMessage(message)\n        return msg\n        */\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    /*\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n    */\n  }\n}",
       "pinned": true,
       "mode": "js",
       "data": null,
