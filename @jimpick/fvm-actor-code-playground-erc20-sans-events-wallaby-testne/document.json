@@ -24,20 +24,14 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-11T01:03:13.468Z",
+  "update_time": "2022-11-11T01:07:33.236Z",
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2118,
-  "latest_version": 2118,
+  "publish_version": 2120,
+  "latest_version": 2120,
   "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
   "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
   "roles": [],
   "sharing": null,
-  "edits": [
-    {
-      "node_id": 1118,
-      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      responses.push(await send())\n\n      async function send () {\n        // https://filecoin-shipyard.github.io/filecoin.js/docs/send-message\n        const message = await walletProvider.createMessage({\n          To: key.delegated.toString(),\n          From: devFundsAddress,\n          Value: (new filecoinNumber.FilecoinNumber(100, 'fil')).toAttoFil()\n        })\n        console.log('Jim1', message)\n        const msg = await walletProvider.sendMessage(message)\n        return msg\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    /*\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n    */\n  }\n}"
-    }
-  ],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -118,7 +112,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2118,
+  "version": 2120,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -333,7 +327,7 @@
     },
     {
       "id": 1096,
-      "value": "randomMnemonic = {\n  // https://github.com/blitslabs/filecoin-js-signer#filecoin-signer\n  const strength = 128 // 128 => 12 words | 256 => 24 words\n  return filecoin_signer.wallet.generateMnemonic(strength)\n}",
+      "value": "randomMnemonic = bip39.generateMnemonic()",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -397,7 +391,7 @@
     },
     {
       "id": 1118,
-      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      responses.push(await send())\n\n      async function send () {\n        // https://filecoin-shipyard.github.io/filecoin.js/docs/send-message\n        const message = await walletProvider.createMessage({\n          To: key.delegated.toString(),\n          From: devFundsAddress,\n          Value: (new filecoinNumber.FilecoinNumber(100, 'fil')).toAttoFil()\n        })\n        console.log('Jim1', message)\n        const msg = await walletProvider.sendMessage(message)\n        return msg\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    /*\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n    */\n  }\n}",
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      responses.push(await send())\n\n      async function send () {\n        // https://filecoin-shipyard.github.io/filecoin.js/docs/send-message\n        const message = await walletProvider.createMessage({\n          To: key.delegated.toString(),\n          From: devFundsAddress,\n          Value: (new filecoinNumber.FilecoinNumber(100, 'fil')).toAttoFil()\n        })\n        console.log('Jim1', message)\n        const msg = await walletProvider.signMessage(message)\n        console.log('Jim2', msg)\n        // return msg\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    /*\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n    */\n  }\n}",
       "pinned": true,
       "mode": "js",
       "data": null,

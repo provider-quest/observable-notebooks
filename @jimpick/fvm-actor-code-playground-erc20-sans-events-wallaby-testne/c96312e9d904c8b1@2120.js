@@ -167,13 +167,9 @@ function _26(md){return(
 md`---`
 )}
 
-function _randomMnemonic(filecoin_signer)
-{
-  // https://github.com/blitslabs/filecoin-js-signer#filecoin-signer
-  const strength = 128 // 128 => 12 words | 256 => 24 words
-  return filecoin_signer.wallet.generateMnemonic(strength)
-}
-
+function _randomMnemonic(bip39){return(
+bip39.generateMnemonic()
+)}
 
 async function _keys(ethers,randomMnemonic,filecoinAddress)
 {
@@ -253,8 +249,9 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,walletProvider,de
           Value: (new filecoinNumber.FilecoinNumber(100, 'fil')).toAttoFil()
         })
         console.log('Jim1', message)
-        const msg = await walletProvider.sendMessage(message)
-        return msg
+        const msg = await walletProvider.signMessage(message)
+        console.log('Jim2', msg)
+        // return msg
       }
     }
     const waitStart = Date.now()
@@ -1165,7 +1162,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _24);
   main.variable(observer()).define(["md","randomMnemonic"], _25);
   main.variable(observer()).define(["md"], _26);
-  main.variable(observer("randomMnemonic")).define("randomMnemonic", ["filecoin_signer"], _randomMnemonic);
+  main.variable(observer("randomMnemonic")).define("randomMnemonic", ["bip39"], _randomMnemonic);
   main.variable(observer("keys")).define("keys", ["ethers","randomMnemonic","filecoinAddress"], _keys);
   main.variable(observer("clientAddresses")).define("clientAddresses", ["keys"], _clientAddresses);
   main.variable(observer("ownerKey")).define("ownerKey", ["keys"], _ownerKey);
