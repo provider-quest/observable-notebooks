@@ -47,6 +47,7 @@ Plot.plot({
   y: {
     grid: true
   },
+  marginLeft: 60,
   marks: [
     Plot.areaY(weeklyDeals, {x: "date", y: "sumPieceSizeTiB", fill: "#bab0ab", curve: "step"}),
     Plot.ruleY([0])

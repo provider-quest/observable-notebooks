@@ -19,16 +19,17 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "type": "individual",
-      "tier": "pro"
+      "tier": "public"
     },
     "version": 347
   },
-  "update_time": "2022-10-16T22:26:04.456Z",
+  "has_importers": false,
+  "update_time": "2022-11-11T18:17:22.579Z",
   "publish_time": "2021-08-25T16:28:48.307Z",
-  "publish_version": 489,
-  "latest_version": 489,
-  "thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
-  "default_thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+  "publish_version": 490,
+  "latest_version": 490,
+  "thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
+  "default_thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
   "roles": [],
   "sharing": null,
   "owner": {
@@ -40,7 +41,7 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "pro"
+    "tier": "public"
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -50,7 +51,7 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "pro"
+    "tier": "public"
   },
   "authors": [
     {
@@ -61,7 +62,7 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "github_login": "jimpick",
-      "tier": "pro",
+      "tier": "public",
       "approved": true,
       "description": ""
     }
@@ -77,8 +78,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
-      "thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+      "default_thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
+      "thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -90,7 +91,7 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "pro"
+        "tier": "public"
       }
     }
   ],
@@ -111,14 +112,14 @@
         "name": "Jim Pick",
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
-        "tier": "pro"
+        "tier": "public"
       }
     }
   ],
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 489,
+  "version": 490,
   "title": "Published Deals: Weekly [Provider.Quest]",
   "license": "apache-2.0",
   "copyright": "Copyright 2021 Jim Pick",
@@ -173,7 +174,7 @@
     },
     {
       "id": 41,
-      "value": "Plot.plot({\n  y: {\n    grid: true\n  },\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"sumPieceSizeTiB\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})",
+      "value": "Plot.plot({\n  y: {\n    grid: true\n  },\n  marginLeft: 60,\n  marks: [\n    Plot.areaY(weeklyDeals, {x: \"date\", y: \"sumPieceSizeTiB\", fill: \"#bab0ab\", curve: \"step\"}),\n    Plot.ruleY([0])\n  ]\n})",
       "pinned": false,
       "mode": "js",
       "data": null,
