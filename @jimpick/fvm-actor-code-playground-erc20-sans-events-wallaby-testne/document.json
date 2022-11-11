@@ -24,10 +24,10 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-11T00:12:06.356Z",
+  "update_time": "2022-11-11T00:14:31.768Z",
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2085,
-  "latest_version": 2085,
+  "publish_version": 2087,
+  "latest_version": 2087,
   "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
   "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
   "roles": [],
@@ -112,7 +112,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2085,
+  "version": 2087,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -238,14 +238,6 @@
       "name": null
     },
     {
-      "id": 1632,
-      "value": "devFundsKeyX = {\n  const network = 'testnet'\n\n  const key = await filecoin_signer.wallet.keyDerive(devFundsMnemonic, `m/44'/1'/0'/0/0`, network)\n  key.name = 'Owner'\n  return key\n}",
-      "pinned": true,
-      "mode": "js",
-      "data": null,
-      "name": null
-    },
-    {
       "id": 1869,
       "value": "devFundsId = {\n  invalidatedDevFundsIdAt;\n  try {\n    return await lotusApiClient.state.lookupId(devFundsAddress, [])\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
       "pinned": false,
@@ -288,7 +280,7 @@
     {
       "id": 2066,
       "value": "walletProvider = {\n  // https://filecoin-shipyard.github.io/filecoin.js/docs/setup-mnemonic-provider\n  return filecoinJs.MnemonicWalletProvider(\n    lotusApiClient,\n    devFundsMnemonic,\n    `m/44'/1'/0'/0/0`\n  )\n}",
-      "pinned": true,
+      "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
