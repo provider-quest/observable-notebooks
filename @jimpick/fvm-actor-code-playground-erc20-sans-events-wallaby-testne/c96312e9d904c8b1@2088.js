@@ -235,7 +235,7 @@ function _34(md){return(
 md`---`
 )}
 
-async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsKey,filecoin_client)
+async function* _transferFundsStatus(walletDefaultAddress,keys,filecoin_client,privateKey,walletProvider,devFundsAddress,BigNumber)
 {
   if (walletDefaultAddress && keys) {
     const start = Date.now()
@@ -243,10 +243,8 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsKey,filec
       transferring: true,
       start
     }
-    const privateKey = devFundsKey.privateKey
     const responses = []
     for (const key of keys) {
-      console.log('Jim1', key.delegated.toString(), key.delegated.address)
       responses.push(await filecoin_client.tx.send(
         key.delegated.toString(), // to
         '1000000000000000000',
@@ -255,6 +253,16 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsKey,filec
         'testnet', // network
         false // waitMsg
       ))
+
+      async function send () {
+        // https://filecoin-shipyard.github.io/filecoin.js/docs/send-message
+        const message = await walletProvider.createMessage({
+          To: key.delegated.toString(),
+          From: devFundsAddress,
+          Value: new BigNumber('1000000000000000000'),
+        });
+        const msg = await walletProvider.sendMessage(message)
+      }
     }
     const waitStart = Date.now()
     yield { waiting: true, start, waitStart, responses }
@@ -1184,7 +1192,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _32);
   main.variable(observer()).define(["transferFundsStatus","md","Promises"], _33);
   main.variable(observer()).define(["md"], _34);
-  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","devFundsKey","filecoin_client"], _transferFundsStatus);
+  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","filecoin_client","privateKey","walletProvider","devFundsAddress","BigNumber"], _transferFundsStatus);
   main.variable(observer()).define(["md"], _36);
   main.variable(observer()).define(["md"], _37);
   main.variable(observer()).define(["Inputs","initialBalances","keys","transferFundsStatus","FilecoinNumber"], _38);
