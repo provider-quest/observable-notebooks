@@ -235,7 +235,7 @@ function _34(md){return(
 md`---`
 )}
 
-async function* _transferFundsStatus(walletDefaultAddress,keys,filecoin_client,privateKey,walletProvider,devFundsAddress,BigNumber)
+async function* _transferFundsStatus(walletDefaultAddress,keys,walletProvider,devFundsAddress,filecoinNumber)
 {
   if (walletDefaultAddress && keys) {
     const start = Date.now()
@@ -245,23 +245,17 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,filecoin_client,p
     }
     const responses = []
     for (const key of keys) {
-      responses.push(await filecoin_client.tx.send(
-        key.delegated.toString(), // to
-        '1000000000000000000',
-        1000000000, // gaslimit
-        privateKey,
-        'testnet', // network
-        false // waitMsg
-      ))
+      responses.push(await send())
 
       async function send () {
         // https://filecoin-shipyard.github.io/filecoin.js/docs/send-message
         const message = await walletProvider.createMessage({
           To: key.delegated.toString(),
           From: devFundsAddress,
-          Value: new BigNumber('1000000000000000000'),
-        });
+          Value: new filecoinNumber.FilecoinNumber(100, 'fil')
+        })
         const msg = await walletProvider.sendMessage(message)
+        return msg
       }
     }
     const waitStart = Date.now()
@@ -1109,8 +1103,8 @@ function _lotusApiClient(filecoinJs,baseUrl,token)
 }
 
 
-function _walletDefaultAddress(devFundsReady,devFundsKey){return(
-devFundsReady && devFundsKey.address
+function _walletDefaultAddress(devFundsReady,devFundsAddress){return(
+devFundsReady && devFundsAddress
 )}
 
 function _getEvmAddress(){return(
@@ -1192,7 +1186,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _32);
   main.variable(observer()).define(["transferFundsStatus","md","Promises"], _33);
   main.variable(observer()).define(["md"], _34);
-  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","filecoin_client","privateKey","walletProvider","devFundsAddress","BigNumber"], _transferFundsStatus);
+  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","walletProvider","devFundsAddress","filecoinNumber"], _transferFundsStatus);
   main.variable(observer()).define(["md"], _36);
   main.variable(observer()).define(["md"], _37);
   main.variable(observer()).define(["Inputs","initialBalances","keys","transferFundsStatus","FilecoinNumber"], _38);
@@ -1286,7 +1280,7 @@ export default function define(runtime, observer) {
   main.variable(observer("token")).define("token", _token);
   main.variable(observer("filecoin_client")).define("filecoin_client", ["FilecoinClient","baseUrl","token"], _filecoin_client);
   main.variable(observer("lotusApiClient")).define("lotusApiClient", ["filecoinJs","baseUrl","token"], _lotusApiClient);
-  main.variable(observer("walletDefaultAddress")).define("walletDefaultAddress", ["devFundsReady","devFundsKey"], _walletDefaultAddress);
+  main.variable(observer("walletDefaultAddress")).define("walletDefaultAddress", ["devFundsReady","devFundsAddress"], _walletDefaultAddress);
   main.variable(observer("getEvmAddress")).define("getEvmAddress", _getEvmAddress);
   main.variable(observer("waitMsg")).define("waitMsg", ["lotusApiClient","Promises"], _waitMsg);
   main.variable(observer()).define(["md"], _121);
