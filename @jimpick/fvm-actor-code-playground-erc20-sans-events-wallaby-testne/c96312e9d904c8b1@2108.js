@@ -252,13 +252,11 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,walletProvider,de
         const message = await walletProvider.createMessage({
           To: key.delegated.toString(),
           From: devFundsAddress,
-          Value: new filecoinNumber.FilecoinNumber(100, 'fil')
+          Value: (new filecoinNumber.FilecoinNumber(100, 'fil')).toAttoFil()
         })
         console.log('Jim1', message)
-        /*
         const msg = await walletProvider.sendMessage(message)
         return msg
-        */
       }
     }
     const waitStart = Date.now()
@@ -1010,24 +1008,8 @@ function _buffer(require){return(
 require('https://bundle.run/buffer@6.0.3')
 )}
 
-function _filecoinJsSigner(){return(
-import('https://jspm.dev/@blitslabs/filecoin-js-signer')
-)}
-
 async function _filecoinJs(){return(
 (await import('https://jspm.dev/filecoin.js')).default
-)}
-
-function _FilecoinClient(filecoinJsSigner){return(
-filecoinJsSigner.FilecoinClient
-)}
-
-function _FilecoinSigner(filecoinJsSigner){return(
-filecoinJsSigner.FilecoinSigner
-)}
-
-function _filecoin_signer(FilecoinSigner){return(
-new FilecoinSigner()
 )}
 
 function _filecoinNumber(){return(
@@ -1265,11 +1247,7 @@ export default function define(runtime, observer) {
   const child1 = runtime.module(define1);
   main.import("button", child1);
   main.variable(observer("buffer")).define("buffer", ["require"], _buffer);
-  main.variable(observer("filecoinJsSigner")).define("filecoinJsSigner", _filecoinJsSigner);
   main.variable(observer("filecoinJs")).define("filecoinJs", _filecoinJs);
-  main.variable(observer("FilecoinClient")).define("FilecoinClient", ["filecoinJsSigner"], _FilecoinClient);
-  main.variable(observer("FilecoinSigner")).define("FilecoinSigner", ["filecoinJsSigner"], _FilecoinSigner);
-  main.variable(observer("filecoin_signer")).define("filecoin_signer", ["FilecoinSigner"], _filecoin_signer);
   main.variable(observer("filecoinNumber")).define("filecoinNumber", _filecoinNumber);
   main.variable(observer("FilecoinNumber")).define("FilecoinNumber", ["filecoinNumber"], _FilecoinNumber);
   main.variable(observer("ethers")).define("ethers", _ethers);
