@@ -1,0 +1,334 @@
+{
+  "id": "e22b9d2953490c42",
+  "slug": "power-history-provider-quest",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": {
+    "id": "fd1c9b3d2d13ae0c",
+    "slug": "deals-trips-provider-quest",
+    "title": "Deals: Trips [Provider.Quest]",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "public"
+    },
+    "version": 1206
+  },
+  "has_importers": false,
+  "update_time": "2022-03-27T03:30:48.979Z",
+  "publish_time": "2021-10-21T02:38:48.400Z",
+  "publish_version": 1532,
+  "latest_version": 1532,
+  "thumbnail": "b36922d5624525671ee707bc3be24701533b81bab1835d5f5723d8abaa133a19",
+  "default_thumbnail": "b36922d5624525671ee707bc3be24701533b81bab1835d5f5723d8abaa133a19",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public"
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public"
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
+      "thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 1532,
+  "title": "Power: History [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Power: History [Provider.Quest]`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1029,
+      "value": "md`Note: Under construction!`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 734,
+      "value": "md`${quickMenu}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 163,
+      "value": "md`This notebook shows storage providers power growth with location data on a Deck.gl-based 3D globe. (Reported locations from IP addresses, non-verified).`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 972,
+      "value": "viewof elapsed = Scrubber(d3.range(startTime, endTime, (endTime - startTime) / 4000), {\n  delay: 100,\n  loop: false,\n  autoplay: false,\n  initial: 0\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 332,
+      "value": "container = html `<div style=\"height:600px\"></div>`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1356,
+      "value": "overlayLayer = () => {\n  return new deck.TextLayer({\n    id: 'overlay-layer',\n    data: [\n      {\n        text: 'Filecoin Provider Power Growth',\n        position: [ -200, -120 ],\n        size: 24\n      },\n      {\n        text: dateFns.format(viewof elapsed.value, 'yyyy MMM dd'),\n        position: [ -50, 115 ],\n        size: 32\n      },\n      {\n        text: 'Provider.Quest',\n        position: [ 160, -135 ],\n        size: 14\n      }\n    ],\n    getPosition: d => d.position,\n    getText: d => d.text,\n    getSize: d => d.size,\n    getColor: [ 255, 255, 255, 255 ],\n    getTextAnchor: 'start'\n  })\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 314,
+      "value": "md`# Visualizing with Deck.gl\n\nWe have miner power data and we have location data, so we can visualize it with the [Deck.gl](https://deck.gl/) library using a [HexagonLayer](https://deck.gl/#/documentation/deckgl-api-reference/layers/hexagon-layer). (Based on: [@pessimistress/deck-gl-hexagonlayer-example](https://observablehq.com/@pessimistress/deck-gl-hexagonlayer-example), [@nharrisanalyst/deck-gl](https://observablehq.com/@nharrisanalyst/deck-gl))`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 825,
+      "value": "deck = require.alias({\n  // optional dependencies\n  h3: {}\n})('deck.gl@latest/dist.min.js')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 525,
+      "value": "luma = deck && window.luma",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 324,
+      "value": "mapboxgl = require('mapbox-gl')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 334,
+      "value": "initialViewState = ({\n  latitude: 30,\n  longitude: 25,\n  zoom: 1.05,\n  bearing: 0,\n  pitch: 0,\n  minZoom: 1,\n  maxZoom: 20\n})",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 330,
+      "value": "deckgl = {\n  const myDeck = new deck.DeckGL({\n    container,\n    map: mapboxgl,\n    mapboxAccessToken: '',\n    // This token is for demo-purpose only and rotated regularly. Get your token at https://www.mapbox.com\n    mapboxApiAccessToken: 'pk.eyJ1IjoidWJlcmRhdGEiLCJhIjoiY2pudzRtaWloMDAzcTN2bzN1aXdxZHB5bSJ9.2bkj3IiRC8wj3jLThvDGdA',\n    mapStyle: 'mapbox://styles/mapbox/dark-v9',\n    initialViewState,\n    controller: true,\n    views: [\n      new deck.MapView({\n        id: 'map-view'\n      }),\n      new deck.OrthographicView({\n        id: 'ortho-view'\n      })\n    ],\n    layers: [\n      scatterplotLayer(),\n      overlayLayer()\n    ],\n    layerFilter: ({ layer, viewport }) => {\n      if (viewport.id === 'map-view' && layer.id === 'scatterplot-layer') return true\n      if (viewport.id === 'ortho-view' && layer.id === 'overlay-layer') return true\n      return false\n    }\n  })\n  return Object.assign(myDeck, {\n    update(sliderValue) {\n      // console.log('Jim update', sliderValue)\n      myDeck.setProps({ layers: [\n        scatterplotLayer(),\n        overlayLayer()\n      ] })\n    }\n  })\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1034,
+      "value": "scatterplotLayer = () => {\n  const elapsedValue = viewof elapsed.value\n  // console.log('Jim elapsedValue', elapsedValue)\n  return new deck.ScatterplotLayer({\n    id: 'scatterplot-layer',\n    data: geotaggedEvents,\n    getPosition: d => d.location,\n    getRadius: d => {\n      return (d.level + 1) * 50 * 1000 // 50-1500 km\n    },\n    getFillColor: d => {\n      if (d.date > (elapsedValue - 7 * 24 * 60 * 60 * 1000) &&\n          d.date <= elapsedValue) {\n        const alpha = 255 - 255 * (elapsedValue - d.date) / (7 * 24 * 60 * 60 * 1000)\n        const green = Math.min(255, 255 * d.age / (3 * 30 * 24 * 60 * 60 * 1000)) // red -> yellow over 3 months\n        return [255, green, 0, alpha]\n      } else {\n        return [0, 0, 0, 0]\n      }\n    },\n    updateTriggers: {\n      getFillColor: `${elapsedValue}`\n    }\n  })\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 858,
+      "value": "deckgl.update(elapsed)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 866,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1209,
+      "value": "url = 'https://bafybeifp7xypbwiy2mjcp5i57d2vlwrrc4qa7ludjelyk7apraj7n6r4qe.ipfs.dweb.link/combined-events.json'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1212,
+      "value": "providerEvents = (await fetch(url)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1229,
+      "value": "geotaggedEvents = {\n  const geotaggedEvents = []\n  for (const { provider, locations, events } of providerEvents) {\n    const firstEventDate = Number(d3.isoParse(events[0].date))\n    for (const { date, level } of events) {\n      const eventDate = Number(d3.isoParse(date)) - Math.floor(Math.random() * 24 * 60 * 60 * 1000) // randomize over 24 hours\n      geotaggedEvents.push({\n        date: eventDate, \n        age: Math.max(0, eventDate - firstEventDate),\n        level,\n        location: locations[Math.floor(Math.random() * locations.length)]\n      })\n    }\n  }\n  return geotaggedEvents.sort(({ date: a}, { date: b }) => a - b)\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 952,
+      "value": "startTime = geotaggedEvents[0].date",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 955,
+      "value": "endTime = geotaggedEvents[geotaggedEvents.length - 1].date",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 728,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 731,
+      "value": "import {quickMenu} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 912,
+      "value": "dateFns = require('https://bundle.run/date-fns@2.22.1')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 969,
+      "value": "import {Scrubber} from \"@mbostock/scrubber\"",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1522,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1526,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1529,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
