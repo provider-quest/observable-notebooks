@@ -994,6 +994,14 @@ function _skypack(){return(
 (library) => import(`https://cdn.skypack.dev/${library}?min`)
 )}
 
+async function _LotusRPC(){return(
+(await import('https://unpkg.com/@filecoin-shipyard/lotus-client-rpc?module')).LotusRPC
+)}
+
+async function _BrowserProvider(){return(
+(await import('https://unpkg.com/@filecoin-shipyard/lotus-client-provider-browser?module')).BrowserProvider
+)}
+
 async function _schema(){return(
 (await import('https://unpkg.com/@filecoin-shipyard/lotus-client-schema?module')).mainnet.fullNode
 )}
@@ -1042,7 +1050,7 @@ function _filecoinAddress(){return(
 import('https://cdn.skypack.dev/@glif/filecoin-address')
 )}
 
-function _118(md){return(
+function _120(md){return(
 md`## Lotus Utilities`
 )}
 
@@ -1091,9 +1099,9 @@ function _token(){return(
 ''
 )}
 
-function _client(BrowserProvider,baseUrl,token,LotusRPC,schema)
+function _client(BrowserProvider,baseUrl,LotusRPC,schema)
 {
-  const provider = new BrowserProvider(`${baseUrl}/rpc/v0`, { token })
+  const provider = new BrowserProvider(`${baseUrl}/rpc/v0`)
   // Monkey-patch in a method to call eth_* JSON-RPC methods
   LotusRPC.prototype.callEthMethod = async function (method, args) {
     await this.provider.connect()
@@ -1144,15 +1152,15 @@ async function waitMsg (cid) {
 }
 )}
 
-function _129(md){return(
+function _131(md){return(
 md`## Backups`
 )}
 
-function _131(backups){return(
+function _133(backups){return(
 backups()
 )}
 
-function _132(backupNowButton){return(
+function _134(backupNowButton){return(
 backupNowButton()
 )}
 
@@ -1274,6 +1282,8 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _97);
   main.variable(observer()).define(["md"], _98);
   main.variable(observer("skypack")).define("skypack", _skypack);
+  main.variable(observer("LotusRPC")).define("LotusRPC", _LotusRPC);
+  main.variable(observer("BrowserProvider")).define("BrowserProvider", _BrowserProvider);
   main.variable(observer("schema")).define("schema", _schema);
   main.variable(observer("stripAnsi")).define("stripAnsi", _stripAnsi);
   main.variable(observer("cbor")).define("cbor", _cbor);
@@ -1290,22 +1300,22 @@ export default function define(runtime, observer) {
   const child2 = runtime.module(define2);
   main.import("localStorage", child2);
   main.variable(observer("filecoinAddress")).define("filecoinAddress", _filecoinAddress);
-  main.variable(observer()).define(["md"], _118);
+  main.variable(observer()).define(["md"], _120);
   main.variable(observer("simpleCoinSol")).define("simpleCoinSol", _simpleCoinSol);
   main.variable(observer("initialCodeUrl")).define("initialCodeUrl", _initialCodeUrl);
   main.variable(observer("baseUrl")).define("baseUrl", _baseUrl);
   main.variable(observer("token")).define("token", _token);
-  main.variable(observer("client")).define("client", ["BrowserProvider","baseUrl","token","LotusRPC","schema"], _client);
+  main.variable(observer("client")).define("client", ["BrowserProvider","baseUrl","LotusRPC","schema"], _client);
   main.variable(observer("filecoin_client")).define("filecoin_client", ["FilecoinClient","baseUrl","token"], _filecoin_client);
   main.variable(observer("lotusApiClient")).define("lotusApiClient", ["filecoinJs","baseUrl","token"], _lotusApiClient);
   main.variable(observer("walletDefaultAddress")).define("walletDefaultAddress", ["devFundsReady","devFundsAddress"], _walletDefaultAddress);
   main.variable(observer("getEvmAddress")).define("getEvmAddress", _getEvmAddress);
   main.variable(observer("waitMsg")).define("waitMsg", ["lotusApiClient","Promises"], _waitMsg);
-  main.variable(observer()).define(["md"], _129);
+  main.variable(observer()).define(["md"], _131);
   const child3 = runtime.module(define3);
   main.import("backups", child3);
   main.import("backupNowButton", child3);
-  main.variable(observer()).define(["backups"], _131);
-  main.variable(observer()).define(["backupNowButton"], _132);
+  main.variable(observer()).define(["backups"], _133);
+  main.variable(observer()).define(["backupNowButton"], _134);
   return main;
 }
