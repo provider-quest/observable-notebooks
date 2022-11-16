@@ -268,8 +268,10 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,client,devFundsWa
         console.log('Transaction:', populatedTx)
         const signedTx = await devFundsWallet.signTransaction(populatedTx)
         console.log('Send Transaction:', provider.formatter.transaction(signedTx))
+        /*
         const response = await client.callEthMethod('sendRawTransaction', [signedTx])
         console.log('Response:', response)
+*/
       }
     }
     const waitStart = Date.now()
