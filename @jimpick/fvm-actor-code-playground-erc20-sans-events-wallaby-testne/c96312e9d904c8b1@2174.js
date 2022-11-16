@@ -240,7 +240,7 @@ function _39(keys){return(
 keys[0].address
 )}
 
-async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsWallet,ethers)
+async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsWallet,ethers,provider,client)
 {
   if (walletDefaultAddress && keys) {
     const start = Date.now()
@@ -254,11 +254,15 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsWallet,et
 
       async function send () {
         console.log('Send to:', key.address)
-        const tx = await devFundsWallet.sendTransaction({
+        const populatedTx = await devFundsWallet.populateTransaction({
           to: key.address,
           value: ethers.utils.parseEther("100.0")
         })
-        console.log('Transaction:', tx)
+        console.log('Transaction:', populatedTx)
+        const signedTx = await devFundsWallet.signTransaction(populatedTx)
+        console.log('Send Transaction:', provider.formatter.transaction(signedTx))
+        const response = await client.callEthMethod('sendRawTransaction', [signedTx])
+        console.log('Response:', response)
       }
     }
     const waitStart = Date.now()
@@ -1087,6 +1091,22 @@ function _token(){return(
 ''
 )}
 
+function _client(BrowserProvider,baseUrl,token,LotusRPC,schema)
+{
+  const provider = new BrowserProvider(`${baseUrl}/rpc/v0`, { token })
+  // Monkey-patch in a method to call eth_* JSON-RPC methods
+  LotusRPC.prototype.callEthMethod = async function (method, args) {
+    await this.provider.connect()
+    const request = {
+      method: `eth_${method}`
+    }
+    request.params = args
+    return this.provider.send(request, {})
+  }
+  return new LotusRPC(provider, { schema })
+}
+
+
 function _filecoin_client(FilecoinClient,baseUrl,token){return(
 new FilecoinClient(baseUrl, token)
 )}
@@ -1124,15 +1144,15 @@ async function waitMsg (cid) {
 }
 )}
 
-function _128(md){return(
+function _129(md){return(
 md`## Backups`
 )}
 
-function _130(backups){return(
+function _131(backups){return(
 backups()
 )}
 
-function _131(backupNowButton){return(
+function _132(backupNowButton){return(
 backupNowButton()
 )}
 
@@ -1185,7 +1205,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["transferFundsStatus","md","Promises"], _37);
   main.variable(observer()).define(["md"], _38);
   main.variable(observer()).define(["keys"], _39);
-  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","devFundsWallet","ethers"], _transferFundsStatus);
+  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","devFundsWallet","ethers","provider","client"], _transferFundsStatus);
   main.variable(observer()).define(["md"], _41);
   main.variable(observer()).define(["md"], _42);
   main.variable(observer()).define(["Inputs","initialBalances","keys","transferFundsStatus","FilecoinNumber"], _43);
@@ -1275,16 +1295,17 @@ export default function define(runtime, observer) {
   main.variable(observer("initialCodeUrl")).define("initialCodeUrl", _initialCodeUrl);
   main.variable(observer("baseUrl")).define("baseUrl", _baseUrl);
   main.variable(observer("token")).define("token", _token);
+  main.variable(observer("client")).define("client", ["BrowserProvider","baseUrl","token","LotusRPC","schema"], _client);
   main.variable(observer("filecoin_client")).define("filecoin_client", ["FilecoinClient","baseUrl","token"], _filecoin_client);
   main.variable(observer("lotusApiClient")).define("lotusApiClient", ["filecoinJs","baseUrl","token"], _lotusApiClient);
   main.variable(observer("walletDefaultAddress")).define("walletDefaultAddress", ["devFundsReady","devFundsAddress"], _walletDefaultAddress);
   main.variable(observer("getEvmAddress")).define("getEvmAddress", _getEvmAddress);
   main.variable(observer("waitMsg")).define("waitMsg", ["lotusApiClient","Promises"], _waitMsg);
-  main.variable(observer()).define(["md"], _128);
+  main.variable(observer()).define(["md"], _129);
   const child3 = runtime.module(define3);
   main.import("backups", child3);
   main.import("backupNowButton", child3);
-  main.variable(observer()).define(["backups"], _130);
-  main.variable(observer()).define(["backupNowButton"], _131);
+  main.variable(observer()).define(["backups"], _131);
+  main.variable(observer()).define(["backupNowButton"], _132);
   return main;
 }

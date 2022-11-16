@@ -24,14 +24,14 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-16T22:11:12.586Z",
+  "update_time": "2022-11-16T22:18:22.876Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2166,
-  "latest_version": 2166,
-  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
-  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "publish_version": 2176,
+  "latest_version": 2176,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
   "owner": {
@@ -114,7 +114,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2166,
+  "version": 2176,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -433,7 +433,7 @@
     },
     {
       "id": 1118,
-      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      responses.push(await send())\n\n      async function send () {\n        console.log('Send to:', key.address)\n        const tx = await devFundsWallet.sendTransaction({\n          to: key.address,\n          value: ethers.utils.parseEther(\"100.0\")\n        })\n        console.log('Transaction:', tx)\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    /*\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n    */\n  }\n}",
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      responses.push(await send())\n\n      async function send () {\n        console.log('Send to:', key.address)\n        const populatedTx = await devFundsWallet.populateTransaction({\n          to: key.address,\n          value: ethers.utils.parseEther(\"100.0\")\n        })\n        console.log('Transaction:', populatedTx)\n        const signedTx = await devFundsWallet.signTransaction(populatedTx)\n        console.log('Send Transaction:', provider.formatter.transaction(signedTx))\n        const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n        console.log('Response:', response)\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    /*\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n    */\n  }\n}",
       "pinned": true,
       "mode": "js",
       "data": null,
@@ -912,6 +912,14 @@
       "name": null
     },
     {
+      "id": 2175,
+      "value": "LotusRPC = (await import('@filecoin-shipyard/lotus-client-rpc')).LotusRPC",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
       "id": 211,
       "value": "schema = (await import('@filecoin-shipyard/lotus-client-schema')).mainnet.fullNode",
       "pinned": true,
@@ -1090,6 +1098,14 @@
     {
       "id": 1692,
       "value": "token = ''",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2173,
+      "value": "client = {\n  const provider = new BrowserProvider(`${baseUrl}/rpc/v0`, { token })\n  // Monkey-patch in a method to call eth_* JSON-RPC methods\n  LotusRPC.prototype.callEthMethod = async function (method, args) {\n    await this.provider.connect()\n    const request = {\n      method: `eth_${method}`\n    }\n    request.params = args\n    return this.provider.send(request, {})\n  }\n  return new LotusRPC(provider, { schema })\n}",
       "pinned": true,
       "mode": "js",
       "data": null,
