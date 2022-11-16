@@ -24,14 +24,22 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-11T01:07:33.236Z",
+  "update_time": "2022-11-16T21:36:04.677Z",
+  "first_public_version": 2004,
+  "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2120,
-  "latest_version": 2120,
-  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
-  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "publish_version": 2128,
+  "latest_version": 2128,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
+  "edits": [
+    {
+      "node_id": 2128,
+      "value": "devFundsDelegated = filecoinAddress.newDelegatedEthAddress(key.address, 't')"
+    }
+  ],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -112,7 +120,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2120,
+  "version": 2128,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -238,6 +246,30 @@
       "name": null
     },
     {
+      "id": 2122,
+      "value": "devFundsKey = ethers.Wallet.fromMnemonic(devFundsMnemonic, `m/44'/60'/0'/0/0`)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2126,
+      "value": "devFundsAddress = devFundsKey.address",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2128,
+      "value": "",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
       "id": 1869,
       "value": "devFundsId = {\n  invalidatedDevFundsIdAt;\n  try {\n    return await lotusApiClient.state.lookupId(devFundsAddress, [])\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
       "pinned": false,
@@ -287,7 +319,7 @@
     },
     {
       "id": 2071,
-      "value": "devFundsAddress = walletProvider.getDefaultAddress()",
+      "value": "devFundsAddressX = walletProvider.getDefaultAddress()",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -336,7 +368,7 @@
     {
       "id": 1106,
       "value": "keys = {\n  const keys = []\n  const names = [ 'Owner', 'Alice', 'Bob', 'Carol' ]\n  for (let i = 0; i < names.length; i++) {\n    const network = 'testnet'\n\n    // const key = await filecoin_signer.wallet.keyDerive(randomMnemonic, `m/44'/60'/0'/0/${i}`, network)\n    const key = await ethers.Wallet.fromMnemonic(randomMnemonic, `m/44'/60'/0'/0/${i}`)\n    key.delegated = filecoinAddress.newDelegatedEthAddress(key.address, 't')\n    \n    key.name = names[i]\n\n    keys.push(key)\n  }\n  return keys\n}",
-      "pinned": false,
+      "pinned": true,
       "mode": "js",
       "data": null,
       "name": null
