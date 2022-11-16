@@ -153,10 +153,6 @@ function _devFundsWallet(ethers,devFundsKey,provider){return(
 new ethers.Wallet(devFundsKey.privateKey, provider)
 )}
 
-function _26(devFundsWallet){return(
-devFundsWallet.getBalance()
-)}
-
 function _27(md){return(
 md`## Generate Client Side Addresses`
 )}
@@ -1176,7 +1172,6 @@ export default function define(runtime, observer) {
   main.variable(observer("invalidatedDevFundsBalanceAt")).define("invalidatedDevFundsBalanceAt", ["mutable invalidatedDevFundsBalanceAt"], _ => _.generator);
   main.variable(observer("devFundsReady")).define("devFundsReady", ["devFundsId"], _devFundsReady);
   main.variable(observer("devFundsWallet")).define("devFundsWallet", ["ethers","devFundsKey","provider"], _devFundsWallet);
-  main.variable(observer()).define(["devFundsWallet"], _26);
   main.variable(observer()).define(["md"], _27);
   main.variable(observer()).define(["md"], _28);
   main.variable(observer()).define(["md","randomMnemonic"], _29);
