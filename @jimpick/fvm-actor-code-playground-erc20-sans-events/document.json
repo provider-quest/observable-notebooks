@@ -24,10 +24,12 @@
     "version": 1076
   },
   "has_importers": false,
-  "update_time": "2022-11-16T00:02:30.295Z",
+  "update_time": "2022-11-16T21:58:23.278Z",
+  "first_public_version": 1718,
+  "paused_version": null,
   "publish_time": "2022-09-15T08:51:24.968Z",
-  "publish_version": 1894,
-  "latest_version": 1894,
+  "publish_version": 1896,
+  "latest_version": 1896,
   "thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "default_thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "roles": [],
@@ -112,7 +114,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 1894,
+  "version": 1896,
   "title": "FVM Actor Code Playground - ERC20 Sans Events",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -440,7 +442,7 @@
     {
       "id": 1754,
       "value": "provider = new ethers.providers.JsonRpcProvider(`${baseUrl}/rpc/v0?token=${token}`)",
-      "pinned": false,
+      "pinned": true,
       "mode": "js",
       "data": null,
       "name": null
@@ -448,7 +450,7 @@
     {
       "id": 1753,
       "value": "deployer = new ethers.Wallet(ownerKey.privateKey, provider)",
-      "pinned": false,
+      "pinned": true,
       "mode": "js",
       "data": null,
       "name": null
