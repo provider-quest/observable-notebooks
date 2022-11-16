@@ -1099,9 +1099,9 @@ function _token(){return(
 ''
 )}
 
-function _client(BrowserProvider,baseUrl,token,LotusRPC,schema)
+function _client(BrowserProvider,baseUrl,LotusRPC,schema)
 {
-  const provider = new BrowserProvider(`${baseUrl}/rpc/v0`, { token })
+  const provider = new BrowserProvider(`${baseUrl}/rpc/v0?token=`)
   // Monkey-patch in a method to call eth_* JSON-RPC methods
   LotusRPC.prototype.callEthMethod = async function (method, args) {
     await this.provider.connect()
@@ -1305,7 +1305,7 @@ export default function define(runtime, observer) {
   main.variable(observer("initialCodeUrl")).define("initialCodeUrl", _initialCodeUrl);
   main.variable(observer("baseUrl")).define("baseUrl", _baseUrl);
   main.variable(observer("token")).define("token", _token);
-  main.variable(observer("client")).define("client", ["BrowserProvider","baseUrl","token","LotusRPC","schema"], _client);
+  main.variable(observer("client")).define("client", ["BrowserProvider","baseUrl","LotusRPC","schema"], _client);
   main.variable(observer("filecoin_client")).define("filecoin_client", ["FilecoinClient","baseUrl","token"], _filecoin_client);
   main.variable(observer("lotusApiClient")).define("lotusApiClient", ["filecoinJs","baseUrl","token"], _lotusApiClient);
   main.variable(observer("walletDefaultAddress")).define("walletDefaultAddress", ["devFundsReady","devFundsAddress"], _walletDefaultAddress);
