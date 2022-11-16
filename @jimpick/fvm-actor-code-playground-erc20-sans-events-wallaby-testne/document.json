@@ -24,22 +24,16 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-16T21:36:04.677Z",
+  "update_time": "2022-11-16T21:40:16.398Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2128,
-  "latest_version": 2128,
-  "thumbnail": null,
-  "default_thumbnail": null,
+  "publish_version": 2143,
+  "latest_version": 2143,
+  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
   "roles": [],
   "sharing": null,
-  "edits": [
-    {
-      "node_id": 2128,
-      "value": "devFundsDelegated = filecoinAddress.newDelegatedEthAddress(key.address, 't')"
-    }
-  ],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -120,7 +114,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2128,
+  "version": 2143,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -199,7 +193,7 @@
     },
     {
       "id": 1635,
-      "value": "{\n  return md`\nAddress: **\\`${devFundsAddress}\\`**\n\nID: ${!devFundsId || devFundsId.error ? \"Doesn't exist yet, transfer in some funds.\" : devFundsId} \\ \nBalance: ${!devFundsBalance || devFundsBalance.error ? '0 FIL' : devFundsBalance.toFil() + ' FIL'}\n`\n}",
+      "value": "{\n  return md`\nAddress: **\\`${devFundsAddress}\\`**\n\nDelegated (t4) Address: ${devFundsDelegatedAddress}\n\nID: ${!devFundsId || devFundsId.error ? \"Doesn't exist yet, transfer in some funds.\" : devFundsId} \\ \nBalance: ${!devFundsBalance || devFundsBalance.error ? '0 FIL' : devFundsBalance.toFil() + ' FIL'}\n`\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -263,7 +257,15 @@
     },
     {
       "id": 2128,
-      "value": "",
+      "value": "devFundsDelegatedKey = filecoinAddress.newDelegatedEthAddress(devFundsAddress, 't')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2137,
+      "value": "devFundsDelegatedAddress = devFundsDelegatedKey.toString()",
       "pinned": true,
       "mode": "js",
       "data": null,
@@ -271,7 +273,7 @@
     },
     {
       "id": 1869,
-      "value": "devFundsId = {\n  invalidatedDevFundsIdAt;\n  try {\n    return await lotusApiClient.state.lookupId(devFundsAddress, [])\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
+      "value": "devFundsId = {\n  invalidatedDevFundsIdAt;\n  try {\n    return await lotusApiClient.state.lookupId(devFundsDelegatedAddress, [])\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -287,7 +289,7 @@
     },
     {
       "id": 1672,
-      "value": "devFundsBalance = {\n  invalidatedDevFundsBalanceAt;\n  try {\n    const result = await lotusApiClient.state.getActor(devFundsAddress, [])\n    return new FilecoinNumber(result.Balance, 'attofil')\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
+      "value": "devFundsBalance = {\n  invalidatedDevFundsBalanceAt;\n  try {\n    const result = await lotusApiClient.state.getActor(devFundsDelegatedAddress, [])\n    return new FilecoinNumber(result.Balance, 'attofil')\n  } catch (e) {\n    return { error: e.message }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
