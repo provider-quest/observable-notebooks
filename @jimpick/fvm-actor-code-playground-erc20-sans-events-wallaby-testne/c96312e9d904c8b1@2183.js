@@ -240,7 +240,7 @@ function _39(keys){return(
 keys[0].address
 )}
 
-async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsWallet,ethers,provider,client)
+async function* _transferFundsStatus(walletDefaultAddress,keys,client,devFundsWallet,ethers,provider)
 {
   if (walletDefaultAddress && keys) {
     const start = Date.now()
@@ -249,14 +249,21 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsWallet,et
       start
     }
     const responses = []
+    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')
     for (const key of keys) {
       responses.push(await send())
+      break
 
       async function send () {
         console.log('Send to:', key.address)
         const populatedTx = await devFundsWallet.populateTransaction({
           to: key.address,
-          value: ethers.utils.parseEther("100.0")
+          value: ethers.utils.parseEther("100.0"),
+          gasLimit: 1000000000,
+          gasPrice: undefined,
+          maxFeePerGas: undefined,
+          maxPriorityFeePerGas: priorityFee,
+          nonce: 1
         })
         console.log('Transaction:', populatedTx)
         const signedTx = await devFundsWallet.signTransaction(populatedTx)
@@ -1213,7 +1220,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["transferFundsStatus","md","Promises"], _37);
   main.variable(observer()).define(["md"], _38);
   main.variable(observer()).define(["keys"], _39);
-  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","devFundsWallet","ethers","provider","client"], _transferFundsStatus);
+  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","client","devFundsWallet","ethers","provider"], _transferFundsStatus);
   main.variable(observer()).define(["md"], _41);
   main.variable(observer()).define(["md"], _42);
   main.variable(observer()).define(["Inputs","initialBalances","keys","transferFundsStatus","FilecoinNumber"], _43);
