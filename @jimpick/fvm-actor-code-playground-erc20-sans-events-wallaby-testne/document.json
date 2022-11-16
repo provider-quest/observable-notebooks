@@ -24,14 +24,14 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-16T21:40:16.398Z",
+  "update_time": "2022-11-16T22:02:23.724Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2143,
-  "latest_version": 2143,
-  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
-  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "publish_version": 2158,
+  "latest_version": 2158,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
   "owner": {
@@ -114,7 +114,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2143,
+  "version": 2158,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -312,17 +312,17 @@
       "name": null
     },
     {
-      "id": 2066,
-      "value": "walletProvider = {\n  // https://filecoin-shipyard.github.io/filecoin.js/docs/setup-mnemonic-provider\n  return new filecoinJs.MnemonicWalletProvider(\n    lotusApiClient,\n    devFundsMnemonic,\n    `m/44'/1'/0'/0/0`\n  )\n}",
-      "pinned": false,
+      "id": 2152,
+      "value": "devFundsWallet = new ethers.Wallet(devFundsKey.privateKey, provider)",
+      "pinned": true,
       "mode": "js",
       "data": null,
       "name": null
     },
     {
-      "id": 2071,
-      "value": "devFundsAddressX = walletProvider.getDefaultAddress()",
-      "pinned": false,
+      "id": 2154,
+      "value": "// (await devFundsWallet.getBalance()).toString()",
+      "pinned": true,
       "mode": "js",
       "data": null,
       "name": null
@@ -642,7 +642,7 @@
     {
       "id": 485,
       "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor')\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    // Needs a zero byte in front\n    const evmActorCidBytes = new Uint8Array(evmActorCid.bytes.length + 1)\n    evmActorCidBytes.set(evmActorCid.bytes, 1)\n    const params = cbor.encode([new cbor.Tagged(42, evmActorCidBytes), evmBytesCbor])\n    // Sending create actor message...\n    const message = {\n      To: 't01',\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    console.log('message', message)\n    const privateKey = devFundsKey.privateKey\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await waitMsg(responseCID)\n    const base64Result = waitResponse.Receipt.Return\n    const decoded = cbor.decode(base64Result, 'base64')\n    const idAddress = filecoinAddress.newAddress(\n      decoded[0][0],\n      decoded[0].slice(1),\n      't'\n    )\n    const robustAddress = filecoinAddress.newAddress(\n      decoded[1][0],\n      decoded[1].slice(1),\n      't'\n    )\n    waitResponse.ReturnDec = {\n      IDAddress: idAddress.toString(),\n      RobustAddress: robustAddress.toString()\n    }\n    yield { installed: true, response: { CID: responseCID }, waitResponse }\n  }\n}",
-      "pinned": false,
+      "pinned": true,
       "mode": "js",
       "data": null,
       "name": null
@@ -1018,6 +1018,14 @@
     {
       "id": 1336,
       "value": "ethers = import('https://cdn.skypack.dev/ethers@5.7.1?min')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2145,
+      "value": "provider = new ethers.providers.JsonRpcProvider(`${baseUrl}/rpc/v0?token=${token}`)",
       "pinned": true,
       "mode": "js",
       "data": null,

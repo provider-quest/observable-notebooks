@@ -149,19 +149,12 @@ function _devFundsReady(devFundsId){return(
 devFundsId && !devFundsId.error
 )}
 
-function _walletProvider(filecoinJs,lotusApiClient,devFundsMnemonic)
-{
-  // https://filecoin-shipyard.github.io/filecoin.js/docs/setup-mnemonic-provider
-  return new filecoinJs.MnemonicWalletProvider(
-    lotusApiClient,
-    devFundsMnemonic,
-    `m/44'/1'/0'/0/0`
-  )
-}
+function _devFundsWallet(ethers,devFundsKey,provider){return(
+new ethers.Wallet(devFundsKey.privateKey, provider)
+)}
 
-
-function _devFundsAddressX(walletProvider){return(
-walletProvider.getDefaultAddress()
+function _26(devFundsWallet){return(
+devFundsWallet.getBalance()
 )}
 
 function _27(md){return(
@@ -1041,11 +1034,15 @@ function _ethers(){return(
 import('https://cdn.skypack.dev/ethers@5.7.1?min')
 )}
 
+function _provider(ethers,baseUrl,token){return(
+new ethers.providers.JsonRpcProvider(`${baseUrl}/rpc/v0?token=${token}`)
+)}
+
 function _filecoinAddress(){return(
 import('https://cdn.skypack.dev/@glif/filecoin-address')
 )}
 
-function _116(md){return(
+function _117(md){return(
 md`## Lotus Utilities`
 )}
 
@@ -1131,15 +1128,15 @@ async function waitMsg (cid) {
 }
 )}
 
-function _126(md){return(
+function _127(md){return(
 md`## Backups`
 )}
 
-function _128(backups){return(
+function _129(backups){return(
 backups()
 )}
 
-function _129(backupNowButton){return(
+function _130(backupNowButton){return(
 backupNowButton()
 )}
 
@@ -1178,8 +1175,8 @@ export default function define(runtime, observer) {
   main.variable(observer("mutable invalidatedDevFundsBalanceAt")).define("mutable invalidatedDevFundsBalanceAt", ["Mutable", "initial invalidatedDevFundsBalanceAt"], (M, _) => new M(_));
   main.variable(observer("invalidatedDevFundsBalanceAt")).define("invalidatedDevFundsBalanceAt", ["mutable invalidatedDevFundsBalanceAt"], _ => _.generator);
   main.variable(observer("devFundsReady")).define("devFundsReady", ["devFundsId"], _devFundsReady);
-  main.variable(observer("walletProvider")).define("walletProvider", ["filecoinJs","lotusApiClient","devFundsMnemonic"], _walletProvider);
-  main.variable(observer("devFundsAddressX")).define("devFundsAddressX", ["walletProvider"], _devFundsAddressX);
+  main.variable(observer("devFundsWallet")).define("devFundsWallet", ["ethers","devFundsKey","provider"], _devFundsWallet);
+  main.variable(observer()).define(["devFundsWallet"], _26);
   main.variable(observer()).define(["md"], _27);
   main.variable(observer()).define(["md"], _28);
   main.variable(observer()).define(["md","randomMnemonic"], _29);
@@ -1273,10 +1270,11 @@ export default function define(runtime, observer) {
   main.variable(observer("filecoinNumber")).define("filecoinNumber", _filecoinNumber);
   main.variable(observer("FilecoinNumber")).define("FilecoinNumber", ["filecoinNumber"], _FilecoinNumber);
   main.variable(observer("ethers")).define("ethers", _ethers);
+  main.variable(observer("provider")).define("provider", ["ethers","baseUrl","token"], _provider);
   const child2 = runtime.module(define2);
   main.import("localStorage", child2);
   main.variable(observer("filecoinAddress")).define("filecoinAddress", _filecoinAddress);
-  main.variable(observer()).define(["md"], _116);
+  main.variable(observer()).define(["md"], _117);
   main.variable(observer("simpleCoinSol")).define("simpleCoinSol", _simpleCoinSol);
   main.variable(observer("initialCodeUrl")).define("initialCodeUrl", _initialCodeUrl);
   main.variable(observer("baseUrl")).define("baseUrl", _baseUrl);
@@ -1286,11 +1284,11 @@ export default function define(runtime, observer) {
   main.variable(observer("walletDefaultAddress")).define("walletDefaultAddress", ["devFundsReady","devFundsAddress"], _walletDefaultAddress);
   main.variable(observer("getEvmAddress")).define("getEvmAddress", _getEvmAddress);
   main.variable(observer("waitMsg")).define("waitMsg", ["lotusApiClient","Promises"], _waitMsg);
-  main.variable(observer()).define(["md"], _126);
+  main.variable(observer()).define(["md"], _127);
   const child3 = runtime.module(define3);
   main.import("backups", child3);
   main.import("backupNowButton", child3);
-  main.variable(observer()).define(["backups"], _128);
-  main.variable(observer()).define(["backupNowButton"], _129);
+  main.variable(observer()).define(["backups"], _129);
+  main.variable(observer()).define(["backupNowButton"], _130);
   return main;
 }
