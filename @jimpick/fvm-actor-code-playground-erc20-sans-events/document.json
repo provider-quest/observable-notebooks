@@ -24,12 +24,12 @@
     "version": 1076
   },
   "has_importers": false,
-  "update_time": "2022-11-17T03:18:04.957Z",
+  "update_time": "2022-11-17T03:20:17.731Z",
   "first_public_version": 1718,
   "paused_version": null,
   "publish_time": "2022-09-15T08:51:24.968Z",
-  "publish_version": 1898,
-  "latest_version": 1898,
+  "publish_version": 1899,
+  "latest_version": 1899,
   "thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "default_thumbnail": "fd95b238ef697c00422e67271e832ddb5e467524b1d2c330ffa3f142d5219d66",
   "roles": [],
@@ -114,7 +114,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 1898,
+  "version": 1899,
   "title": "FVM Actor Code Playground - ERC20 Sans Events",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -466,7 +466,7 @@
     {
       "id": 485,
       "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor', createActorButton)\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    const unsignedTx = await factory.getDeployTransaction(\n      createActorButton.name,\n      createActorButton.symbol,\n      createActorButton.initialSupply,\n      ownerKey.address,\n      {\n        gasLimit: 1000000000,\n        gasPrice: undefined,\n        maxFeePerGas: undefined,\n        maxPriorityFeePerGas: priorityFee,\n        value: undefined,\n        nonce: createActorButton.nonce\n      }\n    )\n    const populatedTx = await deployer.populateTransaction(unsignedTx)\n    const signedTx = await deployer.signTransaction(populatedTx)\n    console.log('Create Actor Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    if (waitResponse?.contractAddress) {\n      waitResponse.delegated = filecoinAddress.newDelegatedEthAddress(waitResponse.contractAddress, 't')\n      waitResponse.actorId = await client.stateLookupID(waitResponse.delegated.toString(), [])\n    }\n    yield { installed: true, response, waitResponse }\n  }\n}",
-      "pinned": true,
+      "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
