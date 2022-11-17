@@ -3,9 +3,9 @@
   "slug": "fvm-actor-code-playground-hello-world",
   "trashed": false,
   "description": "",
-  "likes": 1,
+  "likes": 2,
   "publish_level": "live",
-  "forks": 3,
+  "forks": 4,
   "fork_of": {
     "id": "1f6a1da49a337f42",
     "slug": "codemirror-6",
@@ -23,14 +23,23 @@
     },
     "version": 136
   },
-  "update_time": "2022-10-18T23:35:30.062Z",
+  "has_importers": false,
+  "update_time": "2022-11-17T03:13:07.256Z",
+  "first_public_version": 751,
+  "paused_version": null,
   "publish_time": "2022-04-29T20:09:13.300Z",
-  "publish_version": 790,
-  "latest_version": 790,
+  "publish_version": 792,
+  "latest_version": 792,
   "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
   "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
   "roles": [],
   "sharing": null,
+  "edits": [
+    {
+      "node_id": 222,
+      "value": "## Step 2: Compile\n\nWe have implemented a [simple web service](https://github.com/jimpick/lotus-fvm-localnet-web/blob/main/server.mjs) that accepts a HTTP POST with the code above, and returns a compiled WASM binary (wrapped in a CBOR array, encoded in base64, ready to pass as a 'params' string). The code above is substituted for `src/lib.rs` into the [raulk/fil-hello-world-actor](https://github.com/raulk/fil-hello-world-actor) example and built using `cargo build`. It should compile in less than 30 seconds."
+    }
+  ],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -99,7 +108,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 790,
+  "version": 792,
   "title": "FVM Actor Code Playground - \"Hello World\"",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -514,7 +523,7 @@
     },
     {
       "id": 373,
-      "value": "baseUrl = \"https://fvm-8.default.knative.hex.camp\"",
+      "value": "baseUrl = \"https://fvm-10.default.knative.hex.camp\"",
       "pinned": false,
       "mode": "js",
       "data": null,

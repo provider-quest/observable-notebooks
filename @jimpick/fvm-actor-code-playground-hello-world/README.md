@@ -1,6 +1,6 @@
 # FVM Actor Code Playground - "Hello World"
 
-https://observablehq.com/@jimpick/fvm-actor-code-playground-hello-world@790
+https://observablehq.com/@jimpick/fvm-actor-code-playground-hello-world@792
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -13,8 +13,8 @@ Or, use the [Observable Runtime](https://github.com/observablehq/runtime) to
 import this module directly into your application. To npm install:
 
 ~~~sh
-npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/a153cf753740c27f@790.tgz?v=3
+npm install @observablehq/runtime@5
+npm install https://api.observablehq.com/d/a153cf753740c27f@792.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
