@@ -24,12 +24,12 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T07:28:08.135Z",
+  "update_time": "2022-11-18T19:46:18.805Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2332,
-  "latest_version": 2332,
+  "publish_version": 2336,
+  "latest_version": 2336,
   "thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "default_thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "roles": [],
@@ -120,7 +120,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2332,
+  "version": 2336,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -152,6 +152,22 @@
     {
       "id": 1993,
       "value": "It communicates with the network using the [Wallaby Public GLIF API Gateway](https://wallaby.node.glif.io/) ... so it needs to keep all the secrets local in the web browser.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2333,
+      "value": "## Video Demo",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2335,
+      "value": "* YouTube: [FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet](https://www.youtube.com/watch?v=pp8RIaS9skA)",
       "pinned": false,
       "mode": "md",
       "data": null,
