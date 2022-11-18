@@ -24,16 +24,22 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T02:43:13.054Z",
+  "update_time": "2022-11-18T02:50:25.777Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2201,
-  "latest_version": 2201,
-  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
-  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "publish_version": 2205,
+  "latest_version": 2205,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
+  "edits": [
+    {
+      "node_id": 2205,
+      "value": "keys[0].deleg"
+    }
+  ],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -114,7 +120,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2201,
+  "version": 2205,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -441,7 +447,15 @@
     },
     {
       "id": 1118,
-      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      responses.push(await send())\n\n      async function send () {\n        console.log('Send to:', key.address)\n        const populatedTx = await devFundsWallet.populateTransaction({\n          to: key.address,\n          value: ethers.utils.parseEther(\"100.0\"),\n        })\n        console.log('Transaction:', populatedTx)\n        const signedTx = await devFundsWallet.signTransaction(populatedTx)\n        console.log('Send Transaction:', provider.formatter.transaction(signedTx))\n        const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n        console.log('Response:', response)\n        return response\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {}\n    /*\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    */\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n  }\n}",
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      responses.push(await send())\n\n      async function send () {\n        console.log('Send to:', key.address)\n        const populatedTx = await devFundsWallet.populateTransaction({\n          to: key.address,\n          value: ethers.utils.parseEther(\"100.0\"),\n        })\n        console.log('Transaction:', populatedTx)\n        const signedTx = await devFundsWallet.signTransaction(populatedTx)\n        console.log('Send Transaction:', provider.formatter.transaction(signedTx))\n        const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n        console.log('Response:', response)\n        return response\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitEthTx(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {}\n    /*\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    */\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2205,
+      "value": "",
       "pinned": true,
       "mode": "js",
       "data": null,
@@ -1162,6 +1176,14 @@
     {
       "id": 1915,
       "value": "async function waitMsg (cid) {\n  // console.log('Waiting for', cid)\n  let waitResponse\n  for (let i = 0; i < 36; i++) { // 36 attempts at 5s each\n    waitResponse = await lotusApiClient.state.searchMsg(cid)\n    if (!waitResponse) {\n      // console.log('Sleeping 5s - ', cid['/'], i)\n      await Promises.delay(5000)\n      continue\n    }\n  }\n  return waitResponse\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2202,
+      "value": "async function waitEthTx (txId) {\n  console.log('Waiting for', txId)\n  let waitResponse\n  for (let i = 0; i < 36; i++) { // 36 attempts at 5s each\n    try {\n      waitResponse = await client.callEthMethod('getTransactionReceipt', [txId])\n    } catch (e) {\n      if (e.message !== 'msg does not exist') {\n        console.log('Get transaction error', txId, e)\n        throw (e)\n      }\n    }\n    if (!waitResponse) {\n      console.log('Sleeping 5s - ', txId, i)\n      await Promises.delay(5000)\n      continue\n    }\n  }\n  return waitResponse\n}",
       "pinned": true,
       "mode": "js",
       "data": null,

@@ -243,7 +243,7 @@ function _40(client){return(
 client.callEthMethod('chainId')
 )}
 
-async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsWallet,ethers,provider,client,waitMsg,$0)
+async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsWallet,ethers,provider,client,waitEthTx,$0)
 {
   if (walletDefaultAddress && keys) {
     const start = Date.now()
@@ -273,7 +273,7 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsWallet,et
     yield { waiting: true, start, waitStart, responses }
     const promises = []
     for (const response of responses) {
-      promises.push(waitMsg(response))
+      promises.push(waitEthTx(response))
     }
     const waitResponses = await Promise.all(promises)
     const lookups = {}
@@ -1159,15 +1159,38 @@ async function waitMsg (cid) {
 }
 )}
 
-function _132(md){return(
+function _waitEthTx(client,Promises){return(
+async function waitEthTx (txId) {
+  console.log('Waiting for', txId)
+  let waitResponse
+  for (let i = 0; i < 36; i++) { // 36 attempts at 5s each
+    try {
+      waitResponse = await client.callEthMethod('getTransactionReceipt', [txId])
+    } catch (e) {
+      if (e.message !== 'msg does not exist') {
+        console.log('Get transaction error', txId, e)
+        throw (e)
+      }
+    }
+    if (!waitResponse) {
+      console.log('Sleeping 5s - ', txId, i)
+      await Promises.delay(5000)
+      continue
+    }
+  }
+  return waitResponse
+}
+)}
+
+function _133(md){return(
 md`## Backups`
 )}
 
-function _134(backups){return(
+function _135(backups){return(
 backups()
 )}
 
-function _135(backupNowButton){return(
+function _136(backupNowButton){return(
 backupNowButton()
 )}
 
@@ -1221,7 +1244,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _38);
   main.variable(observer()).define(["keys"], _39);
   main.variable(observer()).define(["client"], _40);
-  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","devFundsWallet","ethers","provider","client","waitMsg","mutable invalidatedDevFundsBalanceAt"], _transferFundsStatus);
+  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","devFundsWallet","ethers","provider","client","waitEthTx","mutable invalidatedDevFundsBalanceAt"], _transferFundsStatus);
   main.variable(observer()).define(["md"], _42);
   main.variable(observer()).define(["md"], _43);
   main.variable(observer()).define(["Inputs","initialBalances","keys","transferFundsStatus","FilecoinNumber"], _44);
@@ -1319,11 +1342,12 @@ export default function define(runtime, observer) {
   main.variable(observer("walletDefaultAddress")).define("walletDefaultAddress", ["devFundsReady","devFundsAddress"], _walletDefaultAddress);
   main.variable(observer("getEvmAddress")).define("getEvmAddress", _getEvmAddress);
   main.variable(observer("waitMsg")).define("waitMsg", ["lotusApiClient","Promises"], _waitMsg);
-  main.variable(observer()).define(["md"], _132);
+  main.variable(observer("waitEthTx")).define("waitEthTx", ["client","Promises"], _waitEthTx);
+  main.variable(observer()).define(["md"], _133);
   const child3 = runtime.module(define3);
   main.import("backups", child3);
   main.import("backupNowButton", child3);
-  main.variable(observer()).define(["backups"], _134);
-  main.variable(observer()).define(["backupNowButton"], _135);
+  main.variable(observer()).define(["backups"], _135);
+  main.variable(observer()).define(["backupNowButton"], _136);
   return main;
 }
