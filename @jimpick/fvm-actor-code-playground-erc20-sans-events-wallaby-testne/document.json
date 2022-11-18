@@ -24,12 +24,12 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T03:39:36.352Z",
+  "update_time": "2022-11-18T03:43:44.143Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2327,
-  "latest_version": 2327,
+  "publish_version": 2329,
+  "latest_version": 2329,
   "thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "default_thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "roles": [],
@@ -120,7 +120,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2327,
+  "version": 2329,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -804,6 +804,14 @@
       "mode": "md",
       "data": null,
       "name": ""
+    },
+    {
+      "id": 2328,
+      "value": "transferFromUserButton",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
     },
     {
       "id": 1578,

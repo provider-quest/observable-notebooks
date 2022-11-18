@@ -740,6 +740,10 @@ function _85(md){return(
 md`---`
 )}
 
+function _86(transferFromUserButton){return(
+transferFromUserButton
+)}
+
 async function* _transferFromUserStatus(transferFromUserButton,ethers,provider,iface,contractBytes,createActorStatus,client,waitEthTx,$0)
 {
   if (transferFromUserButton) {
@@ -765,11 +769,11 @@ async function* _transferFromUserStatus(transferFromUserButton,ethers,provider,i
 }
 
 
-function _87(md){return(
+function _88(md){return(
 md`# Final notes`
 )}
 
-function _88(md){return(
+function _89(md){return(
 md`Thank you for trying out this demo.
 
 If the backend is not working, please get in touch with me. Feel free to fork this notebook to customize your own actors and build scenarios using the on-demand localnet that supports this early version of actors / smart contracts.
@@ -777,7 +781,7 @@ If the backend is not working, please get in touch with me. Feel free to fork th
 I can also deploy custom instances of the localnet and the API for compiling actors ... feel free to contact me at @jimpick on the Filecoin Slack.`
 )}
 
-function _89(md){return(
+function _90(md){return(
 md`## Imports`
 )}
 
@@ -841,7 +845,7 @@ function _filecoinAddress(){return(
 import('https://cdn.skypack.dev/@glif/filecoin-address')
 )}
 
-function _111(md){return(
+function _112(md){return(
 md`## Lotus Utilities`
 )}
 
@@ -968,15 +972,15 @@ async function waitEthTx (txId) {
 }
 )}
 
-function _123(md){return(
+function _124(md){return(
 md`## Backups`
 )}
 
-function _125(backups){return(
+function _126(backups){return(
 backups()
 )}
 
-function _126(backupNowButton){return(
+function _127(backupNowButton){return(
 backupNowButton()
 )}
 
@@ -1085,10 +1089,11 @@ export default function define(runtime, observer) {
   main.variable(observer("transferFromUserButton")).define("transferFromUserButton", ["Generators", "viewof transferFromUserButton"], (G, _) => G.input(_));
   main.variable(observer()).define(["transferFromUserStatus","md","Promises","createActorStatus","html"], _84);
   main.variable(observer()).define(["md"], _85);
+  main.variable(observer()).define(["transferFromUserButton"], _86);
   main.variable(observer("transferFromUserStatus")).define("transferFromUserStatus", ["transferFromUserButton","ethers","provider","iface","contractBytes","createActorStatus","client","waitEthTx","mutable invalidatedBalancesAt"], _transferFromUserStatus);
-  main.variable(observer()).define(["md"], _87);
   main.variable(observer()).define(["md"], _88);
   main.variable(observer()).define(["md"], _89);
+  main.variable(observer()).define(["md"], _90);
   main.variable(observer("skypack")).define("skypack", _skypack);
   main.variable(observer("LotusRPC")).define("LotusRPC", _LotusRPC);
   main.variable(observer("BrowserProvider")).define("BrowserProvider", _BrowserProvider);
@@ -1108,7 +1113,7 @@ export default function define(runtime, observer) {
   const child2 = runtime.module(define2);
   main.import("localStorage", child2);
   main.variable(observer("filecoinAddress")).define("filecoinAddress", _filecoinAddress);
-  main.variable(observer()).define(["md"], _111);
+  main.variable(observer()).define(["md"], _112);
   main.variable(observer("simpleCoinSol")).define("simpleCoinSol", _simpleCoinSol);
   main.variable(observer("initialCodeUrl")).define("initialCodeUrl", _initialCodeUrl);
   main.variable(observer("baseUrl")).define("baseUrl", _baseUrl);
@@ -1120,11 +1125,11 @@ export default function define(runtime, observer) {
   main.variable(observer("getEvmAddress")).define("getEvmAddress", _getEvmAddress);
   main.variable(observer("waitMsg")).define("waitMsg", ["lotusApiClient","Promises"], _waitMsg);
   main.variable(observer("waitEthTx")).define("waitEthTx", ["client","Promises"], _waitEthTx);
-  main.variable(observer()).define(["md"], _123);
+  main.variable(observer()).define(["md"], _124);
   const child3 = runtime.module(define3);
   main.import("backups", child3);
   main.import("backupNowButton", child3);
-  main.variable(observer()).define(["backups"], _125);
-  main.variable(observer()).define(["backupNowButton"], _126);
+  main.variable(observer()).define(["backups"], _126);
+  main.variable(observer()).define(["backupNowButton"], _127);
   return main;
 }
