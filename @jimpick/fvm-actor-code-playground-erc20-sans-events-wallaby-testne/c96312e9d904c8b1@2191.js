@@ -44,8 +44,7 @@ function _8(md,devFundsMnemonic){return(
 md`**Developer funds seed phrase:**
 
 \`\`\`
-${devFundsMnemonic.split(' ').slice(0,12).join(' ')}
-${devFundsMnemonic.split(' ').slice(-12).join(' ')}
+${devFundsMnemonic}
 \`\`\`
 `
 )}
