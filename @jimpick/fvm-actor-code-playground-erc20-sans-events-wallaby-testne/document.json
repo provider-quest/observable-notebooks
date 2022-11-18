@@ -24,16 +24,22 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T02:28:06.996Z",
+  "update_time": "2022-11-18T02:35:07.883Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2191,
-  "latest_version": 2191,
+  "publish_version": 2197,
+  "latest_version": 2197,
   "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
   "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
   "roles": [],
   "sharing": null,
+  "edits": [
+    {
+      "node_id": 1118,
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    for (const key of keys) {\n      responses.push(await send())\n      break\n\n      async function send () {\n        console.log('Send to:', key.address)\n        /*\n        const tx = await devFundsWallet.sendTransaction({\n          to: key.address,\n          value: ethers.utils.parseEther(\"100.0\")\n        })\n        console.log('Sent tx:', tx)\n        */\n        const populatedTx = await devFundsWallet.populateTransaction({\n          to: key.address,\n          value: ethers.utils.parseEther(\"100.0\"),\n          /*\n          gasLimit: 1000000000,\n          gasPrice: undefined,\n          maxFeePerGas: undefined,\n          maxPriorityFeePerGas: priorityFee,\n          nonce: 2\n          */\n        })\n        console.log('Transaction:', populatedTx)\n        const signedTx = await devFundsWallet.signTransaction(populatedTx)\n        console.log('Send Transaction:', provider.formatter.transaction(signedTx))\n        const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n        console.log('Response:', response)\n        return response\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    /*\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n    */\n  }\n}"
+    }
+  ],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -114,7 +120,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2191,
+  "version": 2197,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -441,7 +447,7 @@
     },
     {
       "id": 1118,
-      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    for (const key of keys) {\n      responses.push(await send())\n      break\n\n      async function send () {\n        console.log('Send to:', key.address)\n        const populatedTx = await devFundsWallet.populateTransaction({\n          to: key.address,\n          value: ethers.utils.parseEther(\"100.0\"),\n          gasLimit: 1000000000,\n          gasPrice: undefined,\n          maxFeePerGas: undefined,\n          maxPriorityFeePerGas: priorityFee,\n          nonce: 1\n        })\n        console.log('Transaction:', populatedTx)\n        const signedTx = await devFundsWallet.signTransaction(populatedTx)\n        console.log('Send Transaction:', provider.formatter.transaction(signedTx))\n        /*\n        const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n        console.log('Response:', response)\n*/\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    /*\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n    */\n  }\n}",
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    for (const key of keys) {\n      responses.push(await send())\n      break\n\n      async function send () {\n        console.log('Send to:', key.address)\n        /*\n        const tx = await devFundsWallet.sendTransaction({\n          to: key.address,\n          value: ethers.utils.parseEther(\"100.0\")\n        })\n        console.log('Sent tx:', tx)\n        */\n        const populatedTx = await devFundsWallet.populateTransaction({\n          to: key.address,\n          value: ethers.utils.parseEther(\"100.0\"),\n          /*\n          gasLimit: 1000000000,\n          gasPrice: undefined,\n          maxFeePerGas: undefined,\n          maxPriorityFeePerGas: priorityFee,\n          nonce: 2\n          */\n        })\n        console.log('Transaction:', populatedTx)\n        const signedTx = await devFundsWallet.signTransaction(populatedTx)\n        console.log('Send Transaction:', provider.formatter.transaction(signedTx))\n        const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n        console.log('Response:', response)\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    /*\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {\n      [walletDefaultAddress]: devFundsId\n    }\n    for (const key of keys) {\n      lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n    */\n  }\n}",
       "pinned": true,
       "mode": "js",
       "data": null,

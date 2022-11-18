@@ -259,22 +259,29 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,client,devFundsWa
 
       async function send () {
         console.log('Send to:', key.address)
+        /*
+        const tx = await devFundsWallet.sendTransaction({
+          to: key.address,
+          value: ethers.utils.parseEther("100.0")
+        })
+        console.log('Sent tx:', tx)
+        */
         const populatedTx = await devFundsWallet.populateTransaction({
           to: key.address,
           value: ethers.utils.parseEther("100.0"),
+          /*
           gasLimit: 1000000000,
           gasPrice: undefined,
           maxFeePerGas: undefined,
           maxPriorityFeePerGas: priorityFee,
-          nonce: 1
+          nonce: 2
+          */
         })
         console.log('Transaction:', populatedTx)
         const signedTx = await devFundsWallet.signTransaction(populatedTx)
         console.log('Send Transaction:', provider.formatter.transaction(signedTx))
-        /*
         const response = await client.callEthMethod('sendRawTransaction', [signedTx])
         console.log('Response:', response)
-*/
       }
     }
     const waitStart = Date.now()
