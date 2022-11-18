@@ -24,14 +24,14 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T03:28:37.398Z",
+  "update_time": "2022-11-18T03:32:34.253Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2313,
-  "latest_version": 2313,
-  "thumbnail": null,
-  "default_thumbnail": null,
+  "publish_version": 2322,
+  "latest_version": 2322,
+  "thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
+  "default_thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "roles": [],
   "sharing": null,
   "edits": [
@@ -120,7 +120,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2313,
+  "version": 2322,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -240,7 +240,7 @@
     {
       "id": 2122,
       "value": "devFundsKey = ethers.Wallet.fromMnemonic(devFundsMnemonic, `m/44'/60'/0'/0/0`)",
-      "pinned": true,
+      "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
@@ -248,7 +248,7 @@
     {
       "id": 2126,
       "value": "devFundsAddress = devFundsKey.address",
-      "pinned": true,
+      "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
@@ -256,7 +256,7 @@
     {
       "id": 2128,
       "value": "devFundsDelegatedKey = filecoinAddress.newDelegatedEthAddress(devFundsAddress, 't')",
-      "pinned": true,
+      "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
@@ -264,7 +264,7 @@
     {
       "id": 2137,
       "value": "devFundsDelegatedAddress = devFundsDelegatedKey.toString()",
-      "pinned": true,
+      "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
@@ -312,7 +312,7 @@
     {
       "id": 2152,
       "value": "devFundsWallet = new ethers.Wallet(devFundsKey.privateKey, provider)",
-      "pinned": true,
+      "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
@@ -591,7 +591,7 @@
     },
     {
       "id": 485,
-      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor', createActorButton)\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    const unsignedTx = await factory.getDeployTransaction(\n      createActorButton.name,\n      createActorButton.symbol,\n      createActorButton.initialSupply,\n      ownerKey.address,\n      {\n        gasLimit: 1000000000,\n        gasPrice: undefined,\n        maxFeePerGas: undefined,\n        maxPriorityFeePerGas: priorityFee,\n        value: undefined,\n        // nonce: createActorButton.nonce\n      }\n    )\n    const populatedTx = await deployer.populateTransaction(unsignedTx)\n    const signedTx = await deployer.signTransaction(populatedTx)\n    console.log('Create Actor Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    if (waitResponse?.contractAddress) {\n      waitResponse.delegated = filecoinAddress.newDelegatedEthAddress(waitResponse.contractAddress, 't')\n      waitResponse.actorId = await client.stateLookupID(waitResponse.delegated.toString(), [])\n    }\n    yield { installed: true, response, waitResponse }\n  }\n}",
+      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor', createActorButton)\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    // const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    const unsignedTx = await factory.getDeployTransaction(\n      createActorButton.name,\n      createActorButton.symbol,\n      createActorButton.initialSupply,\n      ownerKey.address,\n      /*\n      {\n        gasLimit: 1000000000,\n        gasPrice: undefined,\n        maxFeePerGas: undefined,\n        maxPriorityFeePerGas: priorityFee,\n        value: undefined,\n        // nonce: createActorButton.nonce\n      }\n      */\n    )\n    const populatedTx = await deployer.populateTransaction(unsignedTx)\n    const signedTx = await deployer.signTransaction(populatedTx)\n    console.log('Create Actor Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    if (waitResponse?.contractAddress) {\n      waitResponse.delegated = filecoinAddress.newDelegatedEthAddress(waitResponse.contractAddress, 't')\n      waitResponse.actorId = await client.stateLookupID(waitResponse.delegated.toString(), [])\n    }\n    yield { installed: true, response, waitResponse }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -615,7 +615,7 @@
     },
     {
       "id": 238,
-      "value": "md`## Step 3: Invoke a method to get the ERC20 token balance for the owner address (${devFundsId})`",
+      "value": "md`## Step 3: Invoke a method to get the ERC20 token balance for the owner address (${ownerId})`",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -647,7 +647,7 @@
     },
     {
       "id": 1254,
-      "value": "md`## Step 4: Invoke a method to transfer ERC20 tokens from the owner address (${devFundsId}) to a user address`",
+      "value": "md`## Step 4: Invoke a method to transfer ERC20 tokens from the owner address (${ownerId}) to a user address`",
       "pinned": false,
       "mode": "js",
       "data": null,
