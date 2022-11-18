@@ -520,42 +520,9 @@ Inputs.button(`Get ERC20 Token Balance for Owner (${ownerId})`, {
 })
 )}
 
-async function* _67(invokeEvmMethodStatus,md,Promises,invokeEvmMethodButton,html)
-{
-  if (invokeEvmMethodStatus === undefined || !invokeEvmMethodStatus) {
-    yield md`Status: Method has not been invoked yet.`
-    return
-  }
-  if (invokeEvmMethodStatus.invoking) {
-    while (true) {
-      const elapsed = (Date.now() - invokeEvmMethodStatus.start) / 1000
-      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`
-      await Promises.delay(1000)
-    }
-  }
-  if (invokeEvmMethodStatus.response) {
-    while (true) {
-      let output = `<div><b>Message sent to actor</b></div>
-      <div>To: ${invokeEvmMethodButton}</div>
-      <div>Message CID: <a href="https://explorer.glif.io/message/?network=wallaby&cid=${invokeEvmMethodStatus.response.CID['/']}">${invokeEvmMethodStatus.response.CID['/']}</a></div>
-      `
-      if (invokeEvmMethodStatus.waitResponse) {
-        output += `<div>Message executed in block at height: ${invokeEvmMethodStatus.waitResponse.Height}</div>`
-        output += `<div>Gas used: ${invokeEvmMethodStatus.waitResponse.Receipt.GasUsed}</div>`
-        output += `<div>Return: ${invokeEvmMethodStatus.waitResponse.Receipt.Return} (Base64 encoded binary array)</div>`
-        output += `<div><b>Decoded Result (Hex):</b> <b style="font-size: 100%">${JSON.stringify(invokeEvmMethodStatus.decodedResult.toString('hex'))}</b></div>`
-        output += `<div><b>Decoded Result (Decimal):</b> <b style="font-size: 100%">${Number(`0x${invokeEvmMethodStatus.decodedResult.toString('hex')}`)} tokens</b></div>`
-        yield html`${output}`
-        break
-      }
-      const elapsed = (Date.now() - invokeEvmMethodStatus.waitStart) / 1000
-      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`
-      yield html`${output}`
-      await Promises.delay(1000)
-    }
-  }
-}
-
+function _67(invokeEvmMethodButton,md){return(
+invokeEvmMethodButton ? md`Balance: ${invokeEvmMethodButton}` : md``
+)}
 
 function _68(md){return(
 md`---`
@@ -1236,7 +1203,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _65);
   main.variable(observer("viewof invokeEvmMethodButton")).define("viewof invokeEvmMethodButton", ["Inputs","ownerId","createActorStatus","contract","keys"], _invokeEvmMethodButton);
   main.variable(observer("invokeEvmMethodButton")).define("invokeEvmMethodButton", ["Generators", "viewof invokeEvmMethodButton"], (G, _) => G.input(_));
-  main.variable(observer()).define(["invokeEvmMethodStatus","md","Promises","invokeEvmMethodButton","html"], _67);
+  main.variable(observer()).define(["invokeEvmMethodButton","md"], _67);
   main.variable(observer()).define(["md"], _68);
   main.variable(observer("invokeEvmMethodStatus")).define("invokeEvmMethodStatus", ["invokeEvmMethodButton","buffer","getEvmAddress","devFundsId","walletDefaultAddress","devFundsKey","filecoin_client","waitMsg"], _invokeEvmMethodStatus);
   main.variable(observer()).define(["md","devFundsId"], _70);
