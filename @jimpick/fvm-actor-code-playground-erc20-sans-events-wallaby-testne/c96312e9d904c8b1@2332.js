@@ -345,7 +345,7 @@ Inputs.form([
 )}
 
 function _47(md,ownerId){return(
-md`The "address" will be set to \`${ownerId}\`, which is the address for our owner role.`
+md`The "address" will be set to \`${ownerId}\`, which is the client that has the owner role.`
 )}
 
 function _48(md){return(
