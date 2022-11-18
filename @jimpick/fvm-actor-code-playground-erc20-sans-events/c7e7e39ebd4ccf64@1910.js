@@ -20,7 +20,7 @@ You can modify it here, then scroll down and click the buttons to compile it, th
 )}
 
 function _3(md){return(
-md`This notebook is currently using a mix of Lotus JSON-RPC APIs + Ethereum JSON-RPC APIs. It is mostly using Ethereum APIs which are partly working now.`
+md`This notebook is currently using a mix of Lotus JSON-RPC APIs + (mostly) Ethereum JSON-RPC APIs.`
 )}
 
 function _4(md){return(
@@ -90,7 +90,7 @@ md`## Wait for Lotus to be ready, then transfer 100 FIL to each address`
 )}
 
 function _15(md){return(
-md`Be patient as it takes a little while for the funds to be sent via the Lotus JSON-RPC API when the notebook is first loaded.`
+md`Be patient as it takes a little while for the funds to be sent via the Ethereum JSON-RPC API when the notebook is first loaded.`
 )}
 
 async function* _16(transferFundsStatus,md,Promises)
@@ -217,8 +217,8 @@ Inputs.form([
 ])
 )}
 
-function _26(md){return(
-md`The "address" will be set to \`t0100\`, which is the genesis actor for the localnet (same as the default Lotus wallet address which we are using for the API calls).`
+function _26(md,ownerId){return(
+md`The "address" will be set to \`${ownerId}\`, which is the client that has the owner role.`
 )}
 
 function _27(md){return(
@@ -960,7 +960,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _24);
   main.variable(observer("viewof constructorParamsForm")).define("viewof constructorParamsForm", ["Inputs"], _constructorParamsForm);
   main.variable(observer("constructorParamsForm")).define("constructorParamsForm", ["Generators", "viewof constructorParamsForm"], (G, _) => G.input(_));
-  main.variable(observer()).define(["md"], _26);
+  main.variable(observer()).define(["md","ownerId"], _26);
   main.variable(observer()).define(["md"], _27);
   main.variable(observer()).define(["md"], _28);
   main.variable(observer()).define(["md","currentHeight"], _29);
