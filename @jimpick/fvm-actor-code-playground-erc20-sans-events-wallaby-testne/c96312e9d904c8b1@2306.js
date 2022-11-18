@@ -651,66 +651,16 @@ function _79(md){return(
 md`---`
 )}
 
-async function* _tokenBalancesStatus(invalidatedBalancesAt,createActorStatus,walletDefaultAddress,keys,devFundsKey,transferFundsStatus,getEvmAddress,buffer,filecoin_client,waitMsg)
+async function _tokenBalances(invalidatedBalancesAt,createActorStatus,keys,contract)
 {
   invalidatedBalancesAt;
-  const evmActorId = createActorStatus?.waitResponse?.ReturnDec?.IDAddress
-  if (walletDefaultAddress && keys && evmActorId) {
-    const start = Date.now()
-    yield {
-      retrieving: true,
-      start
-    }
-    const ownerKey = {
-      name: 'Owner',
-      address: walletDefaultAddress
-    }
-    const allKeys = [ownerKey].concat(keys)
+  const evmActorId = createActorStatus?.waitResponse?.actorId
+  if (keys && evmActorId) {
     const responses = []
-    const privateKey = devFundsKey.privateKey
-    for (const key of allKeys) {
-      const keyActorId = transferFundsStatus.lookups[key.address]
-      const addressEvm = getEvmAddress(keyActorId)
-      const params = buffer.Buffer.concat([
-        buffer.Buffer.from('70a08231', 'hex'),
-        buffer.Buffer.from(addressEvm, 'hex')
-      ])
-      const message = {
-        To: evmActorId,
-        From: walletDefaultAddress,
-        Value: "0",
-        Method: 2,
-        Params: params.toString('base64')
-      }
-      responses.push(await filecoin_client.tx.sendMessage(
-        message,
-        privateKey,
-        true, // updateMsgNonce
-        false // waitMsg
-      ))
+    for (const key of keys) {
+      responses.push((await contract.balanceOf(key.address)).toBigInt())
     }
-    const waitStart = Date.now()
-    yield { waiting: true, start, waitStart, responses }
-    const promises = []
-    for (const response of responses) {
-      promises.push(waitMsg(response))
-    }
-    const waitResponses = await Promise.all(promises)
-    const balances = waitResponses.map(waitResponse => {
-      const base64 = waitResponse?.Receipt?.Return
-      if (base64) {
-        const bytes = buffer.Buffer.from(base64, 'base64')
-        let multiplier = 1n
-        let acc = 0n
-        for (let i = 0; i < bytes.length; i++) {
-          const value = bytes[bytes.length - i - 1]
-          acc += BigInt(value) * multiplier
-          multiplier *= 256n
-        }
-        return acc
-      }
-    })
-    yield { retrieved: true, responses, waitResponses, balances, allKeys }
+    return await Promise.all(responses)
   }
 }
 
@@ -729,10 +679,10 @@ md`This is almost the same as Step 4, where we transferred from the owner (the g
 
 function _transferFromUserForm(keys,transferFundsStatus,Inputs){return(
 keys && transferFundsStatus && Inputs.form([
-  Inputs.select(keys, { label: "Transfer from User", format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})` }),
-  Inputs.select(keys, {
+  Inputs.select(keys.slice(1), { label: "Transfer from User", format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})` }),
+  Inputs.select(keys.slice(1), {
     label: "Transfer to User",
-    format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})`,
+    format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})`,
     value: keys[1]
   }),
   Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})
@@ -743,12 +693,11 @@ function _transferFromUserButton(Inputs,createActorStatus,transferFromUserForm){
 Inputs.button('Transfer From User to User', {
   disabled: !createActorStatus ||
     !createActorStatus.waitResponse ||
-    !createActorStatus.waitResponse.ReturnDec ||
-    !createActorStatus.waitResponse.ReturnDec.IDAddress ||
+    !createActorStatus.waitResponse.actorId ||
     transferFromUserForm[0] === transferFromUserForm[1],
   value: null,
   reduce: () => ({
-    actorId: createActorStatus.waitResponse.ReturnDec.IDAddress,
+    actorId: createActorStatus.waitResponse.actorId,
     source: transferFromUserForm[0],
     dest: transferFromUserForm[1],
     amount: transferFromUserForm[2]
@@ -1152,7 +1101,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["tokenBalances","md","Inputs","keys","transferFundsStatus"], _77);
   main.variable(observer()).define(["Inputs","mutable invalidatedBalancesAt"], _78);
   main.variable(observer()).define(["md"], _79);
-  main.variable(observer("tokenBalancesStatus")).define("tokenBalancesStatus", ["invalidatedBalancesAt","createActorStatus","walletDefaultAddress","keys","devFundsKey","transferFundsStatus","getEvmAddress","buffer","filecoin_client","waitMsg"], _tokenBalancesStatus);
+  main.variable(observer("tokenBalances")).define("tokenBalances", ["invalidatedBalancesAt","createActorStatus","keys","contract"], _tokenBalances);
   main.define("initial invalidatedBalancesAt", _invalidatedBalancesAt);
   main.variable(observer("mutable invalidatedBalancesAt")).define("mutable invalidatedBalancesAt", ["Mutable", "initial invalidatedBalancesAt"], (M, _) => new M(_));
   main.variable(observer("invalidatedBalancesAt")).define("invalidatedBalancesAt", ["mutable invalidatedBalancesAt"], _ => _.generator);

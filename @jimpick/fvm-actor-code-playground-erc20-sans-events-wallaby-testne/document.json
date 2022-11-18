@@ -24,14 +24,14 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T03:23:00.706Z",
+  "update_time": "2022-11-18T03:24:57.356Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2303,
-  "latest_version": 2303,
-  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
-  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "publish_version": 2308,
+  "latest_version": 2308,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
   "edits": [
@@ -120,7 +120,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2303,
+  "version": 2308,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -759,7 +759,7 @@
     },
     {
       "id": 1317,
-      "value": "tokenBalancesStatus = {\n  invalidatedBalancesAt;\n  const evmActorId = createActorStatus?.waitResponse?.ReturnDec?.IDAddress\n  if (walletDefaultAddress && keys && evmActorId) {\n    const start = Date.now()\n    yield {\n      retrieving: true,\n      start\n    }\n    const ownerKey = {\n      name: 'Owner',\n      address: walletDefaultAddress\n    }\n    const allKeys = [ownerKey].concat(keys)\n    const responses = []\n    const privateKey = devFundsKey.privateKey\n    for (const key of allKeys) {\n      const keyActorId = transferFundsStatus.lookups[key.address]\n      const addressEvm = getEvmAddress(keyActorId)\n      const params = buffer.Buffer.concat([\n        buffer.Buffer.from('70a08231', 'hex'),\n        buffer.Buffer.from(addressEvm, 'hex')\n      ])\n      const message = {\n        To: evmActorId,\n        From: walletDefaultAddress,\n        Value: \"0\",\n        Method: 2,\n        Params: params.toString('base64')\n      }\n      responses.push(await filecoin_client.tx.sendMessage(\n        message,\n        privateKey,\n        true, // updateMsgNonce\n        false // waitMsg\n      ))\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitMsg(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const balances = waitResponses.map(waitResponse => {\n      const base64 = waitResponse?.Receipt?.Return\n      if (base64) {\n        const bytes = buffer.Buffer.from(base64, 'base64')\n        let multiplier = 1n\n        let acc = 0n\n        for (let i = 0; i < bytes.length; i++) {\n          const value = bytes[bytes.length - i - 1]\n          acc += BigInt(value) * multiplier\n          multiplier *= 256n\n        }\n        return acc\n      }\n    })\n    yield { retrieved: true, responses, waitResponses, balances, allKeys }\n  }\n}",
+      "value": "tokenBalances = {\n  invalidatedBalancesAt;\n  const evmActorId = createActorStatus?.waitResponse?.actorId\n  if (keys && evmActorId) {\n    const responses = []\n    for (const key of keys) {\n      responses.push((await contract.balanceOf(key.address)).toBigInt())\n    }\n    return await Promise.all(responses)\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -791,7 +791,7 @@
     },
     {
       "id": 1568,
-      "value": "viewof transferFromUserForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys, { label: \"Transfer from User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})` }),\n  Inputs.select(keys, {\n    label: \"Transfer to User\",\n    format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})`,\n    value: keys[1]\n  }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
+      "value": "viewof transferFromUserForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys.slice(1), { label: \"Transfer from User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})` }),\n  Inputs.select(keys.slice(1), {\n    label: \"Transfer to User\",\n    format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})`,\n    value: keys[1]\n  }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -799,7 +799,7 @@
     },
     {
       "id": 1572,
-      "value": "viewof transferFromUserButton = Inputs.button('Transfer From User to User', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress ||\n    transferFromUserForm[0] === transferFromUserForm[1],\n  value: null,\n  reduce: () => ({\n    actorId: createActorStatus.waitResponse.ReturnDec.IDAddress,\n    source: transferFromUserForm[0],\n    dest: transferFromUserForm[1],\n    amount: transferFromUserForm[2]\n  })\n})",
+      "value": "viewof transferFromUserButton = Inputs.button('Transfer From User to User', {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.actorId ||\n    transferFromUserForm[0] === transferFromUserForm[1],\n  value: null,\n  reduce: () => ({\n    actorId: createActorStatus.waitResponse.actorId,\n    source: transferFromUserForm[0],\n    dest: transferFromUserForm[1],\n    amount: transferFromUserForm[2]\n  })\n})",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -807,7 +807,7 @@
     },
     {
       "id": 1588,
-      "value": "{\n  if (transferFromUserStatus === undefined || !transferFromUserStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromUserStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromUserStatus.start) / 1000\n      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromUserStatus.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${transferFromUserButton.actorId}</div>\n      <div>Message CID: <a href=\"https://explorer.glif.io/message/?network=wallaby&cid=${transferFromUserStatus.response.CID['/']}\">${transferFromUserStatus.response.CID['/']}</a></div>\n      `\n      if (transferFromUserStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${transferFromUserStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${transferFromUserStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Return: ${transferFromUserStatus.waitResponse.Receipt.Return} (Base64 encoded binary array)</div>`\n        output += `<div><b>Decoded Result (Hex):</b> <b style=\"font-size: 100%\">${JSON.stringify(transferFromUserStatus.decodedResult.toString('hex'))}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - transferFromUserStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "value": "{\n  if (transferFromUserStatus === undefined || !transferFromUserStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromUserStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromUserStatus.start) / 1000\n      yield md`Sending transaction for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromUserStatus.response) {\n    while (true) {\n      let output = `<div><b>Transaction sent</b></div>\n      <div>Txn Hash: ${createActorStatus.response}</div>\n      `\n      if (transferFromUserStatus.waitResponse) {\n        output += `<div>Transaction executed in block at height: ${Number.parseInt(transferFromUserStatus.waitResponse.blockNumber.slice(2), 16)}</div>`\n        output += `<div>Gas used: ${Number.parseInt(transferFromUserStatus.waitResponse.gasUsed.slice(2), 16)}</div>`\n        output += `<div>Status: ${transferFromUserStatus.waitResponse.status}</div>`\n        yield html`${output}`\n        break\n      }\n\n      const elapsed = (Date.now() - transferFromUserStatus.waitStart) / 1000\n      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -823,7 +823,7 @@
     },
     {
       "id": 1578,
-      "value": "transferFromUserStatus = {\n  if (transferFromUserButton) {\n    const start = Date.now()\n    yield {\n      invoking: true,\n      start\n    }\n    const dest = getEvmAddress(transferFundsStatus.lookups[transferFromUserButton.dest.address])\n    const amount = transferFromUserButton.amount.toString(16).padStart(64, '0')\n    const params = buffer.Buffer.concat([\n      buffer.Buffer.from('a9059cbb', 'hex'),\n      buffer.Buffer.from(dest, 'hex'),\n      buffer.Buffer.from(amount, 'hex')\n    ])\n    const message = {\n      To: transferFromUserButton.actorId,\n      From: transferFromUserButton.source.address,\n      Nonce: 0,\n      Value: \"0\",\n      GasLimit: 1000000000,\n      GasFeeCap: new FilecoinNumber(0, 'attofil'),\n      GasPremium: new FilecoinNumber(0, 'attofil'),\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    const privateKey = keys.find(({ address }) => address === transferFromUserButton.source.address).privateKey\n    console.log('message', message)\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await waitMsg(responseCID)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
+      "value": "transferFromUserStatus = {\n  if (transferFromUserButton) {\n    const start = Date.now()\n    yield { invoking: true, start }\n    const source = transferFromUserButton.source\n    const dest = transferFromUserButton.dest.address\n    const amount = transferFromUserButton.amount\n    const signer = new ethers.Wallet(source.privateKey, provider)\n    const factory = new ethers.ContractFactory(iface, contractBytes, signer)\n    const contract = factory.attach(createActorStatus.waitResponse.contractAddress)\n    const unsignedTx = await contract.populateTransaction.transfer(dest, amount)\n    const populatedTx = await signer.populateTransaction(unsignedTx)\n    const signedTx = await signer.signTransaction(populatedTx)\n    console.log('Transfer From User Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    yield { invoked: true, response, waitResponse }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
