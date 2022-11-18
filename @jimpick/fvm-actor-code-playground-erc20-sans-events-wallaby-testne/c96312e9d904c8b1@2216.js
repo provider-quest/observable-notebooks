@@ -289,13 +289,22 @@ md`Here are the addresses and IDs of the 3 clients we created, as well at their 
 function _42(Inputs,initialBalances,keys,transferFundsStatus,FilecoinNumber){return(
 Inputs.table(
   initialBalances ? initialBalances.map(({ address, balance }) => ({
-    name: keys.find(({ address: keyAddress }) => address === keyAddress).name, 
+    name: keys.find(({ delegated }) => address === delegated.toString()).name, 
     id: transferFundsStatus.lookups[address],
     address,
+    eth_address: keys.find(({ delegated }) => address === delegated.toString()).address,
     balance
   })) : [],
   {
+    width: {
+      name: 60,
+      id: 60,
+      address: 300,
+      eth_address: 340,
+      balance: 100
+    },
     format: {
+   
       balance: num => new FilecoinNumber(num, 'attofil').toFil()
     }
   }
