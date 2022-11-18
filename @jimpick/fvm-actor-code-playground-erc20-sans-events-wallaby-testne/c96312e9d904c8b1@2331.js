@@ -203,7 +203,7 @@ md`## Wait for Lotus to be ready, then transfer 100 FIL to each address`
 )}
 
 function _34(md){return(
-md`Be patient as it takes a little while for the funds to be sent via the Lotus JSON-RPC API when the notebook is first loaded. Transferring the funds might take up to 2 minutes.`
+md`Be patient as it takes a little while for the funds to be sent via the Ethereum JSON-RPC API when the notebook is first loaded. Transferring the funds might take up to 2 minutes.`
 )}
 
 async function* _35(transferFundsStatus,md,Promises)
@@ -344,8 +344,8 @@ Inputs.form([
 ])
 )}
 
-function _47(md,devFundsId){return(
-md`The "address" will be set to \`${devFundsId}\`, which is the address for our developer funds.`
+function _47(md,ownerId){return(
+md`The "address" will be set to \`${ownerId}\`, which is the address for our owner role.`
 )}
 
 function _48(md){return(
@@ -1042,7 +1042,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _45);
   main.variable(observer("viewof constructorParamsForm")).define("viewof constructorParamsForm", ["Inputs"], _constructorParamsForm);
   main.variable(observer("constructorParamsForm")).define("constructorParamsForm", ["Generators", "viewof constructorParamsForm"], (G, _) => G.input(_));
-  main.variable(observer()).define(["md","devFundsId"], _47);
+  main.variable(observer()).define(["md","ownerId"], _47);
   main.variable(observer()).define(["md"], _48);
   main.variable(observer()).define(["md"], _49);
   main.variable(observer()).define(["md"], _50);
