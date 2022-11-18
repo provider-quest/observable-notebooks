@@ -388,17 +388,8 @@ function _iface(ethers,abi){return(
 new ethers.utils.Interface(abi)
 )}
 
-function _deployBytes(buffer,iface,constructorParamsForm,getEvmAddress,devFundsId){return(
-buffer.Buffer.from(
-  iface.encodeDeploy(
-    [ 
-      constructorParamsForm[0], // name - string
-      constructorParamsForm[1], // symbol - string
-      constructorParamsForm[2], // initialSupply - uint256
-      "0x" + getEvmAddress(devFundsId).slice(24), // owner - address (genesis miner)
-    ]
-  ).slice(2), 'hex'
-)
+function _deployer(ethers,ownerKey,provider){return(
+new ethers.Wallet(ownerKey.privateKey, provider)
 )}
 
 function _evmBytes(buffer,contractBytes,deployBytes){return(
@@ -1256,7 +1247,7 @@ export default function define(runtime, observer) {
   main.variable(observer("contractBytes")).define("contractBytes", ["FileAttachment","buffer"], _contractBytes);
   main.variable(observer("abi")).define("abi", _abi);
   main.variable(observer("iface")).define("iface", ["ethers","abi"], _iface);
-  main.variable(observer("deployBytes")).define("deployBytes", ["buffer","iface","constructorParamsForm","getEvmAddress","devFundsId"], _deployBytes);
+  main.variable(observer("deployer")).define("deployer", ["ethers","ownerKey","provider"], _deployer);
   main.variable(observer("evmBytes")).define("evmBytes", ["buffer","contractBytes","deployBytes"], _evmBytes);
   main.variable(observer()).define(["md"], _58);
   main.variable(observer()).define(["md"], _59);
