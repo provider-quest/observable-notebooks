@@ -24,20 +24,20 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T03:19:52.505Z",
+  "update_time": "2022-11-18T03:23:00.706Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2300,
-  "latest_version": 2300,
-  "thumbnail": null,
-  "default_thumbnail": null,
+  "publish_version": 2303,
+  "latest_version": 2303,
+  "thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
+  "default_thumbnail": "e7c7b0decdad30308532aa89dfd7838ecd0c2fb337d5052debcefc9a9bc37a93",
   "roles": [],
   "sharing": null,
   "edits": [
     {
-      "node_id": 1530,
-      "value": "{\n  if (transferFromOwnerStatus === undefined || !transferFromOwnerStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromOwnerStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromOwnerStatus.start) / 1000\n      yield md`Sending transaction for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromOwnerStatus.response) {\n    while (true) {\n      let output = `<div><b>Transaction sent</b></div>\n      <div>Txn Hash: ${createActorStatus.response}</div>\n      `\n      if (transferFromOwnerStatus.waitResponse) {\n        output += `<div>Transaction executed in block at height: ${Number.parseInt(transferFromOwnerStatus.waitResponse.blockNumber.slice(2), 16)}</div>`\n        output += `<div>Gas used: ${Number.parseInt(transferFromOwnerStatus.waitResponse.gasUsed.slice(2), 16)}</div>`\n        output += `<div>Status: ${transferFromOwnerStatus.waitResponse.status}</div>`\n        yield html`${output}`\n        break\n      }\n\n      const elapsed = (Date.now() - transferFromOwnerStatus.waitStart) / 1000\n      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}"
+      "node_id": 1554,
+      "value": "Inputs.button(\"Update\", { value: null, reduce: () => { mutable invalidatedBalancesAt = new Date() } })"
     }
   ],
   "owner": {
@@ -120,7 +120,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2300,
+  "version": 2303,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -695,7 +695,7 @@
     },
     {
       "id": 1530,
-      "value": "{\n  if (transferFromOwnerStatus === undefined || !transferFromOwnerStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromOwnerStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromOwnerStatus.start) / 1000\n      yield md`Sending message to actor for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromOwnerStatus.response) {\n    while (true) {\n      let output = `<div><b>Message sent to actor</b></div>\n      <div>To: ${transferFromOwnerButton.actorId}</div>\n      <div>Message CID: <a href=\"https://explorer.glif.io/message/?network=wallaby&cid=${transferFromOwnerStatus.response.CID['/']}\">${transferFromOwnerStatus.response.CID['/']}</a></div>\n      `\n      if (transferFromOwnerStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${transferFromOwnerStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${transferFromOwnerStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Return: ${transferFromOwnerStatus.waitResponse.Receipt.Return} (Base64 encoded binary array)</div>`\n        output += `<div><b>Decoded Result (Hex):</b> <b style=\"font-size: 100%\">${JSON.stringify(transferFromOwnerStatus.decodedResult.toString('hex'))}</b></div>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - transferFromOwnerStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
+      "value": "{\n  if (transferFromOwnerStatus === undefined || !transferFromOwnerStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromOwnerStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromOwnerStatus.start) / 1000\n      yield md`Sending transaction for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromOwnerStatus.response) {\n    while (true) {\n      let output = `<div><b>Transaction sent</b></div>\n      <div>Txn Hash: ${createActorStatus.response}</div>\n      `\n      if (transferFromOwnerStatus.waitResponse) {\n        output += `<div>Transaction executed in block at height: ${Number.parseInt(transferFromOwnerStatus.waitResponse.blockNumber.slice(2), 16)}</div>`\n        output += `<div>Gas used: ${Number.parseInt(transferFromOwnerStatus.waitResponse.gasUsed.slice(2), 16)}</div>`\n        output += `<div>Status: ${transferFromOwnerStatus.waitResponse.status}</div>`\n        yield html`${output}`\n        break\n      }\n\n      const elapsed = (Date.now() - transferFromOwnerStatus.waitStart) / 1000\n      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -711,7 +711,7 @@
     },
     {
       "id": 1520,
-      "value": "transferFromOwnerStatus = {\n  if (transferFromOwnerButton) {\n    const start = Date.now()\n    yield {\n      invoking: true,\n      start\n    }\n    const dest = getEvmAddress(transferFundsStatus.lookups[transferFromOwnerButton.dest.address])\n    const amount = transferFromOwnerButton.amount.toString(16).padStart(64, '0')\n    const params = buffer.Buffer.concat([\n      buffer.Buffer.from('a9059cbb', 'hex'),\n      buffer.Buffer.from(dest, 'hex'),\n      buffer.Buffer.from(amount, 'hex')\n    ])\n    const message = {\n      To: transferFromOwnerButton.actorId,\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    console.log('message', message)\n    const privateKey = devFundsKey.privateKey\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await waitMsg(responseCID)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = buffer.Buffer.from(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
+      "value": "transferFromOwnerStatus = {\n  if (transferFromOwnerButton) {\n    const start = Date.now()\n    yield { invoking: true, start }\n    const dest = transferFromOwnerButton.dest.address\n    const amount = transferFromOwnerButton.amount\n    const unsignedTx = await contract.populateTransaction.transfer(dest, amount)\n    const populatedTx = await deployer.populateTransaction(unsignedTx)\n    const signedTx = await deployer.signTransaction(populatedTx)\n    console.log('Transfer From Owner Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    yield { invoked: true, response, waitResponse }\n    mutable invalidatedBalancesAt = new Date()\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -735,7 +735,7 @@
     },
     {
       "id": 1499,
-      "value": "{\n  if (tokenBalancesStatus?.retrieving || tokenBalancesStatus?.waiting) {\n    while (true) {\n      const elapsed = (Date.now() - tokenBalancesStatus.start) / 1000\n      yield md`Retrieving balances... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  } else {\n    const rows = tokenBalancesStatus?.retrieved ? tokenBalancesStatus.balances.map((balance, i) => {\n        return {\n          name: tokenBalancesStatus.allKeys[i].name,\n          id: transferFundsStatus.lookups[tokenBalancesStatus.allKeys[i].address], \n          balance\n        }\n      }) : []\n    yield Inputs.table(rows)\n  }\n}",
+      "value": "{\n  if (!tokenBalances) {\n    return md``\n  } else {\n    return Inputs.table(\n      tokenBalances.map((balance, i) => {\n        return {\n          name: keys[i].name,\n          id: transferFundsStatus.lookups[keys[i].delegated.toString()], \n          balance\n        }\n      }),\n      {\n        format: {\n        }\n      }\n    )\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
