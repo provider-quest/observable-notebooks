@@ -243,7 +243,7 @@ function _40(client){return(
 client.callEthMethod('chainId')
 )}
 
-async function* _transferFundsStatus(walletDefaultAddress,keys,client,devFundsWallet,ethers,provider)
+async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsWallet,ethers,provider,client,waitMsg,$0)
 {
   if (walletDefaultAddress && keys) {
     const start = Date.now()
@@ -252,55 +252,41 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,client,devFundsWa
       start
     }
     const responses = []
-    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')
     for (const key of keys) {
       responses.push(await send())
-      break
 
       async function send () {
         console.log('Send to:', key.address)
-        /*
-        const tx = await devFundsWallet.sendTransaction({
-          to: key.address,
-          value: ethers.utils.parseEther("100.0")
-        })
-        console.log('Sent tx:', tx)
-        */
         const populatedTx = await devFundsWallet.populateTransaction({
           to: key.address,
           value: ethers.utils.parseEther("100.0"),
-          /*
-          gasLimit: 1000000000,
-          gasPrice: undefined,
-          maxFeePerGas: undefined,
-          maxPriorityFeePerGas: priorityFee,
-          nonce: 2
-          */
         })
         console.log('Transaction:', populatedTx)
         const signedTx = await devFundsWallet.signTransaction(populatedTx)
         console.log('Send Transaction:', provider.formatter.transaction(signedTx))
         const response = await client.callEthMethod('sendRawTransaction', [signedTx])
         console.log('Response:', response)
+        return response
       }
     }
     const waitStart = Date.now()
     yield { waiting: true, start, waitStart, responses }
-    /*
     const promises = []
     for (const response of responses) {
       promises.push(waitMsg(response))
     }
     const waitResponses = await Promise.all(promises)
+    const lookups = {}
+    /*
     const lookups = {
       [walletDefaultAddress]: devFundsId
     }
     for (const key of keys) {
       lookups[key.address] = await lotusApiClient.state.lookupId(key.address, [])
     }
-    yield { transferred: true, responses, waitResponses, lookups }
-    mutable invalidatedDevFundsBalanceAt = new Date()
     */
+    yield { transferred: true, responses, waitResponses, lookups }
+    $0.value = new Date()
   }
 }
 
@@ -1235,7 +1221,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _38);
   main.variable(observer()).define(["keys"], _39);
   main.variable(observer()).define(["client"], _40);
-  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","client","devFundsWallet","ethers","provider"], _transferFundsStatus);
+  main.variable(observer("transferFundsStatus")).define("transferFundsStatus", ["walletDefaultAddress","keys","devFundsWallet","ethers","provider","client","waitMsg","mutable invalidatedDevFundsBalanceAt"], _transferFundsStatus);
   main.variable(observer()).define(["md"], _42);
   main.variable(observer()).define(["md"], _43);
   main.variable(observer()).define(["Inputs","initialBalances","keys","transferFundsStatus","FilecoinNumber"], _44);
