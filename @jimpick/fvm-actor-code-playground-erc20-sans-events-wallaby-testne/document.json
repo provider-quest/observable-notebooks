@@ -24,12 +24,12 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T03:24:57.356Z",
+  "update_time": "2022-11-18T03:27:37.636Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2308,
-  "latest_version": 2308,
+  "publish_version": 2310,
+  "latest_version": 2310,
   "thumbnail": null,
   "default_thumbnail": null,
   "roles": [],
@@ -120,7 +120,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2308,
+  "version": 2310,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -128,14 +128,6 @@
     {
       "id": 0,
       "value": "# FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
-      "pinned": false,
-      "mode": "md",
-      "data": null,
-      "name": ""
-    },
-    {
-      "id": 2042,
-      "value": "**ALERT: Not working on current version of the testnet!**\n\n*(The code needs to be updated to use the Ethereum JSON-RPC APIs and f4 addresses)*",
       "pinned": false,
       "mode": "md",
       "data": null,
@@ -328,7 +320,7 @@
     {
       "id": 2154,
       "value": "// (await devFundsWallet.getBalance()).toString()",
-      "pinned": true,
+      "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
