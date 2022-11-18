@@ -362,11 +362,16 @@ function _51(md){return(
 md`At the command line, this is the same as: \`lotus chain create-evm-actor <bytecode file>\``
 )}
 
-function _createActorButton(Inputs,devFundsReady){return(
+function _createActorButton(Inputs,constructorParamsForm){return(
 Inputs.button(
-  'Create EVM Actor',
+  'Create EVM Smart Contract',
   {
-    disabled: !devFundsReady
+    value: null,
+    reduce: async () => ({
+      name: constructorParamsForm[0],
+      symbol: constructorParamsForm[1],
+      initialSupply: constructorParamsForm[2]
+    })
   }
 )
 )}
@@ -374,31 +379,32 @@ Inputs.button(
 async function* _53(createActorStatus,md,Promises,html)
 {
   if (createActorStatus === undefined || !createActorStatus) {
-    yield md`Status: Instance has not been created yet.`
+    yield md`Status: Contract has not been created yet.`
     return
   }
   if (createActorStatus.creating) {
     while (true) {
       const elapsed = (Date.now() - createActorStatus.start) / 1000
-      yield md`Sending create actor message... (${elapsed.toFixed(1)}s)`
+      yield md`Sending create contract transaction... (${elapsed.toFixed(1)}s)`
       await Promises.delay(1000)
     }
   }
   if (createActorStatus.response) {
     while (true) {
-      let output = `<div><b>Create actor message sent</b></div>
-      <div>Message CID: <a href="https://explorer.glif.io/message/?network=wallaby&cid=${createActorStatus.response.CID['/']}">${createActorStatus.response.CID['/']}</a></div>
+      let output = `<div><b>Create contract transaction sent</b></div>
+      <div>Txn Hash: ${createActorStatus.response}</div>
       `
       if (createActorStatus.waitResponse) {
-        output += `<div>Message executed in block at height: ${createActorStatus.waitResponse.Height}</div>`
-        output += `<div>Gas used: ${createActorStatus.waitResponse.Receipt.GasUsed}</div>`
-        output += `<div>Robust Address: ${createActorStatus.waitResponse.ReturnDec.RobustAddress}</div>`
-        output += `<b><div>ID Address: ${createActorStatus.waitResponse.ReturnDec.IDAddress}</div></b>`
+        output += `<div>Transaction executed in block at height: ${Number.parseInt(createActorStatus.waitResponse.blockNumber.slice(2), 16)}</div>`
+        output += `<div>Gas used: ${Number.parseInt(createActorStatus.waitResponse.gasUsed.slice(2), 16)}</div>`
+        output += `<div>Contract address (Eth): ${createActorStatus.waitResponse.contractAddress}</div>`
+        output += `<div>Contract address (t4): ${createActorStatus.waitResponse.delegated.toString()}</div>`
+        output += `<b><div>ID Address: ${createActorStatus.waitResponse.actorId}</div></b>`
         yield html`${output}`
         break
       }
       const elapsed = (Date.now() - createActorStatus.waitStart) / 1000
-      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`
+      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`
       yield html`${output}`
       await Promises.delay(1000)
     }
@@ -461,7 +467,7 @@ async function* _createActorStatus(createActorButton,client,factory,ownerKey,dep
         maxFeePerGas: undefined,
         maxPriorityFeePerGas: priorityFee,
         value: undefined,
-        nonce: createActorButton.nonce
+        // nonce: createActorButton.nonce
       }
     )
     const populatedTx = await deployer.populateTransaction(unsignedTx)
@@ -496,14 +502,13 @@ function _63(md){return(
 md`Now that we've got an actor running with an ID Address, we can call the methods we have defined. Let's check the balance of the addresses. The method signature (from above) to get the balance is => \`70a08231: balanceOf(address)\``
 )}
 
-function _invokeEvmMethodButton(Inputs,devFundsId,createActorStatus){return(
-Inputs.button(`Get ERC20 Token Balance for Owner (${devFundsId})`, {
+function _invokeEvmMethodButton(Inputs,ownerId,createActorStatus,contract,keys){return(
+Inputs.button(`Get ERC20 Token Balance for Owner (${ownerId})`, {
   disabled: !createActorStatus ||
     !createActorStatus.waitResponse ||
-    !createActorStatus.waitResponse.ReturnDec ||
-    !createActorStatus.waitResponse.ReturnDec.IDAddress,
+    !createActorStatus.waitResponse.actorId,
   value: null,
-  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress
+  reduce: async () => (await contract.balanceOf(keys[0].address)).toString()
 })
 )}
 
@@ -1206,7 +1211,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _49);
   main.variable(observer()).define(["md"], _50);
   main.variable(observer()).define(["md"], _51);
-  main.variable(observer("viewof createActorButton")).define("viewof createActorButton", ["Inputs","devFundsReady"], _createActorButton);
+  main.variable(observer("viewof createActorButton")).define("viewof createActorButton", ["Inputs","constructorParamsForm"], _createActorButton);
   main.variable(observer("createActorButton")).define("createActorButton", ["Generators", "viewof createActorButton"], (G, _) => G.input(_));
   main.variable(observer()).define(["createActorStatus","md","Promises","html"], _53);
   main.variable(observer()).define(["md"], _54);
@@ -1219,7 +1224,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _61);
   main.variable(observer()).define(["md","devFundsId"], _62);
   main.variable(observer()).define(["md"], _63);
-  main.variable(observer("viewof invokeEvmMethodButton")).define("viewof invokeEvmMethodButton", ["Inputs","devFundsId","createActorStatus"], _invokeEvmMethodButton);
+  main.variable(observer("viewof invokeEvmMethodButton")).define("viewof invokeEvmMethodButton", ["Inputs","ownerId","createActorStatus","contract","keys"], _invokeEvmMethodButton);
   main.variable(observer("invokeEvmMethodButton")).define("invokeEvmMethodButton", ["Generators", "viewof invokeEvmMethodButton"], (G, _) => G.input(_));
   main.variable(observer()).define(["invokeEvmMethodStatus","md","Promises","invokeEvmMethodButton","html"], _65);
   main.variable(observer()).define(["md"], _66);

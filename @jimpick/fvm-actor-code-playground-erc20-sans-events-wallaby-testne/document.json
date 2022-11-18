@@ -24,12 +24,12 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T03:12:01.320Z",
+  "update_time": "2022-11-18T03:17:20.881Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2283,
-  "latest_version": 2283,
+  "publish_version": 2292,
+  "latest_version": 2292,
   "thumbnail": null,
   "default_thumbnail": null,
   "roles": [],
@@ -114,7 +114,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2283,
+  "version": 2292,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -529,7 +529,7 @@
     },
     {
       "id": 184,
-      "value": "viewof createActorButton = Inputs.button(\n  'Create EVM Actor',\n  {\n    disabled: !devFundsReady\n  }\n)",
+      "value": "viewof createActorButton = Inputs.button(\n  'Create EVM Smart Contract',\n  {\n    value: null,\n    reduce: async () => ({\n      name: constructorParamsForm[0],\n      symbol: constructorParamsForm[1],\n      initialSupply: constructorParamsForm[2]\n    })\n  }\n)",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -593,8 +593,16 @@
     },
     {
       "id": 485,
-      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor', createActorButton)\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    const unsignedTx = await factory.getDeployTransaction(\n      createActorButton.name,\n      createActorButton.symbol,\n      createActorButton.initialSupply,\n      ownerKey.address,\n      {\n        gasLimit: 1000000000,\n        gasPrice: undefined,\n        maxFeePerGas: undefined,\n        maxPriorityFeePerGas: priorityFee,\n        value: undefined,\n        nonce: createActorButton.nonce\n      }\n    )\n    const populatedTx = await deployer.populateTransaction(unsignedTx)\n    const signedTx = await deployer.signTransaction(populatedTx)\n    console.log('Create Actor Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    if (waitResponse?.contractAddress) {\n      waitResponse.delegated = filecoinAddress.newDelegatedEthAddress(waitResponse.contractAddress, 't')\n      waitResponse.actorId = await client.stateLookupID(waitResponse.delegated.toString(), [])\n    }\n    yield { installed: true, response, waitResponse }\n  }\n}",
-      "pinned": true,
+      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor', createActorButton)\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    const unsignedTx = await factory.getDeployTransaction(\n      createActorButton.name,\n      createActorButton.symbol,\n      createActorButton.initialSupply,\n      ownerKey.address,\n      {\n        gasLimit: 1000000000,\n        gasPrice: undefined,\n        maxFeePerGas: undefined,\n        maxPriorityFeePerGas: priorityFee,\n        value: undefined,\n        // nonce: createActorButton.nonce\n      }\n    )\n    const populatedTx = await deployer.populateTransaction(unsignedTx)\n    const signedTx = await deployer.signTransaction(populatedTx)\n    console.log('Create Actor Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    if (waitResponse?.contractAddress) {\n      waitResponse.delegated = filecoinAddress.newDelegatedEthAddress(waitResponse.contractAddress, 't')\n      waitResponse.actorId = await client.stateLookupID(waitResponse.delegated.toString(), [])\n    }\n    yield { installed: true, response, waitResponse }\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2290,
+      "value": "contract = createActorStatus?.waitResponse?.contractAddress && factory.attach(createActorStatus.waitResponse.contractAddress)",
+      "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
@@ -625,7 +633,7 @@
     },
     {
       "id": 187,
-      "value": "viewof invokeEvmMethodButton = Inputs.button(`Get ERC20 Token Balance for Owner (${devFundsId})`, {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => createActorStatus.waitResponse.ReturnDec.IDAddress\n})",
+      "value": "viewof invokeEvmMethodButton = Inputs.button(`Get ERC20 Token Balance for Owner (${ownerId})`, {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.actorId,\n  value: null,\n  reduce: async () => (await contract.balanceOf(keys[0].address)).toString()\n})",
       "pinned": false,
       "mode": "js",
       "data": null,
