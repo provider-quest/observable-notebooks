@@ -24,12 +24,12 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T03:08:07.925Z",
+  "update_time": "2022-11-18T03:12:01.320Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2219,
-  "latest_version": 2219,
+  "publish_version": 2283,
+  "latest_version": 2283,
   "thumbnail": null,
   "default_thumbnail": null,
   "roles": [],
@@ -114,7 +114,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2219,
+  "version": 2283,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -504,31 +504,47 @@
       "name": null
     },
     {
-      "id": 1456,
-      "value": "The code below uses the [`.encodeDeploy()`](https://docs.ethers.io/v5/api/utils/abi/interface/#Interface--encoding) method from ethers.js to encode the constructor parameters which are appended to the contract binary.",
+      "id": 234,
+      "value": "## Step 2: Create an EVM actor instance",
       "pinned": false,
       "mode": "md",
       "data": null,
       "name": ""
     },
     {
-      "id": 1488,
-      "value": "evmBytes ? html`Optional: ${button(evmBytes, constructorParamsForm[0] + '.bin')}` : md``",
+      "id": 655,
+      "value": "Now we can create an actor instance from the compiled EVM smart contract. It is possible to create lots and lots of actors using the same code, each will get assigned a unique \"ID Address\" (eg. t01001) to which messages and funds can be sent, as well as an equivalent \"Robust Address\" alias (eg. \"t2...\") which maps on the same address (but doesn't change in the event of a chain re-organization).",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 492,
+      "value": "At the command line, this is the same as: `lotus chain create-evm-actor <bytecode file>`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 184,
+      "value": "viewof createActorButton = Inputs.button(\n  'Create EVM Actor',\n  {\n    disabled: !devFundsReady\n  }\n)",
       "pinned": false,
       "mode": "js",
       "data": null,
       "name": null
     },
     {
-      "id": 1998,
-      "value": "**Tip:** You could use this binary and load it into the Wallaby testnet using the [wallaby-fevm-msg-signer](https://github.com/jimpick/wallaby-fevm-msg-signer) command line tool.",
+      "id": 548,
+      "value": "{\n  if (createActorStatus === undefined || !createActorStatus) {\n    yield md`Status: Contract has not been created yet.`\n    return\n  }\n  if (createActorStatus.creating) {\n    while (true) {\n      const elapsed = (Date.now() - createActorStatus.start) / 1000\n      yield md`Sending create contract transaction... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (createActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Create contract transaction sent</b></div>\n      <div>Txn Hash: ${createActorStatus.response}</div>\n      `\n      if (createActorStatus.waitResponse) {\n        output += `<div>Transaction executed in block at height: ${Number.parseInt(createActorStatus.waitResponse.blockNumber.slice(2), 16)}</div>`\n        output += `<div>Gas used: ${Number.parseInt(createActorStatus.waitResponse.gasUsed.slice(2), 16)}</div>`\n        output += `<div>Contract address (Eth): ${createActorStatus.waitResponse.contractAddress}</div>`\n        output += `<div>Contract address (t4): ${createActorStatus.waitResponse.delegated.toString()}</div>`\n        output += `<b><div>ID Address: ${createActorStatus.waitResponse.actorId}</div></b>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - createActorStatus.waitStart) / 1000\n      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
       "pinned": false,
-      "mode": "md",
+      "mode": "js",
       "data": null,
-      "name": ""
+      "name": null
     },
     {
-      "id": 1907,
+      "id": 1932,
       "value": "---",
       "pinned": false,
       "mode": "md",
@@ -576,72 +592,8 @@
       "name": null
     },
     {
-      "id": 234,
-      "value": "## Step 2: Create an EVM actor instance",
-      "pinned": false,
-      "mode": "md",
-      "data": null,
-      "name": ""
-    },
-    {
-      "id": 655,
-      "value": "Now we can create an actor instance from the compiled EVM smart contract. It is possible to create lots and lots of actors using the same code, each will get assigned a unique \"ID Address\" (eg. t01001) to which messages and funds can be sent, as well as an equivalent \"Robust Address\" alias (eg. \"t2...\") which maps on the same address (but doesn't change in the event of a chain re-organization).",
-      "pinned": false,
-      "mode": "md",
-      "data": null,
-      "name": ""
-    },
-    {
-      "id": 492,
-      "value": "At the command line, this is the same as: `lotus chain create-evm-actor <bytecode file>`",
-      "pinned": false,
-      "mode": "md",
-      "data": null,
-      "name": ""
-    },
-    {
-      "id": 184,
-      "value": "viewof createActorButton = Inputs.button(\n  'Create EVM Actor',\n  {\n    disabled: !devFundsReady\n  }\n)",
-      "pinned": false,
-      "mode": "js",
-      "data": null,
-      "name": null
-    },
-    {
-      "id": 548,
-      "value": "{\n  if (createActorStatus === undefined || !createActorStatus) {\n    yield md`Status: Instance has not been created yet.`\n    return\n  }\n  if (createActorStatus.creating) {\n    while (true) {\n      const elapsed = (Date.now() - createActorStatus.start) / 1000\n      yield md`Sending create actor message... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (createActorStatus.response) {\n    while (true) {\n      let output = `<div><b>Create actor message sent</b></div>\n      <div>Message CID: <a href=\"https://explorer.glif.io/message/?network=wallaby&cid=${createActorStatus.response.CID['/']}\">${createActorStatus.response.CID['/']}</a></div>\n      `\n      if (createActorStatus.waitResponse) {\n        output += `<div>Message executed in block at height: ${createActorStatus.waitResponse.Height}</div>`\n        output += `<div>Gas used: ${createActorStatus.waitResponse.Receipt.GasUsed}</div>`\n        output += `<div>Robust Address: ${createActorStatus.waitResponse.ReturnDec.RobustAddress}</div>`\n        output += `<b><div>ID Address: ${createActorStatus.waitResponse.ReturnDec.IDAddress}</div></b>`\n        yield html`${output}`\n        break\n      }\n      const elapsed = (Date.now() - createActorStatus.waitStart) / 1000\n      output += `<div>Waiting for message to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}",
-      "pinned": false,
-      "mode": "js",
-      "data": null,
-      "name": null
-    },
-    {
-      "id": 1932,
-      "value": "---",
-      "pinned": false,
-      "mode": "md",
-      "data": null,
-      "name": ""
-    },
-    {
-      "id": 836,
-      "value": "evmActorCid = multiformats.CID.parse('bafk2bzacecgwjrepfw6r4ozuw47qw435n2jwgxnkdy7yrkbnsdgnqwd2wkcve') // Iron release (reset)",
-      "pinned": false,
-      "mode": "js",
-      "data": null,
-      "name": null
-    },
-    {
-      "id": 838,
-      "value": "evmBytesCbor = cbor.encode([evmBytes])",
-      "pinned": false,
-      "mode": "js",
-      "data": null,
-      "name": null
-    },
-    {
       "id": 485,
-      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor')\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    // Needs a zero byte in front\n    const evmActorCidBytes = new Uint8Array(evmActorCid.bytes.length + 1)\n    evmActorCidBytes.set(evmActorCid.bytes, 1)\n    const params = cbor.encode([new cbor.Tagged(42, evmActorCidBytes), evmBytesCbor])\n    // Sending create actor message...\n    const message = {\n      To: 't01',\n      From: walletDefaultAddress,\n      Value: \"0\",\n      Method: 2,\n      Params: params.toString('base64')\n    }\n    console.log('message', message)\n    const privateKey = devFundsKey.privateKey\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await waitMsg(responseCID)\n    const base64Result = waitResponse.Receipt.Return\n    const decoded = cbor.decode(base64Result, 'base64')\n    const idAddress = filecoinAddress.newAddress(\n      decoded[0][0],\n      decoded[0].slice(1),\n      't'\n    )\n    const robustAddress = filecoinAddress.newAddress(\n      decoded[1][0],\n      decoded[1].slice(1),\n      't'\n    )\n    waitResponse.ReturnDec = {\n      IDAddress: idAddress.toString(),\n      RobustAddress: robustAddress.toString()\n    }\n    yield { installed: true, response: { CID: responseCID }, waitResponse }\n  }\n}",
+      "value": "createActorStatus = {\n  if (createActorButton) {\n    console.log('Create actor', createActorButton)\n    const start = Date.now()\n    yield {\n      creating: true,\n      start\n    }\n    const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')\n    const unsignedTx = await factory.getDeployTransaction(\n      createActorButton.name,\n      createActorButton.symbol,\n      createActorButton.initialSupply,\n      ownerKey.address,\n      {\n        gasLimit: 1000000000,\n        gasPrice: undefined,\n        maxFeePerGas: undefined,\n        maxPriorityFeePerGas: priorityFee,\n        value: undefined,\n        nonce: createActorButton.nonce\n      }\n    )\n    const populatedTx = await deployer.populateTransaction(unsignedTx)\n    const signedTx = await deployer.signTransaction(populatedTx)\n    console.log('Create Actor Transaction:', provider.formatter.transaction(signedTx))\n    const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response }\n    const waitResponse = await waitEthTx(response)\n    if (waitResponse?.contractAddress) {\n      waitResponse.delegated = filecoinAddress.newDelegatedEthAddress(waitResponse.contractAddress, 't')\n      waitResponse.actorId = await client.stateLookupID(waitResponse.delegated.toString(), [])\n    }\n    yield { installed: true, response, waitResponse }\n  }\n}",
       "pinned": true,
       "mode": "js",
       "data": null,
