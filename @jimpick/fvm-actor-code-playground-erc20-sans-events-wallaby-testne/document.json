@@ -24,16 +24,22 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T03:19:09.411Z",
+  "update_time": "2022-11-18T03:19:52.505Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2298,
-  "latest_version": 2298,
+  "publish_version": 2300,
+  "latest_version": 2300,
   "thumbnail": null,
   "default_thumbnail": null,
   "roles": [],
   "sharing": null,
+  "edits": [
+    {
+      "node_id": 1530,
+      "value": "{\n  if (transferFromOwnerStatus === undefined || !transferFromOwnerStatus) {\n    yield md`Status: Method has not been invoked yet.`\n    return\n  }\n  if (transferFromOwnerStatus.invoking) {\n    while (true) {\n      const elapsed = (Date.now() - transferFromOwnerStatus.start) / 1000\n      yield md`Sending transaction for method... (${elapsed.toFixed(1)}s)`\n      await Promises.delay(1000)\n    }\n  }\n  if (transferFromOwnerStatus.response) {\n    while (true) {\n      let output = `<div><b>Transaction sent</b></div>\n      <div>Txn Hash: ${createActorStatus.response}</div>\n      `\n      if (transferFromOwnerStatus.waitResponse) {\n        output += `<div>Transaction executed in block at height: ${Number.parseInt(transferFromOwnerStatus.waitResponse.blockNumber.slice(2), 16)}</div>`\n        output += `<div>Gas used: ${Number.parseInt(transferFromOwnerStatus.waitResponse.gasUsed.slice(2), 16)}</div>`\n        output += `<div>Status: ${transferFromOwnerStatus.waitResponse.status}</div>`\n        yield html`${output}`\n        break\n      }\n\n      const elapsed = (Date.now() - transferFromOwnerStatus.waitStart) / 1000\n      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`\n      yield html`${output}`\n      await Promises.delay(1000)\n    }\n  }\n}"
+    }
+  ],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -114,7 +120,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2298,
+  "version": 2300,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -673,7 +679,7 @@
     },
     {
       "id": 1259,
-      "value": "viewof transferFromOwnerForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys, { label: \"Transfer from Owner to User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.address]})` }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
+      "value": "viewof transferFromOwnerForm = keys && transferFundsStatus && Inputs.form([\n  Inputs.select(keys.slice(1), { label: \"Transfer from Owner to User\", format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})` }),\n  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})\n])",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -681,7 +687,7 @@
     },
     {
       "id": 1522,
-      "value": "viewof transferFromOwnerButton = Inputs.button(`Transfer From Owner (${devFundsId})`, {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.ReturnDec ||\n    !createActorStatus.waitResponse.ReturnDec.IDAddress,\n  value: null,\n  reduce: () => ({\n    actorId: createActorStatus.waitResponse.ReturnDec.IDAddress,\n    dest: transferFromOwnerForm[0],\n    amount: transferFromOwnerForm[1]\n  })\n})",
+      "value": "viewof transferFromOwnerButton = Inputs.button(`Transfer From Owner (${ownerId})`, {\n  disabled: !createActorStatus ||\n    !createActorStatus.waitResponse ||\n    !createActorStatus.waitResponse.actorId,\n  value: null,\n  reduce: () => ({\n    actorId: createActorStatus.waitResponse.actorId,\n    dest: transferFromOwnerForm[0],\n    amount: transferFromOwnerForm[1]\n  })\n})",
       "pinned": false,
       "mode": "js",
       "data": null,
