@@ -23,7 +23,10 @@
     },
     "version": 1302
   },
+  "has_importers": false,
   "update_time": "2022-10-17T00:45:38.632Z",
+  "first_public_version": 2185,
+  "paused_version": null,
   "publish_time": "2022-06-03T01:04:27.251Z",
   "publish_version": 2222,
   "latest_version": 2222,
@@ -31,6 +34,12 @@
   "default_thumbnail": "dc5bf8b47f66fda1ddf981e51ac1b88a6d1eaa4bbe319f11e227a9143b81b08e",
   "roles": [],
   "sharing": null,
+  "edits": [
+    {
+      "node_id": 572,
+      "value": "postBountyStatus = {\n  if (postBountyButton) {\n    const start = Date.now()\n    console.log('Post Bounty', postBountyButton)\n    yield {\n      invoking: true,\n      start\n    }\n    const pieceCid = multiformats.CID.parse(postBountyButton.pieceCid)\n    const pieceCidBytes = new Uint8Array(pieceCid.bytes.length + 1)\n    pieceCidBytes.set(pieceCid.bytes, 1)\n    \n    const providerAddressBytes = filecoinAddress.newFromString(postBountyButton.providerAddress).str\n    const message = {\n      To: bountyActorAddress,\n      From: postBountyButton.clientAddress,\n      Nonce: 0,\n      Value: (new FilecoinNumber(postBountyButton.amount, 'fil')).toAttoFil(),\n      GasLimit: 1000000000,\n      GasFeeCap: new FilecoinNumber(0, 'attofil'),\n      GasPremium: new FilecoinNumber(0, 'attofil'),\n      Method: 2,\n      Params: cbor.encode([\n        new cbor.Tagged(42, pieceCidBytes),\n        providerAddressBytes \n      ]).toString('base64')\n    }\n    const privateKey = keys.find(({ address }) => address === postBountyButton.clientAddress).privateKey\n    console.log('message', message)\n    const responseCID = await filecoin_client.tx.sendMessage(\n      message,\n      privateKey,\n      true, // updateMsgNonce\n      false // waitMsg\n    )\n    const waitStart = Date.now()\n    yield { waiting: true, waitStart, response: { CID: responseCID } }\n    const waitResponse = await client.stateWaitMsg(responseCID, 0)\n    let decodedResult\n    if (waitResponse.Receipt && waitResponse.Receipt.Return) {\n      decodedResult = cbor.decodeAll(waitResponse.Receipt.Return, 'base64')\n    }\n    yield { invoked: true, response: { CID: responseCID }, waitResponse, decodedResult }\n  }\n}"
+    }
+  ],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
