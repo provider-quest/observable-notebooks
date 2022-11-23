@@ -5,7 +5,7 @@
   "description": "",
   "likes": 1,
   "publish_level": "live",
-  "forks": 1,
+  "forks": 2,
   "fork_of": {
     "id": "c7e7e39ebd4ccf64",
     "slug": "fvm-actor-code-playground-erc20-sans-events",
@@ -24,12 +24,12 @@
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-18T19:46:18.805Z",
+  "update_time": "2022-11-23T12:09:43.341Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2336,
-  "latest_version": 2336,
+  "publish_version": 2337,
+  "latest_version": 2337,
   "thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "default_thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "roles": [],
@@ -110,9 +110,9 @@
       "download_url": "https://static.observableusercontent.com/files/2aa607f0a34ff42eed6860893616da5b8d2a255af2899d5b8f0391c18b9912a5994354f7a65c3d1439809ab4ecded309de0654d7dc3fac8d10bd17140d642d0c?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27ERC20.bin",
       "name": "ERC20.bin",
       "create_time": "2022-09-21T02:07:41.391Z",
+      "mime_type": "application/octet-stream",
       "status": "public",
       "size": 7322,
-      "mime_type": "application/octet-stream",
       "content_encoding": null
     }
   ],
@@ -120,7 +120,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2336,
+  "version": 2337,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -820,14 +820,6 @@
       "mode": "md",
       "data": null,
       "name": ""
-    },
-    {
-      "id": 2328,
-      "value": "transferFromUserButton",
-      "pinned": true,
-      "mode": "js",
-      "data": null,
-      "name": null
     },
     {
       "id": 1578,
