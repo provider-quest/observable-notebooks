@@ -2,7 +2,7 @@ import define1 from "./9a34a4df6e8a276b@50.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
-md`# FVM Actor Code Playground - ERC20 Sans Events`
+md`# FVM Actor Code Playground - ERC20 Sans Events - localnet-farm-1`
 )}
 
 function _2(md){return(
@@ -802,11 +802,11 @@ function _initialCodeUrl(){return(
 )}
 
 function _baseUrl(){return(
-"https://fvm-10.default.knative.hex.camp"
+"https://gw-1.localnet.farm"
 )}
 
 async function _token(baseUrl){return(
-(await fetch(`${baseUrl}/public/token`)).text()
+(await fetch(`${baseUrl}/token`)).text()
 )}
 
 function _client(BrowserProvider,baseUrl,token,LotusRPC,schema)
