@@ -802,7 +802,7 @@ function _initialCodeUrl(){return(
 )}
 
 function _baseUrl(){return(
-"https://fvm-10.default.knative.hex.camp"
+"https://fvm-11.default.knative.hex.camp"
 )}
 
 async function _token(baseUrl){return(

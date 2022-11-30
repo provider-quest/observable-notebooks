@@ -5,7 +5,7 @@
   "description": "",
   "likes": 0,
   "publish_level": "live",
-  "forks": 6,
+  "forks": 7,
   "fork_of": {
     "id": "98ea42d48a05c8ca",
     "slug": "fvm-actor-code-playground-simplecoin-evm-contract",
@@ -24,12 +24,12 @@
     "version": 1076
   },
   "has_importers": false,
-  "update_time": "2022-11-18T07:27:35.678Z",
+  "update_time": "2022-11-30T22:45:48.883Z",
   "first_public_version": 1718,
   "paused_version": null,
   "publish_time": "2022-09-15T08:51:24.968Z",
-  "publish_version": 1910,
-  "latest_version": 1910,
+  "publish_version": 1911,
+  "latest_version": 1911,
   "thumbnail": "473a41a3f4d2feaecf1925826cb4664bee83f3b58745b72de983e32bb984f5e3",
   "default_thumbnail": "473a41a3f4d2feaecf1925826cb4664bee83f3b58745b72de983e32bb984f5e3",
   "roles": [],
@@ -104,9 +104,9 @@
       "download_url": "https://static.observableusercontent.com/files/2aa607f0a34ff42eed6860893616da5b8d2a255af2899d5b8f0391c18b9912a5994354f7a65c3d1439809ab4ecded309de0654d7dc3fac8d10bd17140d642d0c?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27ERC20.bin",
       "name": "ERC20.bin",
       "create_time": "2022-09-14T02:46:56.604Z",
+      "mime_type": "application/octet-stream",
       "status": "public",
       "size": 7322,
-      "mime_type": "application/octet-stream",
       "content_encoding": null
     }
   ],
@@ -114,7 +114,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 1910,
+  "version": 1911,
   "title": "FVM Actor Code Playground - ERC20 Sans Events",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -897,7 +897,7 @@
     },
     {
       "id": 373,
-      "value": "baseUrl = \"https://fvm-10.default.knative.hex.camp\"",
+      "value": "baseUrl = \"https://fvm-11.default.knative.hex.camp\"",
       "pinned": false,
       "mode": "js",
       "data": null,
