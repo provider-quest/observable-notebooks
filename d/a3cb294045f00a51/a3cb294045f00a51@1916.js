@@ -16,7 +16,7 @@ Here is an example EVM Smart Contract, from:
 
 You can modify it here, then scroll down and click the buttons to compile it, then load it into a on-demand hosted [Lotus localnet](https://lotus.filecoin.io/developers/local-network/) created from the [experimental/fvm-m2](https://github.com/filecoin-project/lotus/tree/experimental/fvm-m2) branch, and invoke methods against it.
 
-**Note:** This is connecting to a localnet running on [Localnet.Farm](https://github.com/jimpick/localnet-farm)`
+**Note:** This is connecting to the ["localnet-farm-1"](https://github.com/jimpick/localnet-farm/issues/5) localnet running on [Localnet.Farm](https://github.com/jimpick/localnet-farm)`
 )}
 
 function _3(md){return(
