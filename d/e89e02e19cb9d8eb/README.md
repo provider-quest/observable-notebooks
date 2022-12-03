@@ -1,6 +1,6 @@
-# FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet
+# FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet - eth_getTransactionByHash
 
-https://observablehq.com/d/e89e02e19cb9d8eb@2337
+https://observablehq.com/d/e89e02e19cb9d8eb@2340
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@5
-npm install https://api.observablehq.com/d/e89e02e19cb9d8eb@2337.tgz?v=3
+npm install https://api.observablehq.com/d/e89e02e19cb9d8eb@2340.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:

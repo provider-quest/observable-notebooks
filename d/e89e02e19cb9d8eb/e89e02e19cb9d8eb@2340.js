@@ -3,7 +3,7 @@ import define2 from "./c2dae147641e012a@46.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
-md`# FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet`
+md`# FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet - eth_getTransactionByHash`
 )}
 
 function _2(md){return(
@@ -959,7 +959,10 @@ async function waitEthTx (txId) {
   let waitResponse
   for (let i = 0; i < 36; i++) { // 36 attempts at 5s each
     try {
-      waitResponse = await client.callEthMethod('getTransactionReceipt', [txId])
+      // waitResponse = await client.callEthMethod('getTransactionReceipt', [txId])
+      console.log('Jim1', txId)
+      waitResponse = await client.callEthMethod('getTransactionByHash', [txId])
+      console.log('Jim2', waitResponse)
     } catch (e) {
       if (e.message !== 'msg does not exist') {
         console.log('Get transaction error', txId, e)
