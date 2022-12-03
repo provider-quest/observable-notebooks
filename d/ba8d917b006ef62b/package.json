@@ -1,0 +1,14 @@
+{
+  "name": "ba8d917b006ef62b",
+  "main": "ba8d917b006ef62b@1914.js",
+  "version": "1914.0.0",
+  "homepage": "https://observablehq.com/d/ba8d917b006ef62b",
+  "author": {
+    "name": "Jim Pick",
+    "url": "https://observablehq.com/@jimpick"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
