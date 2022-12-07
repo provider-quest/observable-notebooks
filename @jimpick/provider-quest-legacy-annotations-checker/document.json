@@ -1,0 +1,344 @@
+{
+  "id": "5abf13f5e0038673",
+  "slug": "provider-quest-legacy-annotations-checker",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": null,
+  "has_importers": false,
+  "update_time": "2022-03-27T03:28:13.730Z",
+  "first_public_version": 150,
+  "paused_version": null,
+  "publish_time": "2021-07-18T17:43:01.290Z",
+  "publish_version": 150,
+  "latest_version": 150,
+  "thumbnail": "5d841aa37954251362962be074aa2b7611725ec98724d8e2cb05e052b6d2eed1",
+  "default_thumbnail": "5d841aa37954251362962be074aa2b7611725ec98724d8e2cb05e052b6d2eed1",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public"
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public"
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": ""
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
+      "thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public"
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 150,
+  "title": "Legacy: Annotations Checker [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Legacy: Annotations Checker [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 5,
+      "value": "md`Let's do some sanity checks with the data from Provider.Quest compared against the legacy testing system.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 8,
+      "value": "import {minerPowerDailyAverageLatestBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 61,
+      "value": "minerPowerLatestReport = (await fetch(`${minerPowerDailyAverageLatestBucketUrl}/miner-power-latest.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 79,
+      "value": "minTimestamp = dateFns.subDays(new Date(), 14)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 107,
+      "value": "Object.keys(minerPowerLatestReport.miners)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 84,
+      "value": "latestPowerMiners = _.object(Object.entries(minerPowerLatestReport.miners).map(([key, value]) => [key, {...value, timestamp: d3.isoParse(value.timestamp) }]).filter(([, { timestamp }]) => timestamp >= minTimestamp))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 109,
+      "value": "Object.keys(latestPowerMiners)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 10,
+      "value": "minerPowerDailyAverageReport = (await fetch(`${minerPowerDailyAverageLatestBucketUrl}/miner-power-daily-average-latest.json`)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 12,
+      "value": "import {minerPowerMultidayAverageLatestBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 14,
+      "value": "minerPowerMultidayAverageReport = (await fetch(`${minerPowerMultidayAverageLatestBucketUrl}/miner-power-multiday-average-latest.json`)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 16,
+      "value": "recentMinerSet = {\n  const recentMinerSet = new Set()\n  for (const miner of Object.keys(latestPowerMiners)) {\n    recentMinerSet.add(miner)\n  }\n  for (const miner of Object.keys(minerPowerDailyAverageReport.miners)) {\n    recentMinerSet.add(miner)\n  }\n  for (const miner of Object.keys(minerPowerMultidayAverageReport.miners)) {\n    recentMinerSet.add(miner)\n  }\n  return recentMinerSet\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 18,
+      "value": "import { legacyAnnotationsMainnet } from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 23,
+      "value": "legacyAnnotationsMainnet",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 21,
+      "value": "notAnnotatedMiners = {\n  const miners = []\n  for (const miner of [...recentMinerSet].sort(sortMiners)) {\n    if (!legacyAnnotationsMainnet[miner]) miners.push(miner)\n  }\n  return miners\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 124,
+      "value": "md`## New`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 68,
+      "value": "'\\n' + notAnnotatedMiners.map(miner => `${miner}: 'new, autolisted'`).join(',\\n') + ',\\n'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 25,
+      "value": "annotatedMinersWithNoPower = {\n  const results = []\n  for (const miner of Object.keys(legacyAnnotationsMainnet).sort(sortMiners)) {\n    const latest = latestPowerMiners[miner]\n    const daily = minerPowerDailyAverageReport.miners[miner]\n    const multiday = minerPowerMultidayAverageReport.miners[miner]\n    if (\n      !(\n        (latest && latest.qualityAdjPower) || (latest && latest.rawBytePower) ||\n        (daily && daily.qualityAdjPower) || (daily && daily.rawBytePower) ||\n        (multiday && multiday.qualityAdjPower) || (multiday && multiday.rawBytePower)\n      )\n    ) {\n      results.push([\n        miner,\n        legacyAnnotationsMainnet[miner]\n      ])\n    }\n  }\n  return results\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 127,
+      "value": "md`## Delist`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 44,
+      "value": "notDelistedAndNoPower = annotatedMinersWithNoPower.filter(([miner, annotation]) => !annotation.startsWith('delist'))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 133,
+      "value": "Inputs.table(notDelistedAndNoPower.map(([provider, annotation]) => ({ provider, annotation })))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 49,
+      "value": "annotatedMinersWithPower = {\n  const results = []\n  for (const miner of Object.keys(legacyAnnotationsMainnet).sort(sortMiners)) {\n    const daily = minerPowerDailyAverageReport.miners[miner]\n    const multiday = minerPowerMultidayAverageReport.miners[miner]\n    if (\n      ((daily && daily.qualityAdjPower) || (daily && daily.rawBytePower) ||\n      (multiday && multiday.qualityAdjPower) || (multiday && multiday.rawBytePower))\n    ) {\n      results.push([\n        miner,\n        legacyAnnotationsMainnet[miner]\n      ])\n    }\n  }\n  return results\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 130,
+      "value": "md`## Retest`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 52,
+      "value": "delistedAndPower = annotatedMinersWithPower.filter(([miner, annotation]) => annotation.startsWith('delist'))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 136,
+      "value": "Inputs.table(delistedAndPower.map(([provider, annotation]) => ({ provider, annotation })))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 29,
+      "value": "sortMiners = function (a, b) { return Number(a.slice(1)) - Number(b.slice(1)) }",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 81,
+      "value": "dateFns = require('https://bundle.run/date-fns@2.22.1')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 99,
+      "value": "_ = (await import(\"https://unpkg.com/underscore@1.13.1/modules/index-all.js\")).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 140,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 144,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 147,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
