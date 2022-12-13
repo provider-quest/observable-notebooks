@@ -5,6 +5,12 @@ function _1(md){return(
 md`# FVM Actor Code Playground - ERC20 Sans Events - localnet-farm-3`
 )}
 
+function _2(md){return(
+md`This is a demo of the [localnet-farm-3](https://github.com/jimpick/localnet-farm/issues/7), which adds support for running multiple Localnets at once using [Knative](https://knative.dev/) and [Fargate](https://aws.amazon.com/fargate/) to spin up the localnet on-demand, and to spin it down after a period of inactivity (3 minutes).
+
+For this demo, two separate localnets have been added into Knative, each having their own endpoints. Each localnet is "owned" by a separate GitHub user. Select the user below, and see the endpoint "baseUrl" change. When the endpoint changes, the notebook will connect and the localnet will be spun up if it isn't running already.`
+)}
+
 function _githubUser(Inputs){return(
 Inputs.select([ 'jimpick', 'BlocksOnAChain' ], { label: "Instance: Select a GitHub username" })
 )}
@@ -939,6 +945,7 @@ export default function define(runtime, observer) {
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
+  main.variable(observer()).define(["md"], _2);
   main.variable(observer("viewof githubUser")).define("viewof githubUser", ["Inputs"], _githubUser);
   main.variable(observer("githubUser")).define("githubUser", ["Generators", "viewof githubUser"], (G, _) => G.input(_));
   main.variable(observer("baseUrl")).define("baseUrl", ["githubUser"], _baseUrl);
