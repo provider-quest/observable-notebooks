@@ -16,7 +16,7 @@ Inputs.select([ 'jimpick', 'BlocksOnAChain' ], { label: "Instance: Select a GitH
 )}
 
 function _baseUrl(githubUser){return(
-`https://${githubUser.toLowerCase()}-fvm-sapphire-patch-1.default.cluster-3.localnet.farm`
+`https://${githubUser.toLowerCase()}-fvm-sapphire-patch-1.quick.cluster-3.localnet.farm`
 )}
 
 function _5(md){return(
