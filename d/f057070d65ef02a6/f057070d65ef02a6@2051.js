@@ -16,11 +16,23 @@ Inputs.select([ 'jimpick', 'BlocksOnAChain' ], { label: "Instance: Select a GitH
 )}
 
 function _instanceType(Inputs){return(
-Inputs.radio(["Quick - 3 minute timeout", "Fargate - 1 hour timeout"], {label: "Instance Type"})
+Inputs.radio(
+  ['quick', 'default'],
+  {
+    label: "Instance Type",
+    value: 'quick',
+    format: v => {
+      switch (v) {
+        case 'quick': return 'Quick - 3 minute timeout';
+        case 'default': return 'Fargate - 1 hour timeout';
+      }
+    }
+  }
+)
 )}
 
-function _baseUrl(githubUser){return(
-`https://${githubUser.toLowerCase()}-fvm-sapphire-patch-1.quick.cluster-3.localnet.farm`
+function _baseUrl(githubUser,instanceType){return(
+`https://${githubUser.toLowerCase()}-fvm-sapphire-patch-1.${instanceType}.cluster-3.localnet.farm`
 )}
 
 function _6(md){return(
@@ -954,7 +966,7 @@ export default function define(runtime, observer) {
   main.variable(observer("githubUser")).define("githubUser", ["Generators", "viewof githubUser"], (G, _) => G.input(_));
   main.variable(observer("viewof instanceType")).define("viewof instanceType", ["Inputs"], _instanceType);
   main.variable(observer("instanceType")).define("instanceType", ["Generators", "viewof instanceType"], (G, _) => G.input(_));
-  main.variable(observer("baseUrl")).define("baseUrl", ["githubUser"], _baseUrl);
+  main.variable(observer("baseUrl")).define("baseUrl", ["githubUser","instanceType"], _baseUrl);
   main.variable(observer()).define(["md"], _6);
   main.variable(observer()).define(["md"], _7);
   main.variable(observer()).define(["md"], _8);
