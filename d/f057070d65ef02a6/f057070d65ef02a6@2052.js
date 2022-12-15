@@ -6,9 +6,15 @@ md`# FVM Actor Code Playground - ERC20 Sans Events - localnet-farm-3`
 )}
 
 function _2(md){return(
-md`This is a demo of the [localnet-farm-3](https://github.com/jimpick/localnet-farm/issues/7), which adds support for running multiple Localnets at once using [Knative](https://knative.dev/) and [Fargate](https://aws.amazon.com/fargate/) to spin up the localnet on-demand, and to spin it down after a period of inactivity (3 minutes).
+md`This is a demo of the [localnet-farm-3](https://github.com/jimpick/localnet-farm/issues/7), which adds support for running multiple Localnets at once using [Knative](https://knative.dev/) and Kubernetes.
 
-For this demo, two separate localnets have been added into Knative, each having their own endpoints. Each localnet is "owned" by a separate GitHub user. Select the user below, and see the endpoint "baseUrl" change. When the endpoint changes, the notebook will connect and the localnet will be spun up if it isn't running already -- it takes about 2 minutes for AWS to provision a virtual machine using the Fargate service.`
+There are two instance types available. The "quick" instance type will spin up a localnet instance on an already provisioned EC2 node in the cluster. This is intended for short-lived localnets, primarily for testing, and it will be reclaimed after 3 minutes of inactivity.  As they don't have to wait for a virtual machine, they start more quickly. All "quick" localnets share the pre-allocated resource, which must be sized properly for the number of instances in use at one time.
+
+The "fargate" instance type will use AWS [Fargate](https://aws.amazon.com/fargate/) to allocate a dedicated virtual machine on-demand. This can take up to 5 minutes to get started from a cold start. After 1 hour of inactivity, they will be reclaimed and the virtual machine will disappear. These are better to use for long running workloads.
+
+Storage on these localnets is ephemeral, so the state will be lost after they are shut down.
+
+For this demo, two separate localnets have been added into Knative, each having their own endpoints. Each localnet is "owned" by a separate GitHub user. Select the user below, and see the endpoint "baseUrl" change. When the endpoint changes, the notebook will connect and the localnet will be spun up if it isn't running already. It may take several minutes for the localnet to start up ... the "quick" localnets will start faster than the "fargate" localnets.`
 )}
 
 function _githubUser(Inputs){return(
