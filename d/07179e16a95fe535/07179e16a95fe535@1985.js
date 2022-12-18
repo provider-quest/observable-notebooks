@@ -244,12 +244,15 @@ Inputs.button(
 )
 )}
 
-async function* _31(createMockMarketContractStatus,md,Promises,html)
+async function* _31(createMockMarketContractStatus,md,Promises,html,createDealClientContractStatus)
 {
   if (createMockMarketContractStatus === undefined || !createMockMarketContractStatus) {
     yield md`Status: Contracts have not been created yet.`
     return
   }
+
+  // Mock Market Contract
+  
   if (createMockMarketContractStatus.creating) {
     while (true) {
       const elapsed = (Date.now() - createMockMarketContractStatus.start) / 1000
@@ -257,9 +260,10 @@ async function* _31(createMockMarketContractStatus,md,Promises,html)
       await Promises.delay(1000)
     }
   }
+  let output = ''
   if (createMockMarketContractStatus.response) {
     while (true) {
-      let output = `<div><b>Create "Mock Market" contract transaction sent</b></div>
+      output = `<div><b>Create "Mock Market" contract transaction sent</b></div>
       <div>Txn Hash: ${createMockMarketContractStatus.response}</div>
       `
       if (createMockMarketContractStatus.waitResponse) {
@@ -277,6 +281,21 @@ async function* _31(createMockMarketContractStatus,md,Promises,html)
       await Promises.delay(1000)
     }
   }
+
+  // Deal Client Contract
+
+  let output2 = ''
+  while (true) {
+    if (createDealClientContractStatus.creating) {
+      const elapsed = (Date.now() - createDealClientContractStatus.start) / 1000
+      output2 = `Sending create "Deal Client" contract transaction... (${elapsed.toFixed(1)}s)`
+      yield md`${output}\n\n${output2}`
+    }
+    if (createDealClientContractStatus.response) break
+    await Promises.delay(1000)
+  }
+  output2 = 'Jim'
+  yield md`${output}\n\n${output2}`
 }
 
 
@@ -957,7 +976,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["htl"], _29);
   main.variable(observer("viewof createActorButton")).define("viewof createActorButton", ["Inputs","ready","client","ownerKey"], _createActorButton);
   main.variable(observer("createActorButton")).define("createActorButton", ["Generators", "viewof createActorButton"], (G, _) => G.input(_));
-  main.variable(observer()).define(["createMockMarketContractStatus","md","Promises","html"], _31);
+  main.variable(observer()).define(["createMockMarketContractStatus","md","Promises","html","createDealClientContractStatus"], _31);
   main.variable(observer()).define(["md"], _32);
   main.variable(observer("provider")).define("provider", ["ethers","baseUrl","token"], _provider);
   main.variable(observer("deployer")).define("deployer", ["ethers","ownerKey","provider"], _deployer);
