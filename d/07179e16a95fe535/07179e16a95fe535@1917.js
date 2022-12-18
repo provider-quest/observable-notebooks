@@ -6,13 +6,11 @@ md`# FVM Actor Code Playground - Storage Client Contract`
 )}
 
 function _2(md){return(
-md`Try a real [ERC20](https://docs.openzeppelin.com/contracts/4.x/erc20) Smart Contract on the [Filecoin Virtual Machine](https://fvm.filecoin.io/)!
+md`Here is an smart contract that can act as a Filecoin client for making deals:
 
-Here is an example EVM Smart Contract, from:
-
-* https://github.com/filecoin-project/testnet-wallaby/issues/8
-* https://github.com/filecoin-project/fvm-example-actors/tree/main/erc20-sans-events
-* https://github.com/jimpick/fvm-example-actors/tree/jim-erc20/erc20-sans-events (same as above, but with extra build scripts and missing files)
+* https://github.com/lotus-web3/client-contract
+* https://www.youtube.com/watch?v=gvMOBPan4lY
+* https://www.youtube.com/watch?v=2Cpahhb0IW0
 
 You can modify it here, then scroll down and click the buttons to compile it, then load it into a on-demand hosted [Lotus localnet](https://lotus.filecoin.io/developers/local-network/) created from the [experimental/fvm-m2](https://github.com/filecoin-project/lotus/tree/experimental/fvm-m2) branch, and invoke methods against it.
 
