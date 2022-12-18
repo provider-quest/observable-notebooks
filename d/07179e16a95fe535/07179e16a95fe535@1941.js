@@ -244,34 +244,34 @@ Inputs.button(
 )
 )}
 
-async function* _31(createActorStatus,md,Promises,html)
+async function* _31(createMockMarketContractStatus,md,Promises,html)
 {
-  if (createActorStatus === undefined || !createActorStatus) {
+  if (createMockMarketContractStatus === undefined || !createMockMarketContractStatus) {
     yield md`Status: Contracts have not been created yet.`
     return
   }
-  if (createActorStatus.creating) {
+  if (createMockMarketContractStatus.creating) {
     while (true) {
-      const elapsed = (Date.now() - createActorStatus.start) / 1000
-      yield md`Sending create contract transaction... (${elapsed.toFixed(1)}s)`
+      const elapsed = (Date.now() - createMockMarketContractStatus.start) / 1000
+      yield md`Sending create "Mock Market" contract transaction... (${elapsed.toFixed(1)}s)`
       await Promises.delay(1000)
     }
   }
-  if (createActorStatus.response) {
+  if (createMockMarketContractStatus.response) {
     while (true) {
-      let output = `<div><b>Create contract transaction sent</b></div>
-      <div>Txn Hash: ${createActorStatus.response}</div>
+      let output = `<div><b>Create "Mock Market" contract transaction sent</b></div>
+      <div>Txn Hash: ${createMockMarketContractStatus.response}</div>
       `
-      if (createActorStatus.waitResponse) {
-        output += `<div>Transaction executed in block at height: ${Number.parseInt(createActorStatus.waitResponse.blockNumber.slice(2), 16)}</div>`
-        output += `<div>Gas used: ${Number.parseInt(createActorStatus.waitResponse.gasUsed.slice(2), 16)}</div>`
-        output += `<div>Contract address (Eth): ${createActorStatus.waitResponse.contractAddress}</div>`
-        output += `<div>Contract address (t4): ${createActorStatus.waitResponse.delegated.toString()}</div>`
-        output += `<b><div>ID Address: ${createActorStatus.waitResponse.actorId}</div></b>`
+      if (createMockMarketContractStatus.waitResponse) {
+        output += `<div>Transaction executed in block at height: ${Number.parseInt(createMockMarketContractStatus.waitResponse.blockNumber.slice(2), 16)}</div>`
+        output += `<div>Gas used: ${Number.parseInt(createMockMarketContractStatus.waitResponse.gasUsed.slice(2), 16)}</div>`
+        output += `<div>Contract address (Eth): ${createMockMarketContractStatus.waitResponse.contractAddress}</div>`
+        output += `<div>Contract address (t4): ${createMockMarketContractStatus.waitResponse.delegated.toString()}</div>`
+        output += `<b><div>ID Address: ${createMockMarketContractStatus.waitResponse.actorId}</div></b>`
         yield html`${output}`
         break
       }
-      const elapsed = (Date.now() - createActorStatus.waitStart) / 1000
+      const elapsed = (Date.now() - createMockMarketContractStatus.waitStart) / 1000
       output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`
       yield html`${output}`
       await Promises.delay(1000)
@@ -916,7 +916,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["htl"], _29);
   main.variable(observer("viewof createActorButton")).define("viewof createActorButton", ["Inputs","ready","client","ownerKey"], _createActorButton);
   main.variable(observer("createActorButton")).define("createActorButton", ["Generators", "viewof createActorButton"], (G, _) => G.input(_));
-  main.variable(observer()).define(["createActorStatus","md","Promises","html"], _31);
+  main.variable(observer()).define(["createMockMarketContractStatus","md","Promises","html"], _31);
   main.variable(observer()).define(["md"], _32);
   main.variable(observer("mockMarketContractBytes")).define("mockMarketContractBytes", ["FileAttachment","buffer"], _mockMarketContractBytes);
   main.variable(observer("mockMarketAbi")).define("mockMarketAbi", ["FileAttachment"], _mockMarketAbi);
