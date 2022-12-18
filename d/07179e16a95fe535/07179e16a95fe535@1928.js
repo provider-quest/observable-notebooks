@@ -257,7 +257,7 @@ md`At the command line, this is the same as: \`lotus chain create-evm-actor <byt
 
 function _createActorButton(Inputs,ready,constructorParamsForm,client,ownerKey){return(
 Inputs.button(
-  'Create EVM Smart Contract',
+  'Create EVM Smart Contracts',
   {
     disabled: !ready,
     value: null,
@@ -274,7 +274,7 @@ Inputs.button(
 async function* _36(createActorStatus,md,Promises,html)
 {
   if (createActorStatus === undefined || !createActorStatus) {
-    yield md`Status: Contract has not been created yet.`
+    yield md`Status: Contracts have not been created yet.`
     return
   }
   if (createActorStatus.creating) {
@@ -311,10 +311,10 @@ function _37(md){return(
 md`---`
 )}
 
-async function _contractBytes(FileAttachment,buffer)
+async function _mockMarketContractBytes(FileAttachment,buffer)
 {
   // Using prebuilt example from https://github.com/filecoin-project/fvm-example-actors/tree/main/erc20-sans-events/bin
-  const buf = new Uint8Array(await FileAttachment("ERC20.bin").arrayBuffer())
+  const buf = new Uint8Array(await FileAttachment("MockMarket.bin").arrayBuffer())
   const bytes = buffer.Buffer.from(buf)
   return bytes.subarray(0, bytes.length - 256) // Remove initcode
 
@@ -325,12 +325,12 @@ async function _contractBytes(FileAttachment,buffer)
 }
 
 
-async function _abi(){return(
-(await fetch('https://raw.githubusercontent.com/jimpick/fvm-example-actors/jim-erc20/erc20-sans-events/output/ERC20PresetFixedSupply.abi')).json()
+async function _mockMarketAbi(FileAttachment){return(
+(await FileAttachment("MockMarket.abi")).json()
 )}
 
-function _iface(ethers,abi){return(
-new ethers.utils.Interface(abi)
+function _mockMarketIface(ethers,mockMarketAbi){return(
+new ethers.utils.Interface(mockMarketAbi)
 )}
 
 function _provider(ethers,baseUrl,token){return(
@@ -341,11 +341,11 @@ function _deployer(ethers,ownerKey,provider){return(
 new ethers.Wallet(ownerKey.privateKey, provider)
 )}
 
-function _factory(ethers,iface,contractBytes,deployer){return(
-new ethers.ContractFactory(iface, contractBytes, deployer)
+function _mockMarketFactory(ethers,mockMarketIface,mockMarketContractBytes,deployer){return(
+new ethers.ContractFactory(mockMarketIface, mockMarketContractBytes, deployer)
 )}
 
-async function* _createActorStatus(createActorButton,client,factory,ownerKey,deployer,provider,waitEthTx,filecoinAddress)
+async function* _createActorStatus(createActorButton,client,mockMarketFactory,ownerKey,deployer,provider,waitEthTx,filecoinAddress)
 {
   if (createActorButton) {
     console.log('Create actor', createActorButton)
@@ -355,7 +355,7 @@ async function* _createActorStatus(createActorButton,client,factory,ownerKey,dep
       start
     }
     const priorityFee = await client.callEthMethod('maxPriorityFeePerGas')
-    const unsignedTx = await factory.getDeployTransaction(
+    const unsignedTx = await mockMarketFactory.getDeployTransaction(
       createActorButton.name,
       createActorButton.symbol,
       createActorButton.initialSupply,
@@ -385,8 +385,8 @@ async function* _createActorStatus(createActorButton,client,factory,ownerKey,dep
 }
 
 
-function _contract(createActorStatus,factory){return(
-createActorStatus?.waitResponse?.contractAddress && factory.attach(createActorStatus.waitResponse.contractAddress)
+function _mockMarketContract(createActorStatus,mockMarketFactory){return(
+createActorStatus?.waitResponse?.contractAddress && mockMarketFactory.attach(createActorStatus.waitResponse.contractAddress)
 )}
 
 async function _46(md){return(
@@ -929,7 +929,8 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["ERC20.bin", {url: new URL("./files/2aa607f0a34ff42eed6860893616da5b8d2a255af2899d5b8f0391c18b9912a5994354f7a65c3d1439809ab4ecded309de0654d7dc3fac8d10bd17140d642d0c.bin", import.meta.url), mimeType: "application/octet-stream", toString}]
+    ["MockMarket.abi", {url: new URL("./files/c254d8693d9ad3f0e2b232b6ce59f5070291ce0bfd5bb665ae1ef301c86c6767caae12c11a7e57a9cfec6c4065cb597ae7a42a6cc973d1676cd17a8d754a000e.bin", import.meta.url), mimeType: "application/octet-stream", toString}],
+    ["MockMarket.bin", {url: new URL("./files/f9772299c75c0eec8c1d0c845878056d9750e5f246c37e1452221c817b2665ee55cc38da54e0cc3452db16333ab670079d1f03e64e8729f3e11c7c97e6c74972.bin", import.meta.url), mimeType: "application/octet-stream", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
@@ -971,14 +972,14 @@ export default function define(runtime, observer) {
   main.variable(observer("createActorButton")).define("createActorButton", ["Generators", "viewof createActorButton"], (G, _) => G.input(_));
   main.variable(observer()).define(["createActorStatus","md","Promises","html"], _36);
   main.variable(observer()).define(["md"], _37);
-  main.variable(observer("contractBytes")).define("contractBytes", ["FileAttachment","buffer"], _contractBytes);
-  main.variable(observer("abi")).define("abi", _abi);
-  main.variable(observer("iface")).define("iface", ["ethers","abi"], _iface);
+  main.variable(observer("mockMarketContractBytes")).define("mockMarketContractBytes", ["FileAttachment","buffer"], _mockMarketContractBytes);
+  main.variable(observer("mockMarketAbi")).define("mockMarketAbi", ["FileAttachment"], _mockMarketAbi);
+  main.variable(observer("mockMarketIface")).define("mockMarketIface", ["ethers","mockMarketAbi"], _mockMarketIface);
   main.variable(observer("provider")).define("provider", ["ethers","baseUrl","token"], _provider);
   main.variable(observer("deployer")).define("deployer", ["ethers","ownerKey","provider"], _deployer);
-  main.variable(observer("factory")).define("factory", ["ethers","iface","contractBytes","deployer"], _factory);
-  main.variable(observer("createActorStatus")).define("createActorStatus", ["createActorButton","client","factory","ownerKey","deployer","provider","waitEthTx","filecoinAddress"], _createActorStatus);
-  main.variable(observer("contract")).define("contract", ["createActorStatus","factory"], _contract);
+  main.variable(observer("mockMarketFactory")).define("mockMarketFactory", ["ethers","mockMarketIface","mockMarketContractBytes","deployer"], _mockMarketFactory);
+  main.variable(observer("createActorStatus")).define("createActorStatus", ["createActorButton","client","mockMarketFactory","ownerKey","deployer","provider","waitEthTx","filecoinAddress"], _createActorStatus);
+  main.variable(observer("mockMarketContract")).define("mockMarketContract", ["createActorStatus","mockMarketFactory"], _mockMarketContract);
   main.variable(observer()).define(["md"], _46);
   main.variable(observer()).define(["md","ownerId"], _47);
   main.variable(observer()).define(["md"], _48);

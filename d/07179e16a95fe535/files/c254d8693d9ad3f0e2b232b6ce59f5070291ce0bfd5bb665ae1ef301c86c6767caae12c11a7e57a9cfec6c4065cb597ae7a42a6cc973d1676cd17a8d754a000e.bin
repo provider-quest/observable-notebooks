@@ -1,0 +1,20 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "raw_auth_params",
+        "type": "bytes"
+      },
+      {
+        "internalType": "address",
+        "name": "callee",
+        "type": "address"
+      }
+    ],
+    "name": "publish_deal",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
