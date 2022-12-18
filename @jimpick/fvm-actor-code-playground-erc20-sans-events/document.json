@@ -19,19 +19,22 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "type": "individual",
-      "tier": "public"
+      "tier": "public",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
     },
     "version": 1076
   },
   "has_importers": false,
-  "update_time": "2022-12-08T21:56:52.573Z",
+  "update_time": "2022-12-18T20:54:46.856Z",
   "first_public_version": 1718,
   "paused_version": null,
   "publish_time": "2022-09-15T08:51:24.968Z",
-  "publish_version": 1912,
-  "latest_version": 1912,
-  "thumbnail": "473a41a3f4d2feaecf1925826cb4664bee83f3b58745b72de983e32bb984f5e3",
-  "default_thumbnail": "473a41a3f4d2feaecf1925826cb4664bee83f3b58745b72de983e32bb984f5e3",
+  "publish_version": 1914,
+  "latest_version": 1914,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
   "owner": {
@@ -43,7 +46,10 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -53,7 +59,10 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "authors": [
     {
@@ -66,7 +75,10 @@
       "github_login": "jimpick",
       "tier": "public",
       "approved": true,
-      "description": ""
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
     }
   ],
   "collections": [
@@ -93,7 +105,10 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "public"
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
       }
     }
   ],
@@ -114,7 +129,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 1912,
+  "version": 1914,
   "title": "FVM Actor Code Playground - ERC20 Sans Events",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -897,7 +912,7 @@
     },
     {
       "id": 373,
-      "value": "baseUrl = \"https://fvm-12.default.knative.hex.camp\"",
+      "value": "baseUrl = \"https://jimpick-fvm-sapphire-patch-1.quick.cluster-3.localnet.farm\"",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -905,7 +920,7 @@
     },
     {
       "id": 355,
-      "value": "token = (await fetch(`${baseUrl}/public/token`)).text()",
+      "value": "token = (await fetch(`${baseUrl}/token`)).text()",
       "pinned": false,
       "mode": "js",
       "data": null,

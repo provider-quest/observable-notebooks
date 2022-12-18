@@ -802,7 +802,7 @@ function _initialCodeUrl(){return(
 )}
 
 function _baseUrl(){return(
-"https://fvm-12.default.knative.hex.camp"
+"https://jimpick-fvm-sapphire-patch-1.quick.cluster-3.localnet.farm"
 )}
 
 async function _token(baseUrl){return(
