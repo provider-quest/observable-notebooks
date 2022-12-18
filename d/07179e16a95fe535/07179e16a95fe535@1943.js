@@ -287,8 +287,8 @@ md`---`
 async function _mockMarketContractBytes(FileAttachment,buffer)
 {
   // Using prebuilt example from https://github.com/filecoin-project/fvm-example-actors/tree/main/erc20-sans-events/bin
-  const buf = new Uint8Array(await FileAttachment("MockMarket.bin").arrayBuffer())
-  const bytes = buffer.Buffer.from(buf)
+  const hex = (await (await FileAttachment("MockMarket.bin")).text()).slice(2)
+  const bytes = buffer.Buffer.from(hex)
   return bytes.subarray(0, bytes.length - 256) // Remove initcode
 
   /*
