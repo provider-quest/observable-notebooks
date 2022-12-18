@@ -294,8 +294,26 @@ async function* _31(createMockMarketContractStatus,md,Promises,html,createDealCl
     if (createDealClientContractStatus.response) break
     await Promises.delay(1000)
   }
-  output2 = 'Jim'
-  yield md`${output}\n\n${output2}`
+  if (createDealClientContractStatus.response) {
+    while (true) {
+      output2 = `<div><b>Create "Deal Client" contract transaction sent</b></div>
+      <div>Txn Hash: ${createDealClientContractStatus.response}</div>
+      `
+      if (createDealClientContractStatus.waitResponse) {
+        output2 += `<div>Transaction executed in block at height: ${Number.parseInt(createDealClientContractStatus.waitResponse.blockNumber.slice(2), 16)}</div>`
+        output2 += `<div>Gas used: ${Number.parseInt(createDealClientContractStatus.waitResponse.gasUsed.slice(2), 16)}</div>`
+        output2 += `<div>Contract address (Eth): ${createDealClientContractStatus.waitResponse.contractAddress}</div>`
+        output2 += `<div>Contract address (t4): ${createDealClientContractStatus.waitResponse.delegated.toString()}</div>`
+        output2 += `<b><div>ID Address: ${createDealClientContractStatus.waitResponse.actorId}</div></b>`
+       yield md`${output}\n\n${output2}`
+        break
+      }
+      const elapsed = (Date.now() - createDealClientContractStatus.waitStart) / 1000
+      output2 += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`
+      yield md`${output}\n\n${output2}`
+      await Promises.delay(1000)
+    }
+  }
 }
 
 
