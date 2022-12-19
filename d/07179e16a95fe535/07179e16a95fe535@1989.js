@@ -204,7 +204,7 @@ transferFundsStatus?.lookups && transferFundsStatus.lookups[keys[0].delegated.to
 )}
 
 function _24(md){return(
-md`## Step 2: Connect to Hosted "localnet"
+md`## Step 1: Connect to Hosted "localnet"
 
 This notebook connects to a [hosted instance](https://github.com/jimpick/lotus-fvm-localnet-web) of a Lotus "localnet" (started on demand) into which you can install the actor code, create an actor instance, and invoke methods against.
 
@@ -220,7 +220,7 @@ md`If the connection is working, then proceed to the next step.`
 )}
 
 function _27(md){return(
-md`## Step 3: Create EVM smart contracts`
+md`## Step 2: Create EVM smart contracts`
 )}
 
 function _28(md){return(
