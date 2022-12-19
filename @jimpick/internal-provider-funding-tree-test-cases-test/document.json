@@ -1,0 +1,517 @@
+{
+  "id": "e5c2857605ea9435",
+  "slug": "internal-provider-funding-tree-test-cases-test",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "public",
+  "forks": 0,
+  "fork_of": {
+    "id": "2af990f42af2602f",
+    "slug": "provider-quest-funding-tree-test-cases",
+    "title": "Internal: Provider Funding Tree Test Cases",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "public",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    },
+    "version": 889
+  },
+  "has_importers": true,
+  "update_time": "2022-04-05T03:39:58.260Z",
+  "first_public_version": null,
+  "paused_version": null,
+  "publish_time": "2022-04-05T03:07:34.245Z",
+  "publish_version": 904,
+  "latest_version": 904,
+  "thumbnail": "b2872647e66ffd4ae4c257c3929faad09b986962e287eaabdcff0d2323c9343e",
+  "default_thumbnail": "b2872647e66ffd4ae4c257c3929faad09b986962e287eaabdcff0d2323c9343e",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    }
+  ],
+  "collections": [],
+  "files": [
+    {
+      "id": "76cebeed9cdd52ef778d277888d4ab2e9c65012a45ea3a7fa87ee3d463f1981c0804a3d90a7a9ddfccb2a6ce5379a5e42ef69dccd3099c9769d5d44105d527db",
+      "url": "https://static.observableusercontent.com/files/76cebeed9cdd52ef778d277888d4ab2e9c65012a45ea3a7fa87ee3d463f1981c0804a3d90a7a9ddfccb2a6ce5379a5e42ef69dccd3099c9769d5d44105d527db",
+      "download_url": "https://static.observableusercontent.com/files/76cebeed9cdd52ef778d277888d4ab2e9c65012a45ea3a7fa87ee3d463f1981c0804a3d90a7a9ddfccb2a6ce5379a5e42ef69dccd3099c9769d5d44105d527db?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27funder-tree.json",
+      "name": "funder-tree.json",
+      "create_time": "2022-04-05T03:07:14.588Z",
+      "mime_type": "application/json",
+      "status": "public",
+      "size": 2281509,
+      "content_encoding": "gzip"
+    }
+  ],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 904,
+  "title": "Internal: Provider Funding Tree Test Cases - Test",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2022 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Internal: Provider Funding Tree Test Cases - Test",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 635,
+      "value": "viewof selected = Inputs.select(targets, {label: 'Select a subtree', format: x => x.id, value: targets.find(t => t.id === (params.subtree ? params.subtree : 'f021251'))})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 772,
+      "value": "md`${permalink}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 303,
+      "value": "path = getPath(targetPath)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 846,
+      "value": "viewof showDelegates = Inputs.toggle({ label: 'Show delegates', value: false })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 288,
+      "value": "viewof tree = getTree(fundingTree, path.path, {\n  displayDepth: selected.displayDepth ? selected.displayDepth : 8,\n  minXAdjust: selected.minXAdjust ? selected.minXAdjust : 50,\n  dx: selected.dx ? selected.dx : 20,\n  width: selected.width ? selected.width : 640\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 362,
+      "value": "md`### Selected: ${selectedNode.data.id}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 456,
+      "value": "{\n  const ancestor = firstAncestorWithRegions(selectedNode)\n  const totalPower = powerFromNode(ancestor)\n  return md`First ancestor with region data: ${ancestor && ancestor.data.id} \n    (${bytes(totalPower, { mode: 'binary' })})`\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 731,
+      "value": "matchedDelegate = matchDelegate(selectedNode)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 863,
+      "value": "Possible delegates:",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 462,
+      "value": "Inputs.table(delegates, {\n  format: {\n    qualityAdjPower: p => bytes(p, { mode: 'binary' }),\n    scaledPower: p => bytes(p, { mode: 'binary' })\n  },\n  rows: 30\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 516,
+      "value": "delegates = getDelegates(selectedNode)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 520,
+      "value": "totalScaledPower = bytes(\n  delegates.reduce((acc, { scaledPower }) => acc + scaledPower, 0),\n  { mode: 'binary' }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 320,
+      "value": "selectedNode = {\n  tree\n  return viewof tree.selectedNode.data\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 604,
+      "value": "targetPath = fundingTree.find(d => d.data.id === selected.id).ancestors().map(d => d.data.id).reverse().slice(1).join('/')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 655,
+      "value": "## Selected Subtrees",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 637,
+      "value": "targets = [\n  { id: 'f021251' },\n  { id: 'f01019' },\n  { id: 'f01038' },\n  { id: 'f01062', displayDepth: 8, minXAdjust: 0, width: 1000 },\n  { id: 'f035300' },\n  { id: 'f03637' },\n  { id: 'f023836' },\n  { id: 'f084877', displayDepth: 9 },\n  { id: 'f035474' }\n]",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 438,
+      "value": "# Delegation Functions",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 442,
+      "value": "function childrenWithRegions (node) {\n  return node.leaves().filter(d => d.data.regions)\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 454,
+      "value": "function firstAncestorWithRegions (node) {\n  for (const ancestor of node.ancestors()) {\n    if (childrenWithRegions(ancestor).length > 0) {\n      return ancestor\n    }\n  }\n  return null\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 489,
+      "value": "function fillFactor (topAncestor, provider) {\n  // console.log(`fillFactor ancestor: ${topAncestor.data.id} ` +\n  //             `SP: ${provider.data.id}`)\n  if (topAncestor === provider) {\n    return 1\n  }\n  let factor = 1\n  const ancestors = provider.ancestors().slice(1)\n  for (const ancestor of ancestors) {\n    const ancestorFillFactor = getFillFactor(ancestor)\n    factor = factor * ancestorFillFactor\n    // console.log(`   Ancestor: ${ancestor.data.id} ${ancestorFillFactor.toFixed(2)} ${factor.toFixed(2)}`)\n    if (ancestor === topAncestor) break\n  }\n  return factor\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 555,
+      "value": "function coverage (node) {\n  let total = 0\n  let withRegion = 0\n\n  if (node.children) {\n    for (const child of node.children) {\n      const [branchTotal, branchWithRegion] = coverage(child)\n      total += branchTotal\n      withRegion += branchWithRegion\n    }\n  } else {\n    total += node.data.qualityAdjPower\n    if (node.data.regions) {\n      withRegion += node.data.qualityAdjPower\n    }\n  }\n  return [total, withRegion]\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 506,
+      "value": "function powerFromNode (node) {\n  let totalPower = 0\n  for (const provider of node.leaves()) {\n    totalPower += provider.data.qualityAdjPower\n  }\n  return totalPower\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 563,
+      "value": "function getPartitions (node) {\n  const rows = []\n  if (node.children) {\n    for (const child of node.children) {\n      const [totalPower, coveredPower] = coverage(child)\n      rows.push({\n        id: child.data.id,\n        totalPower,\n        coveredPower\n      })\n    }\n  }\n  return rows\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 572,
+      "value": "function getFillFactor (node) {\n  const partitions = getPartitions(node)\n  const totalPower = partitions.reduce(\n    (acc, {totalPower, coveredPower}) => acc + totalPower, 0\n  )\n  const coveredTotalPower = partitions.reduce(\n    (acc, {totalPower, coveredPower}) => coveredPower ? acc + totalPower : acc, 0\n  )\n  const fillFactor = totalPower / coveredTotalPower\n  return fillFactor\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 514,
+      "value": "function getDelegates (node) {\n  const ancestor = firstAncestorWithRegions(node)\n  const delegates = childrenWithRegions(ancestor)\n    .map(d => {\n      const f = fillFactor(ancestor, d)\n      return {\n        regions: d.data.regions.join(','),\n        id: d.data.miner_id,\n        qualityAdjPower: d.data.qualityAdjPower,\n        fillFactor: f,\n        scaledPower: d.data.qualityAdjPower * f\n      }\n    })\n    .sort((a, b) => {\n      const regionComp = a.regions.localeCompare(b.regions)\n      if (regionComp) return regionComp\n      return Number(a.id.slice(1)) - Number(b.id.slice(1))\n    })\n  return delegates\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 699,
+      "value": "async function hashProviderId (id) {\n  const encoder = new TextEncoder()\n  const data = encoder.encode(id)\n  const hash = await crypto.subtle.digest('SHA-256', data)\n  const hash2Bytes = new Uint8Array(hash.slice(0,2))\n  return hash2Bytes[0] * 256 + hash2Bytes[1]\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 776,
+      "value": "async function matchDelegate (node) {\n  const delegates = getDelegates(node)\n  const totalScaledPower = delegates.reduce((acc, { scaledPower }) => acc + scaledPower, 0)\n  const hash = await hashProviderId(node.data.id)\n  let powerPosition = (hash / 255.0 / 255.0) * totalScaledPower\n  let lastId\n  for (const { id, scaledPower } of delegates) {\n    lastId = id\n    powerPosition -= scaledPower\n    if (powerPosition < 0) break\n  }\n  return lastId\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 805,
+      "value": "async function getTreeWithDelegates (tree) {\n  for (const provider of tree.leaves()) {\n    if (!provider.data.regions) {\n      const delegateId = await matchDelegate(provider)\n      console.log(`J: ${provider.data.id} => ${delegateId}`)\n      provider.data.delegateId = delegateId\n    }\n  }\n  return tree\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 376,
+      "value": "# Visualization Functions",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 244,
+      "value": "function getPath (pathStr) {\n  const base = 'https://observablehq.com/@jimpick/provider-funding-tree-inspector'\n  const links = []\n  links.push(\n    `[root](${base})`\n  )\n  let path = []\n  if (pathStr) {\n    path = pathStr.split('/')\n    for (const i in path) {\n      const pathPart = path[i]\n      const subPath = path.slice(0, Number(i) + 1).join('/')\n      links.push(`[${pathPart}](${base}?path=${subPath})`)\n    }\n  }\n  const result = md`## Path: ${links.join(' / ')}`\n  result.pathStr = pathStr\n  result.path = path\n  return result\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 23,
+      "value": "async function getTree (tree, path, { displayDepth = 3, minXAdjust = 100, dx = 10 }) {\n  const selectedSubtree = selectPath(tree, path)\n  const prunedTree = topOfTree(selectedSubtree, displayDepth)\n  const prunedTreeWithDelegates = await getTreeWithDelegates(prunedTree)\n  \n  return Tree2(prunedTreeWithDelegates, {\n    padding: 5,\n    minXAdjust,\n    widthAdjust: 0,\n    dx,\n    tree: d3.tree,\n    sort: (a, b) => {\n      Number(a.data.id.slice(1)) - Number(b.data.id.slice(1))\n    },\n    label: d => {\n      const regions = d.data.children && d.data.children.regions.sort()\n      return (\n        (d.data.miner_id ?\n         `SP: ${d.data.miner_id} - ${bytes(d.data.qualityAdjPower, { mode: 'binary' })}` : d.data.id) +\n        (d.data.regions ?\n         ` - ${d.data.regions.join(', ')}` : '') +\n        (d.data.children ?\n         ` ... ${d.data.children.count} SPs, ` +\n         `${bytes(d.data.children.qualityAdjPower, { mode: 'binary' })}, ` +\n         `${regions.length > 0 ? regions.join(', ') : 'No regions'}` +\n         ` - ${(d.data.children.coveredCount / d.data.children.count * 100).toFixed(1)}%`\n        : '')\n      )\n    },\n    delegateLabel: d => {\n      return (showDelegates && d.data.delegateId ? ` ⇨ ${d.data.delegateId} - ` +\n         prunedTreeWithDelegates\n          .find(d2 => d2.data.id === d.data.delegateId)\n          .data.regions.join(', ')\n         : '')\n    },\n    /*\n    link: d => {\n    */\n    //  let url = `${document.baseURI.replace(/\\?.*/,'')}`\n    /*  if (d.depth === 0) {\n        const oldPath = params.path ? params.path.split('/') : []\n        const newPath = oldPath.slice(0, oldPath.length - 1)\n        if (newPath.length > 0) {\n          url += `?path=${newPath.join('/')}`\n        }\n      } else {\n        url += `?path=` + (params.path ? `${params.path}/` : '') + \n          d.ancestors().map(d => d.data.id).reverse().slice(1).join('/')\n      }\n      return url\n    },\n    linkTarget: '_top'\n    */\n  })\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 6,
+      "value": "fundingTreeData = FileAttachment(\"funder-tree.json\").json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 15,
+      "value": "stratify = d3.stratify()\n    .id(d => d[\"address\"])\n    .parentId(d => d[\"funded_from\"])",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 18,
+      "value": "fundingTree = stratify(fundingTreeData)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 807,
+      "value": "// fundingTreeWithDelegates = getTreeWithDelegates(fundingTree)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 47,
+      "value": "fundingTree.children",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 187,
+      "value": "function selectPath (tree, path) {\n  let subTree = tree\n  if (!path) {\n    return tree\n  }\n\n  nextSubtree: for (const pathElement of path) {\n    for (const childNode of subTree.children) {\n      if (childNode.data.id === pathElement) {\n        subTree = childNode\n        continue nextSubtree\n      }\n    }\n    return null\n  }\n  return subTree.copy()\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 51,
+      "value": "topOfTree = function (tree, levels) {\n  const nodeData = []\n  for (const descendant of tree) {\n    if (descendant.depth < levels) {\n      const data = {...descendant.data}\n      if (descendant.depth === 0) {\n        delete data.funded_from\n      }\n      if (descendant.depth === levels - 1\n         && descendant.children) {\n        const regions = new Set()\n        let coveredCount = 0\n        for (const provider of descendant.leaves()) {\n          if (provider.data.regions && provider.data.regions.length > 0) {\n            coveredCount++\n            for (const region of provider.data.regions) {\n              regions.add(region)\n            }\n          }\n        }\n        data.children = {\n          count: descendant.count().value,\n          coveredCount,\n          qualityAdjPower: descendant.sum(d => d.qualityAdjPower).value,\n          regions: [...regions]\n        }\n      }\n      nodeData.push(data)\n    }\n  }\n  return stratify(nodeData)\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 7,
+      "value": "## Imports and Data",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 11,
+      "value": "bytes = (await import('@jimpick/bytes-iec@3.1.0-2')).default",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 26,
+      "value": "import { graph as graph2 } from '@jimpick/d3-hierarchy-wider-svg/2'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 70,
+      "value": "import { graph } from '@d3/d3-hierarchy'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 114,
+      "value": "import { Tree } from '@d3/tree'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 222,
+      "value": "Modified from `@d3/tree`",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 149,
+      "value": "// Copyright 2021 Observable, Inc.\n// Released under the ISC license.\n// https://observablehq.com/@d3/tree\nfunction Tree2(data, { // data is either tabular (array of objects) or hierarchy (nested objects)\n  path, // as an alternative to id and parentId, returns an array identifier, imputing internal nodes\n  id = Array.isArray(data) ? d => d.id : null, // if tabular data, given a d in data, returns a unique identifier (string)\n  parentId = Array.isArray(data) ? d => d.parentId : null, // if tabular data, given a node d, returns its parent’s identifier\n  children, // if hierarchical data, given a d in data, returns its children\n  tree = d3.tree, // layout algorithm (typically d3.tree or d3.cluster)\n  sort, // how to sort nodes prior to layout (e.g., (a, b) => d3.descending(a.height, b.height))\n  label, // given a node d, returns the display name\n  delegateLabel,\n  title, // given a node d, returns its hover text\n  link, // given a node d, its link (if any)\n  linkTarget = \"_blank\", // the target attribute for links (if any)\n  width = 640, // outer width, in pixels\n  height, // outer height, in pixels\n  r = 3, // radius of nodes\n  padding = 1, // horizontal padding for first and last column\n  fill = \"#999\", // fill for nodes\n  fillOpacity, // fill opacity for nodes\n  stroke = \"#555\", // stroke for links\n  strokeWidth = 1.5, // stroke width for links\n  strokeOpacity = 0.4, // stroke opacity for links\n  strokeLinejoin, // stroke line join for links\n  strokeLinecap, // stroke line cap for links\n  halo = \"#fff\", // color of label halo \n  haloWidth = 3, // padding around the labels\n  minXAdjust = 0,\n  widthAdjust = 0,\n  dx = 10\n} = {}) {\n  // If id and parentId options are specified, or the path option, use d3.stratify\n  // to convert tabular data to a hierarchy; otherwise we assume that the data is\n  // specified as an object {children} with nested objects (a.k.a. the “flare.json”\n  // format), and use d3.hierarchy.\n  const root = path != null ? d3.stratify().path(path)(data)\n      : id != null || parentId != null ? d3.stratify().id(id).parentId(parentId)(data)\n      : d3.hierarchy(data, children);\n\n  // Compute labels and titles.\n  const descendants = root.descendants();\n  const L = label == null ? null : descendants.map(d => label(d.data, d));\n  const DL = delegateLabel == null ? null : descendants.map(d => delegateLabel(d.data, d));\n\n  // Sort the nodes.\n  if (sort != null) root.sort(sort);\n\n  // Compute the layout.\n  // const dx = 10;\n  const dy = width / (root.height + padding);\n  tree().nodeSize([dx, dy])(root);\n\n  // Center the tree.\n  let x0 = Infinity;\n  let x1 = -x0;\n  root.each(d => {\n    if (d.x > x1) x1 = d.x;\n    if (d.x < x0) x0 = d.x;\n  });\n\n  // Compute the default height.\n  if (height === undefined) height = x1 - x0 + dx * 2;\n\n  const svg = d3.create(\"svg\")\n      .attr(\"viewBox\", [-dy * padding / 2 + minXAdjust, x0 - dx, width + widthAdjust, height])\n      .attr(\"width\", width)\n      .attr(\"height\", height)\n      .attr(\"style\", \"max-width: 100%; height: auto; height: intrinsic;\")\n      .attr(\"font-family\", \"sans-serif\")\n      .attr(\"font-size\", 10);\n\n  svg.append(\"g\")\n      .attr(\"fill\", \"none\")\n      .attr(\"stroke\", stroke)\n      .attr(\"stroke-opacity\", strokeOpacity)\n      .attr(\"stroke-linecap\", strokeLinecap)\n      .attr(\"stroke-linejoin\", strokeLinejoin)\n      .attr(\"stroke-width\", strokeWidth)\n    .selectAll(\"path\")\n      .data(root.links())\n      .join(\"path\")\n        .attr(\"d\", d3.linkHorizontal()\n            .x(d => d.y)\n            .y(d => d.x));\n\n  const node = svg.append(\"g\")\n    .selectAll(\"a\")\n    .data(root.descendants())\n    .join(\"a\")\n      .attr(\"xlink:href\", link == null ? null : d => link(d.data, d))\n      .attr(\"target\", link == null ? null : linkTarget)\n      .attr(\"transform\", d => `translate(${d.y},${d.x})`);\n\n  node.append(\"circle\")\n      .attr(\"fill\", d => d.children ? stroke : fill)\n      .attr(\"r\", r);\n\n  if (title != null) node.append(\"title\")\n      .text(d => title(d.data, d))\n\n  const resultNode = svg.node();\n\n  if (L) {\n    const texts = node.append(\"text\")\n      .attr(\"dy\", \"0.32em\")\n      .attr(\"x\", d => d.children ? -6 : 6)\n      .attr(\"text-anchor\", d => d.children ? \"end\" : \"start\")\n      .text((d, i) => L[i])\n\n    if (DL) {\n      texts.append(\"tspan\")\n        .attr(\"fill\", \"blue\")\n        .text((d, i) => ` ${DL[i]}`)\n    }\n\n    texts.on(\"click\", (event, [d]) => {\n      console.log(\"Click\", d.data.data.id)\n      resultNode.selectedNode = d\n      resultNode.dispatchEvent(new CustomEvent(\"input\", {bubbles: true}))\n    })\n  }\n\n      /*\n      .call(text => text.clone(true))\n      .attr(\"fill\", \"none\")\n      .attr(\"stroke\", halo)\n      .attr(\"stroke-width\", haloWidth) */\n\n  resultNode.selectedNode = null;\n  return resultNode;\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 169,
+      "value": "params = [...(new URLSearchParams(location.search.substring(1))).entries()].reduce((acc, [key, value]) => ({ [key]: value, ...acc }), {})",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 769,
+      "value": "permalink = {\n  let url = `${document.baseURI.replace(/\\?.*/,'')}?subtree=${selected.id}`\n  return `[Permalink](${url})`\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 879,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 883,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 886,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
