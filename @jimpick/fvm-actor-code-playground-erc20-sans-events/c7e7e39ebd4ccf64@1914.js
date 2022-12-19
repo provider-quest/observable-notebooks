@@ -806,7 +806,7 @@ function _baseUrl(){return(
 )}
 
 async function _token(baseUrl){return(
-(await fetch(`${baseUrl}/public/token`)).text()
+(await fetch(`${baseUrl}/token`)).text()
 )}
 
 function _client(BrowserProvider,baseUrl,token,LotusRPC,schema)

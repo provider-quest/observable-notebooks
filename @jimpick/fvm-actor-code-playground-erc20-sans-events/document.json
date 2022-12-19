@@ -3,9 +3,9 @@
   "slug": "fvm-actor-code-playground-erc20-sans-events",
   "trashed": false,
   "description": "",
-  "likes": 0,
+  "likes": 1,
   "publish_level": "live",
-  "forks": 8,
+  "forks": 9,
   "fork_of": {
     "id": "98ea42d48a05c8ca",
     "slug": "fvm-actor-code-playground-simplecoin-evm-contract",
@@ -33,8 +33,8 @@
   "publish_time": "2022-09-15T08:51:24.968Z",
   "publish_version": 1914,
   "latest_version": 1914,
-  "thumbnail": null,
-  "default_thumbnail": null,
+  "thumbnail": "473a41a3f4d2feaecf1925826cb4664bee83f3b58745b72de983e32bb984f5e3",
+  "default_thumbnail": "473a41a3f4d2feaecf1925826cb4664bee83f3b58745b72de983e32bb984f5e3",
   "roles": [],
   "sharing": null,
   "owner": {
