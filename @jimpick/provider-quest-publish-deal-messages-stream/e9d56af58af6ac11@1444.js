@@ -1,4 +1,3 @@
-// https://observablehq.com/@jimpick/provider-quest-publish-deal-messages-stream@1438
 import define1 from "./15fa16fc510b5dec@200.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
@@ -32,7 +31,7 @@ chainHead.Cids
 )}
 
 function _selectedHeight(html,currentHeight){return(
-html`<input type=range min=${currentHeight - 10000} max=${currentHeight - 1} value=${currentHeight - 1000}>`
+html`<input type=range min=${currentHeight - 11000} max=${currentHeight - 1} value=${currentHeight - 1000}>`
 )}
 
 function _9(selectedHeight){return(
@@ -48,7 +47,7 @@ Inputs.button("Start")
 )}
 
 function _maxElapsed(){return(
-10 * 60 * 1000
+3 * 60 * 1000
 )}
 
 function _heightRangeStream(start,selectedHeight,currentHeight){return(
@@ -135,6 +134,7 @@ async function* messagesStream() {
         async function *yieldMessage (message, signatureType) {
           messagesProcessed++
           if (message.To === 'f05' && message.Method === 4) {
+            console.log('JimX message', message)
             const blockCidStr = blockCid['/']
             const messageCidStr = message.CID['/']
             if (seenMessages.has(messageCidStr)) return
