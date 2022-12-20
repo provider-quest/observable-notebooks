@@ -7,7 +7,10 @@
   "publish_level": "live",
   "forks": 0,
   "fork_of": null,
+  "has_importers": false,
   "update_time": "2022-03-27T02:20:39.361Z",
+  "first_public_version": 50,
+  "paused_version": null,
   "publish_time": "2021-10-21T19:06:30.791Z",
   "publish_version": 50,
   "latest_version": 50,
@@ -24,7 +27,10 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -34,7 +40,10 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "authors": [
     {
@@ -47,7 +56,10 @@
       "github_login": "jimpick",
       "tier": "public",
       "approved": true,
-      "description": ""
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
     }
   ],
   "collections": [
@@ -61,8 +73,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
-      "thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+      "default_thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
+      "thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -74,7 +86,10 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "public"
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
       }
     }
   ],
