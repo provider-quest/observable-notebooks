@@ -207,7 +207,7 @@ keys.find(({ name }) => name === 'Owner')
 )}
 
 function _35(md){return(
-md`## Wait for Lotus to be ready, then transfer 100 FIL to each address`
+md`## Wait for Lotus to be ready, then transfer 0.1 FIL to each address`
 )}
 
 function _36(md){return(
@@ -253,7 +253,7 @@ async function* _transferFundsStatus(walletDefaultAddress,keys,devFundsWallet,et
         console.log('Send to:', key.address)
         const populatedTx = await devFundsWallet.populateTransaction({
           to: key.address,
-          value: ethers.utils.parseEther("100.0"),
+          value: ethers.utils.parseEther("0.1"),
         })
         console.log('Transaction:', populatedTx)
         const signedTx = await devFundsWallet.signTransaction(populatedTx)

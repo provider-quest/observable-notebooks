@@ -5,7 +5,7 @@
   "description": "",
   "likes": 1,
   "publish_level": "live",
-  "forks": 2,
+  "forks": 3,
   "fork_of": {
     "id": "c7e7e39ebd4ccf64",
     "slug": "fvm-actor-code-playground-erc20-sans-events",
@@ -19,17 +19,20 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "type": "individual",
-      "tier": "public"
+      "tier": "public",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
     },
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-11-23T12:09:43.341Z",
+  "update_time": "2022-12-20T19:44:44.339Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2337,
-  "latest_version": 2337,
+  "publish_version": 2339,
+  "latest_version": 2339,
   "thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "default_thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "roles": [],
@@ -49,7 +52,10 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -59,7 +65,10 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "authors": [
     {
@@ -72,7 +81,10 @@
       "github_login": "jimpick",
       "tier": "public",
       "approved": true,
-      "description": ""
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
     }
   ],
   "collections": [
@@ -99,7 +111,10 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "public"
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
       }
     }
   ],
@@ -120,7 +135,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2337,
+  "version": 2339,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -399,7 +414,7 @@
     },
     {
       "id": 1112,
-      "value": "## Wait for Lotus to be ready, then transfer 100 FIL to each address",
+      "value": "## Wait for Lotus to be ready, then transfer 0.1 FIL to each address",
       "pinned": false,
       "mode": "md",
       "data": null,
@@ -431,7 +446,7 @@
     },
     {
       "id": 1118,
-      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      responses.push(await send())\n\n      async function send () {\n        console.log('Send to:', key.address)\n        const populatedTx = await devFundsWallet.populateTransaction({\n          to: key.address,\n          value: ethers.utils.parseEther(\"100.0\"),\n        })\n        console.log('Transaction:', populatedTx)\n        const signedTx = await devFundsWallet.signTransaction(populatedTx)\n        console.log('Send Transaction:', provider.formatter.transaction(signedTx))\n        const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n        console.log('Response:', response)\n        return response\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitEthTx(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {}\n    for (const key of keys) {\n      lookups[key.delegated.toString()] = await lotusApiClient.state.lookupId(key.delegated.toString(), [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n  }\n}",
+      "value": "transferFundsStatus = {\n  if (walletDefaultAddress && keys) {\n    const start = Date.now()\n    yield {\n      transferring: true,\n      start\n    }\n    const responses = []\n    for (const key of keys) {\n      responses.push(await send())\n\n      async function send () {\n        console.log('Send to:', key.address)\n        const populatedTx = await devFundsWallet.populateTransaction({\n          to: key.address,\n          value: ethers.utils.parseEther(\"0.1\"),\n        })\n        console.log('Transaction:', populatedTx)\n        const signedTx = await devFundsWallet.signTransaction(populatedTx)\n        console.log('Send Transaction:', provider.formatter.transaction(signedTx))\n        const response = await client.callEthMethod('sendRawTransaction', [signedTx])\n        console.log('Response:', response)\n        return response\n      }\n    }\n    const waitStart = Date.now()\n    yield { waiting: true, start, waitStart, responses }\n    const promises = []\n    for (const response of responses) {\n      promises.push(waitEthTx(response))\n    }\n    const waitResponses = await Promise.all(promises)\n    const lookups = {}\n    for (const key of keys) {\n      lookups[key.delegated.toString()] = await lotusApiClient.state.lookupId(key.delegated.toString(), [])\n    }\n    yield { transferred: true, responses, waitResponses, lookups }\n    mutable invalidatedDevFundsBalanceAt = new Date()\n  }\n}",
       "pinned": false,
       "mode": "js",
       "data": null,
