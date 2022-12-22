@@ -1,0 +1,724 @@
+{
+  "id": "9920ebcc4142461d",
+  "slug": "provider-quest-zoomable-sunburst",
+  "trashed": false,
+  "description": "",
+  "likes": 3,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": {
+    "id": "86ddbc29bd33f9d6",
+    "slug": "zoomable-sunburst",
+    "title": "Zoomable Sunburst",
+    "owner": {
+      "id": "863951e3ebe4c0ae",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/5af16e327a90b2873351dda8a596c0d2d3bf954f64523deefe80177c9764d0f7",
+      "login": "d3",
+      "name": "D3",
+      "bio": "Bring your data to life.",
+      "home_url": "https://d3js.org",
+      "type": "team",
+      "tier": "pro",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    },
+    "version": 353
+  },
+  "has_importers": false,
+  "update_time": "2022-06-27T19:34:10.711Z",
+  "first_public_version": 1323,
+  "paused_version": null,
+  "publish_time": "2021-08-20T07:59:34.982Z",
+  "publish_version": 1323,
+  "latest_version": 1323,
+  "thumbnail": "7e2434d3e8b62f21ea5fa6cb4bc75ad598ad4adbb1cfcf8014cf66bef7349e5f",
+  "default_thumbnail": "62438fc13be52d9adb8a430e371dc3b6c7a93d19e256f153e00859c441d920d9",
+  "roles": [],
+  "sharing": null,
+  "edits": [
+    {
+      "node_id": 1307,
+      "value": "Inputs.table(selectedData)"
+    }
+  ],
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
+      "thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 1323,
+  "title": "Zoomable Sunburst [Provider.Quest]",
+  "license": "isc",
+  "copyright": "Copyright 2018–2020 Observable, Inc.",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Zoomable Sunburst [Provider.Quest]`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 728,
+      "value": "md`${quickMenu}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 731,
+      "value": "md`Based on [@d3/zoomable-sunburst](https://observablehq.com/@d3/zoomable-sunburst). Click on an arc to \"zoom in\". Click in the middle to \"zoom out\".`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 501,
+      "value": "viewof dataSource = Inputs.radio([\n  \"Quality Adjusted Power\",\n  \"Provider Count\",\n  \"28-Day Published Deals: Count*\",\n  \"28-Day Published Deals: Data Size\",\n  \"28-Day Published Deals: Lifetime Value\",\n  \"7-Day Published Deals: Count*\",\n  \"7-Day Published Deals: Data Size\",\n  \"7-Day Published Deals: Lifetime Value\",\n  \"1-Day Published Deals: Count*\",\n  \"1-Day Published Deals: Data Size\",\n  \"1-Day Published Deals: Lifetime Value\"\n], {label: \"Data Source:\", value: defaultDataSource})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 424,
+      "value": "viewof options = Inputs.checkbox(\n  ['Hide \"No Region\"', 'Use Synthetic Regions'],\n  {\n    label: \"Options:\",\n    value: [\n      defaultHideNoRegion ? 'Hide \"No Region\"' : null,\n      defaultUseSyntheticRegions ? 'Use Synthetic Regions' : null\n    ]\n  }\n)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1247,
+      "value": "md`**Note:** * As some providers are geo-located into multiple regions, these numbers may be overestimates due to double counts. In the future, we will perform some extra queries for accurate aggregated stats.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 664,
+      "value": "viewof sliderRaw = Scrubber(d3.range(numberOfDays + 1), {\n  delay: 1000,\n  loop: false,\n  autoplay: false,\n  initial: defaultDateIndex\n})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1125,
+      "value": "viewof slider = {\n  const element = html`0.9s slider debounce delay`\n  element.value = viewof sliderRaw.value\n  const debounced = debounce(viewof sliderRaw, 900)\n  async function run () {\n    for await (const value of debounced) {\n      element.value = value\n      element.dispatchEvent(new Event(\"input\", {bubbles: true}))\n    }\n  }\n  run()\n  return element\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 491,
+      "value": "{\n  const selectedDate = dateFns.roundToNearestMinutes(timeScale.invert(slider), { nearestTo: 30 })\n  return md`Showing data for ${selectedDate.toISOString().substr(0, 10)} (Epoch ${dateToEpoch(selectedDate)}). ${permalink}`\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 7,
+      "value": "chart = {\n  const selectedDate = dateFns.roundToNearestMinutes(timeScale.invert(viewof slider.value), { nearestTo: 30 });\n  let root = partition(data, selectedDate);\n  let clickedArc = root;\n\n  root.each(d => d.current = d);\n\n  const svg = d3.create(\"svg\")\n      .attr(\"viewBox\", [0, 0, width, width])\n      .style(\"font\", \"10px sans-serif\");\n\n  const node = svg.node();\n  \n  const g = svg.append(\"g\")\n      .attr(\"transform\", `translate(${width / 2},${width / 2})`);\n\n  const path = g.append(\"g\")\n    .selectAll(\"path\")\n    .data(root.descendants().slice(1))\n    .join(\"path\")\n      .attr(\"fill\", d => { while (d.depth > 1) d = d.parent; return color(d.data.name); })\n      .attr(\"fill-opacity\", d => arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)\n      .attr(\"d\", d => arc(d.current))\n      .attr(\"data-code\", d => getCode(d));\n\n  path.filter(d => d.children)\n      .style(\"cursor\", \"pointer\")\n      .on(\"click\", clicked);\n\n  path.append(\"title\")\n      .text(getTitle);\n\n  const label = g.append(\"g\")\n      .attr(\"pointer-events\", \"none\")\n      .attr(\"text-anchor\", \"middle\")\n      .style(\"user-select\", \"none\")\n    .selectAll(\"text\")\n    .data(root.descendants().slice(1))\n    .join(\"text\")\n      .attr(\"dy\", \"0.35em\")\n      .attr(\"fill-opacity\", d => +labelVisible(d.current))\n      .attr(\"transform\", d => labelTransform(d.current))\n      .text(d => d.data.name);\n\n  const parent = g.append(\"circle\")\n      .datum(root)\n      .attr(\"r\", radius)\n      .attr(\"fill\", \"none\")\n      .attr(\"pointer-events\", \"all\")\n      .on(\"click\", clicked);\n\n  const parentLabel = g.append(\"g\")\n      .attr(\"id\", \"parentLabel\")\n      .attr(\"pointer-events\", \"none\")\n      .attr(\"text-anchor\", \"middle\")\n      .style(\"user-select\", \"none\")\n      .attr(\"dy\", \"0.35em\")\n\n  drawParentLabel(root)\n\n  function drawParentLabel(d) {\n    const group = g.select(\"#parentLabel\")\n      .selectAll(\"g\")\n      .data(d.descendants().slice(0,1), d => d.data.longCode)\n      .join(\"g\");\n    group.append(\"text\")\n      .text(d.data.name === 'root' ? 'Entire network' : d.data.name);\n    group.append(\"text\")\n      .attr(\"y\", \"15\")\n      .text(getFormattedValue(d));\n  }\n\n  function clicked(_, p) {\n    parent.datum(p.parent || root);\n    drawParentLabel(p);\n      \n    viewof chartFocus.value = getCode(p);\n    viewof chartFocus.dispatchEvent(new CustomEvent(\"input\"));\n    clickedArc = p;\n\n    root.each(d => d.target = {\n      x0: Math.max(0, p.x0 !== p.x1 ? Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0)) : 1) * 2 * Math.PI,\n      x1: Math.max(0, p.x0 !== p.x1 ? Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0)) : 1) * 2 * Math.PI,\n      y0: Math.max(0, d.y0 - p.depth),\n      y1: Math.max(0, d.y1 - p.depth)\n    });\n\n    const t = g.transition().duration(750);\n\n    // Transition the data on all arcs, even the ones that aren’t visible,\n    // so that if this transition is interrupted, entering arcs will start\n    // the next transition from the desired position.\n    path.transition(t)\n        .tween(\"data\", d => {\n          const i = d3.interpolate(d.current, d.target);\n          return t => d.current = i(t);\n        })\n      .filter(function(d) {\n        return +this.getAttribute(\"fill-opacity\") || arcVisible(d.target);\n      })\n        .attr(\"fill-opacity\", d => arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0)\n        .attrTween(\"d\", d => () => arc(d.current));\n\n    label.filter(function(d) {\n        return +this.getAttribute(\"fill-opacity\") || labelVisible(d.target);\n      }).transition(t)\n        .attr(\"fill-opacity\", d => +labelVisible(d.target))\n        .attrTween(\"transform\", d => () => labelTransform(d.current));\n  }\n  \n  function arcVisible(d) {\n    return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;\n  }\n\n  function labelVisible(d) {\n    return d.y1 <= 3 && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;\n  }\n\n  function labelTransform(d) {\n    const x = (d.x0 + d.x1) / 2 * 180 / Math.PI;\n    const y = (d.y0 + d.y1) / 2 * radius;\n    if (isNaN(x)) {\n      console.error('Jim isNaN', x, d.x0, d.x1, d)\n    }\n    return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;\n  }\n\n  function getTitle(d) {\n    return `${getCode(d)}\\n${getFormattedValue(d)}`;\n  }\n\n  function getFormattedValue(d) {\n    if (dataSource === 'Quality Adjusted Power' || (dataSource && dataSource.match(/Data Size/))) {\n      return bytes(d.value, { mode: 'binary' })\n    } else if (dataSource && dataSource.match(/Lifetime Value/)) {\n      return d3.format(\",.2f\")(d.value) + ' FIL';\n    } else {\n      return d3.format(\",d\")(d.value);\n    }    \n  }\n\n  function getCode(d) {\n    const ancestors = d.ancestors();\n    return ancestors.slice(0, ancestors.length - 1).map(d => d.data.code).reverse().join(\"-\");\n  }\n\n  if (viewof chartFocus.value) {\n    setTimeout(() => {\n      const focus = d3.select(`path[data-code=\"${viewof chartFocus.value}\"]`);\n      if (focus) {\n        clicked(null, focus.datum());\n      }\n    }, 500);\n  }\n\n  return Object.assign(node, {\n    update(sliderValue) {\n      const selectedDate = dateFns.roundToNearestMinutes(timeScale.invert(sliderValue), { nearestTo: 30 });\n      const newRoot = partition(data, selectedDate);\n\n      const newValues = new Map();\n      const newSizes = new Map();\n      const clickedArcAncestors = clickedArc.ancestors();\n      const clickedArcKey = clickedArcAncestors\n        .slice(0, clickedArcAncestors.length - 1).map(d => d.data.code).reverse().join(\"-\");\n      newRoot.each(d => {\n        if (d.data && d.data.longCode) {\n          newValues.set(d.data.longCode, d.value);\n          newSizes.set(d.data.longCode, {\n            x0: d.x0,\n            x1: d.x1,\n            y0: d.y0,\n            y1: d.y1\n          });\n        }\n      });\n      root.each(d => {\n        if (d.data && d.data.longCode) {\n          const newValue = newValues.get(d.data.longCode);\n          if (newValue !== null) {\n            d.value = newValue;\n          }\n          const newSize = newSizes.get(d.data.longCode);\n          if (newSize) {\n            if (!clickedArcKey) {\n              d.target = newSize;\n            } else {\n              const clickedSize = newSizes.get(clickedArcKey);\n              d.target = {\n                x0: Math.max(0, clickedSize.x0 !== clickedSize.x1 ? Math.min(1, (newSize.x0 - clickedSize.x0) / (clickedSize.x1 - clickedSize.x0)) : 1) * 2 * Math.PI,\n                x1: Math.max(0, clickedSize.x0 !== clickedSize.x1 ? Math.min(1, (newSize.x1 - clickedSize.x0) / (clickedSize.x1 - clickedSize.x0)) : 1) * 2 * Math.PI,\n                y0: Math.max(0, newSize.y0 - clickedArc.depth),\n                y1: Math.max(0, newSize.y1 - clickedArc.depth)\n              };\n            }\n          }\n        }\n      });\n\n      const t = g.transition().duration(400);\n\n      // Transition the data on all arcs, even the ones that aren’t visible,\n      // so that if this transition is interrupted, entering arcs will start\n      // the next transition from the desired position.\n      path.transition(t)\n          .tween(\"data\", d => {\n            const i = d3.interpolate(d.current, d.target);\n            return t => d.current = i(t);\n          })\n          .filter(function(d) {\n            return +this.getAttribute(\"fill-opacity\") || arcVisible(d.target);\n          })\n          .attr(\"fill-opacity\", d => arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0)\n          .attrTween(\"d\", d => () => arc(d.current));\n\n      path.selectAll(\"title\").remove();\n      path.append(\"title\").text(getTitle);\n\n      parent.transition(t)\n          .tween(\"data\", d => {\n            const i = d3.interpolate(d.current, d.target);\n            return t => d.current = i(t);\n          });\n      \n      label.filter(function(d) {\n        return +this.getAttribute(\"fill-opacity\") || labelVisible(d.target);\n      }).transition(t)\n        .attr(\"fill-opacity\", d => +labelVisible(d.target))\n        .attrTween(\"transform\", d => () => labelTransform(d.current));\n\n      g.select(\"#parentLabel g\").remove();\n      drawParentLabel(clickedArc);\n    }\n  })\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1318,
+      "value": "## Raw Data for Selected Date and Data Source",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1320,
+      "value": "**Tip:** You can download the data as a CSV or a JSON file if you click on the \"Kebab\" (three dots) that appears if you hover to the left of the header column.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1307,
+      "value": "Inputs.table(selectedData)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 578,
+      "value": "chart.update(slider)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 912,
+      "value": "viewof chartFocus = Inputs.text({ value: defaultChartFocus })",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 364,
+      "value": "data = {\n  const data = _.cloneDeep(regionHierarchyReport.regionHierarchy)\n  if (options.includes('Hide \"No Region\"')) {\n    data.children = data.children.filter(({ code }) => code !== 'none')\n  }\n  return data\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1108,
+      "value": "selectedDate = dateFns.roundToNearestMinutes(timeScale.invert(slider), { nearestTo: 30 })",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1111,
+      "value": "filteredRegionData(selectedDate)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1113,
+      "value": "filteredDailyDealsByRegion(selectedDate)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1106,
+      "value": "selectedDate",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1295,
+      "value": "selectedData = {\n  const selectedRows = []\n  const partionedData = partition(data, selectedDate)\n  partionedData.eachBefore(node => {\n    selectedRows.push({\n      longCode: node.data.longCode,\n      name: node.data.name,\n      value: node.value\n    })\n  })\n  return selectedRows\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 23,
+      "value": "partition = (data, selectedDate) => {\n  const root = d3.hierarchy(data)\n      .each(node => {\n        const codes = []\n        for (const ancestor of node.ancestors()) {\n          if (ancestor.data.code) {\n            codes.unshift(ancestor.data.code)\n          }\n        }\n        node.data.longCode = codes.length > 0 ? codes.join('-') : 'all'\n      })\n      // .sum(d => d.value)\n      .sum(d => {\n        if (!d.longCode) return 0\n        const row = filteredRegionData(selectedDate).get(d.longCode)\n        const dealsRow = filteredDailyDealsByRegion(selectedDate).get(d.longCode)\n        if (dataSource === 'Quality Adjusted Power') {\n          return row && row.qualityAdjPower\n        } else if (dataSource === 'Provider Count') {\n          return row && row.minerCount\n        } else if (dataSource === '28-Day Published Deals: Count*') {\n          return dealsRow && dealsRow.twentyEightDayDealCount\n        } else if (dataSource === '28-Day Published Deals: Data Size') {\n          return dealsRow && dealsRow.twentyEightDayDataSize\n        } else if (dataSource === '28-Day Published Deals: Lifetime Value') {\n          return dealsRow && dealsRow.twentyEightDayLifetimeValue\n        } else if (dataSource === '7-Day Published Deals: Count*') {\n          return dealsRow && dealsRow.sevenDayDealCount\n        } else if (dataSource === '7-Day Published Deals: Data Size') {\n          return dealsRow && dealsRow.sevenDayDataSize\n        } else if (dataSource === '7-Day Published Deals: Lifetime Value') {\n          return dealsRow && dealsRow.sevenDayLifetimeValue\n        } else if (dataSource === '1-Day Published Deals: Count*') {\n          return dealsRow && dealsRow.count\n        } else if (dataSource === '1-Day Published Deals: Data Size') {\n          return dealsRow && dealsRow['sum(pieceSizeDouble)']\n        } else if (dataSource === '1-Day Published Deals: Lifetime Value') {\n          return dealsRow && dealsRow['sum(lifetimeValue)']\n        } else {\n          return 1\n        }\n      })\n      .sort((a, b) => b.value - a.value);\n  const sizes = d3.partition()\n      .size([2 * Math.PI, root.height + 1])\n    (root);\n  return sizes;\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 121,
+      "value": "color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 16,
+      "value": "width = 932",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 21,
+      "value": "radius = width / 6",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 9,
+      "value": "arc = d3.arc()\n    .startAngle(d => d.x0)\n    .endAngle(d => d.x1)\n    .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))\n    .padRadius(radius * 1.5)\n    .innerRadius(d => d.y0 * radius)\n    .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 369,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 358,
+      "value": "import {geoIpLookupsBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 360,
+      "value": "regionHierarchyReport = (await fetch(`${geoIpLookupsBucketUrl}/region-hierarchy-latest.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 375,
+      "value": "import {minerPowerDailyAverageLatestBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 399,
+      "value": "minerPowerByRegionReport = {\n  const file = useSyntheticRegions ? 'provider-power-by-synthetic-region' : 'miner-power-by-region'\n  return (await fetch(`${minerPowerDailyAverageLatestBucketUrl}/${file}.json`)).json()\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 454,
+      "value": "rows = minerPowerByRegionReport.rows.map(row => ({ ...row, date: d3.isoParse(row.date) }))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 464,
+      "value": "md`See: [@lorenries/encoding-a-date-range-onto-a-slider-with-d3](@https://observablehq.com/@lorenries/encoding-a-date-range-onto-a-slider-with-d3)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 460,
+      "value": "numberOfDays = d3.timeDay.count(startDate, endDate)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 458,
+      "value": "timeScale = d3.scaleUtc()\n  .domain([startDate, endDate])\n  .range([0, numberOfDays])",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 992,
+      "value": "startDate.toISOString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 994,
+      "value": "endDate.toISOString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 402,
+      "value": "filteredRows = selectedDate => rows\n  .filter(({ date }) => dateFns.isEqual(date, selectedDate))\n  .map(row => ({\n    region: row.region,\n    minerCount: row['sum(splitCount)'],\n    rawBytePower: row['sum(rawBytePower)'],\n    rawBytePowerKiB: row['sum(rawBytePower)'] / 1024,\n    rawBytePowerMiB: row['sum(rawBytePower)'] / 1024 ** 2,\n    rawBytePowerGiB: row['sum(rawBytePower)'] / 1024 ** 3,\n    rawBytePowerTiB: row['sum(rawBytePower)'] / 1024 ** 4,\n    rawBytePowerPiB: row['sum(rawBytePower)'] / 1024 ** 5,\n    rawBytePowerEiB: row['sum(rawBytePower)'] / 1024 ** 6,\n    qualityAdjPower: row['sum(qualityAdjPower)'],\n    qualityAdjPowerKiB: row['sum(qualityAdjPower)'] / 1024,\n    qualityAdjPowerMiB: row['sum(qualityAdjPower)'] / 1024 ** 2,\n    qualityAdjPowerGiB: row['sum(qualityAdjPower)'] / 1024 ** 3,\n    qualityAdjPowerTiB: row['sum(qualityAdjPower)'] / 1024 ** 4,\n    qualityAdjPowerPiB: row['sum(qualityAdjPower)'] / 1024 ** 5,\n    qualityAdjPowerEiB: row['sum(qualityAdjPower)'] / 1024 ** 6,\n  }))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 409,
+      "value": "filteredRegionData = selectedDate => d3.index(filteredRows(selectedDate), d => d.region)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1280,
+      "value": "/* selectedData = {\n  const selectedDate = dateFns.roundToNearestMinutes(timeScale.invert(slider), { nearestTo: 30 })\n  return filteredRows(selectedDate)\n} */",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1283,
+      "value": "// selectedData.reduce((acc, val) => acc + val.minerCount, 0)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 506,
+      "value": "import {dealsBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 508,
+      "value": "dailyDealsByRegion = {\n  const file = useSyntheticRegions ? 'daily-deals-by-synthetic-region' : 'daily-deals-by-region'\n  const deals = await (await fetch(`${dealsBucketUrl}/${file}.json`)).json()\n  return deals.map(({ date, ...rest }) => ({ date: d3.isoParse(date), ...rest }))\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 956,
+      "value": "JSON.stringify(dailyDealsByRegion[0])",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 405,
+      "value": "endDates = [rows[minerPowerByRegionReport.rows.length - 1].date, dailyDealsByRegion[dailyDealsByRegion.length - 1].date]",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 932,
+      "value": "endDate = dateFns.min(endDates)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 740,
+      "value": "dailyDealsByRegionIndexed = d3.index(dailyDealsByRegion, d => d.region, d => d.date)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 737,
+      "value": "dailyDealsByRegionWith7DaySums = {\n  const rows = []\n  const [minDate, maxDate] = d3.extent(dailyDealsByRegion.map(d => d.date))\n  for (let targetDate = minDate; targetDate <= maxDate; targetDate = agnosticAddDays(targetDate, 1)) {\n    const sevenDayDateRange = d3.utcDay.range(\n      agnosticAddDays(targetDate, -6),\n      agnosticAddDays(targetDate, 1)\n    )\n    const twentyEightDayDateRange = d3.utcDay.range(\n      agnosticAddDays(targetDate, -27),\n      agnosticAddDays(targetDate, 1)\n    )\n\n    for (const region of dailyDealsByRegionIndexed.keys()) {\n      let sevenDayDealCount = 0\n      let sevenDayDataSize = 0\n      let sevenDayLifetimeValue = 0\n      let twentyEightDayDealCount = 0\n      let twentyEightDayDataSize = 0\n      let twentyEightDayLifetimeValue = 0\n      const dateIndex = dailyDealsByRegionIndexed.get(region)\n      const row = getRow(dateIndex, region, targetDate)\n      for (const date of sevenDayDateRange) {\n        const pastDateRow = getRow(dateIndex, region, date)\n        sevenDayDealCount += pastDateRow.count\n        sevenDayDataSize += pastDateRow['sum(pieceSizeDouble)']\n        sevenDayLifetimeValue += pastDateRow['sum(lifetimeValue)']\n      }\n      for (const date of twentyEightDayDateRange) {\n        const pastDateRow = getRow(dateIndex, region, date)\n        twentyEightDayDealCount += pastDateRow.count\n        twentyEightDayDataSize += pastDateRow['sum(pieceSizeDouble)']\n        twentyEightDayLifetimeValue += pastDateRow['sum(lifetimeValue)']\n      }\n      rows.push({\n        ...row,\n        sevenDayDealCount,\n        sevenDayDataSize,\n        sevenDayLifetimeValue,\n        twentyEightDayDealCount,\n        twentyEightDayDataSize,\n        twentyEightDayLifetimeValue\n      })\n    }\n  }\n  return rows\n\n  function getRow (dateIndex, region, date) {\n    if (dateIndex.get(date)) {\n      return {\n        count: 0,\n        'sum(pieceSizeDouble)': 0,\n        'sum(lifetimeValue)': 0,\n        ...dateIndex.get(date)\n      }\n    } else {\n      return {\n        date,\n        region,\n        count: 0,\n        'sum(pieceSizeDouble)': 0,\n        'sum(lifetimeValue)': 0\n      }\n    }\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1098,
+      "value": "firstDateAfterGenesis = epochToDate(240)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 448,
+      "value": "startDate = {\n  if (dataSource === 'Quality Adjusted Power') return firstDateAfterGenesis\n  if (dataSource === 'Provider Count') return firstDateAfterGenesis\n  return dailyDealsByRegion[0].date\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 510,
+      "value": "filteredDailyDealsByRegion = selectedDate => d3.index(dailyDealsByRegionWith7DaySums.filter(({ date }) => dateFns.isEqual(date, selectedDate)), d => d.region)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 366,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 6,
+      "value": "d3 = require(\"d3@6\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 477,
+      "value": "import { dateToEpoch, epochToDate } from '@jbenet/filecoin-chain-time-calculator'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 479,
+      "value": "bytes = (await import('@jimpick/bytes-iec@3.1.0-2')).default",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 481,
+      "value": "dateFns = require('https://bundle.run/date-fns@2.22.1')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1215,
+      "value": "import {agnosticAddDays, agnosticDifferenceInDays} from \"@jimpick/provider-quest-utils\"",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 653,
+      "value": "import {Scrubber} from \"@mbostock/scrubber\"",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 733,
+      "value": "import {quickMenu} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1120,
+      "value": "import {debounce} from \"@jimpick/debouncing-input-delayed\"",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 691,
+      "value": "md`## Permalink support`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 694,
+      "value": "params = [...(new URLSearchParams(location.search.substring(1))).entries()].reduce((acc, [key, value]) => ({ [key]: value, ...acc }), {})",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 696,
+      "value": "defaultDataSource = (params.datasource && params.datasource.replace('Deals: Count', 'Deals: Count*')) || 'Quality Adjusted Power'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 720,
+      "value": "defaultHideNoRegion = 'hidenoregion' in params",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 722,
+      "value": "params",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 706,
+      "value": "defaultDateIndex = params.date ? agnosticDifferenceInDays(d3.isoParse(params.date), startDate) : numberOfDays",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1219,
+      "value": "startDate",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 787,
+      "value": "defaultChartFocus = params.chartfocus",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1257,
+      "value": "defaultUseSyntheticRegions = params.synthetic != undefined ? (params.synthetic == 'true') : true",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1260,
+      "value": "useSyntheticRegions = options.includes('Use Synthetic Regions')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 698,
+      "value": "permalink = {\n  const selectedDate = dateFns.roundToNearestMinutes(timeScale.invert(slider), { nearestTo: 30 })\n  let url = `${document.baseURI.replace(/\\?.*/,'')}?` +   \n    `datasource=${encodeURIComponent(dataSource.replace('*', ''))}&` +\n    `date=${selectedDate.toISOString().substr(0, 10)}&` +\n    `chartfocus=${chartFocus}&` +\n    `synthetic=${useSyntheticRegions}`\n  if (options.includes('Hide \"No Region\"')) {\n    url += '&hidenoregion'\n  }\n  return `[Permalink](${url})`\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1267,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 1271,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1274,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}

@@ -1,4 +1,4 @@
-// https://observablehq.com/@observablehq/input-table@882
+// https://observablehq.com/@observablehq/input-table@886
 function _1(md){return(
 md`<div style="color: grey; font: 13px/25.5px var(--sans-serif); text-transform: uppercase;"><h1 style="display: none">Table Input / Observable Inputs</h1><a href="/@observablehq/inputs">Observable Inputs</a> › Table · <a href="https://github.com/observablehq/inputs/blob/main/README.md#table">API</a></div>
 
@@ -41,7 +41,6 @@ Inputs.table(penguins, {
     "culmen_depth_mm",
     "flipper_length_mm"
   ],
-
   header: {
     species: "Penguin Species",
     culmen_length_mm: "Culmen length (mm)",
