@@ -47,7 +47,7 @@ Inputs.button("Start")
 )}
 
 function _maxElapsed(){return(
-3 * 60 * 1000
+3.5 * 60 * 1000
 )}
 
 function _heightRangeStream(start,selectedHeight,currentHeight){return(
