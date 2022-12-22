@@ -147,30 +147,34 @@ async function* messagesStream() {
               csoStartTime = new Date()
               cso = client.stateCompute(height, null, selectedTipSet.Cids)
             }
-            const trace = (await cso).Trace.filter(({ MsgCid }) => MsgCid['/'] === messageCidStr)
-            console.log('StateCompute done', height, (await cso).Trace.length, ((new Date()) - csoStartTime) / 1000)
-
-            if (trace.length > 0 && trace[0].MsgRct.Return) {
-              yield {
-                height,
-                messageCid: messageCidStr,
-                // signatureType,
-                blockCid: blockCidStr,
-                version: message.Version,
-                to: message.To,
-                from: message.From,
-                nonce: message.Nonce,
-                value: message.Value,
-                gasLimit: message.GasLimit,
-                gasFeeCap: message.GasFeeCap,
-                gasPremium: message.GasPremium,
-                method: message.Method,
-                params: message.Params,
-                decodedDeals: decodeDeals(message.Params),
-                results: cbor.decode(trace[0].MsgRct.Return, 'base64')[0]
+            try {
+              const trace = (await cso).Trace.filter(({ MsgCid }) => MsgCid['/'] === messageCidStr)
+              console.log('StateCompute done', height, (await cso).Trace.length, ((new Date()) - csoStartTime) / 1000)
+  
+              if (trace.length > 0 && trace[0].MsgRct.Return) {
+                yield {
+                  height,
+                  messageCid: messageCidStr,
+                  // signatureType,
+                  blockCid: blockCidStr,
+                  version: message.Version,
+                  to: message.To,
+                  from: message.From,
+                  nonce: message.Nonce,
+                  value: message.Value,
+                  gasLimit: message.GasLimit,
+                  gasFeeCap: message.GasFeeCap,
+                  gasPremium: message.GasPremium,
+                  method: message.Method,
+                  params: message.Params,
+                  decodedDeals: decodeDeals(message.Params),
+                  results: cbor.decode(trace[0].MsgRct.Return, 'base64')[0]
+                }
+              } else {
+                console.error('Missing or broken trace', height, messageCidStr)
               }
-            } else {
-              console.error('Missing or broken trace', height, messageCidStr)
+            } catch (e) {
+              console.error('Exception', e)
             }
           }
         }
