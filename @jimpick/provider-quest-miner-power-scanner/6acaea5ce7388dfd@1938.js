@@ -14,7 +14,16 @@ function _3(md){return(
 md`If the connection is working, the following should retrieve the version and the block delay from a public API endpoint using the [Lotus JS Client](https://github.com/filecoin-shipyard/js-lotus-client) libraries.`
 )}
 
-async function _4(client){return(
+function _4(md){return(
+md`---
+`
+)}
+
+function _5(md){return(
+md`---`
+)}
+
+async function _6(client){return(
 await client.version()
 )}
 
@@ -97,11 +106,11 @@ function _sortMiners(){return(
 function (a, b) { return Number(a.slice(1)) - Number(b.slice(1)) }
 )}
 
-function _26(allMiners){return(
+function _28(allMiners){return(
 allMiners.slice(-5)
 )}
 
-function _27(md){return(
+function _29(md){return(
 md`Fetch a regularly updated list of "interesting" miners. (Most miners returned from the API are inactive and we don't want to query them)`
 )}
 
@@ -226,7 +235,7 @@ async function* _minerPower(start,minerPowerStream)
 }
 
 
-function _34(minerPower,md,maxRows,bytes){return(
+function _36(minerPower,md,maxRows,bytes){return(
 minerPower.state === 'done' && md`Miner | Raw Byte Power | Quality Adjusted Power
 ---|---|---
 ${minerPower.records.sort((a, b) => b.qualityAdjPower - a.qualityAdjPower).slice(0, maxRows).map(({ miner, rawBytePower, qualityAdjPower }) => {
@@ -240,7 +249,7 @@ function _maxRows(){return(
 50
 )}
 
-function _36(md){return(
+function _38(md){return(
 md`# Setting up Lotus JS Client
 
 The following three stanzas import the library from npm.`
@@ -258,15 +267,15 @@ async function _schema(){return(
 (await import('https://unpkg.com/@filecoin-shipyard/lotus-client-schema?module')).mainnet.fullNode
 )}
 
-function _40(md){return(
+function _42(md){return(
 md`Here is the list of methods from the schema file. Currently just a subset of the available methods in the Lotus JSON-RPC API, but any method can be added.`
 )}
 
-function _41(schema){return(
+function _43(schema){return(
 Object.keys(schema.methods)
 )}
 
-function _42(md){return(
+function _44(md){return(
 md`To make a client object to make calls with, you supply an endpoint url to make a websocket connection to the Lotus node to the RPC library, and supply a provider object (contains the websocket code) and a schema.`
 )}
 
@@ -285,7 +294,7 @@ function _client(BrowserProvider,endpointUrl,LotusRPC,schema)
 }
 
 
-function _45(md){return(
+function _47(md){return(
 md`## More imports`
 )}
 
@@ -305,11 +314,11 @@ function _dateFns(require){return(
 require('https://bundle.run/date-fns@2.22.1')
 )}
 
-function _51(md){return(
+function _53(md){return(
 md`## Backups`
 )}
 
-function _53(backups){return(
+function _55(backups){return(
 backups()
 )}
 
@@ -318,7 +327,9 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _1);
   main.variable(observer()).define(["md"], _2);
   main.variable(observer()).define(["md"], _3);
-  main.variable(observer()).define(["client"], _4);
+  main.variable(observer()).define(["md"], _4);
+  main.variable(observer()).define(["md"], _5);
+  main.variable(observer()).define(["client"], _6);
   main.variable(observer("chainHead")).define("chainHead", ["client"], _chainHead);
   main.variable(observer("currentEpoch")).define("currentEpoch", ["chainHead"], _currentEpoch);
   main.variable(observer("headTipSetKey")).define("headTipSetKey", ["chainHead"], _headTipSetKey);
@@ -345,35 +356,35 @@ export default function define(runtime, observer) {
   main.variable(observer("minerPowerMultidayAverageReport")).define("minerPowerMultidayAverageReport", ["minerPowerMultidayAverageLatestBucketUrl"], _minerPowerMultidayAverageReport);
   main.variable(observer("allMiners")).define("allMiners", ["client","tipSetKey","sortMiners"], _allMiners);
   main.variable(observer("sortMiners")).define("sortMiners", _sortMiners);
-  main.variable(observer()).define(["allMiners"], _26);
-  main.variable(observer()).define(["md"], _27);
+  main.variable(observer()).define(["allMiners"], _28);
+  main.variable(observer()).define(["md"], _29);
   const child3 = runtime.module(define1);
   main.import("annotatedMinerIndexes", child3);
   main.variable(observer("selectedMinerIndexes")).define("selectedMinerIndexes", ["minerPowerLatestReport","d3","minTimestamp","minerPowerDailyAverageReport","minerPowerMultidayAverageReport","subsetToScan","allMiners"], _selectedMinerIndexes);
   main.variable(observer("minerPowerStream")).define("minerPowerStream", ["transform","client","tipSetKey","selectedMinerIndexes","selectedEpoch","maxElapsed"], _minerPowerStream);
   main.variable(observer("minerPower")).define("minerPower", ["start","minerPowerStream"], _minerPower);
-  main.variable(observer()).define(["minerPower","md","maxRows","bytes"], _34);
+  main.variable(observer()).define(["minerPower","md","maxRows","bytes"], _36);
   main.variable(observer("maxRows")).define("maxRows", _maxRows);
-  main.variable(observer()).define(["md"], _36);
+  main.variable(observer()).define(["md"], _38);
   main.variable(observer("LotusRPC")).define("LotusRPC", _LotusRPC);
   main.variable(observer("BrowserProvider")).define("BrowserProvider", _BrowserProvider);
   main.variable(observer("schema")).define("schema", _schema);
-  main.variable(observer()).define(["md"], _40);
-  main.variable(observer()).define(["schema"], _41);
   main.variable(observer()).define(["md"], _42);
+  main.variable(observer()).define(["schema"], _43);
+  main.variable(observer()).define(["md"], _44);
   main.variable(observer("endpointUrl")).define("endpointUrl", _endpointUrl);
   main.variable(observer("client")).define("client", ["BrowserProvider","endpointUrl","LotusRPC","schema"], _client);
-  main.variable(observer()).define(["md"], _45);
+  main.variable(observer()).define(["md"], _47);
   main.variable(observer("transform")).define("transform", _transform);
   const child4 = runtime.module(define2);
   main.import("epochToDate", child4);
   main.variable(observer("bytes")).define("bytes", _bytes);
   main.variable(observer("d3")).define("d3", ["require"], _d3);
   main.variable(observer("dateFns")).define("dateFns", ["require"], _dateFns);
-  main.variable(observer()).define(["md"], _51);
+  main.variable(observer()).define(["md"], _53);
   const child5 = runtime.module(define3);
   main.import("backups", child5);
   main.import("backupNowButton", child5);
-  main.variable(observer()).define(["backups"], _53);
+  main.variable(observer()).define(["backups"], _55);
   return main;
 }
