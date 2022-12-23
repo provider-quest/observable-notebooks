@@ -47,7 +47,11 @@ Inputs.button("Start")
 )}
 
 function _maxElapsed(){return(
-5.5 * 60 * 1000
+7.5 * 60 * 1000
+)}
+
+function _apiTimeout(){return(
+30000
 )}
 
 function _heightRangeStream(start,selectedHeight,currentHeight){return(
@@ -83,7 +87,7 @@ function _tipSets()
 }
 
 
-function _messagesStream(tipSetStream,currentHeight,maxElapsed,selectedHeight,client,decodeDeals,cbor){return(
+function _messagesStream(tipSetStream,currentHeight,maxElapsed,selectedHeight,client,apiTimeout,decodeDeals,cbor){return(
 async function* messagesStream() {
   let hits = 0
   let messagesProcessed = 0
@@ -149,10 +153,9 @@ async function* messagesStream() {
               csoStartTime = new Date()
               cso = client.stateCompute(height, null, selectedTipSet.Cids)
             }
-            const timeout = 5000
             const timeoutTimer = new Promise(
               (resolve, reject) => 
-                setTimeout(() => resolve({ timeout: 1 }), timeout)
+                setTimeout(() => resolve({ timeout: 1 }), apiTimeout)
             )
             const results = await Promise.race([timeoutTimer, cso])
             const elapsed = ((new Date()) - csoStartTime) / 1000
@@ -242,7 +245,7 @@ async function* dealStream() {
 }
 )}
 
-function _22(deals,dateFns){return(
+function _23(deals,dateFns){return(
 deals.state === 'done' ? `Done. ${deals.endHeight - deals.lastHeight} epochs remaining.` : `${dateFns.formatDistance(deals.elapsed * 1000, 0)} - ${deals.height}, ${deals.endHeight - deals.height} remaining`
 )}
 
@@ -303,7 +306,7 @@ async function* _deals(start,dealStream,dateFns)
 }
 
 
-function _24(md){return(
+function _25(md){return(
 md`# Setting up Lotus JS Client
 
 The following three stanzas import the library from npm.`
@@ -321,15 +324,15 @@ async function _schema(){return(
 (await import('https://unpkg.com/@filecoin-shipyard/lotus-client-schema?module')).mainnet.fullNode
 )}
 
-function _28(md){return(
+function _29(md){return(
 md`Here is the list of methods from the schema file. Currently just a subset of the available methods in the Lotus JSON-RPC API, but any method can be added.`
 )}
 
-function _29(schema){return(
+function _30(schema){return(
 Object.keys(schema.methods)
 )}
 
-function _30(md){return(
+function _31(md){return(
 md`To make a client object to make calls with, you supply an endpoint url to make a websocket connection to the Lotus node to the RPC library, and supply a provider object (contains the websocket code) and a schema.`
 )}
 
@@ -349,7 +352,7 @@ function _client(BrowserProvider,endpointUrl,LotusRPC,schema)
 }
 
 
-function _33(md){return(
+function _34(md){return(
 md`# More imports`
 )}
 
@@ -361,11 +364,11 @@ function _dateFns(require){return(
 require('https://bundle.run/date-fns@2.22.1')
 )}
 
-function _38(md){return(
+function _39(md){return(
 md`## Backups`
 )}
 
-function _40(backups){return(
+function _41(backups){return(
 backups()
 )}
 
@@ -385,34 +388,35 @@ export default function define(runtime, observer) {
   main.variable(observer("viewof start")).define("viewof start", ["Inputs"], _start);
   main.variable(observer("start")).define("start", ["Generators", "viewof start"], (G, _) => G.input(_));
   main.variable(observer("maxElapsed")).define("maxElapsed", _maxElapsed);
+  main.variable(observer("apiTimeout")).define("apiTimeout", _apiTimeout);
   main.variable(observer("heightRangeStream")).define("heightRangeStream", ["start","selectedHeight","currentHeight"], _heightRangeStream);
   main.variable(observer("tipSetStream")).define("tipSetStream", ["heightRangeStream","client","headTipSet"], _tipSetStream);
   main.variable(observer("tipSets")).define("tipSets", _tipSets);
-  main.variable(observer("messagesStream")).define("messagesStream", ["tipSetStream","currentHeight","maxElapsed","selectedHeight","client","decodeDeals","cbor"], _messagesStream);
+  main.variable(observer("messagesStream")).define("messagesStream", ["tipSetStream","currentHeight","maxElapsed","selectedHeight","client","apiTimeout","decodeDeals","cbor"], _messagesStream);
   main.variable(observer("messages")).define("messages", _messages);
   main.variable(observer("dealStream")).define("dealStream", ["messagesStream","epochToDate"], _dealStream);
-  main.variable(observer()).define(["deals","dateFns"], _22);
+  main.variable(observer()).define(["deals","dateFns"], _23);
   main.variable(observer("deals")).define("deals", ["start","dealStream","dateFns"], _deals);
-  main.variable(observer()).define(["md"], _24);
+  main.variable(observer()).define(["md"], _25);
   main.variable(observer("LotusRPC")).define("LotusRPC", _LotusRPC);
   main.variable(observer("BrowserProvider")).define("BrowserProvider", _BrowserProvider);
   main.variable(observer("schema")).define("schema", _schema);
-  main.variable(observer()).define(["md"], _28);
-  main.variable(observer()).define(["schema"], _29);
-  main.variable(observer()).define(["md"], _30);
+  main.variable(observer()).define(["md"], _29);
+  main.variable(observer()).define(["schema"], _30);
+  main.variable(observer()).define(["md"], _31);
   main.variable(observer("endpointUrl")).define("endpointUrl", _endpointUrl);
   main.variable(observer("client")).define("client", ["BrowserProvider","endpointUrl","LotusRPC","schema"], _client);
-  main.variable(observer()).define(["md"], _33);
+  main.variable(observer()).define(["md"], _34);
   const child1 = runtime.module(define1);
   main.import("decodeDeals", child1);
   main.variable(observer("cbor")).define("cbor", _cbor);
   const child2 = runtime.module(define2);
   main.import("epochToDate", child2);
   main.variable(observer("dateFns")).define("dateFns", ["require"], _dateFns);
-  main.variable(observer()).define(["md"], _38);
+  main.variable(observer()).define(["md"], _39);
   const child3 = runtime.module(define3);
   main.import("backups", child3);
   main.import("backupNowButton", child3);
-  main.variable(observer()).define(["backups"], _40);
+  main.variable(observer()).define(["backups"], _41);
   return main;
 }
