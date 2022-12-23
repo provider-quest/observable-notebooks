@@ -47,7 +47,7 @@ Inputs.button("Start")
 )}
 
 function _maxElapsed(){return(
-7.5 * 60 * 1000
+8.5 * 60 * 1000
 )}
 
 function _apiTimeout(){return(
