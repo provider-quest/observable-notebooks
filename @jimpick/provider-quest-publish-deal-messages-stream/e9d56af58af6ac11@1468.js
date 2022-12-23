@@ -83,7 +83,7 @@ function _tipSets()
 }
 
 
-function _messagesStream(tipSetStream,currentHeight,maxElapsed,selectedHeight,client,Promises,decodeDeals,cbor){return(
+function _messagesStream(tipSetStream,currentHeight,maxElapsed,selectedHeight,client,decodeDeals,cbor){return(
 async function* messagesStream() {
   let hits = 0
   let messagesProcessed = 0
@@ -141,49 +141,49 @@ async function* messagesStream() {
             hits++
             seenMessages.add(messageCidStr)
 
-            for (let retries = 0; i < 3; i++) {
-              if (!cso) {
-                // Compute state to get results
-                console.log('StateCompute', height, `attempt #${retries + 1}`)
-                csoStartTime = new Date()
-                cso = client.stateCompute(height, null, selectedTipSet.Cids)
+            if (!cso) {
+              // Compute state to get results
+              console.log('StateCompute', height)
+              csoStartTime = new Date()
+              cso = client.stateCompute(height, null, selectedTipSet.Cids)
+            }
+            const timeout = new Promise((resolve, reject) => setTimeout(() => resolve({ timeout: 1 }), 30000))
+            const results = await Promise.race([timeout, cso])
+            const elapsed = ((new Date()) - csoStartTime) / 1000
+            console.log('Jim results', results)
+            if (results?.timeout) {
+              console.log('Jim timeout', elapsed )
+              yield {
+                done: true,
+                abort: true,
+                timeout: true
               }
-              const timeout = new Promise((resolve, reject) => setTimeout(() => resolve({ timeout: 1 }), 30000))
-              const results = await Promise.race([timeout, cso])
-              const elapsed = ((new Date()) - csoStartTime) / 1000
-              console.log('Jim results', results)
-              if (results?.timeout) {
-                console.log('Jim timeout', elapsed )
-                cso = null 
-                await Promises.delay(10000)
-                continue
+              return
+            }
+            const trace = results.Trace.filter(({ MsgCid }) => MsgCid['/'] === messageCidStr)
+            console.log('StateCompute done', height, (await cso).Trace.length, elapsed)
+
+            if (trace.length > 0 && trace[0].MsgRct.Return) {
+              yield {
+                height,
+                messageCid: messageCidStr,
+                // signatureType,
+                blockCid: blockCidStr,
+                version: message.Version,
+                to: message.To,
+                from: message.From,
+                nonce: message.Nonce,
+                value: message.Value,
+                gasLimit: message.GasLimit,
+                gasFeeCap: message.GasFeeCap,
+                gasPremium: message.GasPremium,
+                method: message.Method,
+                params: message.Params,
+                decodedDeals: decodeDeals(message.Params),
+                results: cbor.decode(trace[0].MsgRct.Return, 'base64')[0]
               }
-              const trace = results.Trace.filter(({ MsgCid }) => MsgCid['/'] === messageCidStr)
-              console.log('StateCompute done', height, (await cso).Trace.length, elapsed)
-  
-              if (trace.length > 0 && trace[0].MsgRct.Return) {
-                yield {
-                  height,
-                  messageCid: messageCidStr,
-                  // signatureType,
-                  blockCid: blockCidStr,
-                  version: message.Version,
-                  to: message.To,
-                  from: message.From,
-                  nonce: message.Nonce,
-                  value: message.Value,
-                  gasLimit: message.GasLimit,
-                  gasFeeCap: message.GasFeeCap,
-                  gasPremium: message.GasPremium,
-                  method: message.Method,
-                  params: message.Params,
-                  decodedDeals: decodeDeals(message.Params),
-                  results: cbor.decode(trace[0].MsgRct.Return, 'base64')[0]
-                }
-                break
-              } else {
-                console.error('Missing or broken trace', height, messageCidStr)
-              }
+            } else {
+              console.error('Missing or broken trace', height, messageCidStr)
             }
           }
         }
@@ -382,7 +382,7 @@ export default function define(runtime, observer) {
   main.variable(observer("heightRangeStream")).define("heightRangeStream", ["start","selectedHeight","currentHeight"], _heightRangeStream);
   main.variable(observer("tipSetStream")).define("tipSetStream", ["heightRangeStream","client","headTipSet"], _tipSetStream);
   main.variable(observer("tipSets")).define("tipSets", _tipSets);
-  main.variable(observer("messagesStream")).define("messagesStream", ["tipSetStream","currentHeight","maxElapsed","selectedHeight","client","Promises","decodeDeals","cbor"], _messagesStream);
+  main.variable(observer("messagesStream")).define("messagesStream", ["tipSetStream","currentHeight","maxElapsed","selectedHeight","client","decodeDeals","cbor"], _messagesStream);
   main.variable(observer("messages")).define("messages", _messages);
   main.variable(observer("dealStream")).define("dealStream", ["messagesStream","epochToDate"], _dealStream);
   main.variable(observer()).define(["deals","dateFns"], _22);
