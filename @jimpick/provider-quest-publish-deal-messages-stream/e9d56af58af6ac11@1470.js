@@ -147,10 +147,13 @@ async function* messagesStream() {
               csoStartTime = new Date()
               cso = client.stateCompute(height, null, selectedTipSet.Cids)
             }
-            const timeout = new Promise((resolve, reject) => setTimeout(() => resolve({ timeout: 1 }), 30000))
-            const results = await Promise.race([timeout, cso])
+            const timeout = 5000
+            const timeoutTimer = new Promise(
+              (resolve, reject) => 
+                setTimeout(() => resolve({ timeout: 1 }), timeout)
+            )
+            const results = await Promise.race([timeoutTimer, cso])
             const elapsed = ((new Date()) - csoStartTime) / 1000
-            console.log('Jim results', results)
             if (results?.timeout) {
               console.log('Jim timeout', elapsed )
               yield {
@@ -161,7 +164,7 @@ async function* messagesStream() {
               return
             }
             const trace = results.Trace.filter(({ MsgCid }) => MsgCid['/'] === messageCidStr)
-            console.log('StateCompute done', height, (await cso).Trace.length, elapsed)
+            console.log('StateCompute done', height, results.Trace.length, elapsed)
 
             if (trace.length > 0 && trace[0].MsgRct.Return) {
               yield {
