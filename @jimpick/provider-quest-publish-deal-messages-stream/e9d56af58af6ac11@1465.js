@@ -83,7 +83,7 @@ function _tipSets()
 }
 
 
-function _messagesStream(tipSetStream,currentHeight,maxElapsed,selectedHeight,client,decodeDeals,cbor){return(
+function _messagesStream(tipSetStream,currentHeight,maxElapsed,selectedHeight,client,Promises,decodeDeals,cbor){return(
 async function* messagesStream() {
   let hits = 0
   let messagesProcessed = 0
@@ -155,6 +155,7 @@ async function* messagesStream() {
               if (results?.timeout) {
                 console.log('Jim timeout', elapsed )
                 cso = null 
+                await Promises.delay(10000)
                 continue
               }
               const trace = results.Trace.filter(({ MsgCid }) => MsgCid['/'] === messageCidStr)
@@ -381,7 +382,7 @@ export default function define(runtime, observer) {
   main.variable(observer("heightRangeStream")).define("heightRangeStream", ["start","selectedHeight","currentHeight"], _heightRangeStream);
   main.variable(observer("tipSetStream")).define("tipSetStream", ["heightRangeStream","client","headTipSet"], _tipSetStream);
   main.variable(observer("tipSets")).define("tipSets", _tipSets);
-  main.variable(observer("messagesStream")).define("messagesStream", ["tipSetStream","currentHeight","maxElapsed","selectedHeight","client","decodeDeals","cbor"], _messagesStream);
+  main.variable(observer("messagesStream")).define("messagesStream", ["tipSetStream","currentHeight","maxElapsed","selectedHeight","client","Promises","decodeDeals","cbor"], _messagesStream);
   main.variable(observer("messages")).define("messages", _messages);
   main.variable(observer("dealStream")).define("dealStream", ["messagesStream","epochToDate"], _dealStream);
   main.variable(observer()).define(["deals","dateFns"], _22);
