@@ -31,7 +31,7 @@ chainHead.Cids
 )}
 
 function _selectedHeight(html,currentHeight){return(
-html`<input type=range min=${currentHeight - 11000} max=${currentHeight - 1} value=${currentHeight - 1000}>`
+html`<input type=range min=${currentHeight - 11000} max=${currentHeight - 1} value=${currentHeight - 50}>`
 )}
 
 function _9(selectedHeight){return(
