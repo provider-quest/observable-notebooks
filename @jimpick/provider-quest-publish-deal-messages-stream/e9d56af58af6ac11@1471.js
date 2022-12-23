@@ -87,6 +87,7 @@ function _messagesStream(tipSetStream,currentHeight,maxElapsed,selectedHeight,cl
 async function* messagesStream() {
   let hits = 0
   let messagesProcessed = 0
+  let aborted = false
   const startTime = new Date()
   for await (const tipSetRecord of tipSetStream()) {
     const seenMessages = new Set()
@@ -121,6 +122,7 @@ async function* messagesStream() {
           const messages = await client.chainGetBlockMessages(blockCid)
           for (const message of messages.BlsMessages) {
             yield *yieldMessage(message, 'bls')
+            if (aborted) return
           }
         } catch (e) {
           console.error('messages error', height, e)
@@ -161,6 +163,7 @@ async function* messagesStream() {
                 abort: true,
                 timeout: true
               }
+              aborted = true
               return
             }
             const trace = results.Trace.filter(({ MsgCid }) => MsgCid['/'] === messageCidStr)
