@@ -148,9 +148,10 @@ async function* messagesStream() {
                 csoStartTime = new Date()
                 cso = client.stateCompute(height, null, selectedTipSet.Cids)
               }
-              const timeout = new Promise((resolve, reject) => setTimeout(resolve, 30000))
+              const timeout = new Promise((resolve, reject) => setTimeout(() => resolve(1), 30000))
               const results = await Promise.race([timeout, cso])
               const elapsed = ((new Date()) - csoStartTime) / 1000
+              console.log('Jim results', results)
               if (!results[1]) {
                 console.log('Jim timeout', elapsed )
                 cso = null 
