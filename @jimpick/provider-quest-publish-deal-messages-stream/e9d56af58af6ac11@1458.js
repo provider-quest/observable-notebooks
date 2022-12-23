@@ -148,11 +148,11 @@ async function* messagesStream() {
                 csoStartTime = new Date()
                 cso = client.stateCompute(height, null, selectedTipSet.Cids)
               }
-              const startTime = Date.now
+              const startTime = Date.now()
               const timeout = new Promise((resolve, reject) => setTimeout(resolve, 30000))
               const results = await Promise.race([timeout, cso])
               if (!results[1]) {
-                console.log('Jim timeout', Date.now = startTime )
+                console.log('Jim timeout', Date.now() - startTime )
                 cso = null 
                 continue
               }
