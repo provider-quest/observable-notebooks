@@ -141,14 +141,20 @@ async function* messagesStream() {
             hits++
             seenMessages.add(messageCidStr)
 
-            if (!cso) {
-              // Compute state to get results
-              console.log('StateCompute', height)
-              csoStartTime = new Date()
-              cso = client.stateCompute(height, null, selectedTipSet.Cids)
-            }
-            try {
-              const trace = (await cso).Trace.filter(({ MsgCid }) => MsgCid['/'] === messageCidStr)
+            for (let retries = 0; i < 3; i++) {
+              if (!cso) {
+                // Compute state to get results
+                console.log('StateCompute', height)
+                csoStartTime = new Date()
+                cso = client.stateCompute(height, null, selectedTipSet.Cids)
+              }
+              const timeout = new Promise((resolve, reject) => setTimeout(resolve, 30000))
+              const results = await Promise.race([timeout, cso])
+              if (!results[1]) {
+                cso = null 
+                continue
+              }
+              const trace = results[0].Trace.filter(({ MsgCid }) => MsgCid['/'] === messageCidStr)
               console.log('StateCompute done', height, (await cso).Trace.length, ((new Date()) - csoStartTime) / 1000)
   
               if (trace.length > 0 && trace[0].MsgRct.Return) {
@@ -170,11 +176,10 @@ async function* messagesStream() {
                   decodedDeals: decodeDeals(message.Params),
                   results: cbor.decode(trace[0].MsgRct.Return, 'base64')[0]
                 }
+                break
               } else {
                 console.error('Missing or broken trace', height, messageCidStr)
               }
-            } catch (e) {
-              console.error('Exception', e)
             }
           }
         }
