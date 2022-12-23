@@ -144,13 +144,15 @@ async function* messagesStream() {
             for (let retries = 0; i < 3; i++) {
               if (!cso) {
                 // Compute state to get results
-                console.log('StateCompute', height)
+                console.log('StateCompute', height, `attempt #${retries + 1}`)
                 csoStartTime = new Date()
                 cso = client.stateCompute(height, null, selectedTipSet.Cids)
               }
+              const startTime = Date.now
               const timeout = new Promise((resolve, reject) => setTimeout(resolve, 30000))
               const results = await Promise.race([timeout, cso])
               if (!results[1]) {
+                console.log('Jim timeout', Date.now = startTime )
                 cso = null 
                 continue
               }
