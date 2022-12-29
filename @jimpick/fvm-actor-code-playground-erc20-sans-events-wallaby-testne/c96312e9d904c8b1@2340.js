@@ -285,7 +285,7 @@ md`## Initial Balances`
 )}
 
 function _41(md){return(
-md`Here are the addresses and IDs of the 4 clients we created, as well at their initial balances (should be 100 FIL each).`
+md`Here are the addresses and IDs of the 4 clients we created, as well at their initial balances (should be 0.1 FIL each).`
 )}
 
 function _42(Inputs,initialBalances,keys,transferFundsStatus,FilecoinNumber){return(
