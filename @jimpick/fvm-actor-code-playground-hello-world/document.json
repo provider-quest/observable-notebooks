@@ -3,9 +3,9 @@
   "slug": "fvm-actor-code-playground-hello-world",
   "trashed": false,
   "description": "",
-  "likes": 2,
+  "likes": 3,
   "publish_level": "live",
-  "forks": 4,
+  "forks": 5,
   "fork_of": {
     "id": "1f6a1da49a337f42",
     "slug": "codemirror-6",
@@ -19,7 +19,10 @@
       "bio": "",
       "home_url": "https://twitter.com/visnup",
       "type": "individual",
-      "tier": "pro"
+      "tier": "pro",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
     },
     "version": 136
   },
@@ -49,7 +52,10 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -59,7 +65,10 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "authors": [
     {
@@ -72,7 +81,10 @@
       "github_login": "jimpick",
       "tier": "public",
       "approved": true,
-      "description": ""
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
     }
   ],
   "collections": [
@@ -99,7 +111,10 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "public"
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
       }
     }
   ],
