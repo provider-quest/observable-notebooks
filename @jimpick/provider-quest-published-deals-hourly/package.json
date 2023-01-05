@@ -1,7 +1,7 @@
 {
   "name": "@jimpick/provider-quest-published-deals-hourly",
-  "main": "4d995a91dbd11670@570.js",
-  "version": "570.0.0",
+  "main": "4d995a91dbd11670@571.js",
+  "version": "571.0.0",
   "homepage": "https://observablehq.com/@jimpick/provider-quest-published-deals-hourly",
   "author": {
     "name": "Jim Pick",
@@ -9,6 +9,6 @@
   },
   "type": "module",
   "peerDependencies": {
-    "@observablehq/runtime": "4"
+    "@observablehq/runtime": "4 - 5"
   }
 }

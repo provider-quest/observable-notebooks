@@ -1,5 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-published-deals-hourly@570
-import define1 from "./5cf93b57a7444002@230.js";
+import define1 from "./5cf93b57a7444002@282.js";
 import define2 from "./57d79353bac56631@44.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
 
@@ -17,7 +16,7 @@ md`Notes:
 * Numbers are based on published deal proposals encoded in messages on the Filecoin blockchain.
 * The [scanning script](https://observablehq.com/@jimpick/provider-quest-publish-deal-messages-stream?collection=@jimpick/provider-quest) is usually run multiple times per hour, but there may be gaps in the data from time to time. This system is optimized for timeliness instead of accuracy.
 * Dates are based on when a message was published on the blockchain, not when the deal proposal was sent to a provider, or when the deal proving interval starts or when the sector is created.
-* Not all published deals are successfully committed to sectors by providers, and occasionally providers lose data and get slashed, so these numbers will be greater than the actual amount of data stored to Filecoin. Check the [Starboard Deals](https://dashboard.starboard.ventures/deals) dashboard for information on "committed" deals.
+* Not all published deals are successfully committed to sectors by providers, and occasionally providers lose data and get slashed, so these numbers will be greater than the actual amount of data stored to Filecoin. Check the [Starboard Deals](https://dashboard.starboard.ventures/market-deals) dashboard for information on "committed" deals.
 * Distinct counts are calculated continuously with Spark Structured Streaming using an approximation algorithm.
 * A similar report is available for [Weekly Deals](https://observablehq.com/@jimpick/provider-quest-published-deals-weekly?collection=@jimpick/provider-quest), [Daily Deals](https://observablehq.com/@jimpick/provider-quest-published-deals-daily?collection=@jimpick/provider-quest) and [Hourly Deals: Named Clients](https://observablehq.com/@jimpick/provider-quest-deals-named-clients-hourly?collection=@jimpick/provider-quest).
 `
