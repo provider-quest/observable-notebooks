@@ -1,6 +1,6 @@
 # Published Deals: Named Clients: Hourly [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-deals-named-clients-hourly@808
+https://observablehq.com/@jimpick/provider-quest-deals-named-clients-hourly@809
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -13,8 +13,8 @@ Or, use the [Observable Runtime](https://github.com/observablehq/runtime) to
 import this module directly into your application. To npm install:
 
 ~~~sh
-npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/4a4608ad85a458aa@808.tgz?v=3
+npm install @observablehq/runtime@5
+npm install https://api.observablehq.com/d/4a4608ad85a458aa@809.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:

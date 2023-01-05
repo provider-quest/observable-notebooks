@@ -1,0 +1,613 @@
+{
+  "id": "4a4608ad85a458aa",
+  "slug": "provider-quest-deals-named-clients-hourly",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": {
+    "id": "4d995a91dbd11670",
+    "slug": "provider-quest-published-deals-hourly",
+    "title": "Published Deals: Hourly [Provider.Quest]",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "public",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    },
+    "version": 522
+  },
+  "has_importers": false,
+  "update_time": "2023-01-05T16:05:45.566Z",
+  "first_public_version": 808,
+  "paused_version": null,
+  "publish_time": "2021-07-08T19:54:22.304Z",
+  "publish_version": 809,
+  "latest_version": 809,
+  "thumbnail": "3c3247fb11cb3168b2fce7d3a74faa9dfdf49f9c2dcdc444073dd394b67d1870",
+  "default_thumbnail": "3c3247fb11cb3168b2fce7d3a74faa9dfdf49f9c2dcdc444073dd394b67d1870",
+  "roles": [],
+  "sharing": null,
+  "edits": [
+    {
+      "node_id": 469,
+      "value": "permalink = `[Permalink](${document.baseURI.replace(/\\?.*/,'')}?name=${selectedNamedClient}&date=${date}&showAllDeals=${showAllDeals})`"
+    }
+  ],
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 809,
+  "title": "Published Deals: Named Clients: Hourly [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Published Deals: Named Clients: Hourly [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 774,
+      "value": "md`${quickMenu}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 64,
+      "value": "md`Notes:\n\n* Numbers are based on published deal proposals encoded in messages on the Filecoin blockchain.\n* The [scanning script](https://observablehq.com/@jimpick/provider-quest-publish-deal-messages-stream?collection=@jimpick/provider-quest) is usually run multiple times per hour, but there may be gaps in the data from time to time. This system is optimized for timeliness instead of accuracy.\n* Dates are based on when a message was published on the blockchain, not when the deal proposal was sent to a provider, or when the deal proving interval starts or when the sector is created.\n* Not all published deals are successfully committed to sectors by providers, and occasionally providers lose data and get slashed, so these numbers will be greater than the actual amount of data stored to Filecoin. Check the [Starboard Deals](https://dashboard.starboard.ventures/market-deals) dashboard for information on \"committed\" deals.\n* Distinct counts are calculated continuously with Spark Structured Streaming using an approximation algorithm.\n* A similar report is available for [Weekly Deals](https://observablehq.com/@jimpick/provider-quest-published-deals-weekly?collection=@jimpick/provider-quest), [Daily Deals](https://observablehq.com/@jimpick/provider-quest-published-deals-daily?collection=@jimpick/provider-quest) and [Hourly Deals](https://observablehq.com/@jimpick/provider-quest-published-deals-hourly?collection=@jimpick/provider-quest).\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 525,
+      "value": "md`## Named Clients`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 539,
+      "value": "viewof selectedNamedClient = Inputs.select(namedClients, { label: 'Select a named client', value: defaultNamedClient })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 657,
+      "value": "md`${permalink}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 25,
+      "value": "md`## Published Deals Per Hour`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 623,
+      "value": "viewof composite = view`<div style=\"display: flex\">\n  <div>${[\"date\", Inputs.select(dates, { label: 'Select a date', value: defaultDate })]}</div>\n  <div style=\"margin-left: 1rem\">${[\"showAllDeals\", Inputs.checkbox([\"Show all deals\"], { value: [ defaultShowAllDeals && \"Show all deals\"] })]}</div>\n</div>\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 445,
+      "value": "md`${permalink}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 6,
+      "value": "{\n  const marks = [\n    showAllDeals && Plot.barY(hourlyDeals, {x: \"hour\", y: \"count\", fill: \"#bab0ab\"}),\n    Plot.barY(namedClientHourlyDeals, {x: \"hour\", y: \"count\"}),\n    Plot.ruleY([0])\n  ].filter(x => x)\n  return Plot.plot({\n    x: {\n      domain: [...new Array(24).keys()]\n    },\n    y: {\n      grid: true\n    },\n    marks\n  })\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 33,
+      "value": "md`## Total Data Size of Published Deals Per Hour (GiB)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 699,
+      "value": "view`<div style=\"display: flex\">\n  <div>${[\"date\", Inputs.bind(Inputs.select(dates, { label: 'Select a date' }), viewof composite.date)]}</div>\n  <div style=\"margin-left: 1rem\">${[\"showAllDeals\", Inputs.bind(Inputs.checkbox([\"Show all deals\"]), viewof composite.showAllDeals)]}\n</div>\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 477,
+      "value": "md`${permalink}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 41,
+      "value": "{\n  const marks = [\n    showAllDeals && Plot.barY(hourlyDeals, {x: \"hour\", y: \"sumPieceSizeGiB\", fill: \"#bab0ab\"}),\n    Plot.barY(namedClientHourlyDeals, {x: \"hour\", y: \"sumPieceSizeGiB\"}),\n    Plot.ruleY([0])\n  ].filter(x => x)\n  return Plot.plot({\n    x: {\n      domain: [...new Array(24).keys()]\n    },\n    y: {\n      grid: true\n    },\n    marks\n  })\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 50,
+      "value": "md`## Lifetime Value of Published Deals Per Hour (FIL)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 423,
+      "value": "view`<div style=\"display: flex\">\n  <div>${[\"date\", Inputs.bind(Inputs.select(dates, { label: 'Select a date' }), viewof composite.date)]}</div>\n  <div style=\"margin-left: 1rem\">${[\"showAllDeals\", Inputs.bind(Inputs.checkbox([\"Show all deals\"]), viewof composite.showAllDeals)]}\n</div>\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 479,
+      "value": "md`${permalink}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 55,
+      "value": "{\n  const marks = [\n    showAllDeals && Plot.barY(hourlyDeals, {x: \"hour\", y: \"sum(lifetimeValue)\", fill: \"#bab0ab\"}),\n    Plot.barY(namedClientHourlyDeals, {x: \"hour\", y: \"sum(lifetimeValue)\"}),\n    Plot.ruleY([0])\n  ].filter(x => x)\n  return Plot.plot({\n    x: {\n      domain: [...new Array(24).keys()]\n    },\n    y: {\n      grid: true\n    },\n    marks\n  })\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 67,
+      "value": "md`## Number of Providers that Accepted Deals`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 425,
+      "value": "view`<div style=\"display: flex\">\n  <div>${[\"date\", Inputs.bind(Inputs.select(dates, { label: 'Select a date' }), viewof composite.date)]}</div>\n  <div style=\"margin-left: 1rem\">${[\"showAllDeals\", Inputs.bind(Inputs.checkbox([\"Show all deals\"]), viewof composite.showAllDeals)]}\n</div>\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 483,
+      "value": "md`${permalink}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 70,
+      "value": "{\n  const marks = [\n    showAllDeals && Plot.barY(hourlyDeals, {x: \"hour\", y: \"approx_count_distinct(provider)\", fill: \"#bab0ab\"}),\n    Plot.barY(namedClientHourlyDeals, {x: \"hour\", y: \"approx_count_distinct(provider)\"}),\n    Plot.ruleY([0])\n  ].filter(x => x)\n  return Plot.plot({\n    x: {\n      domain: [...new Array(24).keys()]\n    },\n    y: {\n      grid: true\n    },\n    marks\n  })\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 72,
+      "value": "md`## Number of Clients that Placed Deals`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 427,
+      "value": "view`<div style=\"display: flex\">\n  <div>${[\"date\", Inputs.bind(Inputs.select(dates, { label: 'Select a date' }), viewof composite.date)]}</div>\n  <div style=\"margin-left: 1rem\">${[\"showAllDeals\", Inputs.bind(Inputs.checkbox([\"Show all deals\"]), viewof composite.showAllDeals)]}\n</div>\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 486,
+      "value": "md`${permalink}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 75,
+      "value": "{\n  const marks = [\n    showAllDeals && Plot.barY(hourlyDeals, {x: \"hour\", y: \"approx_count_distinct(client)\", fill: \"#bab0ab\"}),\n    Plot.barY(namedClientHourlyDeals, {x: \"hour\", y: \"approx_count_distinct(client)\"}),\n    Plot.ruleY([0])\n  ].filter(x => x)\n  return Plot.plot({\n    x: {\n      domain: [...new Array(24).keys()]\n    },\n    y: {\n      grid: true\n    },\n    marks\n  })\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 79,
+      "value": "md`## Number of Client <-> Provider Pairs`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 429,
+      "value": "view`<div style=\"display: flex\">\n  <div>${[\"date\", Inputs.bind(Inputs.select(dates, { label: 'Select a date' }), viewof composite.date)]}</div>\n  <div style=\"margin-left: 1rem\">${[\"showAllDeals\", Inputs.bind(Inputs.checkbox([\"Show all deals\"]), viewof composite.showAllDeals)]}\n</div>\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 490,
+      "value": "md`${permalink}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 81,
+      "value": "{\n  const marks = [\n    showAllDeals && Plot.barY(hourlyDeals, {x: \"hour\", y: \"approx_count_distinct(clientProvider)\", fill: \"#bab0ab\"}),\n    Plot.barY(namedClientHourlyDeals, {x: \"hour\", y: \"approx_count_distinct(clientProvider)\"}),\n    Plot.ruleY([0])\n  ].filter(x => x)\n  return Plot.plot({\n    x: {\n      domain: [...new Array(24).keys()]\n    },\n    y: {\n      grid: true\n    },\n    marks\n  })\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 508,
+      "value": "md`## Distinct CIDs (Content Identifiers)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 511,
+      "value": "view`<div style=\"display: flex\">\n  <div>${[\"date\", Inputs.bind(Inputs.select(dates, { label: 'Select a date' }), viewof composite.date)]}</div>\n  <div style=\"margin-left: 1rem\">${[\"showAllDeals\", Inputs.bind(Inputs.checkbox([\"Show all deals\"]), viewof composite.showAllDeals)]}\n</div>\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 514,
+      "value": "md`${permalink}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 517,
+      "value": "{\n  const marks = [\n    showAllDeals && Plot.barY(hourlyDeals, {x: \"hour\", y: \"approx_count_distinct(label)\", fill: \"#bab0ab\"}),\n    Plot.barY(namedClientHourlyDeals, {x: \"hour\", y: \"approx_count_distinct(label)\"}),\n    Plot.ruleY([0])\n  ].filter(x => x)\n  return Plot.plot({\n    x: {\n      domain: [...new Array(24).keys()]\n    },\n    y: {\n      grid: true\n    },\n    marks\n  })\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 265,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 94,
+      "value": "import { dealsBucketUrl } from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 313,
+      "value": "dates = (await fetch(`${dealsBucketUrl}/named-clients/${selectedNamedClient}/hourly/dates.json`)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 4,
+      "value": "hourlyDealsRaw = (await fetch(`${dealsBucketUrl}/hourly-totals/${date}.json`)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 20,
+      "value": "hourlyDeals = hourlyDealsRaw.map(record => ({\n  date: d3.isoParse(record.window.start),\n  hour: d3.isoParse(record.window.start).getUTCHours(),\n  sumPieceSizeKiB: record['sum(pieceSizeDouble)'] / 1024,\n  sumPieceSizeMiB: record['sum(pieceSizeDouble)'] / 1024 ** 2,\n  sumPieceSizeGiB: record['sum(pieceSizeDouble)'] / 1024 ** 3,\n  sumPieceSizeTiB: record['sum(pieceSizeDouble)'] / 1024 ** 4,\n  ...record\n}))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 263,
+      "value": "Inputs.table(hourlyDeals.map(({window, ...rest}) => rest))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 591,
+      "value": "namedClientHourlyDealsRaw = (await fetch(`${dealsBucketUrl}/named-clients/${selectedNamedClient}/hourly/${date}.json`)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 595,
+      "value": "namedClientHourlyDeals = namedClientHourlyDealsRaw.map(record => ({\n  date: d3.isoParse(record.window.start),\n  hour: d3.isoParse(record.window.start).getUTCHours(),\n  sumPieceSizeKiB: record['sum(pieceSizeDouble)'] / 1024,\n  sumPieceSizeMiB: record['sum(pieceSizeDouble)'] / 1024 ** 2,\n  sumPieceSizeGiB: record['sum(pieceSizeDouble)'] / 1024 ** 3,\n  sumPieceSizeTiB: record['sum(pieceSizeDouble)'] / 1024 ** 4,\n  ...record\n}))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 598,
+      "value": "Inputs.table(namedClientHourlyDeals.map(({window, ...rest}) => rest))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 530,
+      "value": "namedClients = (await fetch(`${dealsBucketUrl}/named-clients/named-clients.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 10,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 9,
+      "value": "d3 = require(\"d3@6\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 613,
+      "value": "import {view} from '@tomlarkworthy/view'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 771,
+      "value": "import {quickMenu} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 466,
+      "value": "md`## Permalink support`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 663,
+      "value": "composite",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 653,
+      "value": "date = composite.date",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 672,
+      "value": "showAllDeals = composite.showAllDeals.includes(\"Show all deals\")",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 561,
+      "value": "params = [...(new URLSearchParams(location.search.substring(1))).entries()].reduce((acc, [key, value]) => ({ [key]: value, ...acc }), {})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 576,
+      "value": "defaultNamedClient = params.name || namedClients[0]",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 461,
+      "value": "defaultDate = (params.date && dates.includes(params.date)) ? params.date : dates[dates.length - 1]",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 675,
+      "value": "defaultShowAllDeals = params.showAllDeals !== undefined ? (params.showAllDeals == \"true\") : true",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 469,
+      "value": "permalink = `[Permalink](${document.baseURI.replace(/\\?.*/,'')}?name=${selectedNamedClient}&date=${date}&showAllDeals=${showAllDeals})`",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 798,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 802,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 805,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}

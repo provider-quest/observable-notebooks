@@ -1,7 +1,7 @@
 {
   "name": "@jimpick/provider-quest-deals-named-clients-hourly",
-  "main": "4a4608ad85a458aa@808.js",
-  "version": "808.0.0",
+  "main": "4a4608ad85a458aa@809.js",
+  "version": "809.0.0",
   "homepage": "https://observablehq.com/@jimpick/provider-quest-deals-named-clients-hourly",
   "author": {
     "name": "Jim Pick",
@@ -9,6 +9,6 @@
   },
   "type": "module",
   "peerDependencies": {
-    "@observablehq/runtime": "4"
+    "@observablehq/runtime": "4 - 5"
   }
 }
