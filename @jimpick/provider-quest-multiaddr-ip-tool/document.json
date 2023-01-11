@@ -1,0 +1,340 @@
+{
+  "id": "8d92603ee428f323",
+  "slug": "provider-quest-multiaddr-ip-tool",
+  "trashed": false,
+  "description": "",
+  "likes": 1,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": null,
+  "has_importers": false,
+  "update_time": "2022-06-05T18:25:22.438Z",
+  "first_public_version": 254,
+  "paused_version": null,
+  "publish_time": "2021-07-16T21:23:58.348Z",
+  "publish_version": 254,
+  "latest_version": 254,
+  "thumbnail": "16230e993e523bb610af53fccde4075f13a8f65dc897c7bc0fc12e3e207351f6",
+  "default_thumbnail": "16230e993e523bb610af53fccde4075f13a8f65dc897c7bc0fc12e3e207351f6",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 1,
+    "followers_count": 0,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 1,
+    "followers_count": 0,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 1,
+      "followers_count": 0,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 1,
+        "followers_count": 0,
+        "following": false
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 254,
+  "title": "Internal: Combiner: Multiaddr => IP Tool [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Internal: Combiner: Multiaddr => IP Tool [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 5,
+      "value": "md`This notebook combines the multiaddrs from the latest on-chain \"miner info\" records as well as the multiaddrs from the latest DHT scans + DNS lookups. The IP addresses are then extracted from the multiaddrs.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 8,
+      "value": "import { minerInfoSubsetLatestBucketUrl } from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 214,
+      "value": "minerInfoSubsetLatestUrl = `${minerInfoSubsetLatestBucketUrl}/miner-info-subset-latest.json`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 74,
+      "value": "minerInfoSubsetLatest = (await fetch(minerInfoSubsetLatestUrl)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 11,
+      "value": "minerInfoSubsetLatest",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 13,
+      "value": "import {dhtAddrsLatestBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 223,
+      "value": "dhtAddrsLatestUrl = `${dhtAddrsLatestBucketUrl}/dht-addrs-latest.json`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 16,
+      "value": "dhtAddrsLatest = (await fetch(dhtAddrsLatestUrl)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 232,
+      "value": "minMinerInfoTimestamp = dateFns.subDays(new Date(), 7)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 49,
+      "value": "minDhtTimestamp = dateFns.subDays(new Date(), 7)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 21,
+      "value": "miners = {\n  const miners = new Set()\n  for (const miner in minerInfoSubsetLatest.miners) {\n    const timestamp = new Date(minerInfoSubsetLatest.miners[miner].timestamp)\n    if (timestamp < new Date(minMinerInfoTimestamp)) continue\n    if (minerInfoSubsetLatest.miners[miner].multiaddrsDecoded) {\n      miners.add(miner)\n    }\n  }\n  for (const miner in dhtAddrsLatest.miners) {\n    const timestamp = new Date(dhtAddrsLatest.miners[miner].timestamp)\n    if (timestamp < new Date(minDhtTimestamp)) continue\n    miners.add(miner)\n  }\n  return [...miners].sort((a, b) => Number(a.slice(1)) - Number(b.slice(1)))\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 33,
+      "value": "minersCombined = miners.map(miner => {\n  const record = { miner }\n  let chain = minerInfoSubsetLatest.miners[miner] && {\n    epoch: minerInfoSubsetLatest.miners[miner].epoch,\n    timestamp: new Date(minerInfoSubsetLatest.miners[miner].timestamp),\n    peerId: minerInfoSubsetLatest.miners[miner].peerId,\n    multiaddrs: minerInfoSubsetLatest.miners[miner].multiaddrsDecoded,\n    dnsLookups: minerInfoSubsetLatest.miners[miner].dnsLookups\n  }\n  if (chain && chain.timestamp < new Date(minMinerInfoTimestamp)) chain = null\n  let dht = dhtAddrsLatest.miners[miner] && {\n    epoch: dhtAddrsLatest.miners[miner].epoch,\n    timestamp: new Date(dhtAddrsLatest.miners[miner].timestamp),\n    peerId: dhtAddrsLatest.miners[miner].peerId,\n    multiaddrs: dhtAddrsLatest.miners[miner].multiaddrs,\n    dnsLookups: dhtAddrsLatest.miners[miner].dnsLookups\n  }\n  if (dht && dht.timestamp < new Date(minDhtTimestamp)) dht = null\n  if (chain && dht && chain.peerId !== dht.peerId) {\n    if (dht.timestamp < chain.timestamp) {\n      dht = null\n    } else {\n      chain = null\n    }\n  }\n  \n  if (chain) record.chain = chain\n  if (dht) record.dht = dht\n  return record\n})",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 58,
+      "value": "minerMultiaddrs = {\n  const minerMultiaddrs = []\n  for (const minerRecord of minersCombined) {\n    const { miner } = minerRecord\n    const multiaddrs = {}\n    for (const chainOrDht of [\"chain\", \"dht\"]) {\n      const record = minerRecord[chainOrDht]\n      if (record && record.multiaddrs) {\n        for (const maddr of record.multiaddrs) {\n          try {\n            const addr = multiaddr.multiaddr(maddr)\n            const protos = addr.protos()\n            const nodeAddress = addr.nodeAddress()\n            multiaddrs[maddr] ||= {\n              miner,\n              maddr,\n              peerId: record.peerId,\n              protos,\n              nodeAddress,\n              timestamp: record.timestamp,\n              epoch: record.epoch,\n              ips: [],\n              ipAttributes: {}\n            }\n            if (record.dnsLookups && !multiaddrs[maddr].dnsLookups) {\n              multiaddrs[maddr].dnsLookups = record.dnsLookups\n            }\n            if (record.epoch > multiaddrs[maddr].epoch) {\n              multiaddrs[maddr].epoch = record.epoch\n              multiaddrs[maddr].timestamp = record.timestamp\n              if (record.dnsLookups) {\n                multiaddrs[maddr].dnsLookups = record.dnsLookups\n              }\n            }\n            multiaddrs[maddr][chainOrDht] = true\n            if (protos[0].name === 'ip4' || protos[0].name === 'ip6') {\n              addIp(nodeAddress.address)\n            }\n            if (protos[0].name === 'dns4' || protos[0].name === 'dns6') {\n              const dnsName = nodeAddress.address\n              if (record.dnsLookups && record.dnsLookups[dnsName]) {\n                const dnsLookups = record.dnsLookups[dnsName]\n                for (const dnsLookup of dnsLookups) {\n                  addIp(dnsLookup.address)\n                }\n              }\n            }\n\n            function addIp(ipAddress) {\n              if (!ip.isPrivate(ipAddress) && ipAddress !== '0.0.0.0') {\n                if (!multiaddrs[maddr].ips.includes(ipAddress)) {\n                  multiaddrs[maddr].ips.push(ipAddress)\n                }\n                multiaddrs[maddr].ipAttributes[ipAddress] ||= {}\n                multiaddrs[maddr].ipAttributes[ipAddress][chainOrDht] = true\n                multiaddrs[maddr].ipAttributes[ipAddress].epoch ||= record.epoch\n                multiaddrs[maddr].ipAttributes[ipAddress].timestamp ||= record.timestamp\n                if (record.epoch > multiaddrs[maddr].ipAttributes[ipAddress].epoch) {\n                  multiaddrs[maddr].ipAttributes[ipAddress].epoch = record.epoch\n                  multiaddrs[maddr].ipAttributes[ipAddress].timestamp = record.timestamp\n                }\n              }\n            }\n          } catch (e) {\n            console.info('Multiaddr exception', miner, maddr, e)\n          }\n        }\n      }\n    }\n    for (const maddr in multiaddrs) {\n      minerMultiaddrs.push(multiaddrs[maddr])\n    }\n  }\n  return minerMultiaddrs\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 97,
+      "value": "minerMultiaddrs.filter(({ protos }) => protos[0].name === 'dns4')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 129,
+      "value": "minerMultiaddrIps = {\n  const minerMultiaddrIps = []\n  for (const minerMultiaddr of minerMultiaddrs) {\n    for (const ipAddress of minerMultiaddr.ips) {\n      const record = {\n        miner: minerMultiaddr.miner,\n        maddr: minerMultiaddr.maddr,\n        peerId: minerMultiaddr.peerId,\n        timestamp: minerMultiaddr.ipAttributes[ipAddress].timestamp.toISOString(),\n        epoch: minerMultiaddr.ipAttributes[ipAddress].epoch,\n        ip: ipAddress\n      }\n      if (minerMultiaddr.ipAttributes[ipAddress].chain) record.chain = true\n      if (minerMultiaddr.ipAttributes[ipAddress].dht) record.dht = true\n      minerMultiaddrIps.push(record)\n    }\n  }\n  return minerMultiaddrIps\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 141,
+      "value": "Inputs.table(minerMultiaddrIps)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 147,
+      "value": "md`## Calculate Delta\n\nCompare to previously published data and only output new rows.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 150,
+      "value": "import {multiaddrsIpsLatestBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 153,
+      "value": "oldMultiaddrsIpsReport = (await fetch(`${multiaddrsIpsLatestBucketUrl}/multiaddrs-ips-latest.json`)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 156,
+      "value": "oldMultiaddrsIpsIndex = {\n  const index = new Map()\n  for (const { miner, maddr, ip, epoch } of oldMultiaddrsIpsReport.multiaddrsIps) {\n    const key = `${miner},${maddr},${ip}`\n    index.set(key, epoch)\n  }\n  return index\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 159,
+      "value": "deltaMultiaddrsIps = minerMultiaddrIps.filter(({ miner, maddr, ip, epoch }) => {\n  const key = `${miner},${maddr},${ip}`\n  const oldRecordEpoch = oldMultiaddrsIpsIndex.get(key)\n  return !oldRecordEpoch || oldRecordEpoch < epoch\n})\n",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 42,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 40,
+      "value": "dateFns = require('https://bundle.run/date-fns@2.22.1')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 103,
+      "value": "multiaddr = require('https://bundle.run/multiaddr@10.0.0')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 118,
+      "value": "ip = require('https://bundle.run/ip@1.1.5')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 175,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 179,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 182,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
