@@ -20,23 +20,24 @@
       "home_url": "https://github.com/jimpick",
       "type": "individual",
       "tier": "public",
-      "following_count": 0,
+      "following_count": 1,
       "followers_count": 0,
       "following": false
     },
     "version": 1610
   },
   "has_importers": false,
-  "update_time": "2022-12-29T20:53:52.422Z",
+  "update_time": "2023-01-18T02:13:37.132Z",
   "first_public_version": 2004,
   "paused_version": null,
   "publish_time": "2022-09-22T01:38:12.148Z",
-  "publish_version": 2340,
-  "latest_version": 2340,
+  "publish_version": 2342,
+  "latest_version": 2342,
   "thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "default_thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "roles": [],
   "sharing": null,
+  "tags": [],
   "edits": [
     {
       "node_id": 1554,
@@ -53,7 +54,7 @@
     "home_url": "https://github.com/jimpick",
     "type": "individual",
     "tier": "public",
-    "following_count": 0,
+    "following_count": 1,
     "followers_count": 0,
     "following": false
   },
@@ -66,7 +67,7 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "tier": "public",
-    "following_count": 0,
+    "following_count": 1,
     "followers_count": 0,
     "following": false
   },
@@ -82,7 +83,7 @@
       "tier": "public",
       "approved": true,
       "description": "",
-      "following_count": 0,
+      "following_count": 1,
       "followers_count": 0,
       "following": false
     }
@@ -112,7 +113,7 @@
         "home_url": "https://github.com/jimpick",
         "type": "individual",
         "tier": "public",
-        "following_count": 0,
+        "following_count": 1,
         "followers_count": 0,
         "following": false
       }
@@ -135,7 +136,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 2340,
+  "version": 2342,
   "title": "FVM Actor Code Playground - ERC20 Sans Events - Wallaby Testnet",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -408,6 +409,14 @@
       "id": 2051,
       "value": "ownerKey = keys.find(({ name }) => name === 'Owner')",
       "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2341,
+      "value": "ownerKey.privateKey",
+      "pinned": true,
       "mode": "js",
       "data": null,
       "name": null
