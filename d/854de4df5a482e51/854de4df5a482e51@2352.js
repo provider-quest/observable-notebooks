@@ -15,7 +15,7 @@ Here is an example EVM Smart Contract, from:
 * https://github.com/filecoin-project/fvm-example-actors/tree/main/erc20-sans-events
 * https://github.com/jimpick/fvm-example-actors/tree/jim-erc20/erc20-sans-events (same as above, but with extra build scripts and missing files)
 
-You can modify it here, then scroll down and click the buttons to compile it, then load onto the [Wallaby Testnet](https://kb.factor8.io/en/docs/fil/wallabynet), and invoke methods against it.`
+You can modify it here, then scroll down and click the buttons to compile it, then load onto the [Hyperspace Testnet](https://github.com/filecoin-project/testnet-hyperspace), and invoke methods against it.`
 )}
 
 function _3(md){return(
@@ -23,7 +23,11 @@ md`This is a modified version of the [ERC20 Sans Events](https://observablehq.co
 )}
 
 function _4(md){return(
-md`It communicates with the network using the [Wallaby Public GLIF API Gateway](https://wallaby.node.glif.io/) ... so it needs to keep all the secrets local in the web browser.`
+md`It communicates with the network using the [Hyperspace Public GLIF API Gateway](https://api.hyperspace.node.glif.io/) ... so it needs to keep all the secrets local in the web browser.`
+)}
+
+function _5(md){return(
+md`* https://github.com/filecoin-project/testnet-hyperspace`
 )}
 
 function _6(md){return(
@@ -52,7 +56,7 @@ ${devFundsMnemonic}
 )}
 
 function _11(md){return(
-md`**Tip:** You can import the seed phrase from above to create a "burner wallet" using the [GLIF Wallet](https://wallet.glif.io/?network=wallaby) (optional)`
+md`**Tip:** You can import the seed phrase from above to create a "burner wallet" using the [GLIF Wallet](https://wallet.glif.io/?network=hyperspace) (optional)`
 )}
 
 function _12(md,devFundsAddress,devFundsDelegatedAddress,devFundsId,devFundsBalance)
@@ -76,7 +80,7 @@ Inputs.button("Re-check ID and Balance", { value: null, reduce: () => {
 )}
 
 function _14(md){return(
-md`You can get some funds from the [Wallaby Faucet](https://wallaby.network/#faucet) ... just submit the address above, complete the captcha, and wait for the funds to be deposited. (Be sure to scroll down to see the form)`
+md`You can get some funds from the [Hyperspace Faucet](https://hyperspace.yoga/#faucet) ... just submit the address above, complete the captcha, and wait for the funds to be deposited. (Be sure to scroll down to see the form)`
 )}
 
 function _15(md,devFundsAddress){return(
@@ -895,7 +899,7 @@ function _initialCodeUrl(){return(
 )}
 
 function _baseUrl(){return(
-"https://wallaby.node.glif.io"
+"https://api.hyperspace.node.glif.io"
 )}
 
 function _token(){return(
@@ -1003,6 +1007,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _2);
   main.variable(observer()).define(["md"], _3);
   main.variable(observer()).define(["md"], _4);
+  main.variable(observer()).define(["md"], _5);
   main.variable(observer()).define(["md"], _6);
   main.variable(observer()).define(["md"], _7);
   main.variable(observer()).define(["md"], _8);
