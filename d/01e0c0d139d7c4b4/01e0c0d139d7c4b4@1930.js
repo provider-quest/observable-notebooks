@@ -47,7 +47,7 @@ md`We use \`filecoin-js-signer\` to generate a random mnemomic phrase. You could
 
 function _randomMnemonic(filecoin_signer)
 {
-  // return 'cycle raccoon pool vintage unusual note twelve morning program glare salon survey'
+  return 'cycle raccoon pool vintage unusual note twelve morning program glare salon survey'
   // https://github.com/blitslabs/filecoin-js-signer#filecoin-signer
   const strength = 128 // 128 => 12 words | 256 => 24 words
   return filecoin_signer.wallet.generateMnemonic(strength)
