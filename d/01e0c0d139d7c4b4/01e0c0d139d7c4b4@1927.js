@@ -829,6 +829,10 @@ function _client(BrowserProvider,baseUrl,token,LotusRPC,schema)
 }
 
 
+function _102(client){return(
+client.callEthMethod('chainId')
+)}
+
 function _filecoin_client(FilecoinClient,baseUrl,token){return(
 new FilecoinClient(`${baseUrl}/rpc/v0`, token)
 )}
@@ -919,15 +923,15 @@ async function waitEthTx (txId) {
 }
 )}
 
-function _112(md){return(
+function _114(md){return(
 md`## Backups`
 )}
 
-function _114(backups){return(
+function _116(backups){return(
 backups()
 )}
 
-function _115(backupNowButton){return(
+function _117(backupNowButton){return(
 backupNowButton()
 )}
 
@@ -1049,6 +1053,7 @@ export default function define(runtime, observer) {
   main.variable(observer("baseUrl")).define("baseUrl", _baseUrl);
   main.variable(observer("token")).define("token", ["baseUrl"], _token);
   main.variable(observer("client")).define("client", ["BrowserProvider","baseUrl","token","LotusRPC","schema"], _client);
+  main.variable(observer()).define(["client"], _102);
   main.variable(observer("filecoin_client")).define("filecoin_client", ["FilecoinClient","baseUrl","token"], _filecoin_client);
   main.variable(observer("lotusApiClient")).define("lotusApiClient", ["filecoinJs","baseUrl","token"], _lotusApiClient);
   main.variable(observer("heightStream")).define("heightStream", ["client","Promises"], _heightStream);
@@ -1061,11 +1066,11 @@ export default function define(runtime, observer) {
   main.variable(observer("getEvmAddress")).define("getEvmAddress", _getEvmAddress);
   main.variable(observer("waitMsg")).define("waitMsg", ["client"], _waitMsg);
   main.variable(observer("waitEthTx")).define("waitEthTx", ["client","Promises"], _waitEthTx);
-  main.variable(observer()).define(["md"], _112);
+  main.variable(observer()).define(["md"], _114);
   const child2 = runtime.module(define2);
   main.import("backups", child2);
   main.import("backupNowButton", child2);
-  main.variable(observer()).define(["backups"], _114);
-  main.variable(observer()).define(["backupNowButton"], _115);
+  main.variable(observer()).define(["backups"], _116);
+  main.variable(observer()).define(["backupNowButton"], _117);
   return main;
 }
