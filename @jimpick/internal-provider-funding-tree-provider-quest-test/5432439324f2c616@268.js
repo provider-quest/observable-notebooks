@@ -1,8 +1,9 @@
-// https://observablehq.com/@d3/tree@262
+import define1 from "./7a9e12f9fb3d8e06@459.js";
+
 function _1(md){return(
 md`# Tree, Tidy
 
-D3’s [tree layout](https://github.com/d3/d3-hierarchy/blob/main/README.md#tree) implements the [Reingold–Tilford “tidy” algorithm](http://reingold.co/tidier-drawings.pdf) for constructing hierarchical node-link diagrams, improved to run in linear time by [Buchheim *et al.*](http://dirk.jivas.de/papers/buchheim02improving.pdf) Tidy trees are typically more compact than [cluster dendrograms](/@d3/cluster-dendrogram), which place all leaves at the same level. See also the [radial variant](/@d3/radial-tidy-tree).`
+D3’s [tree layout](https://github.com/d3/d3-hierarchy/blob/main/README.md#tree) implements the [Reingold–Tilford “tidy” algorithm](http://reingold.co/tidier-drawings.pdf) for constructing hierarchical node-link diagrams, improved to run in linear time by [Buchheim *et al.*](http://dirk.jivas.de/papers/buchheim02improving.pdf) Tidy trees are typically more compact than [cluster dendrograms](/@d3/cluster), which place all leaves at the same level. See also the [radial variant](/@d3/radial-tidy-tree).`
 )}
 
 function _chart(Tree,flare){return(
@@ -47,6 +48,7 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
   strokeLinecap, // stroke line cap for links
   halo = "#fff", // color of label halo 
   haloWidth = 3, // padding around the labels
+  curve = d3.curveBumpX, // curve for the link
 } = {}) {
 
   // If id and parentId options are specified, or the path option, use d3.stratify
@@ -80,6 +82,9 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
   // Compute the default height.
   if (height === undefined) height = x1 - x0 + dx * 2;
 
+  // Use the required curve
+  if (typeof curve !== "function") throw new Error(`Unsupported curve`);
+
   const svg = d3.create("svg")
       .attr("viewBox", [-dy * padding / 2, x0 - dx, width, height])
       .attr("width", width)
@@ -98,7 +103,7 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
     .selectAll("path")
       .data(root.links())
       .join("path")
-        .attr("d", d3.linkHorizontal()
+        .attr("d", d3.link(curve)
             .x(d => d.y)
             .y(d => d.x));
 
@@ -132,7 +137,6 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
 
 export default function define(runtime, observer) {
   const main = runtime.module();
-  main.define("module 1", async () => runtime.module((await import("./7a9e12f9fb3d8e06@459.js")).default));
   function toString() { return this.url; }
   const fileAttachments = new Map([
     ["flare.json", {url: new URL("./files/85b8f86120ba5c8012f55b82fb5af4fcc9ff5e3cf250d110e111b3ab98c32a3fa8f5c19f956e096fbf550c47d6895783a4edf72a9c474bef5782f879573750ba.json", import.meta.url), mimeType: "application/json", toString}]
@@ -143,6 +147,7 @@ export default function define(runtime, observer) {
   main.variable(observer("flare")).define("flare", ["FileAttachment"], _flare);
   main.variable(observer()).define(["howto"], _4);
   main.variable(observer("Tree")).define("Tree", ["d3"], _Tree);
-  main.define("howto", ["module 1", "@variable"], (_, v) => v.import("howto", _));
+  const child1 = runtime.module(define1);
+  main.import("howto", child1);
   return main;
 }

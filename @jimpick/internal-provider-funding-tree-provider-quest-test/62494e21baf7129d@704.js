@@ -1,4 +1,10 @@
 // https://observablehq.com/@jimpick/internal-provider-funding-tree-provider-quest-test@704
+import define1 from "./2af990f42af2602f@924.js";
+import define2 from "./5cf93b57a7444002@282.js";
+import define3 from "./13063df7b34879ca@856.js";
+import define4 from "./bedb50933413e557@45.js";
+import define5 from "./c4e4a355c53d2a1a@111.js";
+
 function _1(md){return(
 md`# Internal: Provider Funding Tree [Provider.Quest] - Test`
 )}
@@ -409,11 +415,6 @@ backups()
 
 export default function define(runtime, observer) {
   const main = runtime.module();
-  main.define("module 1", async () => runtime.module((await import("./2af990f42af2602f@916.js")).default));
-  main.define("module 2", async () => runtime.module((await import("./5cf93b57a7444002@282.js")).default));
-  main.define("module 3", async () => runtime.module((await import("./13063df7b34879ca@856.js")).default));
-  main.define("module 4", async () => runtime.module((await import("./bedb50933413e557@45.js")).default));
-  main.define("module 5", async () => runtime.module((await import("./c4e4a355c53d2a1a@111.js")).default));
   main.variable(observer()).define(["md"], _1);
   main.variable(observer()).define(["md"], _2);
   main.variable(observer("minersAndFundersUrl")).define("minersAndFundersUrl", _minersAndFundersUrl);
@@ -441,7 +442,8 @@ export default function define(runtime, observer) {
   main.variable(observer("shortCircuit2")).define("shortCircuit2", _shortCircuit2);
   main.variable(observer()).define(["shortCircuit2","graph","reachableWithPowerAndRegionsTree","bytes"], _27);
   main.variable(observer()).define(["md"], _28);
-  main.define("matchDelegate", ["module 1", "@variable"], (_, v) => v.import("matchDelegate", _));
+  const child1 = runtime.module(define1);
+  main.import("matchDelegate", child1);
   main.variable(observer("getTreeWithDelegatesStream")).define("getTreeWithDelegatesStream", ["matchDelegate"], _getTreeWithDelegatesStream);
   main.variable(observer("viewof start")).define("viewof start", ["Inputs"], _start);
   main.variable(observer("start")).define("start", ["Generators", "viewof start"], (G, _) => G.input(_));
@@ -462,9 +464,11 @@ export default function define(runtime, observer) {
   main.variable(observer("syntheticProviderLocations")).define("syntheticProviderLocations", ["funderTreeWithDelegates","providerLocations","sortProviderRecords"], _syntheticProviderLocations);
   main.variable(observer()).define(["syntheticProviderLocations","button","minerLocationsReport"], _47);
   main.variable(observer()).define(["md"], _48);
-  main.define("minerPowerDailyAverageLatestBucketUrl", ["module 2", "@variable"], (_, v) => v.import("minerPowerDailyAverageLatestBucketUrl", _));
+  const child2 = runtime.module(define2);
+  main.import("minerPowerDailyAverageLatestBucketUrl", child2);
   main.variable(observer("minerPowerDailyAverageReport")).define("minerPowerDailyAverageReport", ["minerPowerDailyAverageLatestBucketUrl"], _minerPowerDailyAverageReport);
-  main.define("geoIpLookupsBucketUrl", ["module 2", "@variable"], (_, v) => v.import("geoIpLookupsBucketUrl", _));
+  const child3 = runtime.module(define2);
+  main.import("geoIpLookupsBucketUrl", child3);
   main.variable(observer()).define(["geoIpLookupsBucketUrl"], _52);
   main.variable(observer("minerRegionsReport")).define("minerRegionsReport", ["geoIpLookupsBucketUrl"], _minerRegionsReport);
   main.variable(observer("minerRegionsCSPReport")).define("minerRegionsCSPReport", ["geoIpLookupsBucketUrl"], _minerRegionsCSPReport);
@@ -473,11 +477,14 @@ export default function define(runtime, observer) {
   main.variable(observer("sortIdRecords")).define("sortIdRecords", _sortIdRecords);
   main.variable(observer("sortProviderRecords")).define("sortProviderRecords", _sortProviderRecords);
   main.variable(observer("bytes")).define("bytes", _bytes);
-  main.define("graph", ["module 3", "@variable"], (_, v) => v.import("graph", _));
-  main.define("button", ["module 4", "@variable"], (_, v) => v.import("button", _));
+  const child4 = runtime.module(define3);
+  main.import("graph", child4);
+  const child5 = runtime.module(define4);
+  main.import("button", child5);
   main.variable(observer()).define(["md"], _62);
-  main.define("backups", ["module 5", "@variable"], (_, v) => v.import("backups", _));
-  main.define("backupNowButton", ["module 5", "@variable"], (_, v) => v.import("backupNowButton", _));
+  const child6 = runtime.module(define5);
+  main.import("backups", child6);
+  main.import("backupNowButton", child6);
   main.variable(observer()).define(["backups"], _64);
   return main;
 }
