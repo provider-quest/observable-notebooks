@@ -1,0 +1,724 @@
+{
+  "id": "e98f5037803ae3db",
+  "slug": "internal-mapping-storage-provider-to-countrystateprovin",
+  "trashed": false,
+  "description": "",
+  "likes": 1,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": {
+    "id": "c37e9322a32b8622",
+    "slug": "provider-quest-storage-provider-to-region-mapper",
+    "title": "Internal: Mapping: Storage Provider to Region [Provider.Quest]",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "public",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    },
+    "version": 608
+  },
+  "has_importers": false,
+  "update_time": "2022-06-06T05:27:44.500Z",
+  "first_public_version": 659,
+  "paused_version": null,
+  "publish_time": "2022-01-07T18:56:15.625Z",
+  "publish_version": 659,
+  "latest_version": 659,
+  "thumbnail": "f6a6bf490c127f19ac9e277ec0f790fa9361ae9541616f048b706983067d5b64",
+  "default_thumbnail": "f6a6bf490c127f19ac9e277ec0f790fa9361ae9541616f048b706983067d5b64",
+  "roles": [],
+  "sharing": null,
+  "tags": [],
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
+      }
+    }
+  ],
+  "files": [
+    {
+      "id": "a8affb1c22a7bd9298f69e03b29c11e28ce20625c02e3113f73c6a3def582a81f2cc38c2aabe71eca6bbb4abb796ad6f5db02af83a8da5f834dc0955b1418e8c",
+      "url": "https://static.observableusercontent.com/files/a8affb1c22a7bd9298f69e03b29c11e28ce20625c02e3113f73c6a3def582a81f2cc38c2aabe71eca6bbb4abb796ad6f5db02af83a8da5f834dc0955b1418e8c",
+      "download_url": "https://static.observableusercontent.com/files/a8affb1c22a7bd9298f69e03b29c11e28ce20625c02e3113f73c6a3def582a81f2cc38c2aabe71eca6bbb4abb796ad6f5db02af83a8da5f834dc0955b1418e8c?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27china-provinces.json",
+      "name": "china-provinces.json",
+      "create_time": "2022-01-07T18:40:54.624Z",
+      "mime_type": "application/json",
+      "status": "public",
+      "size": 1811,
+      "content_encoding": "gzip"
+    }
+  ],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 659,
+  "title": "Internal: Mapping: Storage Provider to Country/State/Province [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Internal: Mapping: Storage Provider to Country/State/Province [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 5,
+      "value": "md`This notebook cross-references the list of storage providers with multiaddresses from the chain + DHT, and uses GeoIP lookup data to assign locations to each storage provider. Since storage providers may have multiple multiaddresses and IPs, and may be servicing requests from multiple regions, we assign weights to each region so aggregated statistics can be split.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 617,
+      "value": "md`This hierarchy is similar to the \"regions\" hierarchy (see [@jimpick/provider-quest-storage-provider-to-region-mapper](https://observablehq.com/@jimpick/provider-quest-storage-provider-to-region-mapper?collection=@jimpick/provider-quest)), but with a slightly different organization where all countries are at the top level, except for the US and China, which are broken down by state/province.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 11,
+      "value": "currentEpoch = dateToEpoch(new Date())",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 9,
+      "value": "import {multiaddrsIpsLatestBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 640,
+      "value": "multiaddrsIpsLatestUrl = `${multiaddrsIpsLatestBucketUrl}/multiaddrs-ips-latest.json`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 27,
+      "value": "multiaddrsIpsReport = (await fetch(multiaddrsIpsLatestUrl)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 29,
+      "value": "import {geoIpLookupsBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 645,
+      "value": "ipsGeoLite2LatestUrl = `${geoIpLookupsBucketUrl}/ips-geolite2-latest.json`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 33,
+      "value": "latestIpsGeoLite2Report = (await fetch(ipsGeoLite2LatestUrl)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 653,
+      "value": "ipsBaiduLatestUrl = `${geoIpLookupsBucketUrl}/ips-baidu-latest.json`",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 249,
+      "value": "latestIpsBaiduReport = (await fetch(ipsBaiduLatestUrl)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 406,
+      "value": "chinaProvinces = FileAttachment(\"china-provinces.json\").json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 409,
+      "value": "chinaProvincesByCnName = d3.index(chinaProvinces, d => d.cn)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 452,
+      "value": "chinaProvincesByCode = d3.index(chinaProvinces, d => d.code)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 367,
+      "value": "import {minerPowerDailyAverageLatestBucketUrl} from '@jimpick/miner-report-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 370,
+      "value": "latestPowerReport = (await fetch(`${minerPowerDailyAverageLatestBucketUrl}/miner-power-latest.json`)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 165,
+      "value": "import { asksSubsetLatest } from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 167,
+      "value": "minTimestamp = dateFns.subDays(new Date(), 3)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 174,
+      "value": "import { legacyAnnotationsMainnet } from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 176,
+      "value": "import { dealsBucketUrl } from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 178,
+      "value": "multidayDealsReport = (await fetch(`${dealsBucketUrl}/multiday-average-latest.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 180,
+      "value": "multidayDeals = multidayDealsReport.providers",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 182,
+      "value": "viewof restrictResults = Inputs.radio([\"All miners\", \"Only miners with recent asks\"], { label: 'Restrict results', value: 'All miners' })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 172,
+      "value": "viewof filterOut = Inputs.checkbox([\"ridiculous price\", \"ridiculous verified price\", \"rejected\", \"no deals\", \"<5 deals\", \"<10 deals\", \"<50 deals\", \"<2 clients\", \"<5 clients\"], {label: \"Filter out asks\", value: [\"ridiculous price\", \"ridiculous verified price\", \"no deals\", \"<5 deals\", \"rejected\", \"<2 clients\"], disabled: restrictResults !== 'Only miners with recent asks' })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 170,
+      "value": "filteredAsks = {\n  const entries = Object.entries(asksSubsetLatest.miners)\n    .map(([miner, { timestamp, ...rest }]) => ([miner, {\n      timestamp: d3.isoParse(timestamp),\n      ...rest\n    }]))\n    .filter(([miner, ask]) => (\n      ask.timestamp >= minTimestamp &&\n      (filterOut.includes('ridiculous price') ? ask.priceDouble < 1e14 : true) &&\n      (filterOut.includes('ridiculous verified price') ? ask.verifiedPriceDouble < 1e14 : true) &&\n      (filterOut.includes('rejected') && legacyAnnotationsMainnet[miner] ? !legacyAnnotationsMainnet[miner].match(/^rejected,/) : true) &&\n      (filterOut.includes('no deals') ? (multidayDeals && multidayDeals[miner]): true) &&\n      (filterOut.includes('<5 deals') ? (multidayDeals && multidayDeals[miner] && multidayDeals[miner].count >= 5): true) &&\n      (filterOut.includes('<10 deals') ? (multidayDeals && multidayDeals[miner] && multidayDeals[miner].count >= 10): true) &&\n      (filterOut.includes('<50 deals') ? (multidayDeals && multidayDeals[miner] && multidayDeals[miner].count >= 50): true) &&\n      (filterOut.includes('<2 clients') ? (multidayDeals && multidayDeals[miner] && multidayDeals[miner]['approx_count_distinct(client)'] >= 2): true) &&\n      (filterOut.includes('<5 clients') ? (multidayDeals && multidayDeals[miner] && multidayDeals[miner]['approx_count_distinct(client)'] >= 5): true) /* &&\n      !legacyAnnotationsMainnet[miner].match(/^fail,/) &&\n      !legacyAnnotationsMainnet[miner].match(/^delist,/) */\n    ))\n    .map(([miner, ask]) => ({miner, ...ask}))\n  return entries\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 36,
+      "value": "minerIps = {\n  const minerIps = new Map()\n  for (const record of multiaddrsIpsReport.multiaddrsIps) {\n    if (restrictResults === 'Only miners with recent asks') {\n      if (!filteredAsks.find(({ miner }) => miner === record.miner)) continue\n    }\n    const maddrIps = minerIps.get(record.miner) || []\n    const maddrIpRecord = {\n      maddr: record.maddr,\n      ip: record.ip\n    }\n    if (record.chain) maddrIpRecord.chain = true\n    if (record.dht) maddrIpRecord.dht = true\n    if (latestIpsGeoLite2Report.ipsGeoLite2[record.ip]) {\n      maddrIpRecord.geolite2 = latestIpsGeoLite2Report.ipsGeoLite2[record.ip]\n    }\n    if (latestIpsBaiduReport.ipsBaidu[record.ip]) {\n      maddrIpRecord.baidu = latestIpsBaiduReport.ipsBaidu[record.ip]\n      if (maddrIpRecord.baidu && maddrIpRecord.baidu.baidu && maddrIpRecord.baidu.baidu.address) {\n        const match = maddrIpRecord.baidu.baidu.address.match(/^CN\\|([^|]+)/)\n        if (match && match[1] && chinaProvincesByCnName.get(match[1])) {\n          maddrIpRecord.baidu.province = chinaProvincesByCnName.get(match[1])\n        }\n      }\n    }\n    const region = regionMapper(maddrIpRecord.geolite2, maddrIpRecord.baidu)\n    if (region) maddrIpRecord.region = region\n    maddrIps.push(maddrIpRecord)\n    minerIps.set(record.miner, maddrIps)\n  }\n  return minerIps\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 256,
+      "value": "regionHierarchy = ({\n  name: 'root',\n  children: [\n    {\n      name: 'Mainland China',\n      code: 'CN',\n      note: 'Does not include Hong Kong, Taiwan'\n    },\n    {\n      name: 'USA',\n      code: 'US'\n    }\n  ]\n})",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 278,
+      "value": "root = d3.hierarchy(_.cloneDeep(regionHierarchy))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 268,
+      "value": "graph(root, {label: d => `${d.data.code ? d.data.code + ': ' : ''}${d.data.name}`})",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 283,
+      "value": "numberOfLeaves = root.copy().count().value",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 291,
+      "value": "numberOfNodes = root.copy().sum(d => 1).value",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 300,
+      "value": "indexedRoot = {\n  function childrenIndex(d) {\n    return d3.index(d.children.map(d => {\n      const value = d.data\n      if (value && value.children) {\n        value.children = childrenIndex(d)\n      }\n      return value\n    }), d => d.code)\n  }\n  return childrenIndex(root)\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 41,
+      "value": "function regionMapper (geolite2, baidu) {\n  if (!geolite2) return null\n\n  // Try to break into country-based subcategories if >10 miners\n  const country = indexedRoot.get(geolite2.country)\n  if (country) {\n    if (country.code === 'CN') {\n      if (baidu && baidu.province) {\n        return `CN-${baidu.province.code}`\n      }\n      if (geolite2.subdiv1) {\n        return `CN-${geolite2.subdiv1}`\n      }\n      return `CN-XX`\n    }\n    if (geolite2.subdiv1) {\n      return `${country.code}-${geolite2.subdiv1}`\n    }\n    return `${country.code}-XX`\n  } else {\n    return geolite2.country\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 48,
+      "value": "minerRegions = {\n  const minerRegions = []\n  for (const miner of [...minerIps.keys()]) {\n    const regions = minerIps.get(miner).reduce(\n      (regionSet, { region }) => region ? regionSet.add(region) : regionSet,\n      new Set()\n    )\n    minerRegions.push({\n      miner,\n      regions: [...regions].sort()\n    })\n  }\n  return minerRegions\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 63,
+      "value": "md`## Zero-region miners`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 241,
+      "value": "md`For some reason, the IP addresses for these miners didn't have any geolocation results.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 67,
+      "value": "zeroRegionMinersList = minerRegions.filter(({ miner, regions }) => regions.length === 0).map(({ miner, regions }) => ({ miner, regions: regions.join(',') }))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 75,
+      "value": "zeroRegionMiners = zeroRegionMinersList.map(({ miner }) => miner).sort(sortMiners)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 82,
+      "value": "md`## One-region miners`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 85,
+      "value": "oneRegionMinersList = minerRegions.filter(({ miner, regions }) => regions.length === 1).map(({ miner, regions }) => ({ miner, region: regions[0] }))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 93,
+      "value": "regionCounts = Object.entries(oneRegionMinersList.reduce((regions, { miner, region }) => {\n  regions[region] ||= 0\n  regions[region]++\n  return regions\n}, {})).map(([region, count]) => ({ region, count })).sort(({ count: a }, { count: b }) => b - a)                       ",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 103,
+      "value": "viewof oneRegionSelected = Inputs.select(regionCounts, { format: ({ region, count }) => `${region} (${count} miners)` })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 108,
+      "value": "selectedOneRegionMiners = oneRegionMinersList.filter(({ region }) => region === oneRegionSelected.region).map(({ miner }) => ({ miner, multiaddrIps: minerIps.get(miner) })).sort(sortMinerRecords)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 136,
+      "value": "selectedOneRegionMinerCountries = selectedOneRegionMiners.reduce((countryCounts, minerRecord) => {\n  for (const multiaddrIp of minerRecord.multiaddrIps) {\n    if (multiaddrIp.geolite2) {\n      const country = multiaddrIp.geolite2.country\n      countryCounts[country] ||= new Set()\n      countryCounts[country].add(minerRecord.miner)\n    }\n  }\n  return countryCounts\n}, {})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 579,
+      "value": "Inputs.table(Object.entries(selectedOneRegionMinerCountries).map(([country, minerSet]) => ({ country, minerCount: minerSet.size, miners: [...minerSet].join(', ') })))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 361,
+      "value": "countryPowerAndDeals = {\n  const countryPowerAndDeals = {}\n  for (const country in selectedOneRegionMinerCountries) {\n    countryPowerAndDeals[country] ||= { qualityAdjPower: 0, dealsCount: 0, pieceSizeDouble: 0 }\n    for (const miner of selectedOneRegionMinerCountries[country]) {\n      if (latestPowerReport.miners[miner]) {\n        countryPowerAndDeals[country].qualityAdjPower += latestPowerReport.miners[miner].qualityAdjPower\n      }\n      if (multidayDeals[miner]) {\n        countryPowerAndDeals[country].dealsCount += multidayDeals[miner].count\n        countryPowerAndDeals[country].pieceSizeDouble += multidayDeals[miner]['sum(pieceSizeDouble)']\n      }\n    }\n  }\n  return countryPowerAndDeals\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 378,
+      "value": "countryPowerAndDealsBytes = Object.entries(countryPowerAndDeals).map(d => ({\n  country: d[0],\n  qualityAdjPower: d[1].qualityAdjPower,\n  qualityAdjPowerBytes: bytes(d[1].qualityAdjPower, { mode: 'binary' }),\n  dealsCount: d[1].dealsCount,\n  pieceSizeDouble: bytes(d[1].pieceSizeDouble, { mode: 'binary' })\n})).sort((a, b) => b.qualityAdjPower - a.qualityAdjPower)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 581,
+      "value": "Inputs.table(countryPowerAndDealsBytes)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 518,
+      "value": "selectedOneRegionMinerStateProvinces = selectedOneRegionMiners.reduce((provinceCounts, minerRecord) => {\n  for (const multiaddrIp of minerRecord.multiaddrIps) {\n    if (multiaddrIp.baidu && multiaddrIp.baidu.province) {\n      const province = multiaddrIp.baidu.province.code\n      provinceCounts[province] ||= new Set()\n      provinceCounts[province].add(minerRecord.miner)\n    } else if (multiaddrIp.geolite2 && multiaddrIp.geolite2.subdiv1) {\n      const province = multiaddrIp.geolite2.subdiv1\n      provinceCounts[province] ||= new Set()\n      provinceCounts[province].add(minerRecord.miner)\n    }\n  }\n  return provinceCounts\n}, {})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 547,
+      "value": "Inputs.table(Object.entries(selectedOneRegionMinerStateProvinces).map(([stateProvince, minerSet]) => ({ stateProvince, minerCount: minerSet.size, miners: [...minerSet].join(', ') })))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 520,
+      "value": "stateProvincePowerAndDeals = {\n  const provincePowerAndDeals = {}\n  for (const province in selectedOneRegionMinerStateProvinces) {\n    provincePowerAndDeals[province] ||= { qualityAdjPower: 0, dealsCount: 0, pieceSizeDouble: 0 }\n    for (const miner of selectedOneRegionMinerStateProvinces[province]) {\n      if (latestPowerReport.miners[miner]) {\n        provincePowerAndDeals[province].qualityAdjPower += latestPowerReport.miners[miner].qualityAdjPower\n      }\n      if (multidayDeals[miner]) {\n        provincePowerAndDeals[province].dealsCount += multidayDeals[miner].count\n        provincePowerAndDeals[province].pieceSizeDouble += multidayDeals[miner]['sum(pieceSizeDouble)']\n      }\n    }\n  }\n  return provincePowerAndDeals\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 527,
+      "value": "stateProvincePowerAndDealsBytes = Object.entries(stateProvincePowerAndDeals).map(d => ({\n  stateProvince: d[0],\n  qualityAdjPower: d[1].qualityAdjPower,\n  qualityAdjPowerBytes: bytes(d[1].qualityAdjPower, { mode: 'binary' }),\n  dealsCount: d[1].dealsCount,\n  pieceSizeDouble: bytes(d[1].pieceSizeDouble, { mode: 'binary' })\n})).sort((a, b) => b.qualityAdjPower - a.qualityAdjPower)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 540,
+      "value": "Inputs.table(stateProvincePowerAndDealsBytes)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 143,
+      "value": "md`## Multi-region miners`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 145,
+      "value": "multiRegionMinersList = minerRegions.filter(({ miner, regions }) => regions.length > 1).map(({ miner, regions }) => ({ miner, regions: regions.join(',') }))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 150,
+      "value": "multiRegionCounts = Object.entries(multiRegionMinersList.reduce((multiRegions, { miner, regions }) => {\n  multiRegions[regions] ||= 0\n  multiRegions[regions]++\n  return multiRegions\n}, {})).map(([regions, count]) => ({ regions, count })).sort(({ count: a }, { count: b }) => b - a) ",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 159,
+      "value": "viewof multiRegionSelected = Inputs.select(multiRegionCounts, { format: ({ regions, count }) => `${regions} (${count} miners)` })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 156,
+      "value": "selectedMultiRegionMiners = multiRegionMinersList.filter(({ regions }) => regions === multiRegionSelected.regions).map(({ miner }) => ({ miner, multiaddrIps: minerIps.get(miner) })).sort(sortMinerRecords)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 213,
+      "value": "md`## Exported Maps`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 215,
+      "value": "minerRegionsTable = {\n  const minerRegionsTable = []\n  for (const { miner, regions } of minerRegions) {\n    for (const region of regions) {\n      minerRegionsTable.push({\n        miner,\n        region,\n        numRegions: regions.length\n      })\n    }\n  }\n  return minerRegionsTable.sort(sortMinerRecords)\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 221,
+      "value": "minerLocationsTable = {\n  const minerLocationsTable = []\n  for (const miner of [...minerIps.keys()]) {\n    const locations = new Map()\n    const ipLocations = minerIps.get(miner)\n    for (const ipLocation of ipLocations) {\n      const { region, geolite2, baidu } = ipLocation\n      if (!region) continue\n      let { country, subdiv1, city, long, lat } = geolite2 ? geolite2 : {}\n      if (baidu) {\n        if (baidu.city) {\n          subdiv1 = null\n          city = baidu.city\n        }\n        if (baidu.long && baidu.lat) {\n          long = baidu.long\n          lat = baidu.lat\n        }\n      }\n      if (!long || !lat) continue\n      const key = `${region},` +\n        `${country ? country : ''},` +\n        `${subdiv1 ? subdiv1 : ''},` + \n        `${city ? city : ''},` +\n        `${long},${lat}`\n      locations.set(key, { region, country, subdiv1, city, long, lat })\n    }\n    for (const { region, country, subdiv1, city, long, lat } of locations.values()) {\n      const locationRecord = { miner, region, long, lat, numLocations: locations.size }\n      if (country) locationRecord.country = country\n      if (subdiv1) locationRecord.subdiv1 = subdiv1\n      if (city) locationRecord.city = city\n      minerLocationsTable.push(locationRecord)\n    }\n  }\n  return minerLocationsTable.sort(sortMinerRecords)\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 13,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 15,
+      "value": "d3 = require(\"d3@6\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 17,
+      "value": "dateFns = require('https://bundle.run/date-fns@2.22.1')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 24,
+      "value": "import {dateToEpoch, epochToDate} from '@jbenet/filecoin-chain-time-calculator'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 78,
+      "value": "import {sortMiners, sortMinerRecords} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 264,
+      "value": "import {graph} from '@d3/d3-hierarchy'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 375,
+      "value": "bytes = (await import('@jimpick/bytes-iec@3.1.0-2')).default",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 623,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 627,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 630,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 657,
+      "value": "backupNowButton()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
