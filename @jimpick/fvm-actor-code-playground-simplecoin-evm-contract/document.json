@@ -19,11 +19,17 @@
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
       "type": "individual",
-      "tier": "public"
+      "tier": "public",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
     },
     "version": 736
   },
+  "has_importers": false,
   "update_time": "2022-10-18T23:39:20.283Z",
+  "first_public_version": 1090,
+  "paused_version": null,
   "publish_time": "2022-09-01T02:24:12.996Z",
   "publish_version": 1130,
   "latest_version": 1130,
@@ -31,6 +37,7 @@
   "default_thumbnail": "fdb055590bbd165d6f8884e25c232fceea6802105af3c0b6bb55ffecc2305e94",
   "roles": [],
   "sharing": null,
+  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -40,7 +47,10 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -50,7 +60,10 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "authors": [
     {
@@ -63,7 +76,10 @@
       "github_login": "jimpick",
       "tier": "public",
       "approved": true,
-      "description": ""
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
     }
   ],
   "collections": [
@@ -79,7 +95,7 @@
       "custom_thumbnail": null,
       "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
       "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
-      "listing_count": 7,
+      "listing_count": 8,
       "parent_collection_count": 0,
       "owner": {
         "id": "bda4505ba9a55ac8",
@@ -90,7 +106,10 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "public"
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
       }
     }
   ],
