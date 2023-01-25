@@ -7,7 +7,10 @@
   "publish_level": "live",
   "forks": 1,
   "fork_of": null,
+  "has_importers": false,
   "update_time": "2022-08-07T01:17:44.358Z",
+  "first_public_version": 649,
+  "paused_version": null,
   "publish_time": "2021-07-23T20:30:53.465Z",
   "publish_version": 649,
   "latest_version": 649,
@@ -15,6 +18,7 @@
   "default_thumbnail": "49e3b8e7b5c25c76853ac31b4ed41e895e2facb91573182f4e68e995d0ccb899",
   "roles": [],
   "sharing": null,
+  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -24,7 +28,10 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -34,7 +41,10 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "authors": [
     {
@@ -47,7 +57,10 @@
       "github_login": "jimpick",
       "tier": "public",
       "approved": true,
-      "description": ""
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
     }
   ],
   "collections": [
@@ -61,8 +74,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
-      "thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -74,7 +87,10 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "public"
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
       }
     }
   ],
@@ -85,9 +101,9 @@
       "download_url": "https://static.observableusercontent.com/files/a8affb1c22a7bd9298f69e03b29c11e28ce20625c02e3113f73c6a3def582a81f2cc38c2aabe71eca6bbb4abb796ad6f5db02af83a8da5f834dc0955b1418e8c?response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27china-provinces.json",
       "name": "china-provinces.json",
       "create_time": "2021-08-13T02:30:27.600Z",
+      "mime_type": "application/json",
       "status": "public",
       "size": 1811,
-      "mime_type": "application/json",
       "content_encoding": "gzip"
     }
   ],
