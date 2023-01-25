@@ -1,0 +1,1280 @@
+{
+  "id": "f65da891863227f9",
+  "slug": "ideas-provider-quest",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": {
+    "id": "10b0a3f6caf23e88",
+    "slug": "provider-quest-documentation",
+    "title": "Documentation [Provider.Quest]",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "public",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    },
+    "version": 98
+  },
+  "has_importers": false,
+  "update_time": "2022-08-05T17:28:50.578Z",
+  "first_public_version": 602,
+  "paused_version": null,
+  "publish_time": "2021-10-28T19:13:42.543Z",
+  "publish_version": 602,
+  "latest_version": 602,
+  "thumbnail": "af5d157988e2f2b5f6507cafc53f5c989758148040425f89f818b80859a26904",
+  "default_thumbnail": "af5d157988e2f2b5f6507cafc53f5c989758148040425f89f818b80859a26904",
+  "roles": [],
+  "sharing": null,
+  "tags": [],
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 602,
+  "title": "Ideas [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Ideas [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 41,
+      "value": "md`${quickMenu}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 5,
+      "value": "md`\nThis notebook is for collecting together ideas for future improvements to Provider.Quest - new data sources, queries, visualizations, processing and publishing techniques, etc.\n\nIf you'd like to try to implement any of the ideas listed here, tell us about it and we'll link and/or incorporate it into the project! Some of these ideas might also be fundable as grants via various funding programs.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 112,
+      "value": "md`## Data Sources`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 115,
+      "value": "md`### Sentinel Lily`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 119,
+      "value": "md`The Sentinel project from Protocol Labs has a historical set of data dumps of unpacked chain data at https://lilium.sh/ ... we've already used it to import historical provider power data, but it also has historical deal data and other things that might be nice to do queries against.\n\nRelated grants:\n\n* Awarded 2021.12: [Next Step Microgrant: Provider.Quest - Add Historical Published Deal Data + Active/Slashed Deals](https://github.com/filecoin-project/devgrants/issues/397)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 124,
+      "value": "md`### All Active Deals (StateMarketDeals)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 128,
+      "value": "md`The Lotus API provides the [StateMarketDeals](https://docs.filecoin.io/reference/lotus-api/#statemarketdeals) JSON-RPC method for retrieving the list of all active deals on the blockchain at a particular epoch. There is also an S3 bucket that has the same information updated every 10 minutes at: https://marketdeals.s3.us-east-2.amazonaws.com/StateMarketDeals.json (538MB on 2021-11-28)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 133,
+      "value": "md`If this information was regularly collected (perhaps once per day), it could be used to easily calculate the total amount of deals that are active for all providers, as well as individually, future expected deal income, and it could also be used to track slashed deals per provider.\n\nRelated grants:\n\n* Awarded 2021.12: [Next Step Microgrant: Provider.Quest - Add Historical Published Deal Data + Active/Slashed Deals](https://github.com/filecoin-project/devgrants/issues/397)\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 140,
+      "value": "md`### Agents information (libp2p Identify)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 143,
+      "value": "md`\nRunning \\`lotus net peers -a\\` will show the agent strings for various peers. eg.\n\n\\`\\`\\`\n$ lotus net peers -a | head -10\nQmfPgpqACggnPkM51eNFiEtwxShnYxQSa5mrCKuthFTPmQ, [/ip4/120.78.159.125/tcp/33475], venus\nQmagH77Qtg3k7yVtatrC1fftemjSbzquba6Y5G39nj8Y8z, [/ip4/120.79.136.65/tcp/46083], venus\nQmU9zYcfsdyDtToA8F2V4sBtYQgtfYV2DX1PsnEbzYRrpr, [/ip4/198.11.173.226/tcp/44798], venus\nQmQMtX8paLZkd19acLrMetdCqpW43cvxTSzq4Vg5aEFkNK, [/ip4/74.143.156.85/tcp/46537], venus\n12D3KooWT27GcpY1uv6wkG89jR5MXs1E4V6p1ZbiV11PqHGNgVLH, [/ip4/116.63.110.66/tcp/18790], lotus-1.11.2+mainnet+git.785a54692.dirty\n12D3KooWT1kbFdgt5Brhha44bakQy4KSDUz6FnXvCSYfivudYeXq, [/ip4/103.98.8.211/tcp/5545], lotus-1.13.0+mainnet+git.f4f8b3b2f\n12D3KooWT1jbXvtyteLxhQWY88UCxAFFMXSNrq9M8pGigyW34Eat, [/ip4/220.195.127.185/tcp/50015], lotus-1.13.0+mainnet+git.6bbbea78c.dirty\n12D3KooWT1XPkc4R4UamYdrevrdumKBmxVL5adJNyeoJyq7toXYr, [/ip4/112.13.70.109/tcp/2077], lotus-1.13.0+mainnet+git.d7fb8e631.dirty\n12D3KooWSy8H9KSnRyjX7At2ci3NZ2nmEznsUj5SKfWQJ11q7QzX, [/ip4/103.122.95.12/tcp/33318], lotus-1.12.0+mainnet+git.0b804e00a.dirty\n12D3KooWSsrzDgzM4g5c5YBTqSk9KtvoKyUeoDxHHKbXdJvxAGLN, [/ip4/103.122.95.111/tcp/22760], lotus-1.12.0+mainnet+git.0b804e00a.dirty\n\\`\\`\\`\n\nThis is (possibly?) available by directly connecting to each peer with libp2p and the [Identify protocol](https://docs.libp2p.io/concepts/protocols/). (needs to be verified)\n\nWe could attempt to connect to the providers that we have multiaddrs for and track their agent string over time. This would be useful to cross-reference with other data. Agent strings can be quite complex, so there might be additional things we can do to make it easier to segment providers. This could also serve as a 'ping' to identify which multiaddrs are active and which are not (or just plain bogus), and could be used to monitor uptime, as well as filter out bogus IP addresses to get a more accurate idea of where providers are located. \n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 169,
+      "value": "md`### Slingshot teams`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 172,
+      "value": "md`A lot of deal activity is from teams participating in the [Slingshot](https://slingshot.filecoin.io/) competition. If we collected the teams, client addresses, and additional metadata (dataset info, Slingshot phase), we could build some interesting queries and determine what deal activity is correlated.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 175,
+      "value": "md`### Filfox Service Provider Labels`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 178,
+      "value": "md`\n* https://filfox.info/en/ranks/power\n* https://observablehq.com/@protocol/grouped-miners (prior art)\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 182,
+      "value": "md`Filfox used to show labels/tags for providers, and it was possible for individual providers to verify themselves with Filfox by signing a message so they could update their own label/tag. Currently that seems to be broken or the API has changed. Also, the licensing on the data is unclear. It would be nice to collect the labels so they could be re-used to help de-anonymize the provider ids eg. (\\`f02620\\` is Magik's provider\\).`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 588,
+      "value": "md`### Filecoin+ Provider Metadata\n\nThere are provider names, locations and contact info for a small number of providers over at:\n\n* https://plus.fil.org/miners\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 193,
+      "value": "md`### Filecoin+ Notary Metadata`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 196,
+      "value": "md`The Filecoin+ program has a list of all the notaries and clients which would be very useful to de-anonymize clients associated with verified deals.\n\n* https://docs.filecoin.io/store/filecoin-plus/\n* https://fil.org/governance/\n* https://www.fildata.info/en/filecoin-plus\n* https://github.com/filecoin-project/filecoin-plus-large-datasets\n* https://filplus.info/#/\n* https://filplus.d.interplanetary.one/\n* https://pluskit.io/\n\nWith this data, it would be possibly to produce reports and queries useful for measuring the impact of the Filecoin+ program in terms of dataset storage success and measuring the incentive for providers.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 202,
+      "value": "md`### Filecoin Gravity Metadata`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 205,
+      "value": "md`\n* https://filecoin.io/blog/posts/filecoin-project-gravity-a-sales-referral-program/\n\nFilecoin Gravity will subsidize the storage of many large datasets. With public metadata, it should be possible to de-anonymize clients and do some analysis to determine storage success.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 209,
+      "value": "md`### IPFS DHT Providers and Peer Multiaddrs`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 212,
+      "value": "md`Much of the data stored on Filecoin is also \"pinned\" to IPFS. It would be interesting to randomly sample root CIDs stored as part of Filecoin deals to see if there are corresponding provider records in the IPFS DHT, and to track which peers and IP addresses (which could be geolocated) are advertising them. We could even attempt to randomly retrieve some files using Bitswap or Graphsync to conduct measurements and/or catalog contents.\n\n* [Youtube: Filecoin Orbit: Measuring the Web3.0 Stack - Yiannis Psaras](https://www.youtube.com/watch?v=yylsaXz00_g)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 216,
+      "value": "md`### Traceroute Data`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 219,
+      "value": "md `\n* https://github.com/pierky/rich-traceroute\n\nWe could perform traceroutes periodically on IP addresses associated with functioning multiaddrs to gather information about intermediate ASNs on the Internet network paths to storage providers. This information could be used to more accurately pinpoint geographical or logical locations of providers. The traceroutes could originate from different physical locations in various cloud providers scattered geographically over the planet to get detailed information on network paths and latencies.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 223,
+      "value": "md`### Use additional GeoIP lookup databases/services`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 226,
+      "value": "md`Currently we use the free GeoLite2 downloadable database from MaxMind, and we also do a second lookup on China based IP addresses using the Baidu API for greater accuracy in China (limited number of queries per day). MaxMind also has a paid API called GeoIP2 with a small free daily quota that we could use for addresses that have unsatisfactory results in the free API (eg. many lookups return 'USA' with no city information). There are also other paid alternatives to MaxMind that target more Enterprise level customers.\n\n* https://www.maxmind.com/en/geoip2-precision-services\n* https://www.digitalelement.com/geolocation/\n* https://geo.ipify.org/\n* https://geotargetly.com/ip-geolocation-api\n* https://www.trustradius.com/ip-geolocation\n* https://stat.ripe.net/app/launchpad\n* https://db-ip.com/\n* https://ipinfo.io/\n* https://www.ip2location.com/\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 229,
+      "value": "md`### Live Storage Deal Testing`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 232,
+      "value": "md`We can take some sample data (or store additional copies of existing useful data) of varying sizes, and make storage deal attempts directly with storage providers from various locations around the planet, and measure success rates, storage times, etc.\n\nIf we use Lotus as a client to make deals, we can use the \\`lotus client inspect-deal\\` CLI command to retrieve a lot of interesting statistics. ([Youtube demo](https://www.youtube.com/watch?v=W6aTSwjtveY))\n\nAlso, there are alternative clients for making Filecoin deals:\n\n* [filclient](https://github.com/application-research/filclient)\n\nDeal making could be decomposed into separate ultra-simple processes with heavy instrumentation that could run in disparate physical locations to handle different parts of the deal making process, eg. wallet/funds/market balance manipulation, querying asks, signed proposals, data-transfer/graphsync.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 236,
+      "value": "md`### Live Retrieval Deal Testing`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 239,
+      "value": "md`We can retrieve data stored on storage providers (either data we stored, or others have stored) of various sizes and measure retrieval success rates and performance.\n\nWe can test retrievals from a geographically diverse set of locations to get a feel for the best match of storage providers for a particular geographical area. eg. China-based storage providers probably work well for China-based retrieval clients, but what about clients in other locations? Client-provider pairs that cross oceans may have lower bandwidth due to congestion on undersea cables.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 244,
+      "value": "md`### Community-submitted storage and retrieval deal metrics`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 247,
+      "value": "md`In addition to performing live storage and retrieval deals ourselves, we can solicit submissions of deal metrics from the community to augment our data. In order to prevent tampering with the data quality in order to bias results for reputational/economic benefit, care must be taken to ensure that the community-submitted results are from trustworthy sources.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 273,
+      "value": "md`### Dealbot Results`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 276,
+      "value": "md`Protocol Labs wrote and is running a bot for testing deals. If we could get access to the results, we could combine the data.\n\n* https://github.com/filecoin-project/dealbot\n* https://observablehq.com/@protocol/deals-dashboard/2\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 280,
+      "value": "md`### Retrieval Market Testing`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 283,
+      "value": "md`There is active development on a number of ideas for \"Retrieval Markets\" where it will be possible to retrieve data originating on Storage Providers via a CDN-like \"hot layer\". It would be interesting to test the performance and success rates on a variety of upcoming networks.\n\n* https://retrieval.market/\n* https://www.myel.network/\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 287,
+      "value": "md`### Textile Bidbot Tracking`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 290,
+      "value": "md`Textile is publishing metrics on the winners of it's bidbot auctions. It would be interesting to match those deals and it would also help with de-anonymization.\n\n* https://github.com/textileio/bidbot\n* https://textileio.retool.com/embedded/public/fbf59411-760a-4a1a-b5b8-43f42061685d\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 293,
+      "value": "md`### Filswan Tasks`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 296,
+      "value": "md`It might be possible to associate deals with Filswan tasks.\n\n* https://www.filswan.com/\n* https://docs.filswan.com/\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 327,
+      "value": "md`### Filrep.io Reputation Scores and Reachability over Time`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 331,
+      "value": "md`We could collect reputation data published by https://filrep.io/ about the storage providers and provide a way to query that over time.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 573,
+      "value": "md`### Estuary Deals / Successes, Failures`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 576,
+      "value": "md`Estuary publishes some data publicly showing per-provider statistics.\n\nWe are also using Estuary to store backups ... we can also use some of the private deal success data.\n\n* https://estuary.tech/\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 474,
+      "value": "md`### GeoJSON for Region Boundaries`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 477,
+      "value": "md`It would be nice to have GeoJSON shapes for the boundaries of all of our defined regions in the hierarchy.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 481,
+      "value": "md`### Geographic Tagging for Client/Provider Addresses`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 484,
+      "value": "md`In the deals visualization, the client geographic locations were 'faked' as there is no on-chain source of truth for the location of client addresses. In some cases though, the identity of the clients are known and it is possible to assign accurate geographic locations to them. In some cases (eg. Estuary), the deals for a single address may originate from multiple physical locations.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 487,
+      "value": "md`### Geographic Clustering for Client/Provider Addresses`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 490,
+      "value": "md`The deals visualization currently 'fakes' client geographic locations by picking deterministically a location based on a worldwide population weighting. This could be improved iteractively using heuristics - eg. many clients will tend to select providers that are geographically close to them as data transfer will be faster. So we could analyze the patterns of provider selections by clients and give additional probabilistic weight to locations that are closer to the providers. Other potential clues might be located within the public data that is being stored. eg. If we sample the content and there is a lot of Chinese text being stored, it is quite likely that the client is from a Chinese speaking locality.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 149,
+      "value": "md`## Queries and Materialized Views`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 152,
+      "value": "md`### Locations changes over time`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 155,
+      "value": "md`The current Apache Spark queries only output the last seen location for any provider. However, it is possibly for providers to add, remove or change multiaddrs/IP addresses dynamically at any time, so some providers will map into different geographical locations over time. Also, IP geolocation databases such as MaxMind GeoLite2 are not very accurate and may resolve different locations over time for a given IP. Using different geolocation lookup services often returns different locations depending on which one is used. IP allocations may be transferred to different ASNs over time, so the databases lose accuracy and must be updated periodically.\n\nFor some types of historical analysis, it would be nice to have a historical database of the locations of each provider over time.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 251,
+      "value": "md`### Monthly and Yearly Deal Aggregations`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 254,
+      "value": "md`We currently have hourly, daily and weekly aggregations. As we have more data now, it would be nice to add monthly and yearly aggregations.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 445,
+      "value": "md`### Aggregations for hierarchical regions`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 448,
+      "value": "md`Currently we use Apache Spark to aggregations for deals and power for each individual \"leaf\" region in the region hierarchy. It would also be good to compute aggregations for higher-level hierarchy regions (eg. China, USA, Asia, North America, World, etc.). We can take advantage of the naming convention for region codes and combine that with 'LIKE' SQL queries in Apache Spark.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 395,
+      "value": "md`### Ranking Queries`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 398,
+      "value": "md`Apache Spark could be used to calculate ranks in windows for various properties ... eg. \"top service providers by deal data size volume per month\"`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 401,
+      "value": "md`### Quantile Calculations`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 404,
+      "value": "md`It would assist analysis of results if quantiles could be calculated for various metrics. eg. \"show service providers in the top 25% of Filecoin+ deals by deal count\"`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 407,
+      "value": "md`### Cohort Analysis`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 410,
+      "value": "md`It would be interesting to divide storage providers and clients into \"cohorts\" for comparision between cohorts. Coupled with visualizations, it would be a great tool for measuring growth, churn, retension and other behaviours between cohorts.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 413,
+      "value": "md`### Markov Process Modeling`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 416,
+      "value": "md`By defining \"states\" that providers or clients can transition to/from, it would be possible to do some interesting analysis and visualizing of state changes over time.\n\nFor example, it would be interesting to raise events whenever a previously large provider decided to drop off of the network. With that information available, it would be possible to ask them questions about why they did it?\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 493,
+      "value": "md`### Server Provider Registration`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 496,
+      "value": "md`We could provide a way for providers to register and \"claim\" their address so they could submit verified metadata.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 501,
+      "value": "md`### Auto-generate \"Short Labels\" for Providers`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 504,
+      "value": "md`It's nice to have a short label to append to the provider address to make it easier to differentiate them in lists. eg. f01137229: 'Korea, Dongducheon-si' - we can use some of our geographic information to add labels. Also quantiles, ranks, cohort and markov information might help a lot.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 507,
+      "value": "md`### Label Providers Reachable via Slack`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 510,
+      "value": "md`Many providers are active in community forums and are helpful to work with when debugging deal problems and data transfer. If they \"opt-in\", it would be nice to associate their Slack handles with their providers to make it easier for people to get in touch with them.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 547,
+      "value": "md`### Adjusted Deal Data`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 551,
+      "value": "md`Currently the deal data is based on \"published deals\". However, not all published deals get committed to sectors - there may be failures along the way. Additionally, sectors may get terminated early as providers shut down or get slashed. We could use additional data to generate numbers and reports that only include data for \"successful deals\" or \"partially successful deals\".`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 158,
+      "value": "md`## Visualizations`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 160,
+      "value": "md`### Sankey diagrams`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 163,
+      "value": "md `* https://observablehq.com/@d3/sankey`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 166,
+      "value": "md `It would be interesting to drill into a particular client, and see which providers they are using, or which regions the data is being stored in. Or to see what the piece sizes or file types are being stored by a provider, and if they are verified deals or not, and what notaries signed the verified deals, etc.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 301,
+      "value": "md`### Deck.gl Globe`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 304,
+      "value": "md`We currently have some map visualizations, but we could also display a 3D interactive globe using Deck.gl.\n\n* https://deck.gl/examples/globe-view/\n* https://deck.gl/docs/api-reference/core/globe-view\n\nTraceroute data combined with submarine cable maps could also be interesting...\n\n* https://globe.gl/example/submarine-cables/\n* https://submarine-cable-map-2021.telegeography.com/\n* https://www.youtube.com/watch?v=9Y0N6cZHFvI\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 310,
+      "value": "md`### Deck.gl Animated Arcs using WebGL Shaders`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 313,
+      "value": "md`This is super advanced, but there is a tutorial here on the technique:\n\n* https://observablehq.com/@pessimistress/deck-gl-tutorial-subclassing-a-layer\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 316,
+      "value": "md`### Voronoi Diagrams\n\nVoronoi diagrams could be used to partition geographic space against service providers that match certain filters. Or to identify the closest locations of data stored on the network to you.\n\n* https://en.wikipedia.org/wiki/Voronoi_diagram\n* https://observablehq.com/@fil/geo-voronoi-interpolation\n* https://observablehq.com/@fil/voronoi-with-gpu-js\n* https://observablehq.com/@fil/direction-to-shore\n* https://observablehq.com/@d3/hover-voronoi\n* https://observablehq.com/@mbostock/the-delaunays-dual\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 468,
+      "value": "md`### Graph Visualizations`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 471,
+      "value": "md`\nIt might be interesting to map providers and clients into a graph, and visualize that...\n\n* https://js.cytoscape.org/\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 334,
+      "value": "md`### Automate publishing of Provider Power Growth video`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 337,
+      "value": "md`\n* https://observablehq.com/@jimpick/videos-provider-quest?collection=@jimpick/provider-quest\n* https://bafybeicgs6duc5yrk6inbfhosi5r6hbwpijoxurlhvfvt32pr3o7oj7dgy.ipfs.dweb.link/filecoin-orbit-1.mp4\n* https://github.com/jimpick/provider-quest-spark/tree/lily-miner-power (lily-miner-power branch)\n\nFor the 2021 Filecoin Orbit event, a video was created that showed the power growth over time on a map. It would be nice if the data could be updated continuously and videos could be assembled frame-by-frame on a server somewhere and automatically published on a regular basis.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 340,
+      "value": "md`### Automate publishing of Published Deal video`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 343,
+      "value": "md`\n* https://observablehq.com/@jimpick/videos-provider-quest?collection=@jimpick/provider-quest\n* https://bafybeiawk5qceaux6443qsp6ggihki25vzojsxcfrhcv3n74yq63oy5cum.ipfs.dweb.link/filecoin-orbit-2.mp4\n\nFor the 2021 Filecoin Orbit event, a video was created that showed two weeks of deals over time on a map. It would be nice if the data could be updated continuously and videos could be assembled frame-by-frame on a server somewhere and automatically published on a regular basis. A full set of historical data could be published so that it would be possible to view the deal visualizations for time windows in the past.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 384,
+      "value": "md`## Interactivity`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 387,
+      "value": "md`### Enhanced \"Drill-down\" in notebooks`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 390,
+      "value": "md`It would be nice to be able to click on a visualization and \"drill-down\" to see a focused view of the source of the data.\n\nThe Observable Plot based graphs do not have tooltips or event handlers for clicks. There does appear to be a way to add hover tooltips:\n\n* https://observablehq.com/@fil/experimental-plot-tooltip-01\n* https://github.com/observablehq/plot/issues/4 <= \"I can't give a specific date but interaction is definitely on the roadmap.\"\n\nVega plots may be another option for adding interactivity, or even using D3 directly. Deck.gl comes with a \"picking\" system that can be used.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 541,
+      "value": "md`### Date Pickers`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 544,
+      "value": "md`Experiment with different \"date picker\" widgets on ObservableHQ to figure out what would work well for selecting dates and date ranges for historical data.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 579,
+      "value": "md`### ~~Delayed re-rendering on Sunburst~~ (Implemented 2021-12-04)\n\nThe sunburst visualization is re-rendered in real-time when using the data slider, which hogs the CPU as it is very intensize, which makes it difficult to position the slider. Instead, wait for the value to settle for a second (using underscore?) before re-rendering.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 429,
+      "value": "md`## Analysis Platforms / Toolkits`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 419,
+      "value": "md`### Finos Perspective`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 422,
+      "value": "md`Output data into Apache Arrow format for use with a Finos Perspective based JavaScript web interface for flexible what-if querying and analysis - tables and visualizations. It can work with a server side component to proxy the heavy data crunching to the server side, and to stream the results to a web browser, or it can operate entirely browser-side.\n\n* https://perspective.finos.org/\n* https://github.com/jimpick/perspective-filecoin-asks (past project)\n* https://github.com/jimpick/perspective-filecoin-remote-deals (past project)\n* https://github.com/jimpick/perspective-filecoin-remote-deals/tree/slingshot (past project, slingshot branch)\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 425,
+      "value": "md`### Microsoft SandDance`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 428,
+      "value": "md`SandDance can injest a large volume of granular data and has a powerful UI to generate all sorts of interesting visualizations.\n\n* https://microsoft.github.io/SandDance/\n* https://microsoft.github.io/SandDance/app/\n* https://github.com/jimpick/perspective-filecoin-remote-deals/tree/main/sanddance (past project)\n`\n",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 437,
+      "value": "md`### Apache Superset`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 440,
+      "value": "md`\nAn visualization suite from Apache ... including some Deck.gl based ones.\n\n* https://superset.apache.org/\n* https://preset.io/\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 257,
+      "value": "md`## Processing and Publishing Techniques`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 260,
+      "value": "md`### Auto-archiving input data to Estuary`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 263,
+      "value": "md`Currently, the input data is manually added to IPFS on a periodic basis (every few days) and pinned to Estuary manually using the web interface. It would be nice to automate this using the Estuary API, and also to archive/publish the CIDs and related deals as JSON files. The CIDs could even be used as data points for various types of testing.\n\nAs more and more JSON data accumulated in the \\`input\\` directory (currently around 8GiB), it may make sense to start archiving incrementally in chunks.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 267,
+      "value": "md`### Auto-archiving input data to Web3.Storage`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 270,
+      "value": "md`Additionally, the input data could be uploaded to Web3.Storage. Since Web3.Storage works as a direct upload instead of syncing via IPFS, this could involve a lot of data transfer day-over-day for duplicate data in snapshot. So Web3.Storage might be a better fit for incremental chunks.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 321,
+      "value": "md`### Setup Apache Spark cluster`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 324,
+      "value": "md`Currently, the pyspark processing scripts in [GitHub: jimpick/provider-quest-spark](https://github.com/jimpick/provider-quest-spark) run on a single machine. However, if all of the input data is included back to the beginning of the Filecoin mainnet network, it can take more than a day to process all queries. It should be possible to set up and add several nodes to a Spark cluster to speed up the processing by using multiple machines.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 346,
+      "value": "md`### Archive ObservableHQ notebook source to Git`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 349,
+      "value": "md`The notebooks are developed interactively directly on ObservableHQ. There doesn't seem to be a nice source code export facility built into ObservableHQ (vendor lock in?) ... however, there are VS Code extensions that allow one to download the source.\n\n* https://github.com/RandomFractals/js-notebook-inspector\n* https://github.com/GordonSmith/vscode-ojs\n\nIt should be possible to archive the code manually using the extension, and check it into a git repo, or to perhaps even automate it somehow.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 353,
+      "value": "md`### Publish HTML versions of notebooks to IPFS`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 356,
+      "value": "md`ObservableHQ has the ability to export a compiled version of the notebooks to an HTML file that can be published to a web page. We could export all the notebooks to have a version that would run independently from the IPFS public gateway. The navigation would break as all links point to observablehq.com, but perhaps the links could be re-written.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 365,
+      "value": "md`### Use IPFS-published versions of scanning scripts`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 368,
+      "value": "md`Currently, the \"scanning\" scripts are executed by hitting the notebook URL on observablehq.com from within a Puppeteer session running in a virtual machine. This is not ideal as the scripts are run several times per hour, and will not be able to run if observablehq.com has any downtime. If they notebooks were published to IPFS, they could be loaded from the IPFS public gateway or a local IPFS gateway for maximum resiliency.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 359,
+      "value": "md`### Make notebooks work with Dataflow compiler`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 362,
+      "value": "md`\nThe export feature on ObservableHQ still depends on the proprietary online compiler/bundler, but there is an open source re-implementation of the compiler and a project to support building notebooks outside of the ObservableHQ infrastructure:\n\n* https://github.com/asg017/dataflow\n* https://github.com/asg017/unofficial-observablehq-compiler\n\nIt doesn't support everything and bundling dependencies is tricky, so it will take some experimentation.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 371,
+      "value": "md`### Re-pin Textile Buckets output to IPFS/Filecoin + use DNS with dnslink records`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 374,
+      "value": "md`The published buckets have CIDs associated with them that could be re-pinned to IPFS pinning services to increase resiliency. Estuary is also an IPFS pinning service which also publishes deal to Filecoin.\n\nPublished CIDs could be written out as JSON files to keep a record. Notebooks could use this data to determine which CIDs to re-pin, and could write out API results from pinning services as additional JSON files.\n\nThe CIDs could be used to update DNS entries using dnslink records.\n\nReferences to the Textile Hub HTTP gateway for the thread/buckets used from notebooks could be changed to instead refer to IPNS/dnslink URLs pointing at either the IPFS public gateway or a local IPFS gateway. This might be slower to resolve, but if they data is pinned to multiple providers, it should be very resilient.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 378,
+      "value": "md`### Extract some JS into npm libraries`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 381,
+      "value": "md`Some of the notebooks might have re-usable code that would be nice to publish for wider consumption as npm libraries.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 529,
+      "value": "md`### Publish into binary formats`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 532,
+      "value": "md`Experiment with publishing some larger datasets using binary formats such as:\n\n* Apache Arrow\n* Apache Parquet\n* IPLD + CBOR\n* IPLD + HAMT or B-Trees\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 562,
+      "value": "md`### Publish to Qri.io`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 565,
+      "value": "md`Qri is a publishing/distribution system built on libp2p/IPLD technologies that might be interesting for some of the datasets that are tabular in nature.\n\n* https://qri.io/\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 535,
+      "value": "md`### CRDT Consensus`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 538,
+      "value": "md`Enable collaborative editing of metadata using CRDT systems, eg.\n\n* peer-base\n* automerge\n* merkle-CRDT on IPLD\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 453,
+      "value": "md`## DevOps`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 456,
+      "value": "md`### Build OCI Containers (aka Docker Containers)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 459,
+      "value": "md`Move the production scanning setup to a container-based setup. Possibly even try out Kubernetes.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 462,
+      "value": "md`### Add Monitoring`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 465,
+      "value": "md`When there is breakage in the scanning setup, the monitoring system should detect it and raise an appropriate alert.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 556,
+      "value": "md`### Self-host Textile Buckets`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 559,
+      "value": "md`Currently we use the Textile hosted Hub/Buckets API. It would be interesting to try to self-host.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 514,
+      "value": "md`## Documentation and Presentations`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 517,
+      "value": "md`### Video \"Tour of Provider.Quest\" (5 minutes)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 520,
+      "value": "md`Produce a short video which introduces the core concepts behind Provider.Quest and shows how the data is processed and how to use it.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 523,
+      "value": "md`### Schema Documentation`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 526,
+      "value": "md`Produce better documentation for the schemas of the files that are published.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 35,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 38,
+      "value": "import {quickMenu} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 591,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 595,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 598,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
