@@ -7,14 +7,18 @@
   "publish_level": "live",
   "forks": 0,
   "fork_of": null,
-  "update_time": "2022-06-06T05:22:02.463Z",
+  "has_importers": false,
+  "update_time": "2022-10-31T12:38:53.808Z",
+  "first_public_version": 179,
+  "paused_version": null,
   "publish_time": "2021-08-02T02:20:31.327Z",
-  "publish_version": 179,
-  "latest_version": 179,
-  "thumbnail": "028da9f37f085fd0270717448b8c425873496be1f4f3968ba154e52b8311b17c",
-  "default_thumbnail": "028da9f37f085fd0270717448b8c425873496be1f4f3968ba154e52b8311b17c",
+  "publish_version": 181,
+  "latest_version": 181,
+  "thumbnail": "d2bb00ae10cd8b8e2fe9edfc0af40d8d785c6e8d0332e8acc6e1c32cce3734b6",
+  "default_thumbnail": "d2bb00ae10cd8b8e2fe9edfc0af40d8d785c6e8d0332e8acc6e1c32cce3734b6",
   "roles": [],
   "sharing": null,
+  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -24,7 +28,10 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "type": "individual",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -34,7 +41,10 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "public"
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
   },
   "authors": [
     {
@@ -47,7 +57,10 @@
       "github_login": "jimpick",
       "tier": "public",
       "approved": true,
-      "description": ""
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
     }
   ],
   "collections": [
@@ -61,8 +74,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
-      "thumbnail": "1a0b4c435573b36cc569061aa20c6aa1755311e9a3d189331fcaaca1088019de",
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -74,7 +87,10 @@
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
         "type": "individual",
-        "tier": "public"
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
       }
     }
   ],
@@ -83,7 +99,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 179,
+  "version": 181,
   "title": "Internal: Scanner: Baidu IP Geo Lookups [Provider.Quest]",
   "license": "apache-2.0",
   "copyright": "Copyright 2021 Jim Pick",
@@ -122,7 +138,7 @@
     },
     {
       "id": 157,
-      "value": "latestIpsGeoLite2ReportUrl = `http://localhost:3000/ips-geolite2/ips-geolite2-2020-09-21.json`",
+      "value": "latestIpsGeoLite2ReportUrl = `https://geoip.feeds.provider.quest/ips-geolite2-latest.json`",
       "pinned": false,
       "mode": "js",
       "data": null,
@@ -146,7 +162,7 @@
     },
     {
       "id": 166,
-      "value": "latestIpsBaiduReportUrl = `http://localhost:3000/ips-baidu/ips-baidu-2020-09-20.json`",
+      "value": "latestIpsBaiduReportUrl = `https://geoip.feeds.provider.quest/ips-baidu-latest.json`",
       "pinned": true,
       "mode": "js",
       "data": null,

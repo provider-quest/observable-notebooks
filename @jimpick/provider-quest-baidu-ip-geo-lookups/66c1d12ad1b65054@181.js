@@ -16,7 +16,7 @@ epochToDate(currentEpoch).toISOString()
 )}
 
 function _latestIpsGeoLite2ReportUrl(){return(
-`http://localhost:3000/ips-geolite2/ips-geolite2-2020-09-21.json`
+`https://geoip.feeds.provider.quest/ips-geolite2-latest.json`
 )}
 
 async function _latestIpsGeoLite2Report(latestIpsGeoLite2ReportUrl){return(
@@ -28,7 +28,7 @@ Object.entries(latestIpsGeoLite2Report.ipsGeoLite2).map(([ip, record]) => ({ ip,
 )}
 
 function _latestIpsBaiduReportUrl(){return(
-`http://localhost:3000/ips-baidu/ips-baidu-2020-09-20.json`
+`https://geoip.feeds.provider.quest/ips-baidu-latest.json`
 )}
 
 async function _latestIpsBaiduReport(latestIpsBaiduReportUrl){return(
