@@ -1,0 +1,349 @@
+{
+  "id": "855c0496b7d006ce",
+  "slug": "provider-quest-maxmind-geolite2-lookups",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": null,
+  "has_importers": false,
+  "update_time": "2022-06-05T19:59:23.915Z",
+  "first_public_version": 177,
+  "paused_version": null,
+  "publish_time": "2021-07-22T04:02:45.448Z",
+  "publish_version": 177,
+  "latest_version": 177,
+  "thumbnail": "19a8ef0034fc328ffeccaf00d3ff41120159b9c1f86f69fc8126cc4d0bea272e",
+  "default_thumbnail": "19a8ef0034fc328ffeccaf00d3ff41120159b9c1f86f69fc8126cc4d0bea272e",
+  "roles": [],
+  "sharing": null,
+  "tags": [],
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 177,
+  "title": "Internal: Scanner: Maxmind GeoLite2 Lookups [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Internal: Scanner: Maxmind GeoLite2 Lookups [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 5,
+      "value": "md`This notebook performs geo-ip lookups for IPs associated with Filecoin storage providers. It makes API calls against a [simple Node.js server](https://github.com/jimpick/workshop-client-mainnet/tree/main/geoip-server) which has a copy of the [MaxMind GeoLite2](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data?lang=en) database.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 74,
+      "value": "currentEpoch = dateToEpoch(new Date())",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 80,
+      "value": "currentEpochDate = epochToDate(currentEpoch).toISOString()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 18,
+      "value": "import {multiaddrsIpsLatestBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 132,
+      "value": "multiaddrsIpsLatestUrl = `${multiaddrsIpsLatestBucketUrl}/multiaddrs-ips-latest.json`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 22,
+      "value": "multiaddrsIpsReport = (await fetch(multiaddrsIpsLatestUrl)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 25,
+      "value": "minTimestamp = dateFns.subDays(new Date(), 7)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 91,
+      "value": "import {geoIpLookupsBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 127,
+      "value": "ipsGeoLite2LatestUrl = `${geoIpLookupsBucketUrl}/ips-geolite2-latest.json`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 88,
+      "value": "latestIpsGeoLite2Report = (await fetch(ipsGeoLite2LatestUrl)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 24,
+      "value": "ips = {\n  const ips = new Set()\n  for (const record of multiaddrsIpsReport.multiaddrsIps) {\n    if (d3.isoParse(record.timestamp) > new Date(minTimestamp)) {\n      ips.add(record.ip)\n    }\n  }\n  return ips\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 148,
+      "value": "ipsArray = [...ips]",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 97,
+      "value": "newIps = {\n  const newIps = new Set()\n  for (const ip of [...ips]) {\n    if (!latestIpsGeoLite2Report.ipsGeoLite2[ip]) {\n      newIps.add(ip)\n    }\n  }\n  return newIps\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 38,
+      "value": "viewof start = Inputs.button(\"Start\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 41,
+      "value": "maxElapsed = 3 * 60 * 1000",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 45,
+      "value": "geoApiBaseUrl = 'https://geoip.miner.report/api/geoip'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 44,
+      "value": "async function* lookupIpsStream() {\n  const concurrency = 15\n  const callGeoLookupsStream = transform(concurrency, async ip => {\n    try {\n      const geoLookup = await (await fetch(`${geoApiBaseUrl}/geolite2/${ip}`)).json()\n\n      return {\n        ip,\n        continent: geoLookup.continent ? geoLookup.continent.code : null,\n        country: geoLookup.country ? geoLookup.country.isoCode : null,\n        subdiv1: geoLookup.subdivisions && geoLookup.subdivisions.length > 0 ? geoLookup.subdivisions[0].isoCode : null,\n        city: geoLookup.city && geoLookup.city.names ? geoLookup.city.names.en : null,\n        long: geoLookup.location ? geoLookup.location.longitude : null,\n        lat: geoLookup.location ? geoLookup.location.latitude : null,\n        geolite2: geoLookup\n      }\n    } catch (e) {\n      console.info('IP lookup error', ip, e.message)\n      return {}\n    }\n  })\n  const startTime = new Date()\n  let counter = 0\n  let hits = 0\n  let errors = 0\n  for await (const geoLookup of callGeoLookupsStream([...newIps])) {\n    const now = new Date()\n    if (now - startTime > maxElapsed) {\n      yield {\n        done: true,\n        timeout: true,\n        counter,\n        hits,\n        errors\n      }\n      return\n    }\n    if (geoLookup.ip) {\n      hits++\n      yield {\n        counter,\n        hits,\n        errors,\n        ...geoLookup\n      }\n    } else {\n      errors++\n      yield {\n        counter,\n        hits,\n        errors,\n      }\n    }\n    counter++\n  }\n  yield {\n    done: true,\n    counter,\n    hits,\n    errors\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 52,
+      "value": "// lookupIpsStream()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 57,
+      "value": "ipsCount = newIps.size",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 54,
+      "value": "ipsGeoLite2 = {\n  if (start === 0) {\n    yield {\n      state: 'paused'\n    }\n    return\n  }\n  yield {\n    state: 'starting'\n  } \n  let records = []\n  let totalErrors = 0\n  let lastCounter = 0\n  const startTime = new Date()\n  for await (const {counter, hits, errors, ...record} of lookupIpsStream()) {\n    totalErrors = errors\n    lastCounter = counter\n    if (record.ip) {\n      records.push(record)\n    }\n    yield {\n      state: \"streaming\",\n      elapsed: ((new Date()) - startTime) / 1000,\n      scannedIps: counter,\n      totalIps: ipsCount,\n      recordsLength: records.length,\n      errors\n    }\n  }\n  const endTime = new Date()\n  yield {\n    state: \"done\",\n    elapsed: (endTime - startTime) / 1000,\n    scannedIps: lastCounter,\n    totalIps: ipsCount,\n    records: records.sort(),\n    startTime,\n    endTime,\n    errors: totalErrors\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 7,
+      "value": "md`## License\n\nApache 2.0\n\nThis product includes GeoLite2 data created by MaxMind, available from <a href=\"https://www.maxmind.com\">https://www.maxmind.com</a>.\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 28,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 31,
+      "value": "d3 = require(\"d3@6\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 34,
+      "value": "dateFns = require('https://bundle.run/date-fns@2.22.1')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 49,
+      "value": "transform = (await import('streaming-iterables')).transform",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 76,
+      "value": "import {dateToEpoch, epochToDate} from '@jbenet/filecoin-chain-time-calculator'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 113,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 117,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 120,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
