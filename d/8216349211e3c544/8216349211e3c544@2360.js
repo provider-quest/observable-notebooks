@@ -858,7 +858,7 @@ import('https://cdn.skypack.dev/@glif/filecoin-address')
 )}
 
 function _115(buffer,filecoinAddress){return(
-buffer.Buffer.from(filecoinAddress.newFromString('t01000').bytes).toString('hex')
+buffer.Buffer.from(filecoinAddress.newFromString('t01001').bytes).toString('hex')
 )}
 
 function _116(md){return(
