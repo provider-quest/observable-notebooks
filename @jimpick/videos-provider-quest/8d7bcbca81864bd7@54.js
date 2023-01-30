@@ -21,14 +21,20 @@ Source notebook: [@jimpick/power-history-provider-quest](https://observablehq.co
 
 function _4(md){return(
 md`
-## Published Deals
+## Published Deals - Oct 2021
 <video controls style="width: 100%" src="https://bafybeiawk5qceaux6443qsp6ggihki25vzojsxcfrhcv3n74yq63oy5cum.ipfs.dweb.link/filecoin-orbit-2.mp4"></video>
 
 [Download from IPFS Gateway (68MB)](https://bafybeiawk5qceaux6443qsp6ggihki25vzojsxcfrhcv3n74yq63oy5cum.ipfs.dweb.link/filecoin-orbit-2.mp4) | [Download from Pinata (68MB)](https://gateway.pinata.cloud/ipfs/QmPqrxJKR4xuUzcjbAB5KnpmdUnoHPGkWs1XqerSWkgPNa/filecoin-orbit-2.mp4)
-
-
-Source notebook: [@jimpick/deals-trips-provider-quest](https://observablehq.com/@jimpick/deals-trips-provider-quest?collection=@jimpick/provider-quest)
 `
+)}
+
+function _5(md){return(
+md`## Published Deals - Jan 2023
+<video controls style="width: 100%" src="https://bafybeif24vedjzcd3xuiyzasrn64ac6lqnwxkqlpyfx3oaazy2zxranmni.ipfs.w3s.link/filecoin-published-deals-2023-01-30.mp4"></video>
+
+[Download from IPFS Gateway (32MB)](https://bafybeif24vedjzcd3xuiyzasrn64ac6lqnwxkqlpyfx3oaazy2zxranmni.ipfs.w3s.link/filecoin-published-deals-2023-01-30.mp4)
+
+Source notebook: [@jimpick/deals-trips-provider-quest](https://observablehq.com/@jimpick/deals-trips-provider-quest?collection=@jimpick/provider-quest)`
 )}
 
 function _6(md){return(
@@ -49,6 +55,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md","quickMenu"], _2);
   main.variable(observer()).define(["md"], _3);
   main.variable(observer()).define(["md"], _4);
+  main.variable(observer()).define(["md"], _5);
   main.variable(observer()).define(["md"], _6);
   const child1 = runtime.module(define1);
   main.import("quickMenu", child1);
