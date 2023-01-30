@@ -3,7 +3,7 @@ import define2 from "./c2dae147641e012a@46.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
-md`# FVM Actor Code Playground - ERC20 Sans Events - Hyperspace Testnet`
+md`# FVM Actor Code Playground - ERC20 Sans Events - Hyperspace Testnet (Scratch)`
 )}
 
 function _2(md){return(
@@ -858,7 +858,7 @@ import('https://cdn.skypack.dev/@glif/filecoin-address')
 )}
 
 function _115(buffer,filecoinAddress){return(
-buffer.Buffer.from(filecoinAddress.newFromString('t01001').bytes).toString('hex')
+buffer.Buffer.from(filecoinAddress.newFromString('t01000').bytes).toString('hex')
 )}
 
 function _116(md){return(
