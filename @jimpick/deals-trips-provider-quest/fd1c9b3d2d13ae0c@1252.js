@@ -290,9 +290,12 @@ function _26(md){return(
 md`## Data`
 )}
 
-function _dealPairsUrl(){return(
-'https://gateway.pinata.cloud/ipfs/QmV9YPNHNujxgCz7XBXE1ydFQHnGi6FF9CfjxTxY1HsqjU/pairs.json'
-)}
+function _dealPairsUrl()
+{
+  return 'https://ipfs.io/ipfs/bafybeibp4lrdgfyeb4sej45v4ooert5lwc2hgbcan4fq2kys7minay4254/pairs-2023.01.30.json'
+  // return 'https://gateway.pinata.cloud/ipfs/QmV9YPNHNujxgCz7XBXE1ydFQHnGi6FF9CfjxTxY1HsqjU/pairs.json'
+}
+
 
 async function _pairsData(dealPairsUrl){return(
 (await fetch(dealPairsUrl)).json()
