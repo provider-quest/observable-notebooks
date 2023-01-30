@@ -1,6 +1,6 @@
 # Videos [Provider.Quest]
 
-https://observablehq.com/@jimpick/videos-provider-quest@50
+https://observablehq.com/@jimpick/videos-provider-quest@51
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@5
-npm install https://api.observablehq.com/d/8d7bcbca81864bd7@50.tgz?v=3
+npm install https://api.observablehq.com/d/8d7bcbca81864bd7@51.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:

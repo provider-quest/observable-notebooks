@@ -31,15 +31,15 @@ Source notebook: [@jimpick/deals-trips-provider-quest](https://observablehq.com/
 `
 )}
 
-function _5(md){return(
+function _6(md){return(
 md`## Imports`
 )}
 
-function _7(md){return(
+function _8(md){return(
 md`## Backups`
 )}
 
-function _9(backups){return(
+function _10(backups){return(
 backups()
 )}
 
@@ -49,13 +49,13 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md","quickMenu"], _2);
   main.variable(observer()).define(["md"], _3);
   main.variable(observer()).define(["md"], _4);
-  main.variable(observer()).define(["md"], _5);
+  main.variable(observer()).define(["md"], _6);
   const child1 = runtime.module(define1);
   main.import("quickMenu", child1);
-  main.variable(observer()).define(["md"], _7);
+  main.variable(observer()).define(["md"], _8);
   const child2 = runtime.module(define1);
   main.import("backups", child2);
   main.import("backupNowButton", child2);
-  main.variable(observer()).define(["backups"], _9);
+  main.variable(observer()).define(["backups"], _10);
   return main;
 }

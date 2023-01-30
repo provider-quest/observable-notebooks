@@ -8,16 +8,23 @@
   "forks": 0,
   "fork_of": null,
   "has_importers": false,
-  "update_time": "2022-03-27T02:20:39.361Z",
+  "update_time": "2023-01-30T21:33:29.582Z",
   "first_public_version": 50,
   "paused_version": null,
   "publish_time": "2021-10-21T19:06:30.791Z",
-  "publish_version": 50,
-  "latest_version": 50,
-  "thumbnail": "00cdcfef3b671c059ab0094f916bd389e6dbb35abd0d05e203d33b28a691d9a0",
-  "default_thumbnail": "00cdcfef3b671c059ab0094f916bd389e6dbb35abd0d05e203d33b28a691d9a0",
+  "publish_version": 52,
+  "latest_version": 52,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
+  "tags": [],
+  "edits": [
+    {
+      "node_id": 51,
+      "value": "## Published Deals - Jan 2023\n<video controls style=\"width: 100%\" src=\"https://bafybeif24vedjzcd3xuiyzasrn64ac6lqnwxkqlpyfx3oaazy2zxranmni.ipfs.w3s.link/filecoin-published-deals-2023-01-30.mp4\"></video>\n\n[Download from IPFS Gateway (32MB)](https://bafybeif24vedjzcd3xuiyzasrn64ac6lqnwxkqlpyfx3oaazy2zxranmni.ipfs.w3s.link/filecoin-published-deals-2023-01-30.mp4)\n\nSource notebook: [@jimpick/deals-trips-provider-quest](https://observablehq.com/@jimpick/deals-trips-provider-quest?collection=@jimpick/provider-quest)"
+    }
+  ],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -73,8 +80,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
-      "thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -98,7 +105,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 50,
+  "version": 52,
   "title": "Videos [Provider.Quest]",
   "license": "apache-2.0",
   "copyright": "Copyright 2021 Jim Pick",
@@ -134,6 +141,14 @@
       "mode": "js",
       "data": null,
       "name": null
+    },
+    {
+      "id": 51,
+      "value": "## Published Deals - Jan 2023\n<video controls style=\"width: 100%\" src=\"https://bafybeif24vedjzcd3xuiyzasrn64ac6lqnwxkqlpyfx3oaazy2zxranmni.ipfs.w3s.link/filecoin-published-deals-2023-01-30.mp4\"></video>\n\n[Download from IPFS Gateway (32MB)](https://bafybeif24vedjzcd3xuiyzasrn64ac6lqnwxkqlpyfx3oaazy2zxranmni.ipfs.w3s.link/filecoin-published-deals-2023-01-30.mp4)\n\nSource notebook: [@jimpick/deals-trips-provider-quest](https://observablehq.com/@jimpick/deals-trips-provider-quest?collection=@jimpick/provider-quest)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
     },
     {
       "id": 23,
