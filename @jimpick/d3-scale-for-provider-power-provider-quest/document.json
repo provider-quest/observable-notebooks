@@ -1,0 +1,269 @@
+{
+  "id": "ac2be569b3723fbc",
+  "slug": "d3-scale-for-provider-power-provider-quest",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": null,
+  "has_importers": false,
+  "update_time": "2022-03-27T03:32:31.076Z",
+  "first_public_version": 123,
+  "paused_version": null,
+  "publish_time": "2021-10-20T18:27:19.319Z",
+  "publish_version": 123,
+  "latest_version": 123,
+  "thumbnail": "7af23214aaa34dff8514f0db72eb70d369415f5207ea4b70dd140580ec171dd2",
+  "default_thumbnail": "7af23214aaa34dff8514f0db72eb70d369415f5207ea4b70dd140580ec171dd2",
+  "roles": [],
+  "sharing": null,
+  "tags": [],
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 123,
+  "title": "D3 Scale for Provider Power [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# D3 Scale for Provider Power [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 6,
+      "value": "// dataUrl = 'https://gateway.pinata.cloud/ipfs/QmQ1nX8rDj17qvauk1paPqaoCgvcVZ8cryarfr3tr2XGwP/f0688165.json'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 74,
+      "value": "providers = (await fetch('https://gateway.pinata.cloud/ipfs/QmQ1nX8rDj17qvauk1paPqaoCgvcVZ8cryarfr3tr2XGwP/providers.json')).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 77,
+      "value": "viewof selectedProvider = Inputs.select(d3.shuffle(providers))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 35,
+      "value": "provider = {\n  // return 'f0688165'\n  // return 'f02620'\n  return selectedProvider\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 50,
+      "value": "Inputs.table(transitionsPretty)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 32,
+      "value": "dataUrl = {\n  return `https://bafybeiay4ivzjx3uvk7cyx3mp3kvyjnb26xj33nza6bsw54rnhnbgm67ry.ipfs.dweb.link/${provider}.json`\n  // return `https://gateway.pinata.cloud/ipfs/QmQ1nX8rDj17qvauk1paPqaoCgvcVZ8cryarfr3tr2XGwP/${provider}.json`\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 9,
+      "value": "powerData = (await fetch(dataUrl)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 11,
+      "value": "powerDataWithDates = powerData.map(obj => ({ ...obj, date: d3.isoParse(obj.date) }))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 27,
+      "value": "maxPower = {\n  return 166253442384265200 // f0688165\n  // return powerDataWithDates[powerDataWithDates.length - 1].qualityAdjPower\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 14,
+      "value": "powerScale = d3.scalePow()\n  .exponent(0.25)\n  .domain([0, maxPower])\n  .range([0, 15])",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 84,
+      "value": "logScale = d3.scaleLog()\n  .domain([32 * 1024 ** 3, maxPower])\n  .range([0, 30])",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 16,
+      "value": "powerLevels = powerDataWithDates.map(({ date, qualityAdjPower }) => ({ date, qualityAdjPower, level: Math.round(powerScale(qualityAdjPower)) }))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 21,
+      "value": "transitions = powerLevels.reduce((acc, record) => {\n  const lastLevel = acc.length ? acc[acc.length - 1].level : -1\n  const newAcc = [...acc]\n  if (record.level > lastLevel) newAcc.push(record)\n  return newAcc\n}, [])",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 48,
+      "value": "transitionsPretty = transitions.map(({ date, qualityAdjPower, level }) => ({ date, level, qualityAdjPower: bytes(qualityAdjPower, { mode: 'binary' }) }))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 45,
+      "value": "md`## Imports`",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 43,
+      "value": "bytes = (await import('@jimpick/bytes-iec@3.1.0-2')).default",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 113,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 117,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 120,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}

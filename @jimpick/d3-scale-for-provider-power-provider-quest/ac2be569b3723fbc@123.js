@@ -1,4 +1,3 @@
-// https://observablehq.com/@jimpick/d3-scale-for-provider-power-provider-quest@123
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
