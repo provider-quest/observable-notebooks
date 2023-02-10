@@ -5,7 +5,7 @@
   "description": "",
   "likes": 0,
   "publish_level": "live",
-  "forks": 0,
+  "forks": 1,
   "fork_of": {
     "id": "c96312e9d904c8b1",
     "slug": "fvm-actor-code-playground-erc20-sans-events-wallaby-testne",
