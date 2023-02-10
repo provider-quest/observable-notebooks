@@ -1,0 +1,170 @@
+{
+  "id": "0cba1e4a9544bea3",
+  "slug": "test-github-backup",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "public",
+  "forks": 1,
+  "fork_of": null,
+  "has_importers": false,
+  "update_time": "2022-03-26T23:48:09.646Z",
+  "first_public_version": null,
+  "paused_version": null,
+  "publish_time": "2022-03-26T18:32:46.064Z",
+  "publish_version": 22,
+  "latest_version": 22,
+  "thumbnail": "b27d32c5904513a66ca530c9360b859b7a775c347bb82ef52cc395b9163d8997",
+  "default_thumbnail": "b27d32c5904513a66ca530c9360b859b7a775c347bb82ef52cc395b9163d8997",
+  "roles": [],
+  "sharing": null,
+  "tags": [],
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 0,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 0,
+      "following": false
+    }
+  ],
+  "collections": [],
+  "files": [],
+  "comments": [
+    {
+      "id": "5b189c93faa06640",
+      "content": "public auth code: n3HBvp_OSwZfwhSb1wK_",
+      "node_id": 13,
+      "create_time": "2022-03-26T18:56:49.788Z",
+      "update_time": null,
+      "resolved": false,
+      "user": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
+      }
+    },
+    {
+      "id": "167d252d4aa4678d",
+      "content": "public auth code: 2zYCtHBlrjxz9fHd7GXh",
+      "node_id": 13,
+      "create_time": "2022-03-26T23:50:34.402Z",
+      "update_time": null,
+      "resolved": false,
+      "user": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 0,
+        "following": false
+      }
+    }
+  ],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 22,
+  "title": "Test GitHub backup",
+  "license": null,
+  "copyright": "",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Test GitHub backup",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 6,
+      "value": "* https://observablehq.com/@tomlarkworthy/github-backups\n* https://github.com/provider-quest/observable-notebooks",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 15,
+      "value": "backupNowButton()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 19,
+      "value": "Test backup 1",
+      "pinned": true,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 10,
+      "value": "import {enableGithubBackups, backupNowButton} from '@tomlarkworthy/github-backups'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 13,
+      "value": "enableGithubBackups({\n  owner: \"provider-quest\",                   // Target Github username/organization\n  repo: \"observable-notebooks\",                // Target Github repo\n  allow: ['jimpick', 'endpointservices'] // [optional] Allowed source observablehq logins\n})",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
