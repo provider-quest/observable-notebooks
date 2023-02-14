@@ -5,7 +5,7 @@
   "description": "",
   "likes": 1,
   "publish_level": "live",
-  "forks": 3,
+  "forks": 4,
   "fork_of": {
     "id": "c7e7e39ebd4ccf64",
     "slug": "fvm-actor-code-playground-erc20-sans-events",
@@ -20,7 +20,7 @@
       "home_url": "https://github.com/jimpick",
       "type": "individual",
       "tier": "public",
-      "following_count": 1,
+      "following_count": 0,
       "followers_count": 0,
       "following": false
     },
@@ -54,7 +54,7 @@
     "home_url": "https://github.com/jimpick",
     "type": "individual",
     "tier": "public",
-    "following_count": 1,
+    "following_count": 0,
     "followers_count": 0,
     "following": false
   },
@@ -67,7 +67,7 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "tier": "public",
-    "following_count": 1,
+    "following_count": 0,
     "followers_count": 0,
     "following": false
   },
@@ -83,7 +83,7 @@
       "tier": "public",
       "approved": true,
       "description": "",
-      "following_count": 1,
+      "following_count": 0,
       "followers_count": 0,
       "following": false
     }
@@ -101,7 +101,7 @@
       "custom_thumbnail": null,
       "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
       "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
-      "listing_count": 7,
+      "listing_count": 8,
       "parent_collection_count": 0,
       "owner": {
         "id": "bda4505ba9a55ac8",
@@ -113,7 +113,7 @@
         "home_url": "https://github.com/jimpick",
         "type": "individual",
         "tier": "public",
-        "following_count": 1,
+        "following_count": 0,
         "followers_count": 0,
         "following": false
       }
