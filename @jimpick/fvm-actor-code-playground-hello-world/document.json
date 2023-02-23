@@ -20,8 +20,8 @@
       "home_url": "https://twitter.com/visnup",
       "type": "individual",
       "tier": "pro",
-      "following_count": 6,
-      "followers_count": 0,
+      "following_count": 2,
+      "followers_count": 16,
       "following": false
     },
     "version": 136
@@ -37,6 +37,7 @@
   "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
   "roles": [],
   "sharing": null,
+  "tags": [],
   "edits": [
     {
       "node_id": 222,
@@ -53,8 +54,8 @@
     "home_url": "https://github.com/jimpick",
     "type": "individual",
     "tier": "public",
-    "following_count": 1,
-    "followers_count": 0,
+    "following_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "creator": {
@@ -66,8 +67,8 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "tier": "public",
-    "following_count": 1,
-    "followers_count": 0,
+    "following_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "authors": [
@@ -82,8 +83,8 @@
       "tier": "public",
       "approved": true,
       "description": "",
-      "following_count": 1,
-      "followers_count": 0,
+      "following_count": 0,
+      "followers_count": 1,
       "following": false
     }
   ],
@@ -100,7 +101,7 @@
       "custom_thumbnail": null,
       "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
       "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
-      "listing_count": 7,
+      "listing_count": 8,
       "parent_collection_count": 0,
       "owner": {
         "id": "bda4505ba9a55ac8",
@@ -112,8 +113,8 @@
         "home_url": "https://github.com/jimpick",
         "type": "individual",
         "tier": "public",
-        "following_count": 1,
-        "followers_count": 0,
+        "following_count": 0,
+        "followers_count": 1,
         "following": false
       }
     }
