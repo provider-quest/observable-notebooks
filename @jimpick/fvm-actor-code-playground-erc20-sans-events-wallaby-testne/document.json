@@ -21,7 +21,7 @@
       "type": "individual",
       "tier": "public",
       "following_count": 0,
-      "followers_count": 0,
+      "followers_count": 1,
       "following": false
     },
     "version": 1610
@@ -55,7 +55,7 @@
     "type": "individual",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "creator": {
@@ -68,7 +68,7 @@
     "home_url": "https://github.com/jimpick",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "authors": [
@@ -84,7 +84,7 @@
       "approved": true,
       "description": "",
       "following_count": 0,
-      "followers_count": 0,
+      "followers_count": 1,
       "following": false
     }
   ],
@@ -114,7 +114,7 @@
         "type": "individual",
         "tier": "public",
         "following_count": 0,
-        "followers_count": 0,
+        "followers_count": 1,
         "following": false
       }
     }
