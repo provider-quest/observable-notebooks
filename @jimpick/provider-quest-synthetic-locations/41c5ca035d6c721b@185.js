@@ -1,4 +1,3 @@
-// https://observablehq.com/@jimpick/provider-quest-synthetic-locations@181
 import define1 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -119,6 +118,10 @@ md`* Work-in-progress. Transitioning to new distribution mechanism.`
 )}
 
 function _23(md){return(
+md`Schema notes: In the \`synthetic-*.json\` files, we use the observable location/region if that is available, otherwise, we compute a "delegate" that copies the location/region data from another provider according to the algorithm. So any provider that is using synthetic location/regions will have a "delegate" record.`
+)}
+
+function _24(md){return(
 md`* AWS S3 Bucket:
   * Top level URL: https://provider-quest.s3.us-west-2.amazonaws.com/dist/geoip-lookups
   * Temporary solution to problem with Textile buckets + Cloudflare
@@ -167,11 +170,11 @@ md`* AWS S3 Bucket:
 `
 )}
 
-function _24(md){return(
+function _25(md){return(
 md`## Behind the Scenes`
 )}
 
-function _25(md){return(
+function _26(md){return(
 md`FIXME:
 
 * GitHub repos
@@ -183,23 +186,23 @@ md`FIXME:
 * IPFS publishing`
 )}
 
-function _26(md){return(
+function _27(md){return(
 md`## Presentations`
 )}
 
-function _27(md){return(
+function _28(md){return(
 md`Filecoin Green Virtual Meetup - March 2022:`
 )}
 
-function _28(htl){return(
+function _29(htl){return(
 htl.html`<iframe width="1180" height="484" src="https://www.youtube.com/embed/PyxSRV0UlFc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
 )}
 
-function _29(md){return(
+function _30(md){return(
 md`## Backups`
 )}
 
-function _31(backups){return(
+function _32(backups){return(
 backups()
 )}
 
@@ -207,8 +210,8 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["observed.png", {url: new URL("./files/30b14480498602b2fe0b464432b17d1d8735e6676200c99e288a10cedb27df2b5c6727009ba1d0491cbc4124f7e48a05affb3184ef67ca9e4d20329266857f31", import.meta.url), mimeType: "image/png", toString}],
-    ["synthetic.png", {url: new URL("./files/78c9b6083303b64c50fae9f56b3dc1de36f5bf2d7a6401ab59531a2b6ce24752d84bcc89ff11493cd08f9b00348d5ddbbcef9ef91b97235f8345d26ec97cbf8c", import.meta.url), mimeType: "image/png", toString}]
+    ["observed.png", {url: new URL("./files/30b14480498602b2fe0b464432b17d1d8735e6676200c99e288a10cedb27df2b5c6727009ba1d0491cbc4124f7e48a05affb3184ef67ca9e4d20329266857f31.png", import.meta.url), mimeType: "image/png", toString}],
+    ["synthetic.png", {url: new URL("./files/78c9b6083303b64c50fae9f56b3dc1de36f5bf2d7a6401ab59531a2b6ce24752d84bcc89ff11493cd08f9b00348d5ddbbcef9ef91b97235f8345d26ec97cbf8c.png", import.meta.url), mimeType: "image/png", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
@@ -238,11 +241,12 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _25);
   main.variable(observer()).define(["md"], _26);
   main.variable(observer()).define(["md"], _27);
-  main.variable(observer()).define(["htl"], _28);
-  main.variable(observer()).define(["md"], _29);
+  main.variable(observer()).define(["md"], _28);
+  main.variable(observer()).define(["htl"], _29);
+  main.variable(observer()).define(["md"], _30);
   const child1 = runtime.module(define1);
   main.import("backups", child1);
   main.import("backupNowButton", child1);
-  main.variable(observer()).define(["backups"], _31);
+  main.variable(observer()).define(["backups"], _32);
   return main;
 }
