@@ -20,8 +20,8 @@
       "home_url": "https://github.com/jimpick",
       "type": "individual",
       "tier": "public",
-      "following_count": 1,
-      "followers_count": 0,
+      "following_count": 0,
+      "followers_count": 1,
       "following": false
     },
     "version": 1076
@@ -48,8 +48,8 @@
     "home_url": "https://github.com/jimpick",
     "type": "individual",
     "tier": "public",
-    "following_count": 1,
-    "followers_count": 0,
+    "following_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "creator": {
@@ -61,8 +61,8 @@
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
     "tier": "public",
-    "following_count": 1,
-    "followers_count": 0,
+    "following_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "authors": [
@@ -77,8 +77,8 @@
       "tier": "public",
       "approved": true,
       "description": "",
-      "following_count": 1,
-      "followers_count": 0,
+      "following_count": 0,
+      "followers_count": 1,
       "following": false
     }
   ],
@@ -107,8 +107,8 @@
         "home_url": "https://github.com/jimpick",
         "type": "individual",
         "tier": "public",
-        "following_count": 1,
-        "followers_count": 0,
+        "following_count": 0,
+        "followers_count": 1,
         "following": false
       }
     }
