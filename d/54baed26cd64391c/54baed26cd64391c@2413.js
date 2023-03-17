@@ -603,11 +603,10 @@ function _79(md){return(
 md`---`
 )}
 
-async function _tokenBalances(invalidatedBalancesAt,createActorStatus,keys,contract)
+async function _tokenBalances(invalidatedBalancesAt,keys,contract)
 {
   invalidatedBalancesAt;
-  const evmActorId = createActorStatus?.waitResponse?.actorId
-  if (keys && evmActorId) {
+  if (keys) {
     const responses = []
     for (const key of keys) {
       responses.push((await contract.balanceOf(key.address)).toBigInt())
@@ -637,19 +636,15 @@ keys && transferFundsStatus && Inputs.form([
     format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})`,
     value: keys[1]
   }),
-  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})
+  Inputs.range([0.0001, 0.001], {value: 0.0001, step: 0.0001, label: 'ERC20 Tokens to Transfer'})
 ])
 )}
 
-function _transferFromUserButton(Inputs,createActorStatus,transferFromUserForm){return(
+function _transferFromUserButton(Inputs,transferFromUserForm){return(
 Inputs.button('Transfer From User to User', {
-  disabled: !createActorStatus ||
-    !createActorStatus.waitResponse ||
-    !createActorStatus.waitResponse.actorId ||
-    transferFromUserForm[0] === transferFromUserForm[1],
+  disabled: transferFromUserForm[0] === transferFromUserForm[1],
   value: null,
   reduce: () => ({
-    actorId: createActorStatus.waitResponse.actorId,
     source: transferFromUserForm[0],
     dest: transferFromUserForm[1],
     amount: transferFromUserForm[2]
@@ -657,7 +652,7 @@ Inputs.button('Transfer From User to User', {
 })
 )}
 
-async function* _86(transferFromUserStatus,md,Promises,createActorStatus,html)
+async function* _86(transferFromUserStatus,md,Promises,html)
 {
   if (transferFromUserStatus === undefined || !transferFromUserStatus) {
     yield md`Status: Method has not been invoked yet.`
@@ -673,7 +668,7 @@ async function* _86(transferFromUserStatus,md,Promises,createActorStatus,html)
   if (transferFromUserStatus.response) {
     while (true) {
       let output = `<div><b>Transaction sent</b></div>
-      <div>Txn Hash: ${createActorStatus.response}</div>
+      <div>Txn Hash: ${transferFromUserStatus.response}</div>
       `
       if (transferFromUserStatus.waitResponse) {
         output += `<div>Transaction executed in block at height: ${Number.parseInt(transferFromUserStatus.waitResponse.blockNumber.slice(2), 16)}</div>`
@@ -696,17 +691,16 @@ function _87(md){return(
 md`---`
 )}
 
-async function* _transferFromUserStatus(transferFromUserButton,ethers,provider,iface,contractBytes,createActorStatus,client,waitEthTx,$0)
+async function* _transferFromUserStatus(transferFromUserButton,ethers,provider,wfilAddress,abi,client,waitEthTx,$0)
 {
   if (transferFromUserButton) {
     const start = Date.now()
     yield { invoking: true, start }
     const source = transferFromUserButton.source
     const dest = transferFromUserButton.dest.address
-    const amount = transferFromUserButton.amount
+    const amount = ethers.utils.parseEther(`${transferFromUserButton.amount}`)
     const signer = new ethers.Wallet(source.privateKey, provider)
-    const factory = new ethers.ContractFactory(iface, contractBytes, signer)
-    const contract = factory.attach(createActorStatus.waitResponse.contractAddress)
+    const contract = new ethers.Contract(wfilAddress, abi, signer)
     const unsignedTx = await contract.populateTransaction.transfer(dest, amount)
     const populatedTx = await signer.populateTransaction(unsignedTx)
     const signedTx = await signer.signTransaction(populatedTx)
@@ -1031,7 +1025,7 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["tokenBalances","md","Inputs","keys","transferFundsStatus"], _77);
   main.variable(observer()).define(["Inputs","mutable invalidatedBalancesAt"], _78);
   main.variable(observer()).define(["md"], _79);
-  main.variable(observer("tokenBalances")).define("tokenBalances", ["invalidatedBalancesAt","createActorStatus","keys","contract"], _tokenBalances);
+  main.variable(observer("tokenBalances")).define("tokenBalances", ["invalidatedBalancesAt","keys","contract"], _tokenBalances);
   main.define("initial invalidatedBalancesAt", _invalidatedBalancesAt);
   main.variable(observer("mutable invalidatedBalancesAt")).define("mutable invalidatedBalancesAt", ["Mutable", "initial invalidatedBalancesAt"], (M, _) => new M(_));
   main.variable(observer("invalidatedBalancesAt")).define("invalidatedBalancesAt", ["mutable invalidatedBalancesAt"], _ => _.generator);
@@ -1039,11 +1033,11 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], _83);
   main.variable(observer("viewof transferFromUserForm")).define("viewof transferFromUserForm", ["keys","transferFundsStatus","Inputs"], _transferFromUserForm);
   main.variable(observer("transferFromUserForm")).define("transferFromUserForm", ["Generators", "viewof transferFromUserForm"], (G, _) => G.input(_));
-  main.variable(observer("viewof transferFromUserButton")).define("viewof transferFromUserButton", ["Inputs","createActorStatus","transferFromUserForm"], _transferFromUserButton);
+  main.variable(observer("viewof transferFromUserButton")).define("viewof transferFromUserButton", ["Inputs","transferFromUserForm"], _transferFromUserButton);
   main.variable(observer("transferFromUserButton")).define("transferFromUserButton", ["Generators", "viewof transferFromUserButton"], (G, _) => G.input(_));
-  main.variable(observer()).define(["transferFromUserStatus","md","Promises","createActorStatus","html"], _86);
+  main.variable(observer()).define(["transferFromUserStatus","md","Promises","html"], _86);
   main.variable(observer()).define(["md"], _87);
-  main.variable(observer("transferFromUserStatus")).define("transferFromUserStatus", ["transferFromUserButton","ethers","provider","iface","contractBytes","createActorStatus","client","waitEthTx","mutable invalidatedBalancesAt"], _transferFromUserStatus);
+  main.variable(observer("transferFromUserStatus")).define("transferFromUserStatus", ["transferFromUserButton","ethers","provider","wfilAddress","abi","client","waitEthTx","mutable invalidatedBalancesAt"], _transferFromUserStatus);
   main.variable(observer()).define(["md"], _89);
   main.variable(observer()).define(["md"], _90);
   main.variable(observer()).define(["md"], _91);
