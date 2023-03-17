@@ -426,7 +426,9 @@ async function* _depositOwnerStatus(depositOwnerButton,contract)
     const start = Date.now()
     yield { invoking: true, start }
     const amount = depositOwnerButton.amount
-    const unsignedTx = await contract.populateTransaction.deposit()
+    const unsignedTx = await contract.populateTransaction.deposit({
+      value: amount
+    })
     console.log('Jim', unsignedTx)
     /*
     const populatedTx = await deployer.populateTransaction(unsignedTx)
