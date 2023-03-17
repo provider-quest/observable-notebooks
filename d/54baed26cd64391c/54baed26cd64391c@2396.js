@@ -420,17 +420,14 @@ Inputs.button(`Deposit`, {
 })
 )}
 
-async function* _depositOwnerStatus(depositOwnerButton,contract)
+async function* _depositOwnerStatus(depositOwnerButton,ethers,contract,deployer,provider,client,waitEthTx,$0)
 {
   if (depositOwnerButton) {
     const start = Date.now()
     yield { invoking: true, start }
     const amount = depositOwnerButton.amount
-    const unsignedTx = await contract.populateTransaction.deposit({
-      value: amount
-    })
-    console.log('Jim', unsignedTx)
-    /*
+    const value = ethers.utils.parseEther(`${amount}`)
+    const unsignedTx = await contract.populateTransaction.deposit({ value })
     const populatedTx = await deployer.populateTransaction(unsignedTx)
     const signedTx = await deployer.signTransaction(populatedTx)
     console.log('Deposit Owner Transaction:', provider.formatter.transaction(signedTx))
@@ -439,8 +436,7 @@ async function* _depositOwnerStatus(depositOwnerButton,contract)
     yield { waiting: true, waitStart, response }
     const waitResponse = await waitEthTx(response)
     yield { invoked: true, response, waitResponse }
-    mutable invalidatedBalancesAt = new Date()
-    */
+    $0.value = new Date()
   }
 }
 
@@ -979,7 +975,7 @@ export default function define(runtime, observer) {
   main.variable(observer("depositAmount")).define("depositAmount", ["Generators", "viewof depositAmount"], (G, _) => G.input(_));
   main.variable(observer("viewof depositOwnerButton")).define("viewof depositOwnerButton", ["Inputs","depositAmount"], _depositOwnerButton);
   main.variable(observer("depositOwnerButton")).define("depositOwnerButton", ["Generators", "viewof depositOwnerButton"], (G, _) => G.input(_));
-  main.variable(observer("depositOwnerStatus")).define("depositOwnerStatus", ["depositOwnerButton","contract"], _depositOwnerStatus);
+  main.variable(observer("depositOwnerStatus")).define("depositOwnerStatus", ["depositOwnerButton","ethers","contract","deployer","provider","client","waitEthTx","mutable invalidatedBalancesAt"], _depositOwnerStatus);
   main.variable(observer()).define(["md","ownerId"], _66);
   main.variable(observer()).define(["md"], _67);
   main.variable(observer("viewof transferFromOwnerForm")).define("viewof transferFromOwnerForm", ["keys","transferFundsStatus","Inputs"], _transferFromOwnerForm);
