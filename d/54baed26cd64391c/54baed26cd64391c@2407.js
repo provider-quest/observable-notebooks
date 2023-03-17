@@ -420,6 +420,45 @@ Inputs.button(`Deposit`, {
 })
 )}
 
+async function* _65(depositOwnerStatus,md,Promises,html)
+{
+  if (depositOwnerStatus === undefined || !depositOwnerStatus) {
+    yield md`Status: Method has not been invoked yet.`
+    return
+  }
+  if (depositOwnerStatus.invoking) {
+    while (true) {
+      const elapsed = (Date.now() - depositOwnerStatus.start) / 1000
+      yield md`Sending transaction for method... (${elapsed.toFixed(1)}s)`
+      await Promises.delay(1000)
+    }
+  }
+  if (depositOwnerStatus.response) {
+    while (true) {
+      let output = `<div><b>Transaction sent</b></div>
+      <div>Txn Hash: ${depositOwnerStatus.response}</div>
+      `
+      if (depositOwnerStatus.waitResponse) {
+        output += `<div>Transaction executed in block at height: ${Number.parseInt(depositOwnerStatus.waitResponse.blockNumber.slice(2), 16)}</div>`
+        output += `<div>Gas used: ${Number.parseInt(depositOwnerStatus.waitResponse.gasUsed.slice(2), 16)}</div>`
+        output += `<div>Status: ${depositOwnerStatus.waitResponse.status}</div>`
+        yield html`${output}`
+        break
+      }
+
+      const elapsed = (Date.now() - depositOwnerStatus.waitStart) / 1000
+      output += `<div>Waiting for transaction to be executed in a block... (${elapsed.toFixed(1)}s)</div>`
+      yield html`${output}`
+      await Promises.delay(1000)
+    }
+  }
+}
+
+
+function _66(md){return(
+md`---`
+)}
+
 async function* _depositOwnerStatus(depositOwnerButton,ethers,contract,deployer,provider,client,waitEthTx,$0)
 {
   if (depositOwnerButton) {
@@ -441,18 +480,18 @@ async function* _depositOwnerStatus(depositOwnerButton,ethers,contract,deployer,
 }
 
 
-function _66(md,ownerId){return(
+function _68(md,ownerId){return(
 md`## Step 4: Invoke a method to transfer ERC20 tokens from the owner address (${ownerId}) to a user address`
 )}
 
-function _67(md){return(
+function _69(md){return(
 md`The method signature is => \`a9059cbb: transfer(address,uint256)\``
 )}
 
 function _transferFromOwnerForm(keys,transferFundsStatus,Inputs){return(
 keys && transferFundsStatus && Inputs.form([
   Inputs.select(keys.slice(1), { label: "Transfer from Owner to User", format: x => `${x.name} (${transferFundsStatus.lookups[x.delegated.toString()]})` }),
-  Inputs.range([1, 1000000], {value: 1, step: 1, label: 'ERC20 Tokens to Transfer'})
+  Inputs.range([0.0001, 0.001], {value: 0.0001, step: 0.0001, label: 'ERC20 Tokens to Transfer'})
 ])
 )}
 
@@ -466,7 +505,7 @@ Inputs.button(`Transfer From Owner (${ownerId})`, {
 })
 )}
 
-async function* _70(transferFromOwnerStatus,md,Promises,html)
+async function* _72(transferFromOwnerStatus,md,Promises,html)
 {
   if (transferFromOwnerStatus === undefined || !transferFromOwnerStatus) {
     yield md`Status: Method has not been invoked yet.`
@@ -501,17 +540,17 @@ async function* _70(transferFromOwnerStatus,md,Promises,html)
 }
 
 
-function _71(md){return(
+function _73(md){return(
 md`---`
 )}
 
-async function* _transferFromOwnerStatus(transferFromOwnerButton,contract,deployer,provider,client,waitEthTx,$0)
+async function* _transferFromOwnerStatus(transferFromOwnerButton,ethers,contract,deployer,provider,client,waitEthTx,$0)
 {
   if (transferFromOwnerButton) {
     const start = Date.now()
     yield { invoking: true, start }
     const dest = transferFromOwnerButton.dest.address
-    const amount = transferFromOwnerButton.amount
+    const amount = ethers.utils.parseEther(`${transferFromOwnerButton.amount}`)
     const unsignedTx = await contract.populateTransaction.transfer(dest, amount)
     const populatedTx = await deployer.populateTransaction(unsignedTx)
     const signedTx = await deployer.signTransaction(populatedTx)
@@ -526,15 +565,15 @@ async function* _transferFromOwnerStatus(transferFromOwnerButton,contract,deploy
 }
 
 
-function _73(md){return(
+function _75(md){return(
 md`## Step 5: Retrieve the ERC20 token balances for all the addresses`
 )}
 
-function _74(md){return(
+function _76(md){return(
 md`This is the same as Step 3, where we got the token balance for a single account. But here we retrieve all the account token balances in parallel to make it easier to observe what's going on.`
 )}
 
-function _75(tokenBalances,md,Inputs,keys,transferFundsStatus)
+function _77(tokenBalances,md,Inputs,keys,transferFundsStatus)
 {
   if (!tokenBalances) {
     return md``
@@ -556,11 +595,11 @@ function _75(tokenBalances,md,Inputs,keys,transferFundsStatus)
 }
 
 
-function _76(Inputs,$0){return(
+function _78(Inputs,$0){return(
 Inputs.button("Update", { value: null, reduce: () => { $0.value = new Date() } })
 )}
 
-function _77(md){return(
+function _79(md){return(
 md`---`
 )}
 
@@ -582,11 +621,11 @@ function _invalidatedBalancesAt(){return(
 new Date()
 )}
 
-function _80(md){return(
+function _82(md){return(
 md`## Step 6: Transfer ERC20 tokens from user to user`
 )}
 
-function _81(md){return(
+function _83(md){return(
 md`This is almost the same as Step 4, where we transferred from the owner (the genesis address on the Lotus node). But this time we will use secrets on the client side (in the browser) and sign the message from a non-owner address.`
 )}
 
@@ -618,7 +657,7 @@ Inputs.button('Transfer From User to User', {
 })
 )}
 
-async function* _84(transferFromUserStatus,md,Promises,createActorStatus,html)
+async function* _86(transferFromUserStatus,md,Promises,createActorStatus,html)
 {
   if (transferFromUserStatus === undefined || !transferFromUserStatus) {
     yield md`Status: Method has not been invoked yet.`
@@ -653,7 +692,7 @@ async function* _84(transferFromUserStatus,md,Promises,createActorStatus,html)
 }
 
 
-function _85(md){return(
+function _87(md){return(
 md`---`
 )}
 
@@ -682,11 +721,11 @@ async function* _transferFromUserStatus(transferFromUserButton,ethers,provider,i
 }
 
 
-function _87(md){return(
+function _89(md){return(
 md`# Final notes`
 )}
 
-function _88(md){return(
+function _90(md){return(
 md`Thank you for trying out this demo.
 
 If the backend is not working, please get in touch with me. Feel free to fork this notebook to customize your own actors and build scenarios using the on-demand localnet that supports this early version of actors / smart contracts.
@@ -694,7 +733,7 @@ If the backend is not working, please get in touch with me. Feel free to fork th
 I can also deploy custom instances of the localnet and the API for compiling actors ... feel free to contact me at @jimpick on the Filecoin Slack.`
 )}
 
-function _89(md){return(
+function _91(md){return(
 md`## Imports`
 )}
 
@@ -758,7 +797,7 @@ function _filecoinAddress(){return(
 import('https://cdn.skypack.dev/@glif/filecoin-address')
 )}
 
-function _111(md){return(
+function _113(md){return(
 md`## Lotus Utilities`
 )}
 
@@ -885,15 +924,15 @@ async function waitEthTx (txId) {
 }
 )}
 
-function _123(md){return(
+function _125(md){return(
 md`## Backups`
 )}
 
-function _125(backups){return(
+function _127(backups){return(
 backups()
 )}
 
-function _126(backupNowButton){return(
+function _128(backupNowButton){return(
 backupNowButton()
 )}
 
@@ -975,37 +1014,39 @@ export default function define(runtime, observer) {
   main.variable(observer("depositAmount")).define("depositAmount", ["Generators", "viewof depositAmount"], (G, _) => G.input(_));
   main.variable(observer("viewof depositOwnerButton")).define("viewof depositOwnerButton", ["Inputs","depositAmount"], _depositOwnerButton);
   main.variable(observer("depositOwnerButton")).define("depositOwnerButton", ["Generators", "viewof depositOwnerButton"], (G, _) => G.input(_));
+  main.variable(observer()).define(["depositOwnerStatus","md","Promises","html"], _65);
+  main.variable(observer()).define(["md"], _66);
   main.variable(observer("depositOwnerStatus")).define("depositOwnerStatus", ["depositOwnerButton","ethers","contract","deployer","provider","client","waitEthTx","mutable invalidatedBalancesAt"], _depositOwnerStatus);
-  main.variable(observer()).define(["md","ownerId"], _66);
-  main.variable(observer()).define(["md"], _67);
+  main.variable(observer()).define(["md","ownerId"], _68);
+  main.variable(observer()).define(["md"], _69);
   main.variable(observer("viewof transferFromOwnerForm")).define("viewof transferFromOwnerForm", ["keys","transferFundsStatus","Inputs"], _transferFromOwnerForm);
   main.variable(observer("transferFromOwnerForm")).define("transferFromOwnerForm", ["Generators", "viewof transferFromOwnerForm"], (G, _) => G.input(_));
   main.variable(observer("viewof transferFromOwnerButton")).define("viewof transferFromOwnerButton", ["Inputs","ownerId","transferFromOwnerForm"], _transferFromOwnerButton);
   main.variable(observer("transferFromOwnerButton")).define("transferFromOwnerButton", ["Generators", "viewof transferFromOwnerButton"], (G, _) => G.input(_));
-  main.variable(observer()).define(["transferFromOwnerStatus","md","Promises","html"], _70);
-  main.variable(observer()).define(["md"], _71);
-  main.variable(observer("transferFromOwnerStatus")).define("transferFromOwnerStatus", ["transferFromOwnerButton","contract","deployer","provider","client","waitEthTx","mutable invalidatedBalancesAt"], _transferFromOwnerStatus);
+  main.variable(observer()).define(["transferFromOwnerStatus","md","Promises","html"], _72);
   main.variable(observer()).define(["md"], _73);
-  main.variable(observer()).define(["md"], _74);
-  main.variable(observer()).define(["tokenBalances","md","Inputs","keys","transferFundsStatus"], _75);
-  main.variable(observer()).define(["Inputs","mutable invalidatedBalancesAt"], _76);
-  main.variable(observer()).define(["md"], _77);
+  main.variable(observer("transferFromOwnerStatus")).define("transferFromOwnerStatus", ["transferFromOwnerButton","ethers","contract","deployer","provider","client","waitEthTx","mutable invalidatedBalancesAt"], _transferFromOwnerStatus);
+  main.variable(observer()).define(["md"], _75);
+  main.variable(observer()).define(["md"], _76);
+  main.variable(observer()).define(["tokenBalances","md","Inputs","keys","transferFundsStatus"], _77);
+  main.variable(observer()).define(["Inputs","mutable invalidatedBalancesAt"], _78);
+  main.variable(observer()).define(["md"], _79);
   main.variable(observer("tokenBalances")).define("tokenBalances", ["invalidatedBalancesAt","createActorStatus","keys","contract"], _tokenBalances);
   main.define("initial invalidatedBalancesAt", _invalidatedBalancesAt);
   main.variable(observer("mutable invalidatedBalancesAt")).define("mutable invalidatedBalancesAt", ["Mutable", "initial invalidatedBalancesAt"], (M, _) => new M(_));
   main.variable(observer("invalidatedBalancesAt")).define("invalidatedBalancesAt", ["mutable invalidatedBalancesAt"], _ => _.generator);
-  main.variable(observer()).define(["md"], _80);
-  main.variable(observer()).define(["md"], _81);
+  main.variable(observer()).define(["md"], _82);
+  main.variable(observer()).define(["md"], _83);
   main.variable(observer("viewof transferFromUserForm")).define("viewof transferFromUserForm", ["keys","transferFundsStatus","Inputs"], _transferFromUserForm);
   main.variable(observer("transferFromUserForm")).define("transferFromUserForm", ["Generators", "viewof transferFromUserForm"], (G, _) => G.input(_));
   main.variable(observer("viewof transferFromUserButton")).define("viewof transferFromUserButton", ["Inputs","createActorStatus","transferFromUserForm"], _transferFromUserButton);
   main.variable(observer("transferFromUserButton")).define("transferFromUserButton", ["Generators", "viewof transferFromUserButton"], (G, _) => G.input(_));
-  main.variable(observer()).define(["transferFromUserStatus","md","Promises","createActorStatus","html"], _84);
-  main.variable(observer()).define(["md"], _85);
-  main.variable(observer("transferFromUserStatus")).define("transferFromUserStatus", ["transferFromUserButton","ethers","provider","iface","contractBytes","createActorStatus","client","waitEthTx","mutable invalidatedBalancesAt"], _transferFromUserStatus);
+  main.variable(observer()).define(["transferFromUserStatus","md","Promises","createActorStatus","html"], _86);
   main.variable(observer()).define(["md"], _87);
-  main.variable(observer()).define(["md"], _88);
+  main.variable(observer("transferFromUserStatus")).define("transferFromUserStatus", ["transferFromUserButton","ethers","provider","iface","contractBytes","createActorStatus","client","waitEthTx","mutable invalidatedBalancesAt"], _transferFromUserStatus);
   main.variable(observer()).define(["md"], _89);
+  main.variable(observer()).define(["md"], _90);
+  main.variable(observer()).define(["md"], _91);
   main.variable(observer("skypack")).define("skypack", _skypack);
   main.variable(observer("LotusRPC")).define("LotusRPC", _LotusRPC);
   main.variable(observer("BrowserProvider")).define("BrowserProvider", _BrowserProvider);
@@ -1025,7 +1066,7 @@ export default function define(runtime, observer) {
   const child2 = runtime.module(define2);
   main.import("localStorage", child2);
   main.variable(observer("filecoinAddress")).define("filecoinAddress", _filecoinAddress);
-  main.variable(observer()).define(["md"], _111);
+  main.variable(observer()).define(["md"], _113);
   main.variable(observer("simpleCoinSol")).define("simpleCoinSol", _simpleCoinSol);
   main.variable(observer("initialCodeUrl")).define("initialCodeUrl", _initialCodeUrl);
   main.variable(observer("baseUrl")).define("baseUrl", _baseUrl);
@@ -1037,11 +1078,11 @@ export default function define(runtime, observer) {
   main.variable(observer("getEvmAddress")).define("getEvmAddress", _getEvmAddress);
   main.variable(observer("waitMsg")).define("waitMsg", ["lotusApiClient","Promises"], _waitMsg);
   main.variable(observer("waitEthTx")).define("waitEthTx", ["client","Promises"], _waitEthTx);
-  main.variable(observer()).define(["md"], _123);
+  main.variable(observer()).define(["md"], _125);
   const child3 = runtime.module(define3);
   main.import("backups", child3);
   main.import("backupNowButton", child3);
-  main.variable(observer()).define(["backups"], _125);
-  main.variable(observer()).define(["backupNowButton"], _126);
+  main.variable(observer()).define(["backups"], _127);
+  main.variable(observer()).define(["backupNowButton"], _128);
   return main;
 }
