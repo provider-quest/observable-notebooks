@@ -377,7 +377,7 @@ new ethers.Wallet(ownerKey.privateKey, provider)
 )}
 
 function _wfilAddress(){return(
-"0x6C297AeD654816dc5d211c956DE816Ba923475D2"
+"0x476d37c6605e4D0B7E3B069DC7bDf30399e551F6"
 )}
 
 function _contract(ethers,wfilAddress,abi,deployer){return(
