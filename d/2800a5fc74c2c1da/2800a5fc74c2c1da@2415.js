@@ -3,7 +3,7 @@ import define2 from "./c2dae147641e012a@46.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
-md`# FVM Actor Code Playground - WFIL Testing - Hyperspace Testnet`
+md`# FVM Actor Code Playground - WFIL Testing - Hyperspace Testnet - Optimized`
 )}
 
 function _2(md){return(
