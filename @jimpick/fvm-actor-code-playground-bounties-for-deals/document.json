@@ -21,7 +21,7 @@
       "type": "individual",
       "tier": "public",
       "following_count": 0,
-      "followers_count": 0,
+      "followers_count": 1,
       "following": false
     },
     "version": 1302
@@ -37,6 +37,7 @@
   "default_thumbnail": "dc5bf8b47f66fda1ddf981e51ac1b88a6d1eaa4bbe319f11e227a9143b81b08e",
   "roles": [],
   "sharing": null,
+  "tags": [],
   "edits": [
     {
       "node_id": 572,
@@ -54,7 +55,7 @@
     "type": "individual",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "creator": {
@@ -67,7 +68,7 @@
     "home_url": "https://github.com/jimpick",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "authors": [
@@ -83,7 +84,7 @@
       "approved": true,
       "description": "",
       "following_count": 0,
-      "followers_count": 0,
+      "followers_count": 1,
       "following": false
     }
   ],
@@ -100,7 +101,7 @@
       "custom_thumbnail": null,
       "default_thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
       "thumbnail": "d7e424587096d8879ea053a283442539d7fd316a31da892cac162e6cb12b1dab",
-      "listing_count": 7,
+      "listing_count": 8,
       "parent_collection_count": 0,
       "owner": {
         "id": "bda4505ba9a55ac8",
@@ -113,7 +114,7 @@
         "type": "individual",
         "tier": "public",
         "following_count": 0,
-        "followers_count": 0,
+        "followers_count": 1,
         "following": false
       }
     }
