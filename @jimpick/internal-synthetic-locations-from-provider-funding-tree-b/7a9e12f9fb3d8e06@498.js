@@ -23,12 +23,12 @@ function _currentSpecifier()
 }
 
 
-function _howto(currentSpecifier,htl,md,Inputs){return(
+function _howto(getDefaultOpen,currentSpecifier,htl,setDefaultOpen,md,Inputs){return(
 function howto(name, options = {}) {
   if (typeof options === "string") options = {specifier: options};
-  const {open, imports = {d3: "d3"}, specifier = currentSpecifier} = options;
+  const {open = getDefaultOpen(), imports = {d3: "d3"}, specifier = currentSpecifier} = options;
   if (!name) throw new Error("missing name");
-  return htl.html`<details open=${open} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">How do I use this code? 🤔</summary>
+  return htl.html`<details open=${open} ontoggle=${setDefaultOpen} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">How do I use this code? 🤔</summary>
 <div style="margin-bottom: -1em;">${md`
 **To use this chart outside of Observable,** ${specifier === currentSpecifier ? "" : `go to the <a href=/${specifier}?collection=@d3/charts target=_blank>${specifier} notebook</a>, then `}copy-paste the entire function ${name} ${specifier === currentSpecifier ? "below " : ""}including the copyright notice into your application. You’ll also need to install (*e.g.*, <code>yarn add ${Object.values(imports).join(" ")}</code>) and import (*e.g.*, ${Object.entries(imports).map(([name, value]) => `<code>import \\* as ${name} from "${value}"</code>`).join(", ")}) D3; see [D3’s README](https://github.com/d3/d3/blob/main/README.md) for details. To render a chart, pass ${name} an array of <i>data</i> and any desired <i>options</i>; it will return an SVG element that you can insert into the DOM.
 
@@ -54,9 +54,9 @@ function _7(altplot){return(
 altplot(`Plot.barY(alphabet, {x: "letter", y: "frequency"}).plot()`, {open: true})
 )}
 
-function _altplot(htl,md,Inputs){return(
-function altplot(code = "", {open} = {}) {
-  return htl.html`<details open=${open} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">Is there an easier way? 🤯</summary>
+function _altplot(getDefaultOpen,htl,setDefaultOpen,md,Inputs){return(
+function altplot(code = "", {open = getDefaultOpen()} = {}) {
+  return htl.html`<details open=${open} ontoggle=${setDefaultOpen} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">Is there an easier way? 🤯</summary>
 <div style="margin-bottom: -1em;">${md`
 Yes! While D3’s low-level abstraction is expressive, you might find it overkill for basic charts. For exploratory data analysis, or just to visualize data quickly, consider [Observable Plot](/@observablehq/plot) instead. Plot is free, [open-source](https://github.com/observablehq/plot), built on top of D3, and maintained by the same people as D3.
 
@@ -75,9 +75,9 @@ Try pasting this code into a new cell to see.
 }
 )}
 
-function _linkplot(htl,md){return(
-function linkplot(link = "", {open, title} = {}) {
-  return htl.html`<details open=${open} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">Is there an easier way? 🤯</summary>
+function _linkplot(getDefaultOpen,htl,setDefaultOpen,md){return(
+function linkplot(link = "", {open = getDefaultOpen(), title} = {}) {
+  return htl.html`<details open=${open} ontoggle=${setDefaultOpen} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">Is there an easier way? 🤯</summary>
 <div style="margin-bottom: -1em;">${md`
 Yes! While D3’s low-level abstraction is expressive, you might find it overkill for basic charts. For exploratory data analysis, or just to visualize data quickly, consider [Observable Plot](/@observablehq/plot) instead. Plot is free, [open-source](https://github.com/observablehq/plot), built on top of D3, and maintained by the same people as D3.
 
@@ -85,6 +85,26 @@ For example, <a href=${link}>${title || link}</a> reproduces the above chart, wi
 
 `}</div>
 </details>`;
+}
+)}
+
+function _getDefaultOpen(){return(
+function getDefaultOpen() {
+  try {
+    return (window.localStorage.getItem("show-details") ?? "yes") === "yes";
+  } catch {
+    return true;
+  }
+}
+)}
+
+function _setDefaultOpen(){return(
+function setDefaultOpen(event) {
+  try {
+    return window.localStorage.setItem("show-details", event.currentTarget.open ? "yes" : "no");
+  } catch {
+    return;
+  }
 }
 )}
 
@@ -96,9 +116,11 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["howto","name"], _3);
   main.variable(observer()).define(["howto","name"], _4);
   main.variable(observer("currentSpecifier")).define("currentSpecifier", _currentSpecifier);
-  main.variable(observer("howto")).define("howto", ["currentSpecifier","htl","md","Inputs"], _howto);
+  main.variable(observer("howto")).define("howto", ["getDefaultOpen","currentSpecifier","htl","setDefaultOpen","md","Inputs"], _howto);
   main.variable(observer()).define(["altplot"], _7);
-  main.variable(observer("altplot")).define("altplot", ["htl","md","Inputs"], _altplot);
-  main.variable(observer("linkplot")).define("linkplot", ["htl","md"], _linkplot);
+  main.variable(observer("altplot")).define("altplot", ["getDefaultOpen","htl","setDefaultOpen","md","Inputs"], _altplot);
+  main.variable(observer("linkplot")).define("linkplot", ["getDefaultOpen","htl","setDefaultOpen","md"], _linkplot);
+  main.variable(observer("getDefaultOpen")).define("getDefaultOpen", _getDefaultOpen);
+  main.variable(observer("setDefaultOpen")).define("setDefaultOpen", _setDefaultOpen);
   return main;
 }
