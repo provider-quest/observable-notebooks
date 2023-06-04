@@ -1,7 +1,7 @@
 {
   "name": "@jimpick/provider-quest-feeds",
-  "main": "5cf93b57a7444002@281.js",
-  "version": "281.0.0",
+  "main": "5cf93b57a7444002@284.js",
+  "version": "284.0.0",
   "homepage": "https://observablehq.com/@jimpick/provider-quest-feeds",
   "author": {
     "name": "Jim Pick",
@@ -9,6 +9,6 @@
   },
   "type": "module",
   "peerDependencies": {
-    "@observablehq/runtime": "4"
+    "@observablehq/runtime": "4 - 5"
   }
 }

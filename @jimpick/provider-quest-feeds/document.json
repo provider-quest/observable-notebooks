@@ -1,0 +1,446 @@
+{
+  "type": "notebook",
+  "id": "5cf93b57a7444002",
+  "slug": "provider-quest-feeds",
+  "trashed": false,
+  "description": "",
+  "likes": 1,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": null,
+  "has_importers": true,
+  "update_time": "2023-06-04T02:46:44.961Z",
+  "first_public_version": 282,
+  "paused_version": null,
+  "publish_time": "2021-06-02T19:42:22.290Z",
+  "publish_version": 284,
+  "latest_version": 284,
+  "thumbnail": "6b4a9a603c1b58e6411d03ccbb3f39c465cf45b59ba723ba39a9c2405863aade",
+  "default_thumbnail": "6b4a9a603c1b58e6411d03ccbb3f39c465cf45b59ba723ba39a9c2405863aade",
+  "roles": [],
+  "sharing": null,
+  "tags": [],
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 1,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 1,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 1,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 1,
+        "following": false
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 284,
+  "title": "Feeds [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Feeds [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 173,
+      "value": "md`${quickMenu}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 176,
+      "value": "md`\nThis is a list of feeds generated continuously by the Provider.Quest system, published to IPFS and IPNS (using DNSLink records). Feel free to use this data in your own projects!`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 231,
+      "value": "## Historical Provider Power Data (Daily)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 238,
+      "value": "A table containing per-day data with the \"raw bytes power\" and \"quality adjusted power\" for every storage provider. Updated daily.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 233,
+      "value": "* CSV: https://sp-power-daily.feeds.provider.quest/provider-power-daily.csv",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 250,
+      "value": "## Historical Deals (Daily)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 254,
+      "value": "A table with number of deals / size of deals for each provider (verified + unverified) on a daily basis.",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 252,
+      "value": "* CSV: https://deals-daily.feeds.provider.quest/deals-daily.csv",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 67,
+      "value": "## Legacy Workshop Client\n\nThis bucket contains annotations and other metadata from manual deal testing using the [workshop-client-mainnet](https://github.com/jimpick/workshop-client-mainnet) web-based client. Every few days I attempt small deals against all the miners I can find and I record the annotations in a JSON file. This will be gradually replaced with an ObservableHQ/Apache Spark solution.\n\n* S3: [legacy-workshop-client/annotations-mainnet.json](${legacyWorkshopClientBucketUrl}/annotations-mainnet.json)\n* S3: [legacy-workshop-client/annotated-miner-indexes.json](${legacyWorkshopClientBucketUrl}/annotated-miner-indexes.json)\n* S3: [legacy-workshop-client/annotated-miner-indexes-excluding-delisted.json](${legacyWorkshopClientBucketUrl}/annotated-miner-indexes-excluding-delisted.json)",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 55,
+      "value": "legacyWorkshopClientBucketUrl = {\n  return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/legacy-workshop-client'\n  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeiebnqxhltzfhmhdfr2j6p24ngipc7n4qmxrufivvjat7iwjazfwp4'\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2,
+      "value": "annotatedMinerIndexes = (await (await fetch(`${legacyWorkshopClientBucketUrl}/annotated-miner-indexes.json`)).json()).map(num => `f0${num}`)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 21,
+      "value": "annotatedMinerIndexesExcludingDelisted = (await (await fetch(`${legacyWorkshopClientBucketUrl}/annotated-miner-indexes-excluding-delisted.json`)).json()).map(num => `f0${num}`)",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 29,
+      "value": "legacyAnnotationsMainnet = (await fetch(`${legacyWorkshopClientBucketUrl}/annotations-mainnet.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 101,
+      "value": "Inputs.table(Object.entries(legacyAnnotationsMainnet))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 77,
+      "value": "md`## Miner Info\n\nEvery couple of hours, I collect information about the miners I am tracking from the Lotus API using the [Miner Info Scanner notebook](https://observablehq.com/@jimpick/miner-report-miner-info-scanner). This on-chain data includes information such as PeerIDs and multiaddresses (IP addresses) useful for communicating peer-to-peer with miners.\n\n* IPFS: [/ipns/miner-info.feeds.provider.quest](${minerInfoSubsetLatestBucketUrl}) (Latest miner info only)\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 81,
+      "value": "minerInfoSubsetLatestBucketUrl = {\n  return 'https://miner-info.feeds.provider.quest/'\n  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/miner-info-subset-latest'\n  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeigscdljg5a32b4toh6jkz4h3dczusqd6s3mkt3h5nbwtqmbqmh6mu'\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 25,
+      "value": "minerInfoSubsetLatest = (await fetch(`${minerInfoSubsetLatestBucketUrl}/miner-info-subset-latest.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 104,
+      "value": "Inputs.table(Object.entries(minerInfoSubsetLatest.miners).map(([miner, info]) => ({miner, ...info})))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 91,
+      "value": "md`## Asks\n\n* IPFS: [/ipns/asks.feeds.provider.quest](${asksSubsetLatestBucketUrl})\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 153,
+      "value": "asksSubsetLatestBucketUrl = {\n  return 'https://asks.feeds.provider.quest/'\n  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/asks-subset-latest'\n  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidg5ygzrk4oxusmopijf7wqxibmm3sktkkhuz7sfecextyuvifx7y'\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 42,
+      "value": "asksSubsetLatest = (await fetch(`${asksSubsetLatestBucketUrl}/asks-subset-latest.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 112,
+      "value": "Inputs.table(Object.entries(asksSubsetLatest.miners).map(([miner, ask]) => ({miner, ...ask})))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 94,
+      "value": "md`## Deals\n\n* IPFS: [/ipns/deals.feeds.provider.quest](${dealsBucketUrl})\n`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 225,
+      "value": "dealsBucketUrl = \"https://deals.feeds.provider.quest/\"",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 45,
+      "value": "dealsBucketUrlTextile = {\n  return 'Deprecated'\n  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeidhnns26omq6a3y4jdixo7nqvb27wn7otfowohei5zibupvh7d2hq/'\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 228,
+      "value": "dealsBucketUrlAmazon = \"https://provider-quest.s3.us-west-2.amazonaws.com/dist/deals\"",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 31,
+      "value": "md`## Miner Power`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 34,
+      "value": "* IPFS: [/ipns/power-latest-daily.feeds.provider.quest](${minerPowerDailyAverageLatestBucketUrl})\n* IPFS: [/ipns/power-latest-multiday.feeds.provider.quest](${minerPowerMultidayAverageLatestBucketUrl})\n",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 145,
+      "value": "minerPowerDailyAverageLatestBucketUrl = {\n  return 'https://power-latest-daily.feeds.provider.quest'\n  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/miner-power-daily-average-latest'\n  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeiehszmgeygov7bqchfmhh5zxtmn6xyt26ufyhw5k6tuy23h2w4ngm'\n} ",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 121,
+      "value": "minerPowerMultidayAverageLatestBucketUrl = {\n  return 'https://power-latest-multiday.feeds.provider.quest'\n  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/miner-power-multiday-average-latest'\n  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeicdqsds5fkmmcrtkyg3uf6zk5t3bralisswrdh5wlo25przr23pqq'\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 127,
+      "value": "md`## DHT Addresses\n\nOn a regular basis, peer lookups are made against the DHT (Distributed Hash Table) using the [@jimpick/miner-report-dht-miner-peer-scanner](https://observablehq.com/@jimpick/miner-report-dht-miner-peer-scanner?collection=@jimpick/miner-report) notebook and published here.\n\n* IPFS: [/ipns/dht-addrs.feeds.provider.quest](${dhtAddrsLatestBucketUrl})`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 130,
+      "value": "dhtAddrsLatestBucketUrl = {\n  return 'https://dht-addrs.feeds.provider.quest'\n  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/dht-addrs-latest'\n  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeifpxwjdz5e5mv3tzat7de6uzxfusfqk5flqfrlh7re3ria6bs7ye4/'\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 136,
+      "value": "md`## Multiaddresses and IP Addresses\n\nThe scan data from the \"Miner Info\" and \"DHT Addresses\" scans are combined using the [@jimpick/miner-report-multiaddr-ip-tool](https://observablehq.com/@jimpick/miner-report-multiaddr-ip-tool?collection=@jimpick/miner-report) notebook and published here.\n\n* IPFS: [/ipns/multiaddrs-ips.feeds.provider.quest](${multiaddrsIpsLatestBucketUrl})`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 141,
+      "value": "multiaddrsIpsLatestBucketUrl = {\n  return 'https://multiaddrs-ips.feeds.provider.quest/'\n  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/multiaddrs-ips-latest'\n  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeia7ab6fddp255zwn3i4r36pp5walbnblkojfhbuesvsxywmvbk3sa'\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 160,
+      "value": "md`## GeoIP Lookups\n\nThe list of IPs is cross-references with databases to lookup geographic locations. The [MaxMind GeoLite2 scanner notebook](https://observablehq.com/@jimpick/miner-report-maxmind-geolite2-lookups?collection=@jimpick/miner-report) is used to perform lookups against a freely downloadable database.\n\n* IPFS: [/ipns/geoip.feeds.provider.quest](${geoIpLookupsBucketUrl})`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 162,
+      "value": "geoIpLookupsBucketUrl = {\n  return 'https://geoip.feeds.provider.quest/'\n  // return 'https://provider-quest.s3.us-west-2.amazonaws.com/dist/geoip-lookups'\n  // return 'https://hub.textile.io/thread/bafkwblbznyqkmqx5l677z3kjsslhxo2vbbqh6wluunvvdbmqattrdya/buckets/bafzbeibjg7kky45npdwnogui5ffla7dint62xpttvvlzrsbewlrfmbusya'\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 167,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 170,
+      "value": "import {quickMenu} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 186,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 190,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 193,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
