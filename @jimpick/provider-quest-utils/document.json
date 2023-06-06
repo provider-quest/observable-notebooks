@@ -1,0 +1,294 @@
+{
+  "type": "notebook",
+  "id": "c4e4a355c53d2a1a",
+  "slug": "provider-quest-utils",
+  "trashed": false,
+  "description": "",
+  "likes": 1,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": null,
+  "has_importers": true,
+  "update_time": "2022-03-27T01:43:24.179Z",
+  "first_public_version": 111,
+  "paused_version": null,
+  "publish_time": "2021-07-23T18:30:20.672Z",
+  "publish_version": 111,
+  "latest_version": 111,
+  "thumbnail": "d67c9447c5c01a382cc249cef775dc35297117f1da2367e0ddd24f16a2f0828d",
+  "default_thumbnail": "d67c9447c5c01a382cc249cef775dc35297117f1da2367e0ddd24f16a2f0828d",
+  "roles": [],
+  "sharing": null,
+  "tags": [],
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 1,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 1,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 1,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 1,
+        "following": false
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 111,
+  "title": "Internal: Utils [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Internal: Utils [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 7,
+      "value": "md`Functions for re-use across various Provider.Quest notebooks.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 10,
+      "value": "['f01234', 'f013456', 'f0101234', 'f02345'].sort(sortMiners)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 13,
+      "value": "sortMiners = (a, b) => Number(a.slice(1)) - Number(b.slice(1))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 17,
+      "value": "[{ miner: 'f01234' }, { miner: 'f013456' }, { miner: 'f0101234' }, { miner: 'f02345' }].sort(sortMinerRecords)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 5,
+      "value": "sortMinerRecords = ({ miner: minerA }, { miner: minerB }) => Number(minerA.slice(1)) - Number(minerB.slice(1))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 52,
+      "value": "dateFns = require('https://bundle.run/date-fns@2.22.1')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 68,
+      "value": "md`Fixes for timezone issues when doing date-based math`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 49,
+      "value": "function agnosticAddDays(date, amount) {\n  // https://github.com/date-fns/date-fns/issues/571#issuecomment-602496322\n  const originalTZO = date.getTimezoneOffset();\n  const endDate = dateFns.addDays(date, amount);\n  const endTZO = endDate.getTimezoneOffset();\n\n  const dstDiff = originalTZO - endTZO;\n\n  return dstDiff >= 0\n    ? dateFns.addMinutes(endDate, dstDiff)\n    : dateFns.subMinutes(endDate, Math.abs(dstDiff));\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 62,
+      "value": "function agnosticDifferenceInDays(dateLeft, dateRight) {\n  // https://date-fns.org/v2.22.1/docs/differenceInDays\n  return Math.floor(dateFns.differenceInHours(dateLeft, dateRight)/24)|0\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 56,
+      "value": "dateFns.differenceInDays(d3.isoParse('2021-06-28'), d3.isoParse('2021-06-27'))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 58,
+      "value": "dateFns.differenceInDays(d3.isoParse('2021-11-15'), d3.isoParse('2021-06-27'))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 65,
+      "value": "agnosticDifferenceInDays(d3.isoParse('2021-11-15'), d3.isoParse('2021-06-27'))",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 60,
+      "value": "agnosticAddDays(d3.isoParse('2021-06-27'), 141)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 22,
+      "value": "quickMenu = `[Provider.Quest](https://observablehq.com/collection/@jimpick/provider-quest)\n=> Deals: [Weekly](https://observablehq.com/@jimpick/provider-quest-published-deals-weekly)\n· [Daily](https://observablehq.com/@jimpick/provider-quest-published-deals-daily)\n· [Hourly](https://observablehq.com/@jimpick/provider-quest-published-deals-hourly)\n· [Named Clients](https://observablehq.com/@jimpick/provider-quest-deals-named-clients-hourly)\n| [Asks](https://observablehq.com/@jimpick/provider-quest-piece-size-vs-asks)\n| [Map](https://observablehq.com/@jimpick/provider-quest-miners-on-a-global-map)\n· [Regions](https://observablehq.com/@jimpick/provider-quest-regional-stats)\n· [Countries](https://observablehq.com/@jimpick/country-state-province-stats-provider-quest)\n· [Sunburst](https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst)\n· [Videos](https://observablehq.com/@jimpick/videos-provider-quest)\n| [Documentation](https://observablehq.com/@jimpick/provider-quest-documentation)\n· [Ideas](https://observablehq.com/@jimpick/ideas-provider-quest)\n| [Feeds](https://observablehq.com/@jimpick/provider-quest-feeds)\n`",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 27,
+      "value": "md`${quickMenu}`",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 74,
+      "value": "## GitHub Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 78,
+      "value": "* https://observablehq.com/@tomlarkworthy/github-backups\n* https://github.com/provider-quest/observable-notebooks",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 81,
+      "value": "import {enableGithubBackups, backupNowButton} from '@tomlarkworthy/github-backups'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 106,
+      "value": "backupView = enableGithubBackups({\n  owner: \"provider-quest\",                   // Target Github username/organization\n  repo: \"observable-notebooks\",                // Target Github repo\n  allow: ['jimpick'] // [optional] Allowed source observablehq logins\n})",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 85,
+      "value": "backups = setup => {\n  if (setup) {\n    return backupView\n  }\n  return md`Backed up at [https://github.com/provider-quest/observable-notebooks](https://github.com/provider-quest/observable-notebooks/tree/main/%40jimpick)`\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 94,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 87,
+      "value": "backupNowButton()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
