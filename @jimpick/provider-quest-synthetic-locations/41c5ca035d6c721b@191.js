@@ -195,7 +195,7 @@ md`FIL Lisbon 2022:`
 )}
 
 function _29(htl){return(
-htl.html`<iframe width="1180" height="484" src="https://www.youtube.com/embed/PyxSRV0UlFc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+htl.html`<iframe width="1180" height="484" src="https://www.youtube.com/embed/7zjy7fJbrwI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
 )}
 
 function _30(md){return(

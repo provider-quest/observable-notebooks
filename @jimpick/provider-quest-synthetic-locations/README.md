@@ -1,6 +1,6 @@
 # Documentation: Synthetic Locations [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-synthetic-locations@190
+https://observablehq.com/@jimpick/provider-quest-synthetic-locations@191
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@5
-npm install https://api.observablehq.com/d/41c5ca035d6c721b@190.tgz?v=3
+npm install https://api.observablehq.com/d/41c5ca035d6c721b@191.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
