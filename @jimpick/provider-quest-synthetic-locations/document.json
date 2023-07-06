@@ -1,4 +1,5 @@
 {
+  "type": "notebook",
   "id": "41c5ca035d6c721b",
   "slug": "provider-quest-synthetic-locations",
   "trashed": false,
@@ -8,14 +9,14 @@
   "forks": 0,
   "fork_of": null,
   "has_importers": false,
-  "update_time": "2022-05-06T19:30:52.521Z",
+  "update_time": "2023-07-06T18:02:20.519Z",
   "first_public_version": 185,
   "paused_version": null,
   "publish_time": "2022-03-02T20:59:10.087Z",
-  "publish_version": 185,
-  "latest_version": 185,
-  "thumbnail": "6be20efeae20026262880195e1f980f0ad0f968d155bf58d5ae627ffa8257597",
-  "default_thumbnail": "6be20efeae20026262880195e1f980f0ad0f968d155bf58d5ae627ffa8257597",
+  "publish_version": 191,
+  "latest_version": 191,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
   "tags": [],
@@ -110,7 +111,8 @@
       "mime_type": "image/png",
       "status": "public",
       "size": 115506,
-      "content_encoding": null
+      "content_encoding": null,
+      "private_bucket_id": null
     },
     {
       "id": "78c9b6083303b64c50fae9f56b3dc1de36f5bf2d7a6401ab59531a2b6ce24752d84bcc89ff11493cd08f9b00348d5ddbbcef9ef91b97235f8345d26ec97cbf8c",
@@ -121,14 +123,15 @@
       "mime_type": "image/png",
       "status": "public",
       "size": 140301,
-      "content_encoding": null
+      "content_encoding": null,
+      "private_bucket_id": null
     }
   ],
   "comments": [],
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 185,
+  "version": 191,
   "title": "Documentation: Synthetic Locations [Provider.Quest]",
   "license": "apache-2.0",
   "copyright": "Copyright 2022 Jim Pick",
@@ -347,6 +350,22 @@
       "pinned": false,
       "mode": "md",
       "data": null,
+      "name": ""
+    },
+    {
+      "id": 186,
+      "value": "FIL Lisbon 2022:",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 188,
+      "value": "<iframe width=\"1180\" height=\"484\" src=\"https://www.youtube.com/embed/7zjy7fJbrwI\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+      "pinned": false,
+      "mode": "html",
+      "data": {},
       "name": ""
     },
     {
