@@ -1,7 +1,7 @@
 {
   "name": "@jimpick/provider-quest-storage-ask-scanner",
-  "main": "df94b20479c924dc@2175.js",
-  "version": "2175.0.0",
+  "main": "df94b20479c924dc@2176.js",
+  "version": "2176.0.0",
   "homepage": "https://observablehq.com/@jimpick/provider-quest-storage-ask-scanner",
   "author": {
     "name": "Jim Pick",
@@ -9,6 +9,6 @@
   },
   "type": "module",
   "peerDependencies": {
-    "@observablehq/runtime": "4"
+    "@observablehq/runtime": "4 - 5"
   }
 }
