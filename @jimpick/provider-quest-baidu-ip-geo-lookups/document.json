@@ -1,4 +1,5 @@
 {
+  "type": "notebook",
   "id": "66c1d12ad1b65054",
   "slug": "provider-quest-baidu-ip-geo-lookups",
   "trashed": false,
@@ -8,14 +9,14 @@
   "forks": 0,
   "fork_of": null,
   "has_importers": false,
-  "update_time": "2022-10-31T12:38:53.808Z",
+  "update_time": "2023-09-21T01:31:56.934Z",
   "first_public_version": 179,
   "paused_version": null,
   "publish_time": "2021-08-02T02:20:31.327Z",
-  "publish_version": 181,
-  "latest_version": 181,
-  "thumbnail": "d2bb00ae10cd8b8e2fe9edfc0af40d8d785c6e8d0332e8acc6e1c32cce3734b6",
-  "default_thumbnail": "d2bb00ae10cd8b8e2fe9edfc0af40d8d785c6e8d0332e8acc6e1c32cce3734b6",
+  "publish_version": 182,
+  "latest_version": 182,
+  "thumbnail": "20c4e8a91674c7c46ea04a8470ea795d89718e17e44e38fa7db77f443f029bda",
+  "default_thumbnail": "20c4e8a91674c7c46ea04a8470ea795d89718e17e44e38fa7db77f443f029bda",
   "roles": [],
   "sharing": null,
   "tags": [],
@@ -30,7 +31,7 @@
     "type": "individual",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "creator": {
@@ -43,7 +44,7 @@
     "home_url": "https://github.com/jimpick",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "authors": [
@@ -59,7 +60,7 @@
       "approved": true,
       "description": "",
       "following_count": 0,
-      "followers_count": 0,
+      "followers_count": 1,
       "following": false
     }
   ],
@@ -89,7 +90,7 @@
         "type": "individual",
         "tier": "public",
         "following_count": 0,
-        "followers_count": 0,
+        "followers_count": 1,
         "following": false
       }
     }
@@ -99,7 +100,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 181,
+  "version": 182,
   "title": "Internal: Scanner: Baidu IP Geo Lookups [Provider.Quest]",
   "license": "apache-2.0",
   "copyright": "Copyright 2021 Jim Pick",
@@ -322,7 +323,7 @@
     },
     {
       "id": 51,
-      "value": "transform = (await import('streaming-iterables')).transform",
+      "value": "transform = (await import('streaming-iterables@7.1.0')).transform",
       "pinned": false,
       "mode": "js",
       "data": null,

@@ -1,6 +1,6 @@
 # Internal: Scanner: Baidu IP Geo Lookups [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups@181
+https://observablehq.com/@jimpick/provider-quest-baidu-ip-geo-lookups@182
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,7 +14,7 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@5
-npm install https://api.observablehq.com/d/66c1d12ad1b65054@181.tgz?v=3
+npm install https://api.observablehq.com/d/66c1d12ad1b65054@182.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
