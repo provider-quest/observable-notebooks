@@ -1,7 +1,7 @@
 {
   "name": "@jimpick/provider-quest-dht-miner-peer-scanner",
-  "main": "4ce33773e1a525b6@2206.js",
-  "version": "2206.0.0",
+  "main": "4ce33773e1a525b6@2207.js",
+  "version": "2207.0.0",
   "homepage": "https://observablehq.com/@jimpick/provider-quest-dht-miner-peer-scanner",
   "author": {
     "name": "Jim Pick",
@@ -9,6 +9,6 @@
   },
   "type": "module",
   "peerDependencies": {
-    "@observablehq/runtime": "4"
+    "@observablehq/runtime": "4 - 5"
   }
 }

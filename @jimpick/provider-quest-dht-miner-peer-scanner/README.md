@@ -1,6 +1,6 @@
 # Internal: Scanner: DHT [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-dht-miner-peer-scanner@2206
+https://observablehq.com/@jimpick/provider-quest-dht-miner-peer-scanner@2207
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -13,8 +13,8 @@ Or, use the [Observable Runtime](https://github.com/observablehq/runtime) to
 import this module directly into your application. To npm install:
 
 ~~~sh
-npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/4ce33773e1a525b6@2206.tgz?v=3
+npm install @observablehq/runtime@5
+npm install https://api.observablehq.com/d/4ce33773e1a525b6@2207.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
