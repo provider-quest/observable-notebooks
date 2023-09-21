@@ -87,7 +87,7 @@ async function _minerPowerLatestReport(minerPowerDailyAverageLatestBucketUrl){re
 )}
 
 function _minTimestamp(dateFns){return(
-dateFns.subDays(new Date(), 7)
+dateFns.subDays(new Date(), 14)
 )}
 
 async function _minerPowerDailyAverageReport(minerPowerDailyAverageLatestBucketUrl){return(
