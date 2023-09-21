@@ -1,4 +1,4 @@
-import define1 from "./5cf93b57a7444002@282.js";
+import define1 from "./5cf93b57a7444002@284.js";
 import define2 from "./a957eb792b00ff81@406.js";
 import define3 from "./c4e4a355c53d2a1a@111.js";
 
@@ -213,7 +213,7 @@ require('https://bundle.run/date-fns@2.22.1')
 )}
 
 async function _transform(){return(
-(await import('https://unpkg.com/streaming-iterables?module')).transform
+(await import('https://unpkg.com/streaming-iterables@7.1.0?module')).transform
 )}
 
 function _28(md){return(
