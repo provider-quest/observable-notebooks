@@ -1,7 +1,7 @@
 {
   "name": "@jimpick/provider-quest-miner-info-scanner",
-  "main": "60191ee4dcb00e7b@2048.js",
-  "version": "2048.0.0",
+  "main": "60191ee4dcb00e7b@2049.js",
+  "version": "2049.0.0",
   "homepage": "https://observablehq.com/@jimpick/provider-quest-miner-info-scanner",
   "author": {
     "name": "Jim Pick",
@@ -9,6 +9,6 @@
   },
   "type": "module",
   "peerDependencies": {
-    "@observablehq/runtime": "4"
+    "@observablehq/runtime": "4 - 5"
   }
 }

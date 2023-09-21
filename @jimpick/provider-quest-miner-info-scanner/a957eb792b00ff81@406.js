@@ -1,4 +1,7 @@
 // https://observablehq.com/@jbenet/filecoin-chain-time-calculator@406
+import define1 from "./8d271c22db968ab0@160.js";
+import define2 from "./851cd068c9c12ade@886.js";
+
 function _1(md){return(
 md`# Filecoin Chain Time Calculator`
 )}
@@ -121,8 +124,6 @@ require('https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.21/moment-ti
 
 export default function define(runtime, observer) {
   const main = runtime.module();
-  main.define("module 1", async () => runtime.module((await import("./8d271c22db968ab0@160.js")).default));
-  main.define("module 2", async () => runtime.module((await import("./851cd068c9c12ade@886.js")).default));
   main.variable(observer()).define(["md"], _1);
   main.variable(observer("viewof input")).define("viewof input", ["form","html","dateToEpoch"], _input);
   main.variable(observer("input")).define("input", ["Generators", "viewof input"], (G, _) => G.input(_));
@@ -139,8 +140,10 @@ export default function define(runtime, observer) {
   main.variable(observer("parseInput")).define("parseInput", ["moment","dateToEpoch","epochToDate"], _parseInput);
   main.variable(observer("genZones")).define("genZones", ["moment"], _genZones);
   main.variable(observer()).define(["md"], _16);
-  main.define("form", ["module 1", "@variable"], (_, v) => v.import("form", _));
-  main.define("Table", ["module 2", "@variable"], (_, v) => v.import("Table", _));
+  const child1 = runtime.module(define1);
+  main.import("form", child1);
+  const child2 = runtime.module(define2);
+  main.import("Table", child2);
   main.variable(observer("moment")).define("moment", ["require"], _moment);
   main.variable(observer("moment_timezone")).define("moment_timezone", ["require"], _moment_timezone);
   return main;

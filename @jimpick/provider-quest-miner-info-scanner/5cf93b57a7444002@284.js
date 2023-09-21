@@ -1,6 +1,7 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@282
+import define1 from "./c4e4a355c53d2a1a@111.js";
+
 function _1(md){return(
-md`# Feeds/Buckets [Provider.Quest]`
+md`# Feeds [Provider.Quest]`
 )}
 
 function _2(md,quickMenu){return(
@@ -227,7 +228,6 @@ backups()
 
 export default function define(runtime, observer) {
   const main = runtime.module();
-  main.define("module 1", async () => runtime.module((await import("./c4e4a355c53d2a1a@111.js")).default));
   main.variable(observer()).define(["md"], _1);
   main.variable(observer()).define(["md","quickMenu"], _2);
   main.variable(observer()).define(["md"], _3);
@@ -266,10 +266,12 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md","geoIpLookupsBucketUrl"], _36);
   main.variable(observer("geoIpLookupsBucketUrl")).define("geoIpLookupsBucketUrl", _geoIpLookupsBucketUrl);
   main.variable(observer()).define(["md"], _38);
-  main.define("quickMenu", ["module 1", "@variable"], (_, v) => v.import("quickMenu", _));
+  const child1 = runtime.module(define1);
+  main.import("quickMenu", child1);
   main.variable(observer()).define(["md"], _40);
-  main.define("backups", ["module 1", "@variable"], (_, v) => v.import("backups", _));
-  main.define("backupNowButton", ["module 1", "@variable"], (_, v) => v.import("backupNowButton", _));
+  const child2 = runtime.module(define1);
+  main.import("backups", child2);
+  main.import("backupNowButton", child2);
   main.variable(observer()).define(["backups"], _42);
   return main;
 }

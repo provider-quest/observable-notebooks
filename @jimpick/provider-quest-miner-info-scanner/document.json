@@ -1,0 +1,529 @@
+{
+  "type": "notebook",
+  "id": "60191ee4dcb00e7b",
+  "slug": "provider-quest-miner-info-scanner",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 2,
+  "fork_of": {
+    "id": "6acaea5ce7388dfd",
+    "slug": "provider-quest-miner-power-scanner",
+    "title": "Internal: Scanner: Power [Provider.Quest]",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "public",
+      "following_count": 0,
+      "followers_count": 1,
+      "following": false
+    },
+    "version": 1800
+  },
+  "has_importers": false,
+  "update_time": "2023-09-21T01:28:55.876Z",
+  "first_public_version": 2048,
+  "paused_version": null,
+  "publish_time": "2021-06-10T02:31:20.649Z",
+  "publish_version": 2049,
+  "latest_version": 2049,
+  "thumbnail": "1b8bac7f3503393c292163ca32135f531faff6add96c8fa765ee51a200f80766",
+  "default_thumbnail": "1b8bac7f3503393c292163ca32135f531faff6add96c8fa765ee51a200f80766",
+  "roles": [],
+  "sharing": null,
+  "tags": [],
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 1,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 1,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 1,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 1,
+        "following": false
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 2049,
+  "title": "Internal: Scanner: Provider Info [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Internal: Scanner: Provider Info [Provider.Quest]`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 163,
+      "value": "md`This demo connects to a public Lotus Filecoin API endpoint on the mainnet.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 167,
+      "value": "md`If the connection is working, the following should retrieve the version and the block delay from a public API endpoint using the [Lotus JS Client](https://github.com/filecoin-shipyard/js-lotus-client) libraries.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 114,
+      "value": "await client.version()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 902,
+      "value": "chainHead = await client.chainHead()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 904,
+      "value": "currentEpoch = chainHead.Height",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 926,
+      "value": "headTipSetKey = chainHead.Cids",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 906,
+      "value": "viewof interactiveEpoch = html`<input type=range max=${currentEpoch} value=${currentEpoch - 1} style=\"width: 100%\">`",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 989,
+      "value": "selectedEpoch = {\n  // return 142500\n  return interactiveEpoch\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1759,
+      "value": "selectedDate = epochToDate(selectedEpoch).toISOString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 924,
+      "value": "tipSetKey = (await client.chainGetTipSetByHeight(selectedEpoch, headTipSetKey)).Cids",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1748,
+      "value": "tipSet = [...tipSetKey].map(obj => obj['/']).sort().join(',')\n",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 959,
+      "value": "totalPower = (await client.stateMinerPower('<empty>', tipSetKey)).TotalPower",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1725,
+      "value": "md`Just use the miners that have power.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1969,
+      "value": "import {minerPowerDailyAverageLatestBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1972,
+      "value": "minerPowerLatestReport = (await fetch(`${minerPowerDailyAverageLatestBucketUrl}/miner-power-latest.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1975,
+      "value": "minTimestamp = dateFns.subDays(new Date(), 7)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1984,
+      "value": "recentMiners = {\n  const recentMinerSet = new Set()\n  for (const miner of Object.keys(minerPowerLatestReport.miners)) {\n    if (d3.isoParse(minerPowerLatestReport.miners[miner].timestamp) > minTimestamp) {\n      recentMinerSet.add(miner)\n    }\n  }\n  return [...recentMinerSet]\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1717,
+      "value": "minerCount = recentMiners.length",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2001,
+      "value": "Inputs.table(recentMiners.sort(sortMiners).map(i => ({miner: i})))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1807,
+      "value": "testMiner = 'f02620'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1810,
+      "value": "testMinerInfo = client.stateMinerInfo(testMiner, tipSetKey)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 981,
+      "value": "async function* minerInfoStream() {\n  const concurrency = 15\n  const callMinerInfoStream = transform(concurrency, async miner => {\n    try {\n      const minerInfo = (await client.stateMinerInfo(miner, tipSetKey))\n      let controlAddresses = minerInfo.ControlAddresses\n      let multiaddrs = minerInfo.Multiaddrs\n      let multiaddrsDecoded\n      if (multiaddrs) {\n        let decodedAddrs = []\n        for (const maddrBin of multiaddrs) {\n          try {\n            decodedAddrs.push(new Multiaddr(\n              Buffer.from(maddrBin, 'base64')\n            ).toString())\n          } catch (e) {\n            console.error('Error decoding maddr', maddrBin, e)\n          }\n        }\n        if (decodedAddrs.length > 0) {\n          multiaddrsDecoded = decodedAddrs.sort()\n        }\n        multiaddrs.sort()\n      }\n\n      return {\n        miner,\n        owner: minerInfo.Owner,\n        worker: minerInfo.Worker,\n        newWorker: minerInfo.NewWorker,\n        controlAddresses,\n        workerChangeEpoch: minerInfo.workerChangeEpoch,\n        peerId: minerInfo.PeerId,\n        multiaddrs,\n        multiaddrsDecoded,\n        windowPoStProofType: minerInfo.WindowPoStProofType,\n        sectorSize: minerInfo.SectorSize,\n        windowPoStPartitionSectors: minerInfo.WindowPoStPartitionSectors,\n        consensusFaultElapsed: minerInfo.ConsensusFaultElapsed\n      }\n    } catch (e) {\n      console.error('Fetch error', e)\n      return {}\n    }\n  })\n  let counter = 0\n  let errors = 0\n  for await (const minerInfo of callMinerInfoStream(recentMiners)) {\n    if (minerInfo.miner) {\n      yield {\n        counter,\n        errors,\n        epoch: selectedEpoch,\n        ...minerInfo\n      }\n    } else {\n      errors++\n    }\n    counter++\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 995,
+      "value": "// minerInfoStream()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 997,
+      "value": "minerInfo = {\n  let records = []\n  let totalErrors = 0\n  const startTime = new Date()\n  for await (const {counter, errors, epoch, ...record} of minerInfoStream()) {\n    totalErrors = errors\n    if (epoch) {\n      records.push(record)\n      yield {\n        state: \"streaming\",\n        elapsed: ((new Date()) - startTime) / 1000,\n        recordsLength: records.length,\n        errors\n      }\n    }\n  }\n  const endTime = new Date()\n  yield {\n    state: \"done\",\n    elapsed: (endTime - startTime) / 1000,\n    records,\n    startTime,\n    endTime,\n    errors: totalErrors\n  }\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1770,
+      "value": "minerInfo.state === 'done' && md`Miner | Sector Size | Peer ID | Control Addresses | Multiaddrs\n---|---|---|---|---\n${minerInfo.records.slice(0, maxRows).map(({ miner, sectorSize, peerId, controlAddresses, multiaddrs, multiaddrsDecoded }) => {\n  const controlCount = controlAddresses ? controlAddresses.length : ''\n  const multiaddrsFormatted = multiaddrs ? multiaddrsDecoded.join(' ') : ''\n  const peerIdFormatted = peerId ? peerId.slice(0, 10) + '...' + peerId.slice(-8) : ''\n  let lines = `${miner} | ${bytes(sectorSize, { mode: 'binary' })} | ${peerIdFormatted} | ${controlCount} | ${multiaddrsFormatted}\\n`\n  return lines\n})}\n`",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1779,
+      "value": "maxRows = 190",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 152,
+      "value": "md`# Setting up Lotus JS Client\n\nThe following three stanzas import the library from npm.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 49,
+      "value": "LotusRPC = (await import('@filecoin-shipyard/lotus-client-rpc')).LotusRPC",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 56,
+      "value": "BrowserProvider = (await import('@filecoin-shipyard/lotus-client-provider-browser')).BrowserProvider",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 58,
+      "value": "schema = (await import('@filecoin-shipyard/lotus-client-schema')).mainnet.fullNode",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 149,
+      "value": "md`Here is the list of methods from the schema file. Currently just a subset of the available methods in the Lotus JSON-RPC API, but any method can be added.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 60,
+      "value": "Object.keys(schema.methods)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 161,
+      "value": "md`To make a client object to make calls with, you supply an endpoint url to make a websocket connection to the Lotus node to the RPC library, and supply a provider object (contains the websocket code) and a schema.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1108,
+      "value": "endpointUrl = {\n  return \"wss://lotus.miner.report/mainnet_api/0/node/rpc/v0\"\n  // return \"https://api.node.glif.io/rpc/v0\"\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 63,
+      "value": "client = {\n  const provider = new BrowserProvider(endpointUrl)\n  return new LotusRPC(provider, { schema })\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1082,
+      "value": "md`## More imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1033,
+      "value": "transform = (await import('streaming-iterables@7.1.0')).transform",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1757,
+      "value": "import { epochToDate } from '@jbenet/filecoin-chain-time-calculator'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1782,
+      "value": "bytes = (await import('@jimpick/bytes-iec@3.1.0-2')).default",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1851,
+      "value": "Multiaddr = (await require('https://bundle.run/multiaddr@9.0.1')).Multiaddr",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1922,
+      "value": "Buffer = (await require('https://bundle.run/buffer@6.0.3')).Buffer",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1932,
+      "value": "maddrBin = Buffer.from('BLaDBMMGf/g=', 'base64')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1936,
+      "value": "(new Multiaddr(maddrBin)).toString()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1977,
+      "value": "dateFns = require('https://bundle.run/date-fns@2.22.1')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 1981,
+      "value": "d3 = require(\"d3@6\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2003,
+      "value": "import {sortMiners} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2038,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 2042,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 2045,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}

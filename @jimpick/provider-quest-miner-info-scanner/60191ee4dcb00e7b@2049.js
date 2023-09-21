@@ -1,4 +1,7 @@
-// https://observablehq.com/@jimpick/provider-quest-miner-info-scanner@2048
+import define1 from "./5cf93b57a7444002@284.js";
+import define2 from "./a957eb792b00ff81@406.js";
+import define3 from "./c4e4a355c53d2a1a@111.js";
+
 function _1(md){return(
 md`# Internal: Scanner: Provider Info [Provider.Quest]`
 )}
@@ -253,7 +256,7 @@ md`## More imports`
 )}
 
 async function _transform(){return(
-(await import('https://unpkg.com/streaming-iterables?module')).transform
+(await import('https://unpkg.com/streaming-iterables@7.1.0?module')).transform
 )}
 
 async function _bytes(){return(
@@ -294,9 +297,6 @@ backups()
 
 export default function define(runtime, observer) {
   const main = runtime.module();
-  main.define("module 1", async () => runtime.module((await import("./5cf93b57a7444002@282.js")).default));
-  main.define("module 2", async () => runtime.module((await import("./a957eb792b00ff81@406.js")).default));
-  main.define("module 3", async () => runtime.module((await import("./c4e4a355c53d2a1a@111.js")).default));
   main.variable(observer()).define(["md"], _1);
   main.variable(observer()).define(["md"], _2);
   main.variable(observer()).define(["md"], _3);
@@ -312,7 +312,8 @@ export default function define(runtime, observer) {
   main.variable(observer("tipSet")).define("tipSet", ["tipSetKey"], _tipSet);
   main.variable(observer("totalPower")).define("totalPower", ["client","tipSetKey"], _totalPower);
   main.variable(observer()).define(["md"], _14);
-  main.define("minerPowerDailyAverageLatestBucketUrl", ["module 1", "@variable"], (_, v) => v.import("minerPowerDailyAverageLatestBucketUrl", _));
+  const child1 = runtime.module(define1);
+  main.import("minerPowerDailyAverageLatestBucketUrl", child1);
   main.variable(observer("minerPowerLatestReport")).define("minerPowerLatestReport", ["minerPowerDailyAverageLatestBucketUrl"], _minerPowerLatestReport);
   main.variable(observer("minTimestamp")).define("minTimestamp", ["dateFns"], _minTimestamp);
   main.variable(observer("recentMiners")).define("recentMiners", ["minerPowerLatestReport","d3","minTimestamp"], _recentMiners);
@@ -335,7 +336,8 @@ export default function define(runtime, observer) {
   main.variable(observer("client")).define("client", ["BrowserProvider","endpointUrl","LotusRPC","schema"], _client);
   main.variable(observer()).define(["md"], _37);
   main.variable(observer("transform")).define("transform", _transform);
-  main.define("epochToDate", ["module 2", "@variable"], (_, v) => v.import("epochToDate", _));
+  const child2 = runtime.module(define2);
+  main.import("epochToDate", child2);
   main.variable(observer("bytes")).define("bytes", _bytes);
   main.variable(observer("Multiaddr")).define("Multiaddr", ["require"], _Multiaddr);
   main.variable(observer("Buffer")).define("Buffer", ["require"], _Buffer);
@@ -343,10 +345,12 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["Multiaddr","maddrBin"], _44);
   main.variable(observer("dateFns")).define("dateFns", ["require"], _dateFns);
   main.variable(observer("d3")).define("d3", ["require"], _d3);
-  main.define("sortMiners", ["module 3", "@variable"], (_, v) => v.import("sortMiners", _));
+  const child3 = runtime.module(define3);
+  main.import("sortMiners", child3);
   main.variable(observer()).define(["md"], _48);
-  main.define("backups", ["module 3", "@variable"], (_, v) => v.import("backups", _));
-  main.define("backupNowButton", ["module 3", "@variable"], (_, v) => v.import("backupNowButton", _));
+  const child4 = runtime.module(define3);
+  main.import("backups", child4);
+  main.import("backupNowButton", child4);
   main.variable(observer()).define(["backups"], _50);
   return main;
 }

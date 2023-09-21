@@ -1,6 +1,6 @@
 # Internal: Scanner: Provider Info [Provider.Quest]
 
-https://observablehq.com/@jimpick/provider-quest-miner-info-scanner@2048
+https://observablehq.com/@jimpick/provider-quest-miner-info-scanner@2049
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -13,8 +13,8 @@ Or, use the [Observable Runtime](https://github.com/observablehq/runtime) to
 import this module directly into your application. To npm install:
 
 ~~~sh
-npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/60191ee4dcb00e7b@2048.tgz?v=3
+npm install @observablehq/runtime@5
+npm install https://api.observablehq.com/d/60191ee4dcb00e7b@2049.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
