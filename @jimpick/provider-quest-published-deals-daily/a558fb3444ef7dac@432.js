@@ -1,4 +1,4 @@
-import define1 from "./5cf93b57a7444002@282.js";
+import define1 from "./5cf93b57a7444002@284.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(
@@ -71,6 +71,7 @@ Plot.plot({
   y: {
     grid: true
   },
+  marginLeft: 80,
   marks: [
     Plot.rectY(dailyDeals, {
       x: { value: "date", interval: d3.utcDay },
