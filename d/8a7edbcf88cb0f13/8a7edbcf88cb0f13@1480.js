@@ -158,6 +158,7 @@ async function* messagesStream() {
                 setTimeout(() => resolve({ timeout: 1 }), apiTimeout)
             )
             const results = await Promise.race([timeoutTimer, cso])
+            console.log('Jim results', results)
             const elapsed = ((new Date()) - csoStartTime) / 1000
             if (results?.timeout) {
               console.log('Jim timeout', elapsed )
