@@ -1,5 +1,4 @@
-// https://observablehq.com/@jimpick/provider-quest-piece-size-vs-asks@540
-import define1 from "./5cf93b57a7444002@282.js";
+import define1 from "./5cf93b57a7444002@284.js";
 import define2 from "./c4e4a355c53d2a1a@111.js";
 
 function _1(md){return(

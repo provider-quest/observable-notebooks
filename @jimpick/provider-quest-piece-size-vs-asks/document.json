@@ -1,0 +1,414 @@
+{
+  "type": "notebook",
+  "id": "3a823885ba424869",
+  "slug": "provider-quest-piece-size-vs-asks",
+  "trashed": false,
+  "description": "",
+  "likes": 0,
+  "publish_level": "live",
+  "forks": 0,
+  "fork_of": null,
+  "has_importers": false,
+  "update_time": "2022-03-27T02:07:46.912Z",
+  "first_public_version": 540,
+  "paused_version": null,
+  "publish_time": "2021-06-17T03:05:12.721Z",
+  "publish_version": 540,
+  "latest_version": 540,
+  "thumbnail": "7a1cf79ed4eb0758594ffc5fd6c900f78bb8cea653f53150153e321a7816b63a",
+  "default_thumbnail": "7a1cf79ed4eb0758594ffc5fd6c900f78bb8cea653f53150153e321a7816b63a",
+  "roles": [],
+  "sharing": null,
+  "tags": [],
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 1,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 1,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 1,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 1,
+        "following": false
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 540,
+  "title": "Asks (by Piece Size) [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "# Asks (by Piece Size) [Provider.Quest]",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 493,
+      "value": "md`${quickMenu}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 102,
+      "value": "md`Several times per day, I am scanning all the storage providers on Filecoin that appear to be reachable from my location the Internet, and I then query their \"ask\" information using [@jimpick/provider-quest-storage-ask-scanner](https://observablehq.com/@jimpick/provider-quest-storage-ask-scanner?collection=@jimpick/provider-quest).\n\nThe latest asks are combined into a JSON report and published to a Textile Bucket. The JSON file can be fetched via HTTP ... the [@jimpick/provider-quest-feeds](https://observablehq.com/@jimpick/provider-quest-feeds?collection=@jimpick/provider-quest) notebook has the URLs and exports for fetching this data, and several other useful feeds.\n\nYou can use the tool in this notebook to select a piece size (the data size you want to store, rounded up to a power of 2), and view the miners that support storing that size, ordered by price (either non-verified or verified a.k.a. Filecoin Plus).\n\n**Historical Deal Data:** To help put the pricing in context, I am now also showing historical published deal data. The data shows the number of deals per miner, the total size of the deals combined together, and the number of distinct clients over a window of ${multidayDealsReport.intervalDays} days. I'm showing statistics aggregated for all piece sizes, not just the selected piece size. Historical deals may have been accepted at different price points than current asks.\n\n**Historical Power Data:** I am now also showing historical power data. The data shows the power acquired by a miner averaged over a window of ${multidayDealsReport.intervalDays} days. The historically averaged power data should be less volatile than live power data which can periodically dip to zero when miners encounter transient issues.\n\n**Legacy Testing Annotations:** For now, I am also displaying some annotations for each miner which shows some results from my \"legacy\" testing system with very small file sizes. The annotation states only represent the result of my latest round of testing and are not necessarily up-to-date or reliable. I am working to replace this system with a better one. For each miner, I make a crude attempt to geo-locate them based on their IP address, but I don't usually update these often. My future testing system will automate this better. I use the label *\"NR\"* (non-routable) when I couldn't find an IP address (but the miner may have added one after I made the annotation). Miners tagged as **\"active\"** are ones which I was able to successfully store a small file and for which the miner has completed the proof of replication and is proving the storage to Filecoin. Other annotations you might see are **\"sealing\"**, or **\"active-sealing\"**, which means the miner has accepted my deals, but hasn't finished sealing yet. You might see **\"inflight\"**, or **\"stuck\"** when I've sent a deal but the miner hasn't started sealing it yet. Some deals end in **\"error\"** due to many different problems - you can see some error logs as comments on [GitHub](https://github.com/jimpick/workshop-client-mainnet/blob/main/src/annotations-mainnet.js). Often the error is on my end of the deal as I am frequently upgrading my Lotus node and running unstable versions. If you see **\"min-size\"**, it is because I'm only testing small files and the miner only accepts large files. If you see **\"min-ask\"**, it's because my legacy testing system is unaware of ask pricing, and sends deals to miners with a lower deal price than they are willing to accept. Some miners rejected my deals for various reasons, so those are labeled as **rejected**. I'm filtering out miners that I can't dial. I am going to replace this testing system with a smarter one built using ObservableHQ notebooks.`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 26,
+      "value": "viewof selectedSize = Inputs.select(sizesBytes, { format: x => x.pretty, label: \"Piece Size\", value: sizesBytes.find(x => x.pretty === '1GiB') })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 96,
+      "value": "md`Prices are in attoFIL per epoch (30 seconds) per GiB`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 66,
+      "value": "viewof sortBy = Inputs.radio(['Price', 'Verified Price'], {label: \"Sort By\", value: 'Price'})",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 134,
+      "value": "viewof filterOut = Inputs.checkbox([\"ridiculous price\", \"ridiculous verified price\", \"rejected\", \"no deals\", \"<10 deals\", \"<50 deals\", \"<100 deals\", \"<3 clients\", \"<5 clients\"], {label: \"Filter out\", value: [\"ridiculous price\", \"ridiculous verified price\", \"no deals\", \"<10 deals\", \"<50 deals\", \"<3 clients\"] })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 57,
+      "value": "{\n\n const titles = 'Miner | ' +\n   (sortBy === 'Price' ? 'Price | Verified Price' : 'Verified Price | Price') +\n   ' | Deals | Total Size | Clients | Power | Annotation'\n const output = md`${titles}\n---|---|---|---|---|---|---\n${filteredAsks.sort(sortByFunc).map(({ miner, price, verifiedPrice }) => {\n  let line = `${miner} | ` +\n    (sortBy === 'Price' ? `${price} | ${verifiedPrice}` : `${verifiedPrice} | ${price}`) +\n    ` | ` + (multidayDeals[miner] ? multidayDeals[miner].count : '') +\n    ` | ` + (multidayDeals[miner] ? bytes(multidayDeals[miner]['sum(pieceSizeDouble)'], { mode: 'binary' }) : '') +\n    ` | ` + (multidayDeals[miner] ? multidayDeals[miner]['approx_count_distinct(client)'] : '') +\n    ` | ` + (minerPowerMultidayReport && minerPowerMultidayReport.miners[miner] ? bytes(minerPowerMultidayReport.miners[miner].qualityAdjPower, { mode: 'binary' }) : '') +\n    ` | ${legacyAnnotationsMainnet[miner]}\\n`\n  return line\n}).slice(0, maxRows)}\n`\n  return output\n\n  function sortByFunc(a, b) {\n    let compare\n    if (sortBy === 'Price') {\n       compare = a.priceDouble - b.priceDouble\n    }\n    if (sortBy === 'Verified Price') {\n      compare = a.verifiedPriceDouble - b.verifiedPriceDouble\n    }\n    if (compare !== 0) return compare\n    const sizeA = (multidayDeals && multidayDeals[a.miner]) ? multidayDeals[a.miner]['sum(pieceSizeDouble)'] : 0 \n    const sizeB = (multidayDeals && multidayDeals[b.miner]) ? multidayDeals[b.miner]['sum(pieceSizeDouble)'] : 0 \n    const compareSize = sizeB - sizeA\n    if (compareSize !== 0) return compareSize\n    \n    return Number(a.miner.slice(1)) - Number(b.miner.slice(1))\n  }\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 293,
+      "value": "maxRows = 1000",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 363,
+      "value": "md`## Price Converter Widget`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 385,
+      "value": "viewof selectedPrice = Inputs.select(pricePoints, { format: x => `${x} attoFIL`, label: \"Price Per Epoch\" })",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 389,
+      "value": "{\n  const filPerEpoch = Number(selectedPrice) / 1e18\n  const epochsPerYear = 365 * 24 * 60 * 2\n  const sizeInGiB = selectedSize.bytes / 1024 ** 3\n  const filCost = filPerEpoch * epochsPerYear * sizeInGiB\n  const usdCost = filCost * filUsdFromCoinGecko\n  return md`Cost to store ${selectedSize.pretty} for 1 year = **${filCost.toFixed(4)} FIL** ($${usdCost.toFixed(4)} USD\\*)<br><i>Note: Using current trading price from the CoinGecko API: 1 FIL = $${filUsdFromCoinGecko} USD</i>`\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 150,
+      "value": "md`## Data`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 4,
+      "value": "sizes = [...Array(29).keys()].map(i => 2 ** (8 + i))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 11,
+      "value": "sizesBytes = sizes.map(size => ({ pretty: bytes(size, { mode: 'binary' }), bytes: size }))",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 39,
+      "value": "import { asksSubsetLatest } from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 87,
+      "value": "asksSubsetLatest",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 522,
+      "value": "liveAsks = {\n    const entries = Object.entries(asksSubsetLatest.miners)\n    .map(([miner, { timestamp, ...rest }]) => ([miner, {\n      timestamp: d3.isoParse(timestamp),\n      ...rest\n    }]))\n    .filter(([miner, ask]) => (\n      ask.timestamp >= minTimestamp\n    ))\n    .map(([miner, ask]) => ({miner, ...ask}))\n  return entries\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 468,
+      "value": "minTimestamp = dateFns.subDays(new Date(), 3)",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 41,
+      "value": "filteredAsks = {\n  const entries = Object.entries(asksSubsetLatest.miners)\n    .map(([miner, { timestamp, ...rest }]) => ([miner, {\n      timestamp: d3.isoParse(timestamp),\n      ...rest\n    }]))\n    .filter(([miner, ask]) => (\n      ask.timestamp >= minTimestamp &&\n      ask.minPieceSize <= selectedSize.bytes &&\n      ask.maxPieceSize >= selectedSize.bytes &&\n      (filterOut.includes('ridiculous price') ? ask.priceDouble < 1e14 : true) &&\n      (filterOut.includes('ridiculous verified price') ? ask.verifiedPriceDouble < 1e14 : true) &&\n      (filterOut.includes('rejected') && legacyAnnotationsMainnet[miner] ? !legacyAnnotationsMainnet[miner].match(/^rejected,/) : true) &&\n      (filterOut.includes('no deals') ? (multidayDeals && multidayDeals[miner]): true) &&\n      (filterOut.includes('<10 deals') ? (multidayDeals && multidayDeals[miner] && multidayDeals[miner].count >= 10): true) &&\n      (filterOut.includes('<50 deals') ? (multidayDeals && multidayDeals[miner] && multidayDeals[miner].count >= 50): true) &&\n      (filterOut.includes('<100 deals') ? (multidayDeals && multidayDeals[miner] && multidayDeals[miner].count >= 100): true) &&\n      (filterOut.includes('<3 clients') ? (multidayDeals && multidayDeals[miner] && multidayDeals[miner]['approx_count_distinct(client)'] >= 3): true) &&\n      (filterOut.includes('<5 clients') ? (multidayDeals && multidayDeals[miner] && multidayDeals[miner]['approx_count_distinct(client)'] >= 5): true) /* &&\n      !legacyAnnotationsMainnet[miner].match(/^fail,/) &&\n      !legacyAnnotationsMainnet[miner].match(/^delist,/) */\n    ))\n    .map(([miner, ask]) => ({miner, ...ask}))\n  return entries\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 55,
+      "value": "import { legacyAnnotationsMainnet } from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 61,
+      "value": "legacyAnnotationsMainnet",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 325,
+      "value": "import { dealsBucketUrl } from '@jimpick/provider-quest-feeds'",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 268,
+      "value": "multidayDealsReport = (await fetch(`${dealsBucketUrl}/multiday-average-latest.json`)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 287,
+      "value": "multidayDealsReport",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 270,
+      "value": "multidayDeals = multidayDealsReport.providers",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 329,
+      "value": "import { minerPowerMultidayAverageLatestBucketUrl } from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 332,
+      "value": "minerPowerMultidayReport = (await fetch(`${minerPowerMultidayAverageLatestBucketUrl}/miner-power-multiday-average-latest.json`)).json()",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 373,
+      "value": "pricePoints = {\n  const prices = new Set()\n  for (const ask of filteredAsks) {\n    prices.add(ask.price)\n    prices.add(ask.verifiedPrice)\n  }\n  return [...prices].sort((a, b) => Number(a) - Number(b))\n}",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 366,
+      "value": "filUsdFromCoinGecko = (await (await fetch('https://api.coingecko.com/api/v3/simple/price?ids=filecoin&vs_currencies=usd')).json()).filecoin.usd",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 12,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 18,
+      "value": "bytes = (await import('@jimpick/bytes-iec@3.1.0-2')).default",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 461,
+      "value": "d3 = require(\"d3@6\")",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 465,
+      "value": "dateFns = require('https://bundle.run/date-fns@2.22.1')",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 489,
+      "value": "import {quickMenu} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 527,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 531,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 534,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": []
+}
