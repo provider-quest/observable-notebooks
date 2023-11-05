@@ -1,4 +1,5 @@
 {
+  "type": "notebook",
   "id": "bbb09edb95e90c06",
   "slug": "test-github-backup-2",
   "trashed": false,
@@ -21,7 +22,7 @@
       "type": "individual",
       "tier": "public",
       "following_count": 0,
-      "followers_count": 0,
+      "followers_count": 1,
       "following": false
     },
     "version": 22
@@ -37,6 +38,7 @@
   "default_thumbnail": "debe0a46a2a0fade3c2bf569f9ede16cc51f572dc1ca43a1f38c9dd4a7dd2c81",
   "roles": [],
   "sharing": null,
+  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -48,7 +50,7 @@
     "type": "individual",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "creator": {
@@ -61,7 +63,7 @@
     "home_url": "https://github.com/jimpick",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "authors": [
@@ -77,7 +79,7 @@
       "approved": true,
       "description": "",
       "following_count": 0,
-      "followers_count": 0,
+      "followers_count": 1,
       "following": false
     }
   ],
@@ -101,7 +103,7 @@
         "home_url": "https://github.com/jimpick",
         "tier": "public",
         "following_count": 0,
-        "followers_count": 0,
+        "followers_count": 1,
         "following": false
       }
     }
