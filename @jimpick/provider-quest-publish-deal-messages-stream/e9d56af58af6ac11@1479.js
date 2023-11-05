@@ -47,7 +47,7 @@ Inputs.button("Start")
 )}
 
 function _maxElapsed(){return(
-8.5 * 60 * 1000
+7.5 * 60 * 1000
 )}
 
 function _apiTimeout(){return(
@@ -68,9 +68,11 @@ function _tipSetStream(heightRangeStream,client,headTipSet){return(
 async function * tipSetStream() {
   for await (const height of heightRangeStream()) {
     const tipSet = await client.chainGetTipSetByHeight(height, headTipSet)
-    yield {
-      height,
-      tipSet
+    if (tipSet.Height == height) {
+      yield {
+        height,
+        tipSet
+      }
     }
   }
 }

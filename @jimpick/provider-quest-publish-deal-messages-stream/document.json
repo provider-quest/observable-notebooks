@@ -1,11 +1,12 @@
 {
+  "type": "notebook",
   "id": "e9d56af58af6ac11",
   "slug": "provider-quest-publish-deal-messages-stream",
   "trashed": false,
   "description": "",
   "likes": 0,
   "publish_level": "live",
-  "forks": 0,
+  "forks": 1,
   "fork_of": {
     "id": "21086a20bf33e73c",
     "slug": "lotus-js-client-mainnet-messages",
@@ -21,22 +22,23 @@
       "type": "individual",
       "tier": "public",
       "following_count": 0,
-      "followers_count": 0,
+      "followers_count": 1,
       "following": false
     },
     "version": 1176
   },
   "has_importers": false,
-  "update_time": "2022-12-23T03:17:34.784Z",
+  "update_time": "2023-10-13T23:16:26.714Z",
   "first_public_version": 1443,
   "paused_version": null,
   "publish_time": "2021-06-24T21:20:32.547Z",
-  "publish_version": 1477,
-  "latest_version": 1477,
-  "thumbnail": "b16b7f0cfbe10572075e69b18fca91643ef8af00d824168dfac8edbf984940e3",
-  "default_thumbnail": "b16b7f0cfbe10572075e69b18fca91643ef8af00d824168dfac8edbf984940e3",
+  "publish_version": 1479,
+  "latest_version": 1479,
+  "thumbnail": "4f27482fef9869b0487907b360ed2071b631588c1638eb58f55d318b7e4e986e",
+  "default_thumbnail": "4f27482fef9869b0487907b360ed2071b631588c1638eb58f55d318b7e4e986e",
   "roles": [],
   "sharing": null,
+  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -48,7 +50,7 @@
     "type": "individual",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "creator": {
@@ -61,7 +63,7 @@
     "home_url": "https://github.com/jimpick",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "authors": [
@@ -77,7 +79,7 @@
       "approved": true,
       "description": "",
       "following_count": 0,
-      "followers_count": 0,
+      "followers_count": 1,
       "following": false
     }
   ],
@@ -92,8 +94,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
-      "thumbnail": "cee41dcc09fccedac17b81adb7ef96405f2120e165db0b8c9e658a7d7d2f63a7",
+      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -107,7 +109,7 @@
         "type": "individual",
         "tier": "public",
         "following_count": 0,
-        "followers_count": 0,
+        "followers_count": 1,
         "following": false
       }
     }
@@ -117,7 +119,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 1477,
+  "version": 1479,
   "title": "Internal: Scanner: Deals [Provider.Quest]",
   "license": "apache-2.0",
   "copyright": "Copyright 2021 Jim Pick",
@@ -212,7 +214,7 @@
     },
     {
       "id": 1311,
-      "value": "maxElapsed = 8.5 * 60 * 1000 // 8.5 minutes",
+      "value": "maxElapsed = 7.5 * 60 * 1000 // 7.5 minutes",
       "pinned": true,
       "mode": "js",
       "data": null,
@@ -236,7 +238,7 @@
     },
     {
       "id": 1185,
-      "value": "async function * tipSetStream() {\n  for await (const height of heightRangeStream()) {\n    const tipSet = await client.chainGetTipSetByHeight(height, headTipSet)\n    yield {\n      height,\n      tipSet\n    }\n  }\n}",
+      "value": "async function * tipSetStream() {\n  for await (const height of heightRangeStream()) {\n    const tipSet = await client.chainGetTipSetByHeight(height, headTipSet)\n    if (tipSet.Height == height) {\n      yield {\n        height,\n        tipSet\n      }\n    }\n  }\n}",
       "pinned": true,
       "mode": "js",
       "data": null,
