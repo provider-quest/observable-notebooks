@@ -1,4 +1,5 @@
 {
+  "type": "notebook",
   "id": "9e1063ef08ea3e47",
   "slug": "provider-quest-published-deals-weekly",
   "trashed": false,
@@ -27,14 +28,14 @@
     "version": 347
   },
   "has_importers": false,
-  "update_time": "2023-01-05T16:04:25.622Z",
+  "update_time": "2023-11-17T18:53:08.566Z",
   "first_public_version": 489,
   "paused_version": null,
   "publish_time": "2021-08-25T16:28:48.307Z",
-  "publish_version": 491,
-  "latest_version": 491,
-  "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
-  "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+  "publish_version": 495,
+  "latest_version": 495,
+  "thumbnail": null,
+  "default_thumbnail": null,
   "roles": [],
   "sharing": null,
   "tags": [],
@@ -93,8 +94,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
-      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "default_thumbnail": null,
+      "thumbnail": null,
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -140,7 +141,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 491,
+  "version": 495,
   "title": "Published Deals: Weekly [Provider.Quest]",
   "license": "apache-2.0",
   "copyright": "Copyright 2021 Jim Pick",
@@ -450,5 +451,7 @@
       "name": null
     }
   ],
-  "resolutions": []
+  "resolutions": [],
+  "schedule": null,
+  "last_view_time": null
 }
