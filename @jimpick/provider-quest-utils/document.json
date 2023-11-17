@@ -9,14 +9,14 @@
   "forks": 0,
   "fork_of": null,
   "has_importers": true,
-  "update_time": "2022-03-27T01:43:24.179Z",
+  "update_time": "2023-11-17T18:53:47.877Z",
   "first_public_version": 111,
   "paused_version": null,
   "publish_time": "2021-07-23T18:30:20.672Z",
-  "publish_version": 111,
-  "latest_version": 111,
-  "thumbnail": "d67c9447c5c01a382cc249cef775dc35297117f1da2367e0ddd24f16a2f0828d",
-  "default_thumbnail": "d67c9447c5c01a382cc249cef775dc35297117f1da2367e0ddd24f16a2f0828d",
+  "publish_version": 112,
+  "latest_version": 112,
+  "thumbnail": "e70841a06a1eea31c9ed73624fd8db63f3e9d4cbdb0181d9f4357ab41f66914f",
+  "default_thumbnail": "e70841a06a1eea31c9ed73624fd8db63f3e9d4cbdb0181d9f4357ab41f66914f",
   "roles": [],
   "sharing": null,
   "tags": [],
@@ -75,8 +75,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
-      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "default_thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
+      "thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -100,7 +100,7 @@
   "commenting_lock": null,
   "suggestion_from": null,
   "suggestions_to": [],
-  "version": 111,
+  "version": 112,
   "title": "Internal: Utils [Provider.Quest]",
   "license": "apache-2.0",
   "copyright": "Copyright 2021 Jim Pick",
@@ -219,7 +219,7 @@
     },
     {
       "id": 22,
-      "value": "quickMenu = `[Provider.Quest](https://observablehq.com/collection/@jimpick/provider-quest)\n=> Deals: [Weekly](https://observablehq.com/@jimpick/provider-quest-published-deals-weekly)\n· [Daily](https://observablehq.com/@jimpick/provider-quest-published-deals-daily)\n· [Hourly](https://observablehq.com/@jimpick/provider-quest-published-deals-hourly)\n· [Named Clients](https://observablehq.com/@jimpick/provider-quest-deals-named-clients-hourly)\n| [Asks](https://observablehq.com/@jimpick/provider-quest-piece-size-vs-asks)\n| [Map](https://observablehq.com/@jimpick/provider-quest-miners-on-a-global-map)\n· [Regions](https://observablehq.com/@jimpick/provider-quest-regional-stats)\n· [Countries](https://observablehq.com/@jimpick/country-state-province-stats-provider-quest)\n· [Sunburst](https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst)\n· [Videos](https://observablehq.com/@jimpick/videos-provider-quest)\n| [Documentation](https://observablehq.com/@jimpick/provider-quest-documentation)\n· [Ideas](https://observablehq.com/@jimpick/ideas-provider-quest)\n| [Feeds](https://observablehq.com/@jimpick/provider-quest-feeds)\n`",
+      "value": "quickMenu = `[Provider.Quest](https://observablehq.com/collection/@jimpick/provider-quest)\n=> Deals: [Weekly](https://observablehq.com/@jimpick/provider-quest-published-deals-weekly)\n· [Daily](https://observablehq.com/@jimpick/provider-quest-published-deals-daily)\n· [Hourly](https://observablehq.com/@jimpick/provider-quest-published-deals-hourly)\n· [Named Clients](https://observablehq.com/@jimpick/provider-quest-deals-named-clients-hourly)\n| [Asks](https://observablehq.com/@jimpick/provider-quest-piece-size-vs-asks)\n| [Map](https://observablehq.com/@jimpick/provider-quest-miners-on-a-global-map)\n· [Regions](https://observablehq.com/@jimpick/provider-quest-regional-stats)\n· [Countries](https://observablehq.com/@jimpick/country-state-province-stats-provider-quest)\n· [Sunburst](https://observablehq.com/@jimpick/provider-quest-zoomable-sunburst)\n· [Videos](https://observablehq.com/@jimpick/videos-provider-quest)\n| [Documentation](https://observablehq.com/@jimpick/provider-quest-documentation)\n· [Ideas](https://observablehq.com/@jimpick/ideas-provider-quest)\n| [Feeds](https://observablehq.com/@jimpick/provider-quest-feeds)\n\n## NOTICE: Data is no longer being updated\n`",
       "pinned": true,
       "mode": "js",
       "data": null,
@@ -290,5 +290,7 @@
       "name": null
     }
   ],
-  "resolutions": []
+  "resolutions": [],
+  "schedule": null,
+  "last_view_time": null
 }
