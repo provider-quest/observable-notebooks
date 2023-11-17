@@ -1,5 +1,5 @@
 import define1 from "./5cf93b57a7444002@284.js";
-import define2 from "./c4e4a355c53d2a1a@111.js";
+import define2 from "./c4e4a355c53d2a1a@112.js";
 
 function _1(md){return(
 md`# Published Deals: Weekly [Provider.Quest]`
@@ -10,10 +10,6 @@ md`${quickMenu}`
 )}
 
 function _3(md){return(
-md`## NOTICE: Data is no longer being updated`
-)}
-
-function _4(md){return(
 md`Notes:
 
 * Numbers are based on published deal proposals encoded in messages on the Filecoin blockchain.
@@ -25,11 +21,11 @@ md`Notes:
 `
 )}
 
-function _5(md){return(
+function _4(md){return(
 md`## Published Deals Per Week`
 )}
 
-function _6(Plot,weeklyDeals){return(
+function _5(Plot,weeklyDeals){return(
 Plot.plot({
   y: {
     grid: true
@@ -42,11 +38,11 @@ Plot.plot({
 })
 )}
 
-function _7(md){return(
+function _6(md){return(
 md`## Total Data Size of Published Deals Per Week (TiB)`
 )}
 
-function _8(Plot,weeklyDeals){return(
+function _7(Plot,weeklyDeals){return(
 Plot.plot({
   y: {
     grid: true
@@ -59,11 +55,11 @@ Plot.plot({
 })
 )}
 
-function _9(md){return(
+function _8(md){return(
 md`## Lifetime Value of Published Deals Per Week (FIL)`
 )}
 
-function _10(Plot,weeklyDeals){return(
+function _9(Plot,weeklyDeals){return(
 Plot.plot({
   y: {
     grid: true
@@ -75,11 +71,11 @@ Plot.plot({
 })
 )}
 
-function _11(md){return(
+function _10(md){return(
 md`## Number of Providers that Accepted Deals`
 )}
 
-function _12(Plot,weeklyDeals){return(
+function _11(Plot,weeklyDeals){return(
 Plot.plot({
   y: {
     grid: true
@@ -91,11 +87,11 @@ Plot.plot({
 })
 )}
 
-function _13(md){return(
+function _12(md){return(
 md`## Number of Clients that Placed Deals`
 )}
 
-function _14(Plot,weeklyDeals){return(
+function _13(Plot,weeklyDeals){return(
 Plot.plot({
   y: {
     grid: true
@@ -107,11 +103,11 @@ Plot.plot({
 })
 )}
 
-function _15(md){return(
+function _14(md){return(
 md`## Number of Client <-> Provider Pairs`
 )}
 
-function _16(Plot,weeklyDeals){return(
+function _15(Plot,weeklyDeals){return(
 Plot.plot({
   y: {
     grid: true
@@ -123,11 +119,11 @@ Plot.plot({
 })
 )}
 
-function _17(md){return(
+function _16(md){return(
 md`## Distinct CIDs (Content Identifiers)`
 )}
 
-function _18(Plot,weeklyDeals){return(
+function _17(Plot,weeklyDeals){return(
 Plot.plot({
   y: {
     grid: true
@@ -140,11 +136,11 @@ Plot.plot({
 })
 )}
 
-function _19(md){return(
+function _18(md){return(
 md `## Unverified/Verified: Deals Per Day`
 )}
 
-function _20(Plot){return(
+function _19(Plot){return(
 Plot.plot({
   marks: [
     Plot.cell(['Unverified', 'Verified'], {x: d => d, fill: d => d})
@@ -152,7 +148,7 @@ Plot.plot({
 })
 )}
 
-function _21(Plot,weeklyDealsByVerified){return(
+function _20(Plot,weeklyDealsByVerified){return(
 Plot.plot({
   y: {
     grid: true
@@ -165,11 +161,11 @@ Plot.plot({
 })
 )}
 
-function _22(md){return(
+function _21(md){return(
 md`## Unverified/Verified: Total Data Size (TiB)`
 )}
 
-function _23(Plot){return(
+function _22(Plot){return(
 Plot.plot({
   marks: [
     Plot.cell(['Unverified', 'Verified'], {x: d => d, fill: d => d})
@@ -177,7 +173,7 @@ Plot.plot({
 })
 )}
 
-function _24(Plot,weeklyDealsByVerified){return(
+function _23(Plot,weeklyDealsByVerified){return(
 Plot.plot({
   y: {
     grid: true,
@@ -190,7 +186,7 @@ Plot.plot({
 })
 )}
 
-function _25(md){return(
+function _24(md){return(
 md`## Data`
 )}
 
@@ -209,7 +205,7 @@ weeklyDealsRaw.map(record => ({
 }))
 )}
 
-function _29(Inputs,weeklyDeals){return(
+function _28(Inputs,weeklyDeals){return(
 Inputs.table(weeklyDeals.map(({window, ...rest}) => rest))
 )}
 
@@ -232,11 +228,11 @@ weeklyDealsByVerifiedRaw.map(record => ({
 })
 )}
 
-function _32(Inputs,weeklyDealsByVerified){return(
+function _31(Inputs,weeklyDealsByVerified){return(
 Inputs.table(weeklyDealsByVerified.map(({window, ...rest}) => rest))
 )}
 
-function _33(md){return(
+function _32(md){return(
 md`## Imports`
 )}
 
@@ -244,15 +240,15 @@ function _d3(require){return(
 require("d3@6")
 )}
 
-function _36(md){return(
+function _35(md){return(
 md`## Backups`
 )}
 
-function _38(backupNowButton){return(
+function _37(backupNowButton){return(
 backupNowButton()
 )}
 
-function _39(backups){return(
+function _38(backups){return(
 backups()
 )}
 
@@ -262,44 +258,43 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md","quickMenu"], _2);
   main.variable(observer()).define(["md"], _3);
   main.variable(observer()).define(["md"], _4);
-  main.variable(observer()).define(["md"], _5);
-  main.variable(observer()).define(["Plot","weeklyDeals"], _6);
-  main.variable(observer()).define(["md"], _7);
-  main.variable(observer()).define(["Plot","weeklyDeals"], _8);
-  main.variable(observer()).define(["md"], _9);
-  main.variable(observer()).define(["Plot","weeklyDeals"], _10);
-  main.variable(observer()).define(["md"], _11);
-  main.variable(observer()).define(["Plot","weeklyDeals"], _12);
-  main.variable(observer()).define(["md"], _13);
-  main.variable(observer()).define(["Plot","weeklyDeals"], _14);
-  main.variable(observer()).define(["md"], _15);
-  main.variable(observer()).define(["Plot","weeklyDeals"], _16);
-  main.variable(observer()).define(["md"], _17);
-  main.variable(observer()).define(["Plot","weeklyDeals"], _18);
-  main.variable(observer()).define(["md"], _19);
-  main.variable(observer()).define(["Plot"], _20);
-  main.variable(observer()).define(["Plot","weeklyDealsByVerified"], _21);
-  main.variable(observer()).define(["md"], _22);
-  main.variable(observer()).define(["Plot"], _23);
-  main.variable(observer()).define(["Plot","weeklyDealsByVerified"], _24);
-  main.variable(observer()).define(["md"], _25);
+  main.variable(observer()).define(["Plot","weeklyDeals"], _5);
+  main.variable(observer()).define(["md"], _6);
+  main.variable(observer()).define(["Plot","weeklyDeals"], _7);
+  main.variable(observer()).define(["md"], _8);
+  main.variable(observer()).define(["Plot","weeklyDeals"], _9);
+  main.variable(observer()).define(["md"], _10);
+  main.variable(observer()).define(["Plot","weeklyDeals"], _11);
+  main.variable(observer()).define(["md"], _12);
+  main.variable(observer()).define(["Plot","weeklyDeals"], _13);
+  main.variable(observer()).define(["md"], _14);
+  main.variable(observer()).define(["Plot","weeklyDeals"], _15);
+  main.variable(observer()).define(["md"], _16);
+  main.variable(observer()).define(["Plot","weeklyDeals"], _17);
+  main.variable(observer()).define(["md"], _18);
+  main.variable(observer()).define(["Plot"], _19);
+  main.variable(observer()).define(["Plot","weeklyDealsByVerified"], _20);
+  main.variable(observer()).define(["md"], _21);
+  main.variable(observer()).define(["Plot"], _22);
+  main.variable(observer()).define(["Plot","weeklyDealsByVerified"], _23);
+  main.variable(observer()).define(["md"], _24);
   const child1 = runtime.module(define1);
   main.import("dealsBucketUrl", child1);
   main.variable(observer("weeklyDealsRaw")).define("weeklyDealsRaw", ["dealsBucketUrl"], _weeklyDealsRaw);
   main.variable(observer("weeklyDeals")).define("weeklyDeals", ["weeklyDealsRaw","d3"], _weeklyDeals);
-  main.variable(observer()).define(["Inputs","weeklyDeals"], _29);
+  main.variable(observer()).define(["Inputs","weeklyDeals"], _28);
   main.variable(observer("weeklyDealsByVerifiedRaw")).define("weeklyDealsByVerifiedRaw", ["dealsBucketUrl"], _weeklyDealsByVerifiedRaw);
   main.variable(observer("weeklyDealsByVerified")).define("weeklyDealsByVerified", ["weeklyDealsByVerifiedRaw","d3"], _weeklyDealsByVerified);
-  main.variable(observer()).define(["Inputs","weeklyDealsByVerified"], _32);
-  main.variable(observer()).define(["md"], _33);
+  main.variable(observer()).define(["Inputs","weeklyDealsByVerified"], _31);
+  main.variable(observer()).define(["md"], _32);
   main.variable(observer("d3")).define("d3", ["require"], _d3);
   const child2 = runtime.module(define2);
   main.import("quickMenu", child2);
-  main.variable(observer()).define(["md"], _36);
+  main.variable(observer()).define(["md"], _35);
   const child3 = runtime.module(define2);
   main.import("backups", child3);
   main.import("backupNowButton", child3);
-  main.variable(observer()).define(["backupNowButton"], _38);
-  main.variable(observer()).define(["backups"], _39);
+  main.variable(observer()).define(["backupNowButton"], _37);
+  main.variable(observer()).define(["backups"], _38);
   return main;
 }
