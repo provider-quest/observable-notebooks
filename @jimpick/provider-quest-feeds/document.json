@@ -75,8 +75,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
-      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "default_thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
+      "thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -442,5 +442,7 @@
       "name": null
     }
   ],
-  "resolutions": []
+  "resolutions": [],
+  "schedule": null,
+  "last_view_time": null
 }
