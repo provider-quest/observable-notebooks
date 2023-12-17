@@ -1,4 +1,5 @@
 {
+  "type": "notebook",
   "id": "5e45845d0e219395",
   "slug": "internal-synthetic-locations-from-provider-funding-tree-b",
   "trashed": false,
@@ -37,7 +38,6 @@
   "default_thumbnail": "0e5997d40fcd06aba4586d2f26d31ff17a4b4ca825077c573b0cec743f3c814f",
   "roles": [],
   "sharing": null,
-  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -694,5 +694,7 @@
       "name": null
     }
   ],
-  "resolutions": []
+  "resolutions": [],
+  "schedule": null,
+  "last_view_time": null
 }
