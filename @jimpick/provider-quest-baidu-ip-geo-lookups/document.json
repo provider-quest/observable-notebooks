@@ -19,7 +19,6 @@
   "default_thumbnail": "20c4e8a91674c7c46ea04a8470ea795d89718e17e44e38fa7db77f443f029bda",
   "roles": [],
   "sharing": null,
-  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -75,8 +74,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
-      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "default_thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
+      "thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -378,5 +377,7 @@
       "name": null
     }
   ],
-  "resolutions": []
+  "resolutions": [],
+  "schedule": null,
+  "last_view_time": null
 }
