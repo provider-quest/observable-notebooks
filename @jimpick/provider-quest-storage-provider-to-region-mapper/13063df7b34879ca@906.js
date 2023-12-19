@@ -1,8 +1,7 @@
-// https://observablehq.com/@d3/d3-hierarchy@856
 function _1(md){return(
 md`# d3.hierarchy
 
-A [d3.hierarchy](https://github.com/d3/d3-hierarchy/blob/master/README.md#hierarchy) is a nested data structure representing a tree: each node has one parent node (*node*.parent), except for the root; likewise, each node has one or more child nodes (*node*.children), except for the leaves. In addition, each node can have associated data (*node*.data) to store whatever additional fields you like.
+A [d3.hierarchy](https://d3js.org/d3-hierarchy/hierarchy#hierarchy) is a nested data structure representing a tree: each node has one parent node (*node*.parent), except for the root; likewise, each node has one or more child nodes (*node*.children), except for the leaves. In addition, each node can have associated data (*node*.data) to store whatever additional fields you like.
 
 A d3.hierarchy is purely an abstract data structure. That is: it’s for working with hierarchical data. To visualize a hierarchy, you’ll want one of d3-hierarchy’s layouts, such as the [tidy tree](/@d3/tidy-tree), [treemap](/@d3/treemap) or [sunburst](/@d3/sunburst). See the [d3-hierarchy collection](/collection/@d3/d3-hierarchy) for more.
 
@@ -165,7 +164,7 @@ md`Of course, accessing children by index quickly gets tricky, so d3.hierarchy o
 )}
 
 function _31(md){return(
-md`[*node*.ancestors](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_ancestors) returns an array of ancestor nodes: the given *node*, the *node*’s parent, grandparent, and so on up to the root.`
+md`[*node*.ancestors](https://d3js.org/d3-hierarchy/hierarchy#node_ancestors) returns an array of ancestor nodes: the given *node*, the *node*’s parent, grandparent, and so on up to the root.`
 )}
 
 function _32(gaia,graph,chaos)
@@ -191,7 +190,7 @@ pontus.ancestors()
 )}
 
 function _36(md){return(
-md`[*node*.descendants](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_descendants) returns an array of descendant nodes: the given *node*, then each child, and each child’s child, and so on.`
+md`[*node*.descendants](https://d3js.org/d3-hierarchy/hierarchy#node_descendants) returns an array of descendant nodes: the given *node*, then each child, and each child’s child, and so on.`
 )}
 
 function _37(gaia,graph,chaos)
@@ -206,7 +205,7 @@ gaia.descendants()
 )}
 
 function _39(md){return(
-md`[*node*.leaves](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_leaves) returns an array of descendant nodes of the given *node* that don’t have children (including possibly the *node* itself).`
+md`[*node*.leaves](https://d3js.org/d3-hierarchy/hierarchy#node_leaves) returns an array of descendant nodes of the given *node* that don’t have children (including possibly the *node* itself).`
 )}
 
 function _40(gaia,graph,chaos)
@@ -221,7 +220,7 @@ gaia.leaves()
 )}
 
 function _42(md){return(
-md`[*node*.path](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_path) computes the path from the given source *node*, up the tree to the least common ancestor, and back down to the given *target* node, returning an array of the traversed nodes in order (including *node* and *target*).`
+md`[*node*.path](https://d3js.org/d3-hierarchy/hierarchy#node_path) computes the path from the given source *node*, up the tree to the least common ancestor, and back down to the given *target* node, returning an array of the traversed nodes in order (including *node* and *target*).`
 )}
 
 function _43(tartarus,pontus,graph,chaos)
@@ -236,7 +235,7 @@ tartarus.path(pontus)
 )}
 
 function _45(md){return(
-md`[*node*.links](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_links) returns an array of objects representing the given *node*’s descendants’ links. Each *link* object’s *link*.target is a child and *link*.source is its parent. This representation is also used by [d3-force](https://github.com/d3/d3-force/blob/master/README.md#links), which makes it easier to create [force-directed trees](/@d3/force-directed-tree). (You can use *node*.descendants, described above, to compute the array of nodes for the force layout.)`
+md`[*node*.links](https://d3js.org/d3-hierarchy/hierarchy#node_links) returns an array of objects representing the given *node*’s descendants’ links. Each *link* object’s *link*.target is a child and *link*.source is its parent. This representation is also used by [d3-force](https://d3js.org/d3-force/link#link_links), which makes it easier to create [force-directed trees](/@d3/force-directed-tree). (You can use *node*.descendants, described above, to compute the array of nodes for the force layout.)`
 )}
 
 function _46(gaia){return(
@@ -244,7 +243,7 @@ gaia.links()
 )}
 
 function _47(md){return(
-md`Lastly, [*node*.copy](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_copy) returns a copy of the given *node* and its descendants, returning a new detached subtree. (The depth and height of each returned node are relative to the new root.)`
+md`Lastly, [*node*.copy](https://d3js.org/d3-hierarchy/hierarchy#node_copy) returns a copy of the given *node* and its descendants, returning a new detached subtree. (The depth and height of each returned node are relative to the new root.)`
 )}
 
 function _48(graph,gaia){return(
