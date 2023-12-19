@@ -1,4 +1,5 @@
 {
+  "type": "notebook",
   "id": "fd1c9b3d2d13ae0c",
   "slug": "deals-trips-provider-quest",
   "trashed": false,
@@ -21,7 +22,7 @@
       "type": "individual",
       "tier": "public",
       "following_count": 0,
-      "followers_count": 0,
+      "followers_count": 1,
       "following": false
     },
     "version": 756
@@ -37,7 +38,6 @@
   "default_thumbnail": null,
   "roles": [],
   "sharing": null,
-  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -49,7 +49,7 @@
     "type": "individual",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "creator": {
@@ -62,7 +62,7 @@
     "home_url": "https://github.com/jimpick",
     "tier": "public",
     "following_count": 0,
-    "followers_count": 0,
+    "followers_count": 1,
     "following": false
   },
   "authors": [
@@ -78,7 +78,7 @@
       "approved": true,
       "description": "",
       "following_count": 0,
-      "followers_count": 0,
+      "followers_count": 1,
       "following": false
     }
   ],
@@ -93,8 +93,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
-      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "default_thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
+      "thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -108,7 +108,7 @@
         "type": "individual",
         "tier": "public",
         "following_count": 0,
-        "followers_count": 0,
+        "followers_count": 1,
         "following": false
       }
     }
@@ -580,5 +580,7 @@
       "name": null
     }
   ],
-  "resolutions": []
+  "resolutions": [],
+  "schedule": null,
+  "last_view_time": null
 }

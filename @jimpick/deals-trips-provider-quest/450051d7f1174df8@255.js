@@ -1,4 +1,3 @@
-// https://observablehq.com/@mbostock/scrubber@254
 function _1(md){return(
 md`# Scrubber
 
@@ -109,6 +108,7 @@ function _Scrubber(html,Inputs){return(
 function Scrubber(values, {
   format = value => value,
   initial = 0,
+  direction = 1,
   delay = null,
   autoplay = true,
   loop = true,
@@ -126,7 +126,6 @@ function Scrubber(values, {
   let frame = null;
   let timer = null;
   let interval = null;
-  let direction = 1;
   function start() {
     form.b.textContent = "Pause";
     if (delay === null) frame = requestAnimationFrame(tick);
