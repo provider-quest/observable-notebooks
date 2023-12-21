@@ -1,5 +1,4 @@
 {
-  "type": "notebook",
   "id": "8d7bcbca81864bd7",
   "slug": "videos-provider-quest",
   "trashed": false,
@@ -19,7 +18,6 @@
   "default_thumbnail": "2324492af3506c9e88bbfd4cc6953bd88fd5b613c71bfb68249c392ce56a421e",
   "roles": [],
   "sharing": null,
-  "tags": [],
   "edits": [
     {
       "node_id": 51,
@@ -81,8 +79,8 @@
       "pinned": false,
       "ordered": true,
       "custom_thumbnail": null,
-      "default_thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
-      "thumbnail": "7f360024b03a87e10493b101b9df4cf7af2a618c7935c0e9c0e91c54a54c4c24",
+      "default_thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
+      "thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
@@ -192,5 +190,7 @@
       "name": null
     }
   ],
-  "resolutions": []
+  "resolutions": [],
+  "schedule": null,
+  "last_view_time": null
 }
