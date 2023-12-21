@@ -1,0 +1,297 @@
+{
+  "id": "3bbd19478bdde1c5",
+  "slug": "provider-quest-miners-on-a-global-map",
+  "trashed": false,
+  "description": "",
+  "likes": 1,
+  "publish_level": "live",
+  "forks": 1,
+  "fork_of": {
+    "id": "a632ce1b20553649",
+    "slug": "lotus-js-client-testnet",
+    "title": "Lotus JS Client - Mainnet - Miner Power",
+    "owner": {
+      "id": "bda4505ba9a55ac8",
+      "github_login": "jimpick",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "login": "jimpick",
+      "name": "Jim Pick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "type": "individual",
+      "tier": "public",
+      "following_count": 0,
+      "followers_count": 1,
+      "following": false
+    },
+    "version": 616
+  },
+  "has_importers": false,
+  "update_time": "2022-07-29T15:14:26.680Z",
+  "first_public_version": 774,
+  "paused_version": null,
+  "publish_time": "2021-07-24T21:50:49.180Z",
+  "publish_version": 774,
+  "latest_version": 774,
+  "thumbnail": "c4ae9478bf1ac7b3e8e194685b65844d98e0810d68c40f575f9a1297a7314afb",
+  "default_thumbnail": "c4ae9478bf1ac7b3e8e194685b65844d98e0810d68c40f575f9a1297a7314afb",
+  "roles": [],
+  "sharing": null,
+  "owner": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "type": "individual",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 1,
+    "following": false
+  },
+  "creator": {
+    "id": "bda4505ba9a55ac8",
+    "github_login": "jimpick",
+    "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+    "login": "jimpick",
+    "name": "Jim Pick",
+    "bio": "Freelance Filecoin developer in Victoria, Canada",
+    "home_url": "https://github.com/jimpick",
+    "tier": "public",
+    "following_count": 0,
+    "followers_count": 1,
+    "following": false
+  },
+  "authors": [
+    {
+      "id": "bda4505ba9a55ac8",
+      "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+      "name": "Jim Pick",
+      "login": "jimpick",
+      "bio": "Freelance Filecoin developer in Victoria, Canada",
+      "home_url": "https://github.com/jimpick",
+      "github_login": "jimpick",
+      "tier": "public",
+      "approved": true,
+      "description": "",
+      "following_count": 0,
+      "followers_count": 1,
+      "following": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "242749e359cb986b",
+      "type": "public",
+      "slug": "provider-quest",
+      "title": "Provider.Quest",
+      "description": "Analytics and visualizations for the Filecoin network",
+      "update_time": "2021-09-27T20:45:27.747Z",
+      "pinned": false,
+      "ordered": true,
+      "custom_thumbnail": null,
+      "default_thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
+      "thumbnail": "86a76d62a04e84110aaed78d4885e5ecce416db4fe8e1069d06e3ed305da99eb",
+      "listing_count": 31,
+      "parent_collection_count": 1,
+      "owner": {
+        "id": "bda4505ba9a55ac8",
+        "github_login": "jimpick",
+        "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
+        "login": "jimpick",
+        "name": "Jim Pick",
+        "bio": "Freelance Filecoin developer in Victoria, Canada",
+        "home_url": "https://github.com/jimpick",
+        "type": "individual",
+        "tier": "public",
+        "following_count": 0,
+        "followers_count": 1,
+        "following": false
+      }
+    }
+  ],
+  "files": [],
+  "comments": [],
+  "commenting_lock": null,
+  "suggestion_from": null,
+  "suggestions_to": [],
+  "version": 774,
+  "title": "Global Map [Provider.Quest]",
+  "license": "apache-2.0",
+  "copyright": "Copyright 2021 Jim Pick",
+  "nodes": [
+    {
+      "id": 0,
+      "value": "md`# Global Map [Provider.Quest]`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 734,
+      "value": "md`${quickMenu}`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 163,
+      "value": "md`This notebook shows all the storage providers with location data on a Deck.gl-based 3D globe. (Reported locations from IP addresses, non-verified)`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 332,
+      "value": "container = html `<div style=\"height:800px\"></div>`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 617,
+      "value": "import {geoIpLookupsBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 619,
+      "value": "minerLocationsReport = (await fetch(`${geoIpLookupsBucketUrl}/miner-locations-latest.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 648,
+      "value": "import {minerPowerDailyAverageLatestBucketUrl} from '@jimpick/provider-quest-feeds'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 651,
+      "value": "minerPowerDailyAverageReport = (await fetch(`${minerPowerDailyAverageLatestBucketUrl}/miner-power-daily-average-latest.json`)).json()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 663,
+      "value": "data = minerLocationsReport.minerLocations\n  .filter(({ miner }) => minerPowerDailyAverageReport.miners[miner])\n  .map(({ miner, long, lat, numLocations }) => {\n    const power = minerPowerDailyAverageReport.miners[miner].qualityAdjPower\n    return {\n      latitude: Number(lat),\n      longitude: Number(long),\n      qualityAdjPower: power / numLocations\n    }\n  })",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 314,
+      "value": "md`# Visualizing with Deck.gl\n\nWe have miner power data and we have location data, so we can visualize it with the [Deck.gl](https://deck.gl/) library using a [HexagonLayer](https://deck.gl/#/documentation/deckgl-api-reference/layers/hexagon-layer). (Based on: [@pessimistress/deck-gl-hexagonlayer-example](https://observablehq.com/@pessimistress/deck-gl-hexagonlayer-example), [@nharrisanalyst/deck-gl](https://observablehq.com/@nharrisanalyst/deck-gl))`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 320,
+      "value": "deck = require.alias({\n  // optional dependencies\n  h3: {},\n  s2Geometry: {}\n})('deck.gl@~8.1.7/dist.min.js')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 525,
+      "value": "luma = deck && window.luma",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 324,
+      "value": "mapboxgl = require('mapbox-gl')",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 334,
+      "value": "initialViewState = ({\n  latitude: 30,\n  longitude: 10,\n  zoom: 1.2,\n  bearing: 0,\n  pitch: 0,\n  minZoom: 1,\n  maxZoom: 20\n})",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 330,
+      "value": "deckgl = {\n  return new deck.DeckGL({\n    container,\n    map: mapboxgl,\n    mapboxAccessToken: '',\n    // This token is for demo-purpose only and rotated regularly. Get your token at https://www.mapbox.com\n    mapboxApiAccessToken: 'pk.eyJ1IjoidWJlcmRhdGEiLCJhIjoiY2pudzRtaWloMDAzcTN2bzN1aXdxZHB5bSJ9.2bkj3IiRC8wj3jLThvDGdA',\n    mapStyle: 'mapbox://styles/mapbox/dark-v9',\n    initialViewState,\n    controller: true,\n    layers: [ hexagonLayer ]\n  });\n}",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 338,
+      "value": "hexagonLayer = new deck.HexagonLayer({\n  id: 'miners',\n  extruded: true,\n  data: data,\n  radius: 80000,\n  getPosition: d => [d.longitude, d.latitude],\n  getElevationWeight: d => d.qualityAdjPower,\n  elevationAggregation: 'SUM',\n  elevationScale: 2000,\n  opacity: 0.6,\n  colorRange: [\n      [0, 170, 0, 255],\n      [0, 190, 0, 255],\n      [0, 255, 0, 255]\n    ],\n  onClick: info => {\n    console.log('Click', info)\n  }\n})",
+      "pinned": true,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 728,
+      "value": "md`## Imports`",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 731,
+      "value": "import {quickMenu} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 761,
+      "value": "## Backups",
+      "pinned": false,
+      "mode": "md",
+      "data": null,
+      "name": ""
+    },
+    {
+      "id": 765,
+      "value": "import {backups, backupNowButton} from '@jimpick/provider-quest-utils'",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    },
+    {
+      "id": 768,
+      "value": "backups()",
+      "pinned": false,
+      "mode": "js",
+      "data": null,
+      "name": null
+    }
+  ],
+  "resolutions": [],
+  "schedule": null,
+  "last_view_time": null
+}

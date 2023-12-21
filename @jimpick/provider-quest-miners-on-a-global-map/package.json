@@ -1,7 +1,7 @@
 {
   "name": "@jimpick/provider-quest-miners-on-a-global-map",
-  "main": "3bbd19478bdde1c5@773.js",
-  "version": "773.0.0",
+  "main": "3bbd19478bdde1c5@774.js",
+  "version": "774.0.0",
   "homepage": "https://observablehq.com/@jimpick/provider-quest-miners-on-a-global-map",
   "author": {
     "name": "Jim Pick",
@@ -9,6 +9,6 @@
   },
   "type": "module",
   "peerDependencies": {
-    "@observablehq/runtime": "4"
+    "@observablehq/runtime": "4 - 5"
   }
 }

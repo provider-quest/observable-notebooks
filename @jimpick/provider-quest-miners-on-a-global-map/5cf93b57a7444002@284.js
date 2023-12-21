@@ -1,8 +1,7 @@
-// https://observablehq.com/@jimpick/provider-quest-feeds@282
-import define1 from "./c4e4a355c53d2a1a@111.js";
+import define1 from "./c4e4a355c53d2a1a@112.js";
 
 function _1(md){return(
-md`# Feeds/Buckets [Provider.Quest]`
+md`# Feeds [Provider.Quest]`
 )}
 
 function _2(md,quickMenu){return(

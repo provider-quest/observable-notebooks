@@ -1,4 +1,3 @@
-// https://observablehq.com/@jimpick/provider-quest-utils@111
 import define1 from "./1d309dbd9697e042@631.js";
 
 function _1(md){return(
@@ -86,6 +85,8 @@ function _quickMenu(){return(
 | [Documentation](https://observablehq.com/@jimpick/provider-quest-documentation)
 · [Ideas](https://observablehq.com/@jimpick/ideas-provider-quest)
 | [Feeds](https://observablehq.com/@jimpick/provider-quest-feeds)
+
+## NOTICE: Data is no longer being updated
 `
 )}
 
