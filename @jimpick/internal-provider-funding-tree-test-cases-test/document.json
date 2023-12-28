@@ -1,5 +1,4 @@
 {
-  "type": "notebook",
   "id": "e5c2857605ea9435",
   "slug": "internal-provider-funding-tree-test-cases-test",
   "trashed": false,
@@ -38,7 +37,6 @@
   "default_thumbnail": "b2872647e66ffd4ae4c257c3929faad09b986962e287eaabdcff0d2323c9343e",
   "roles": [],
   "sharing": null,
-  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -516,5 +514,7 @@
       "name": null
     }
   ],
-  "resolutions": []
+  "resolutions": [],
+  "schedule": null,
+  "last_view_time": null
 }
