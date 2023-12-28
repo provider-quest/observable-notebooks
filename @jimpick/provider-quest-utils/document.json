@@ -1,5 +1,4 @@
 {
-  "type": "notebook",
   "id": "c4e4a355c53d2a1a",
   "slug": "provider-quest-utils",
   "trashed": false,
@@ -19,7 +18,6 @@
   "default_thumbnail": "e70841a06a1eea31c9ed73624fd8db63f3e9d4cbdb0181d9f4357ab41f66914f",
   "roles": [],
   "sharing": null,
-  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
