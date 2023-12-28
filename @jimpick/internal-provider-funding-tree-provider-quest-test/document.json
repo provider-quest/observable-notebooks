@@ -1,5 +1,4 @@
 {
-  "type": "notebook",
   "id": "62494e21baf7129d",
   "slug": "internal-provider-funding-tree-provider-quest-test",
   "trashed": false,
@@ -19,7 +18,6 @@
   "default_thumbnail": "8631d06e2dccd57d1599894cabbc2be54ff742c7cd95f8327a1bed6ded913c53",
   "roles": [],
   "sharing": null,
-  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
@@ -588,5 +586,7 @@
       "name": null
     }
   ],
-  "resolutions": []
+  "resolutions": [],
+  "schedule": null,
+  "last_view_time": null
 }
