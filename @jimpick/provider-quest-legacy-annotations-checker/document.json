@@ -1,5 +1,4 @@
 {
-  "type": "notebook",
   "id": "5abf13f5e0038673",
   "slug": "provider-quest-legacy-annotations-checker",
   "trashed": false,
@@ -19,7 +18,6 @@
   "default_thumbnail": "5d841aa37954251362962be074aa2b7611725ec98724d8e2cb05e052b6d2eed1",
   "roles": [],
   "sharing": null,
-  "tags": [],
   "owner": {
     "id": "bda4505ba9a55ac8",
     "github_login": "jimpick",
