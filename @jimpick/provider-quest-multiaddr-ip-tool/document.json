@@ -19,17 +19,16 @@
   "roles": [],
   "sharing": null,
   "owner": {
-    "id": "bda4505ba9a55ac8",
-    "github_login": "jimpick",
+    "id": "5252cea433451319",
     "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
     "login": "jimpick",
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "type": "individual",
-    "tier": "public",
+    "type": "team",
+    "tier": "starter_2024",
     "following_count": 0,
-    "followers_count": 1,
+    "followers_count": 0,
     "following": false
   },
   "creator": {
@@ -78,17 +77,16 @@
       "listing_count": 31,
       "parent_collection_count": 1,
       "owner": {
-        "id": "bda4505ba9a55ac8",
-        "github_login": "jimpick",
+        "id": "5252cea433451319",
         "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
         "login": "jimpick",
         "name": "Jim Pick",
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
-        "type": "individual",
-        "tier": "public",
+        "type": "team",
+        "tier": "starter_2024",
         "following_count": 0,
-        "followers_count": 1,
+        "followers_count": 0,
         "following": false
       }
     }
