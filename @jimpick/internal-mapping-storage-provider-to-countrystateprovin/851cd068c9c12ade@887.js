@@ -1,4 +1,3 @@
-// https://observablehq.com/@observablehq/input-table@886
 function _1(md){return(
 md`<div style="color: grey; font: 13px/25.5px var(--sans-serif); text-transform: uppercase;"><h1 style="display: none">Table Input / Observable Inputs</h1><a href="/@observablehq/inputs">Observable Inputs</a> › Table · <a href="https://github.com/observablehq/inputs/blob/main/README.md#table">API</a></div>
 
@@ -177,7 +176,7 @@ function _21(Inputs,penguins){return(
 Inputs.table(penguins, {
   width: {
     culmen_length_mm: 140,
-    culmen_length_mm: 140,
+    culmen_depth_mm: 140,
     flipper_length_mm: 140
   },
   align: {
