@@ -85,6 +85,8 @@ function _quickMenu(){return(
 | [Documentation](https://observablehq.com/@jimpick/provider-quest-documentation)
 · [Ideas](https://observablehq.com/@jimpick/ideas-provider-quest)
 | [Feeds](https://observablehq.com/@jimpick/provider-quest-feeds)
+
+## NOTICE: Data is no longer being updated
 `
 )}
 
