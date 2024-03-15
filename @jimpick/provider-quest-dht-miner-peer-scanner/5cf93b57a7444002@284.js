@@ -1,4 +1,4 @@
-import define1 from "./c4e4a355c53d2a1a@111.js";
+import define1 from "./c4e4a355c53d2a1a@112.js";
 
 function _1(md){return(
 md`# Feeds [Provider.Quest]`
