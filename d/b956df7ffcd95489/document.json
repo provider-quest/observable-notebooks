@@ -1,3 +1,7 @@
 {
-  "errors": []
+  "errors": [
+    {
+      "code": "IDENTITY_NOT_VALID"
+    }
+  ]
 }
