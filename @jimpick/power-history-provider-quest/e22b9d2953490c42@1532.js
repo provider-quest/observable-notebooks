@@ -1,5 +1,5 @@
-import define1 from "./c4e4a355c53d2a1a@111.js";
-import define2 from "./450051d7f1174df8@254.js";
+import define1 from "./c4e4a355c53d2a1a@112.js";
+import define2 from "./450051d7f1174df8@255.js";
 
 function _1(md){return(
 md`# Power: History [Provider.Quest]`
