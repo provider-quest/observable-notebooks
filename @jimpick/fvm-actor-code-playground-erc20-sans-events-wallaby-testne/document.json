@@ -11,18 +11,14 @@
     "slug": "fvm-actor-code-playground-erc20-sans-events",
     "title": "FVM Actor Code Playground - ERC20 Sans Events",
     "owner": {
-      "id": "bda4505ba9a55ac8",
-      "github_login": "jimpick",
+      "id": "5252cea433451319",
       "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
       "login": "jimpick",
       "name": "Jim Pick",
       "bio": "Freelance Filecoin developer in Victoria, Canada",
       "home_url": "https://github.com/jimpick",
-      "type": "individual",
-      "tier": "public",
-      "following_count": 0,
-      "followers_count": 1,
-      "following": false
+      "type": "team",
+      "tier": "starter_2024"
     },
     "version": 1610
   },
@@ -37,7 +33,6 @@
   "default_thumbnail": "51286c1cabfabb2511fa8ac15ac48925056a100b66c4286c8df9934f9d129d33",
   "roles": [],
   "sharing": null,
-  "tags": [],
   "edits": [
     {
       "node_id": 1554,
@@ -45,18 +40,14 @@
     }
   ],
   "owner": {
-    "id": "bda4505ba9a55ac8",
-    "github_login": "jimpick",
+    "id": "5252cea433451319",
     "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
     "login": "jimpick",
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "type": "individual",
-    "tier": "public",
-    "following_count": 0,
-    "followers_count": 1,
-    "following": false
+    "type": "team",
+    "tier": "starter_2024"
   },
   "creator": {
     "id": "bda4505ba9a55ac8",
@@ -66,10 +57,7 @@
     "name": "Jim Pick",
     "bio": "Freelance Filecoin developer in Victoria, Canada",
     "home_url": "https://github.com/jimpick",
-    "tier": "public",
-    "following_count": 0,
-    "followers_count": 1,
-    "following": false
+    "tier": "public"
   },
   "authors": [
     {
@@ -82,10 +70,7 @@
       "github_login": "jimpick",
       "tier": "public",
       "approved": true,
-      "description": "",
-      "following_count": 0,
-      "followers_count": 1,
-      "following": false
+      "description": ""
     }
   ],
   "collections": [
@@ -104,18 +89,14 @@
       "listing_count": 8,
       "parent_collection_count": 0,
       "owner": {
-        "id": "bda4505ba9a55ac8",
-        "github_login": "jimpick",
+        "id": "5252cea433451319",
         "avatar_url": "https://avatars.observableusercontent.com/avatar/e8813527082139d5411445010e72fd85f99b04a26355e795d0ea26765425d0cd",
         "login": "jimpick",
         "name": "Jim Pick",
         "bio": "Freelance Filecoin developer in Victoria, Canada",
         "home_url": "https://github.com/jimpick",
-        "type": "individual",
-        "tier": "public",
-        "following_count": 0,
-        "followers_count": 1,
-        "following": false
+        "type": "team",
+        "tier": "starter_2024"
       }
     }
   ],
@@ -129,7 +110,8 @@
       "mime_type": "application/octet-stream",
       "status": "public",
       "size": 7322,
-      "content_encoding": null
+      "content_encoding": null,
+      "private_bucket_id": null
     }
   ],
   "comments": [],
@@ -1310,5 +1292,7 @@
       "specifier": "@endpointservices/metadata",
       "value": "e6f8b27a19576fcb@428"
     }
-  ]
+  ],
+  "schedule": null,
+  "last_view_time": null
 }
