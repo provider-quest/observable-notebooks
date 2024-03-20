@@ -1,5 +1,5 @@
 import define1 from "./9a34a4df6e8a276b@50.js";
-import define2 from "./c4e4a355c53d2a1a@111.js";
+import define2 from "./c4e4a355c53d2a1a@112.js";
 
 function _1(md){return(
 md`# FVM Actor Code Playground - ERC20 Sans Events - eth_getTransactionByHash`
