@@ -1,5 +1,5 @@
 // https://observablehq.com/@jimpick/test-github-backup@22
-import define1 from "./1d309dbd9697e042@631.js";
+import define1 from "./1d309dbd9697e042@703.js";
 
 function _1(md){return(
 md`# Test GitHub backup`
